@@ -8,8 +8,8 @@
     <ProjectGuid>{B6FA0190-7B5E-4D64-A50E-F72418A3F89D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ARM.Models</RootNamespace>
-    <AssemblyName>ARM.Models</AssemblyName>
+    <RootNamespace>ARM.Data</RootNamespace>
+    <AssemblyName>ARM.Data</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

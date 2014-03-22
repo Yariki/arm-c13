@@ -15,3 +15,5 @@
 /Samples/ARMEnumTest/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /Samples/ARMManyTest/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /arm.ldb
+
+/Main/ARM.Models/obj/Debug/*.cache
