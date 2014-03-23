@@ -46,3 +46,17 @@
 /Samples/ARMManyTest/obj/x86/Debug/ARMManyTest.csproj.FileListAbsolute.txt
 /Samples/ARMManyTest/obj/x86/Debug/ARMManyTest.csproj.GenerateResource.Cache
 /Samples/ARMManyTest/obj/x86/Debug/ARMManyTest.csprojResolveAssemblyReference.cache
+/Output
+/ROutput
+/Main/ARM.Client/bin
+/Main/ARM.Client/obj
+/Main/ARM.Core/bin
+/Main/ARM.Core/obj
+/Main/ARM.Data/bin
+/Main/ARM.Data/obj
+/Samples/ARM/bin
+/Samples/ARM/obj
+/Samples/ARMEnumTest/bin
+/Samples/ARMEnumTest/obj
+/Samples/ARMManyTest/bin
+/Samples/ARMManyTest/obj
