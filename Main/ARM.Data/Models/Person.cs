@@ -8,12 +8,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using ARM.Data.Models;
 namespace ARM.Data.Models {
 	public class Person : BaseModel {
 
 		public Person(){
-
+            Addresses = new HashSet<Address>();
 		}
 
 		~Person(){
@@ -40,10 +41,7 @@ namespace ARM.Data.Models {
 			set;
 		}
 
-		public ICollection<Address> Addresses{
-			get;
-			set;
-		}
+	    public ICollection<Address> Addresses { get; set; }
 
 		public string Email{
 			get;

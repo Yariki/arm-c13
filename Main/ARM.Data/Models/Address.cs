@@ -12,10 +12,10 @@ namespace ARM.Data.Models {
 	public class Address : BaseModel {
 
 		public Address(){
-
+            Persons = new HashSet<Person>();
 		}
 
-		public long CountryID{
+		public long CountryId{
 			get;
 			set;
 		}

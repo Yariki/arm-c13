@@ -11,15 +11,12 @@ using ARM.Core.Interfaces.Data;
 namespace ARM.Data.Models {
 	public class BaseModel : IARMModel {
 
-		public BaseModel(){
-
+		public BaseModel()
+		{
+		    DateModified = DateTime.Now;
 		}
 
-		~BaseModel(){
-
-		}
-
-		public long Id{
+		public Guid Id{
 			get;
 			set;
 		}

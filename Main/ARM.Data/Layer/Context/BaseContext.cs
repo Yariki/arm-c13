@@ -9,11 +9,12 @@
 using System.Data.Entity;
 using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Layer.Context {
-	public class BaseContext<T> : IContext<T> where T : class
+	public class BaseContext<T> : DbContext, IContext<T> where T : class
 	{
 
-		public BaseContext(){
-
+		public BaseContext()
+            : base("MainDatabase")
+        {
 		}
 
 		~BaseContext(){
@@ -27,18 +28,6 @@ namespace ARM.Data.Layer.Context {
 		public DbSet<T> Items{
 			get;
 			set;
-		}
-
-		/// 
-		/// <param name="model"></param>
-		protected virtual void ModelCreating(DbModelBuilder model){
-
-		}
-
-		/// 
-		/// <param name="model"></param>
-		protected void OnModelCreating(DbModelBuilder model){
-
 		}
 
 	}//end BaseContext
