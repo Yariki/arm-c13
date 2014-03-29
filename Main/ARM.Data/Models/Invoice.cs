@@ -6,6 +6,8 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ARM.Data.Models
 {
@@ -18,25 +20,19 @@ namespace ARM.Data.Models
         ~Invoice()
         {
         }
-
-        public long ParentId
+        [Required]
+        public Guid ContractId
         {
             get;
             set;
         }
 
-        public long ContractId
+        public Guid? SessionId
         {
             get;
             set;
         }
-
-        public long SessionId
-        {
-            get;
-            set;
-        }
-
+        [Required]
         public decimal Price
         {
             get;
@@ -55,12 +51,6 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual Parent Customer
-        {
-            get;
-            set;
-        }
-
         public virtual Contract Contract
         {
             get;
@@ -72,5 +62,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public virtual IList<Payment> Payments { get; set; }
     }//end Invoice
 }//end namespace Models

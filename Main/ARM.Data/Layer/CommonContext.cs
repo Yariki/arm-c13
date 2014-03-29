@@ -29,123 +29,155 @@ namespace ARM.Data.Layer
     {
 
         public CommonContext()
-            : base("MainDatabase")
+            : base("ARMDatabase")
         {
-            
+            Database.CreateIfNotExists();
         }
 
-        DbSet<Achivement> IContext<Achivement>.Items
+        #region [dbsets]
+        
+        public DbSet<Achivement> Achivements { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Faculty> Faculties { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Hobby> Hobbies { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Parent> Parents { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Session> Sessions { get; set; }
+        public DbSet<SettingParameters> SettingParameterses { get; set; }
+        public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Staff> Staves { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<University> Universities { get; set; }
+
+        #endregion
+
+        #region [model builder]
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            get;
-            set;
+            base.OnModelCreating(modelBuilder);
+            //contract
+            modelBuilder.Entity<Contract>()
+                .HasRequired(c => c.Student)
+                .WithMany(c =>c.Contracts)
+                .HasForeignKey(c => c.StudentId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Contract>()
+                .HasRequired(c =>c.Customer)
+                .WithMany(c =>c.Contracts)
+                .HasForeignKey(c =>c.ParentId)
+                .WillCascadeOnDelete(false);
+            // marks
+            modelBuilder.Entity<Mark>()
+                .HasRequired(c => c.Student)
+                .WithMany(c =>c.Marks)
+                .HasForeignKey(c => c.StudentId)
+                .WillCascadeOnDelete(false);
+
         }
 
-        DbSet<Address> IContext<Address>.Items
+        #endregion
+
+        IDbSet<Achivement> IContext<Achivement>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Class> IContext<Class>.Items
+        IDbSet<Address> IContext<Address>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Contract> IContext<Contract>.Items
+        IDbSet<Class> IContext<Class>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Country> IContext<Country>.Items
+        IDbSet<Contract> IContext<Contract>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Faculty> IContext<Faculty>.Items
+        IDbSet<Country> IContext<Country>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Group> IContext<Group>.Items
+        IDbSet<Faculty> IContext<Faculty>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Hobby> IContext<Hobby>.Items
+        IDbSet<Group> IContext<Group>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Invoice> IContext<Invoice>.Items
+        IDbSet<Hobby> IContext<Hobby>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Language> IContext<Language>.Items
+        IDbSet<Invoice> IContext<Invoice>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Mark> IContext<Mark>.Items
+        IDbSet<Language> IContext<Language>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Parent> IContext<Parent>.Items
+        IDbSet<Mark> IContext<Mark>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Payment> IContext<Payment>.Items
+        IDbSet<Parent> IContext<Parent>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Session> IContext<Session>.Items
+        IDbSet<Payment> IContext<Payment>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<SettingParameters> IContext<SettingParameters>.Items
+        IDbSet<Session> IContext<Session>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Specialty> IContext<Specialty>.Items
+        IDbSet<SettingParameters> IContext<SettingParameters>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Staff> IContext<Staff>.Items
+        IDbSet<Specialty> IContext<Specialty>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<Student> IContext<Student>.Items
+        IDbSet<Staff> IContext<Staff>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
         }
 
-        DbSet<University> IContext<University>.Items
+        IDbSet<Student> IContext<Student>.GetItems()
         {
-            get;
-            set;
+            throw new System.NotImplementedException();
+        }
+
+        IDbSet<University> IContext<University>.GetItems()
+        {
+            throw new System.NotImplementedException();
         }
 
         public void Save()

@@ -21,12 +21,6 @@ namespace ARM.Data.Models
         {
         }
 
-        public long ID
-        {
-            get;
-            set;
-        }
-
         public string FirstName
         {
             get;

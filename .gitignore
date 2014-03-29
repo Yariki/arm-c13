@@ -62,3 +62,5 @@
 /Samples/ARMManyTest/obj
 /Main/ARM.Core/*.user
 /Main/ARM.Data/*.user
+
+/*.suo

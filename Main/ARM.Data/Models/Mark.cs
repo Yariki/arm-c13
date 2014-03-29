@@ -6,32 +6,21 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ARM.Data.Models
 {
     public class Mark : BaseModel
     {
-
-        ~Mark()
-        {
-        }
-
-        public Mark()
-        {
-        }
-
-        public long StudentId
+        [Required]
+        public Guid? StudentId
         {
             get;
             set;
         }
 
-        public long SessionId()
-        {
-            return 0;
-        }
-
-        public long ClassId
+        [Required]
+        public Guid? ClassId
         {
             get;
             set;
@@ -43,19 +32,13 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual Session Session
-        {
-            get;
-            set;
-        }
-
         public virtual Class Class
         {
             get;
             set;
         }
-
-        public DateTime Date
+        [Required]
+        public DateTime? Date
         {
             get;
             set;

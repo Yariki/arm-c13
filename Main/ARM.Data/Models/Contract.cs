@@ -5,21 +5,27 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace ARM.Data.Models
 {
     public class Contract : BaseNoteModel
     {
+        [Required]
         public string Number { get; set; }
 
         public EducationLevel Level { get; set; }
 
-        public long ParentId { get; set; }
+        [Required]
+        public Guid? ParentId { get; set; }
 
-        public long UniversityId { get; set; }
+        public Guid UniversityId { get; set; }
 
-        public long StudentId { get; set; }
+        public Guid? StudentId { get; set; }
 
-        public long SpecialityId { get; set; }
+        public Guid? SpecialityId { get; set; }
 
         public decimal Price { get; set; }
 
@@ -34,5 +40,7 @@ namespace ARM.Data.Models
         ~Contract()
         {
         }
+
+        public virtual IList<Invoice> Invoices { get; set; }
     } //end Contract
 } //end namespace Models

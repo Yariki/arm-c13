@@ -5,9 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Data.Models
 {
-    public class SettingParameters
+    public class SettingParameters : BaseModel
     {
         public SettingParameters()
         {
@@ -17,13 +19,13 @@ namespace ARM.Data.Models
         {
         }
 
-        public long DefUniversity
+        public Guid DefUniversity
         {
             get;
             set;
         }
 
-        public long DefCoutry
+        public Guid DefCoutry
         {
             get;
             set;

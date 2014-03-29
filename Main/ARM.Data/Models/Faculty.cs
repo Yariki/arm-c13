@@ -5,6 +5,10 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace ARM.Data.Models
 {
     public class Faculty : BaseNamedModel
@@ -17,7 +21,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long StaffId
+        public Guid? StaffId
         {
             get;
             set;
@@ -29,16 +33,18 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long UnivarsityId
+        public Guid UniversityId
         {
             get;
             set;
         }
 
-        public virtual University Univarsity
+        public virtual University University
         {
             get;
             set;
         }
+        
+        public virtual IList<Group> Groups { get; set; }
     }//end Faculty
 }//end namespace Models

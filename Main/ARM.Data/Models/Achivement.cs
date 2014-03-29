@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Data.Models
 {
     public class Achivement : BaseNoteModel
@@ -23,7 +25,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long StudentId
+        public Guid StudentId
         {
             get;
             set;

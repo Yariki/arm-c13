@@ -5,6 +5,10 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace ARM.Data.Models
 {
     public class Specialty : BaseNamedModel
@@ -17,7 +21,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long FacultyId
+        public Guid? FacultyId
         {
             get;
             set;
@@ -28,5 +32,6 @@ namespace ARM.Data.Models
             get;
             set;
         }
+        
     }//end Specialty
 }//end namespace Models

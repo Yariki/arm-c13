@@ -8,13 +8,6 @@
 namespace ARM.Data.Models
 {
     public class Language : BaseNamedModel
-    {
-        public Language()
-        {
-        }
-
-        ~Language()
-        {
-        }
+    { 
     }//end Language
 }//end namespace Models

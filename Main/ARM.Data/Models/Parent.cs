@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+
 namespace ARM.Data.Models
 {
     public class Parent : Person
@@ -17,7 +20,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long StudentId
+        public Guid? StudentId
         {
             get;
             set;
@@ -28,5 +31,8 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public virtual IList<Contract> Contracts { get; set; }
+        
     }//end Parent
 }//end namespace Models

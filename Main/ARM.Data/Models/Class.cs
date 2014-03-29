@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 
 namespace ARM.Data.Models
@@ -19,7 +20,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long StaffID
+        public Guid StaffId
         {
             get;
             set;
@@ -31,10 +32,8 @@ namespace ARM.Data.Models
             set;
         }
 
-        public ICollection<Session> Sessions
-        {
-            get;
-            set;
-        }
+        public Guid SessionId { get; set; }
+        public virtual Session Session { get; set; }
+
     }//end Class
 }//end namespace Models

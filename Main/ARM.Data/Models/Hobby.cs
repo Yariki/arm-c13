@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Data.Models
 {
     public class Hobby : BaseNoteModel
@@ -17,7 +19,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long StudentId
+        public Guid StudentId
         {
             get;
             set;
@@ -28,5 +30,6 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
     }//end Hobby
 }//end namespace Models

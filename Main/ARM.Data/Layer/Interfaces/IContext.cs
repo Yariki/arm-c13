@@ -11,11 +11,7 @@ namespace ARM.Data.Layer.Interfaces
 {
     public interface IContext<T> where T : class
     {
-        DbSet<T> Items
-        {
-            get;
-            set;
-        }
+        IDbSet<T> GetItems();
 
         void Save();
     }//end IContext

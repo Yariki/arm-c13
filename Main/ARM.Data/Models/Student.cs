@@ -7,18 +7,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ARM.Data.Models
 {
     public class Student : Person
     {
-        public Student()
-        {
-        }
-
-        ~Student()
-        {
-        }
 
         public virtual IList<Parent> Parents
         {
@@ -26,7 +21,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long GroupId
+        public Guid? GroupId
         {
             get;
             set;
@@ -62,13 +57,14 @@ namespace ARM.Data.Models
             set;
         }
 
-        public ICollection<Language> Languages
+        public virtual IList<Language> Languages
         {
             get;
             set;
         }
 
-        public long FacultyId
+        [Required]
+        public Guid? FacultyId
         {
             get;
             set;
@@ -92,17 +88,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long ContractId
-        {
-            get;
-            set;
-        }
-
-        public virtual Contract Contract
-        {
-            get;
-            set;
-        }
+        public virtual IList<Contract> Contracts { get; set; } 
 
         public bool IsForeign
         {
@@ -110,7 +96,8 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long SpecialityId
+        [Required]
+        public Guid? SpecialityId
         {
             get;
             set;
@@ -127,5 +114,8 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public virtual IList<Mark> Marks { get; set; }
+
     }//end Student
 }//end namespace Models

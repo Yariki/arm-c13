@@ -6,33 +6,20 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Cache;
 
 namespace ARM.Data.Models
 {
     public class Payment : BaseNamedModel
     {
-        public long ContractId { get; set; }
-
-        public long ParentId { get; set; }
-
-        public long InvoiceId { get; set; }
-
-        public long SessionId { get; set; }
+        [Required]
+        public Guid InvoiceId { get; set; }
 
         public DateTime Date { get; set; }
 
         public decimal Sum { get; set; }
 
-        public virtual Contract Contract { get; set; }
-
-        public virtual Parent Customer { get; set; }
-
         public virtual Invoice Invoice { get; set; }
-
-        public virtual Session Session { get; set; }
-
-        ~Payment()
-        {
-        }
     } //end Payment
 } //end namespace Models

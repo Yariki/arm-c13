@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 
 namespace ARM.Data.Models
@@ -16,7 +17,7 @@ namespace ARM.Data.Models
             Persons = new HashSet<Person>();
         }
 
-        public long CountryId
+        public Guid CountryId
         {
             get;
             set;

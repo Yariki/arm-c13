@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 
 namespace ARM.Data.Models
@@ -19,7 +20,7 @@ namespace ARM.Data.Models
         {
         }
 
-        public long FacultyId
+        public Guid FacultyId
         {
             get;
             set;
@@ -31,7 +32,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public long StaffId
+        public Guid? StaffId
         {
             get;
             set;

@@ -149,6 +149,11 @@
     <Compile Include="Layer\Interfaces\IBll.cs" />
     <Compile Include="Layer\Interfaces\IContext.cs" />
     <Compile Include="Layer\Interfaces\IDal.cs" />
+    <Compile Include="Migrations\201403292258063_univ_url_email.cs" />
+    <Compile Include="Migrations\201403292258063_univ_url_email.Designer.cs">
+      <DependentUpon>201403292258063_univ_url_email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Achivement.cs" />
     <Compile Include="Models\AchivementType.cs" />
     <Compile Include="Models\Address.cs" />
@@ -192,6 +197,11 @@
       <Project>{96EBE2BE-DA94-4718-B320-D971CEBF716F}</Project>
       <Name>ARM.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201403292258063_univ_url_email.resx">
+      <DependentUpon>201403292258063_univ_url_email.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

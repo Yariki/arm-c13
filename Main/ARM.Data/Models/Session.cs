@@ -12,14 +12,6 @@ namespace ARM.Data.Models
 {
     public class Session : BaseNamedModel
     {
-        public Session()
-        {
-        }
-
-        ~Session()
-        {
-        }
-
         public DateTime DateBegin
         {
             get;
@@ -32,7 +24,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public ICollection<Class> Classes
+        public virtual IList<Class> Classes
         {
             get;
             set;
