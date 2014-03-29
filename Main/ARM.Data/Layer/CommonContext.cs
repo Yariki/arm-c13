@@ -24,9 +24,16 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer
 {
-    public class CommonContext : BaseContext, IAchivementContext, IAddressContext, IClassContext, IContractContext, ICountryContext, IFacultyContext, IGroupContext, IHobbyContext,
+    public class CommonContext : DbContext, IAchivementContext, IAddressContext, IClassContext, IContractContext, ICountryContext, IFacultyContext, IGroupContext, IHobbyContext,
         IInvoiceContext, ILanguageContext, IMarkContext, IParentContext, IPaymentContext, ISessionContext, ISettingsContext, ISpecialtyContext, IStaffContext, IStudentContext, IUniversityContext
     {
+
+        public CommonContext()
+            : base("MainDatabase")
+        {
+            
+        }
+
         DbSet<Achivement> IContext<Achivement>.Items
         {
             get;
@@ -140,5 +147,11 @@ namespace ARM.Data.Layer
             get;
             set;
         }
+
+        public void Save()
+        {
+            
+        }
+
     }
 }

@@ -145,7 +145,6 @@
     <Compile Include="Interfaces\University\IUniversityDal.cs" />
     <Compile Include="Layer\CommonContext.cs" />
     <Compile Include="Layer\Context\BaseBll.cs" />
-    <Compile Include="Layer\Context\BaseContext.cs" />
     <Compile Include="Layer\Context\BaseDal.cs" />
     <Compile Include="Layer\Interfaces\IBll.cs" />
     <Compile Include="Layer\Interfaces\IContext.cs" />
