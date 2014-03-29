@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Contract;
-namespace ARM.Data.Implementation.Contract {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Contract
+{
     public class ContractBll : BaseBll<Models.Contract>, IContractBll
     {
-
-		
-
-	}//end ContractBll
-
+        public ContractBll(IDal<Models.Contract> dal)
+            : base(dal)
+        {
+        }
+    }//end ContractBll
 }//end namespace Contract

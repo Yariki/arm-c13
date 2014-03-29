@@ -5,36 +5,34 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Achivement : BaseNoteModel
+    {
+        public Achivement()
+        {
+        }
 
+        ~Achivement()
+        {
+        }
 
+        public AchivementType Type
+        {
+            get;
+            set;
+        }
 
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Achivement : BaseNoteModel {
+        public long StudentId
+        {
+            get;
+            set;
+        }
 
-		public Achivement(){
-
-		}
-
-		~Achivement(){
-
-		}
-
-		public AchivementType Type{
-			get;
-			set;
-		}
-
-		public long StudentId{
-			get;
-			set;
-		}
-
-		public virtual Student Student{
-			get;
-			set;
-		}
-
-	}//end Achivement
-
+        public virtual Student Student
+        {
+            get;
+            set;
+        }
+    }//end Achivement
 }//end namespace Models

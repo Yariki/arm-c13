@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Class;
-namespace ARM.Data.Implementation.Class {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Class
+{
     public class ClassDal : BaseDal<Models.Class>, IClassDal
     {
-
-	
-
-	}//end ClassDal
-
+        public ClassDal(IContext<Models.Class> context)
+            : base(context)
+        {
+        }
+    }//end ClassDal
 }//end namespace Class

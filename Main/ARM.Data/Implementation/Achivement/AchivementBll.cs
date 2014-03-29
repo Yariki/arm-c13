@@ -5,20 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
-
-using System.Collections.Generic;
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Achivement;
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
 
-namespace ARM.Data.Implementation.Achivement {
+namespace ARM.Data.Implementation.Achivement
+{
     public class AchivementBll : BaseBll<Models.Achivement>, IAchivementBll
     {
-
-		public AchivementBll(){
-
-		}
-
-
-	}//end AchivementBll
-
+        public AchivementBll(IDal<Models.Achivement> dal)
+            : base(dal)
+        {
+        }
+    }//end AchivementBll
 }//end namespace Achivement

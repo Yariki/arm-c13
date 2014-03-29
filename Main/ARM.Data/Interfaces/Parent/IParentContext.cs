@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Parent {
+
+namespace ARM.Data.Interfaces.Parent
+{
     public interface IParentContext : IContext<Models.Parent>
     {
-
-	}//end IParentContext
-
+    }//end IParentContext
 }//end namespace Parent

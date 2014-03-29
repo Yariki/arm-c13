@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Session;
-namespace ARM.Data.Implementation.Session {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Session
+{
     public class SessionBll : BaseBll<Models.Session>, ISessionBll
     {
-
-	
-
-	}//end SessionBll
-
+        public SessionBll(IDal<Models.Session> dal)
+            : base(dal)
+        {
+        }
+    }//end SessionBll
 }//end namespace Session

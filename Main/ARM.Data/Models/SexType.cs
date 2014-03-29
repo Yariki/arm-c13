@@ -5,15 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Data.Models {
-	public enum SexType : int {
-
-		Male,
-		Female
-
-	}//end SexType
-
+namespace ARM.Data.Models
+{
+    public enum SexType : int
+    {
+        Male,
+        Female
+    }//end SexType
 }//end namespace Models

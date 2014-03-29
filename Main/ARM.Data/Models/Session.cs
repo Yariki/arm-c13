@@ -5,36 +5,37 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Collections.Generic;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Session : BaseNamedModel {
 
-		public Session(){
+namespace ARM.Data.Models
+{
+    public class Session : BaseNamedModel
+    {
+        public Session()
+        {
+        }
 
-		}
+        ~Session()
+        {
+        }
 
-		~Session(){
+        public DateTime DateBegin
+        {
+            get;
+            set;
+        }
 
-		}
+        public DateTime DateEnd
+        {
+            get;
+            set;
+        }
 
-		public DateTime DateBegin{
-			get;
-			set;
-		}
-
-		public DateTime DateEnd{
-			get;
-			set;
-		}
-
-		public ICollection<Class> Classes{
-			get;
-			set;
-		}
-
-	}//end Session
-
+        public ICollection<Class> Classes
+        {
+            get;
+            set;
+        }
+    }//end Session
 }//end namespace Models

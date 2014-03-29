@@ -5,31 +5,19 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Data.Entity;
-using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Layer.Context {
-	public class BaseContext<T> : DbContext, IContext<T> where T : class
-	{
 
-		public BaseContext()
+namespace ARM.Data.Layer.Context
+{
+    public class BaseContext : DbContext
+    {
+        public BaseContext()
             : base("MainDatabase")
         {
-		}
+        }
 
-		~BaseContext(){
-
-		}
-
-		public void Save(){
-
-		}
-
-		public DbSet<T> Items{
-			get;
-			set;
-		}
-
-	}//end BaseContext
-
+        public void Save()
+        {
+        }
+    }//end BaseContext
 }//end namespace Context

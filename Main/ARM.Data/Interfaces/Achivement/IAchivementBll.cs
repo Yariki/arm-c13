@@ -5,16 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-using ARM.Data.Models;
 
-namespace ARM.Data.Interfaces.Achivement {
+namespace ARM.Data.Interfaces.Achivement
+{
     public interface IAchivementBll : IBll<Models.Achivement>
     {
-
-	}//end IAchivementBll
-
+    }//end IAchivementBll
 }//end namespace Achivement

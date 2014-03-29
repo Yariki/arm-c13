@@ -5,45 +5,48 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Group : BaseNamedModel {
 
-		public Group(){
+namespace ARM.Data.Models
+{
+    public class Group : BaseNamedModel
+    {
+        public Group()
+        {
+        }
 
-		}
+        ~Group()
+        {
+        }
 
-		~Group(){
+        public long FacultyId
+        {
+            get;
+            set;
+        }
 
-		}
+        public virtual Faculty Faculty
+        {
+            get;
+            set;
+        }
 
-		public long FacultyId{
-			get;
-			set;
-		}
+        public long StaffId
+        {
+            get;
+            set;
+        }
 
-		public virtual Faculty Faculty{
-			get;
-			set;
-		}
+        public virtual Staff Curator
+        {
+            get;
+            set;
+        }
 
-		public long StaffId{
-			get;
-			set;
-		}
-
-		public virtual Staff Curator{
-			get;
-			set;
-		}
-
-		public virtual IList<Student> Students{
-			get;
-			set;
-		}
-
-	}//end Group
-
+        public virtual IList<Student> Students
+        {
+            get;
+            set;
+        }
+    }//end Group
 }//end namespace Models

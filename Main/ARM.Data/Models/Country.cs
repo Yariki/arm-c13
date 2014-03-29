@@ -5,21 +5,16 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Country : BaseNamedModel
+    {
+        public Country()
+        {
+        }
 
-
-
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Country : BaseNamedModel {
-
-		public Country(){
-
-		}
-
-		~Country(){
-
-		}
-
-	}//end Country
-
+        ~Country()
+        {
+        }
+    }//end Country
 }//end namespace Models

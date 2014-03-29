@@ -5,70 +5,34 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Payment : BaseNamedModel {
 
-		public Payment(){
+namespace ARM.Data.Models
+{
+    public class Payment : BaseNamedModel
+    {
+        public long ContractId { get; set; }
 
-		}
+        public long ParentId { get; set; }
 
-		~Payment(){
+        public long InvoiceId { get; set; }
 
-		}
+        public long SessionId { get; set; }
 
-		public long ContractId{
-			get;
-			set;
-		}
+        public DateTime Date { get; set; }
 
-		public long ParentId{
-			get;
-			set;
-		}
+        public decimal Sum { get; set; }
 
-		public long InvoiceId{
-			get;
-			set;
-		}
+        public virtual Contract Contract { get; set; }
 
-		public long SessionId{
-			get;
-			set;
-		}
+        public virtual Parent Customer { get; set; }
 
-		public DateTime Date{
-			get;
-			set;
-		}
+        public virtual Invoice Invoice { get; set; }
 
-		public decimal Sum{
-			get;
-			set;
-		}
+        public virtual Session Session { get; set; }
 
-		public virtual Contract Contract{
-			get;
-			set;
-		}
-
-		public virtual Parent Customer{
-			get;
-			set;
-		}
-
-		public virtual Invoice Invoice{
-			get;
-			set;
-		}
-
-		public virtual Session Session{
-			get;
-			set;
-		}
-
-	}//end Payment
-
-}//end namespace Models
+        ~Payment()
+        {
+        }
+    } //end Payment
+} //end namespace Models

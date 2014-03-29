@@ -5,64 +5,70 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Person : BaseModel {
 
-		public Person(){
+namespace ARM.Data.Models
+{
+    public class Person : BaseModel
+    {
+        public Person()
+        {
             Addresses = new HashSet<Address>();
-		}
+        }
 
-		~Person(){
+        ~Person()
+        {
+        }
 
-		}
+        public long ID
+        {
+            get;
+            set;
+        }
 
-		public long ID{
-			get;
-			set;
-		}
+        public string FirstName
+        {
+            get;
+            set;
+        }
 
-		public string FirstName{
-			get;
-			set;
-		}
+        public String MiddleName
+        {
+            get;
+            set;
+        }
 
-		public String MiddleName{
-			get;
-			set;
-		}
+        public string LastName
+        {
+            get;
+            set;
+        }
 
-		public string LastName{
-			get;
-			set;
-		}
+        public ICollection<Address> Addresses { get; set; }
 
-	    public ICollection<Address> Addresses { get; set; }
+        public string Email
+        {
+            get;
+            set;
+        }
 
-		public string Email{
-			get;
-			set;
-		}
+        public string PhoneMobile
+        {
+            get;
+            set;
+        }
 
-		public string PhoneMobile{
-			get;
-			set;
-		}
+        public string PhoneHome
+        {
+            get;
+            set;
+        }
 
-		public string PhoneHome{
-			get;
-			set;
-		}
-
-		public SexType Sex{
-			get;
-			set;
-		}
-
-	}//end Person
-
+        public SexType Sex
+        {
+            get;
+            set;
+        }
+    }//end Person
 }//end namespace Models

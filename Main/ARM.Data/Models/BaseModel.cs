@@ -5,32 +5,34 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using ARM.Core.Interfaces.Data;
-namespace ARM.Data.Models {
-	public class BaseModel : IARMModel {
 
-		public BaseModel()
-		{
-		    DateModified = DateTime.Now;
-		}
+namespace ARM.Data.Models
+{
+    public class BaseModel : IARMModel
+    {
+        public BaseModel()
+        {
+            DateModified = DateTime.Now;
+        }
 
-		public Guid Id{
-			get;
-			set;
-		}
+        public Guid Id
+        {
+            get;
+            set;
+        }
 
-		public DateTime DateModified{
-			get;
-			set;
-		}
+        public DateTime DateModified
+        {
+            get;
+            set;
+        }
 
-		public string ModifiedBy{
-			get;
-			set;
-		}
-
-	}//end BaseModel
-
+        public string ModifiedBy
+        {
+            get;
+            set;
+        }
+    }//end BaseModel
 }//end namespace Models

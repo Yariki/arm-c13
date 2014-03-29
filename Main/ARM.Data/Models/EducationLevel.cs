@@ -5,16 +5,12 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Data.Models {
-	public enum EducationLevel : int {
-
-		Bachelour,
-		Alumnus,
-		Alumna
-
-	}//end EducationLevel
-
+namespace ARM.Data.Models
+{
+    public enum EducationLevel : int
+    {
+        Bachelour,
+        Alumnus,
+        Alumna
+    }//end EducationLevel
 }//end namespace Models

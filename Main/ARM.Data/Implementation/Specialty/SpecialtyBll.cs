@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Specialty;
-namespace ARM.Data.Implementation.Specialty {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Specialty
+{
     public class SpecialtyBll : BaseBll<Models.Specialty>, ISpecialtyBll
     {
-
-		
-
-	}//end SpecialtyBll
-
+        public SpecialtyBll(IDal<Models.Specialty> dal)
+            : base(dal)
+        {
+        }
+    }//end SpecialtyBll
 }//end namespace Specialty

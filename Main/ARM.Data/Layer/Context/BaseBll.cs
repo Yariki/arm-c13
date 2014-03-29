@@ -5,62 +5,60 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Layer.Context {
-	public class BaseBll<T> : IBll<T> where T : class{
 
-		public BaseBll(){
+namespace ARM.Data.Layer.Context
+{
+    public class BaseBll<T> : IBll<T> where T : class
+    {
+        private IDal<T> _dal;
 
-		}
+        public BaseBll(IDal<T> dal)
+        {
+            _dal = dal;
+        }
 
-		~BaseBll(){
+        ///
+        /// <param name="obj"></param>
+        public void Insert(T obj)
+        {
+        }
 
-		}
+        ///
+        /// <param name="arg"></param>
+        public void InsertAll(IEnumerable<T> arg)
+        {
+        }
 
-		/// 
-		/// <param name="obj"></param>
-		public void Insert(T obj){
+        ///
+        /// <param name="obj"></param>
+        public void Update(T obj)
+        {
+        }
 
-		}
+        ///
+        /// <param name="item"></param>
+        public void Delete(T item)
+        {
+        }
 
-		/// 
-		/// <param name="arg"></param>
-		public void InsertAll(IEnumerable<T> arg){
+        ///
+        /// <param name="id"></param>
+        public T GetById(long id)
+        {
+            return default(T);
+        }
 
-		}
+        public IEnumerable<T> GetAll()
+        {
+            return null;
+        }
 
-		/// 
-		/// <param name="obj"></param>
-		public void Update(T obj){
-
-		}
-
-		/// 
-		/// <param name="item"></param>
-		public void Delete (T item){
-
-		}
-
-		/// 
-		/// <param name="id"></param>
-		public T GetById(long id){
-
-			return default(T);
-		}
-
-		public IEnumerable<T> GetAll(){
-
-			return null;
-		}
-
-		/// 
-		/// <param name="id"></param>
-		public void Delete(long id){
-
-		}
-
-	}//end BaseBll
-
+        ///
+        /// <param name="id"></param>
+        public void Delete(long id)
+        {
+        }
+    }//end BaseBll
 }//end namespace Context

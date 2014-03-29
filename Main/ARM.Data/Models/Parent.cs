@@ -5,31 +5,28 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Parent : Person
+    {
+        public Parent()
+        {
+        }
 
+        ~Parent()
+        {
+        }
 
+        public long StudentId
+        {
+            get;
+            set;
+        }
 
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Parent : Person {
-
-		public Parent(){
-
-		}
-
-		~Parent(){
-
-		}
-
-		public long StudentId{
-			get;
-			set;
-		}
-
-		public virtual Student Child{
-			get;
-			set;
-		}
-
-	}//end Parent
-
+        public virtual Student Child
+        {
+            get;
+            set;
+        }
+    }//end Parent
 }//end namespace Models

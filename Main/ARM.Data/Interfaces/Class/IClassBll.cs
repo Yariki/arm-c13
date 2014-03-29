@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Class {
+
+namespace ARM.Data.Interfaces.Class
+{
     public interface IClassBll : IBll<Models.Class>
     {
-
-	}//end IClassBll
-
+    }//end IClassBll
 }//end namespace Class

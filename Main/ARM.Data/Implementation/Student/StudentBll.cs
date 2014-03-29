@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Student;
-namespace ARM.Data.Implementation.Student {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Student
+{
     public class StudentBll : BaseBll<Models.Student>, IStudentBll
     {
-
-		
-
-	}//end StudentBll
-
+        public StudentBll(IDal<Models.Student> dal)
+            : base(dal)
+        {
+        }
+    }//end StudentBll
 }//end namespace Student

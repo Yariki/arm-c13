@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Interfaces.Mark;
 using ARM.Data.Layer.Context;
-namespace ARM.Data.Implementation.Mark {
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Mark
+{
     public class MarkDal : BaseDal<Models.Mark>, IMarkDal
     {
-
-
-	}//end MarkDal
-
+        public MarkDal(IContext<Models.Mark> context)
+            : base(context)
+        {
+        }
+    }//end MarkDal
 }//end namespace Mark

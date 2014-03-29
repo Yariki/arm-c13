@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Staff;
-namespace ARM.Data.Implementation.Staff {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Staff
+{
     public class StaffBll : BaseBll<Models.Staff>, IStaffBll
     {
-
-
-	}//end StaffBll
-
+        public StaffBll(IDal<Models.Staff> dal)
+            : base(dal)
+        {
+        }
+    }//end StaffBll
 }//end namespace Staff

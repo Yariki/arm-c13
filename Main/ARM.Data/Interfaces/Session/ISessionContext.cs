@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Session {
+
+namespace ARM.Data.Interfaces.Session
+{
     public interface ISessionContext : IContext<Models.Session>
     {
-
-	}//end ISessionContext
-
+    }//end ISessionContext
 }//end namespace Session

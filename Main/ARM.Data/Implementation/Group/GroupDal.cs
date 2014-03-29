@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Group;
-namespace ARM.Data.Implementation.Group {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Group
+{
     public class GroupDal : BaseDal<Models.Group>, IGroupDal
     {
-
-
-	}//end GroupDal
-
+        public GroupDal(IContext<Models.Group> context)
+            : base(context)
+        {
+        }
+    }//end GroupDal
 }//end namespace Group

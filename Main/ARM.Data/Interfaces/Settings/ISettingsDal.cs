@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Settings {
+
+namespace ARM.Data.Interfaces.Settings
+{
     public interface ISettingsDal : IDal<Models.SettingParameters>
     {
-
-	}//end ISettingsDal
-
+    }//end ISettingsDal
 }//end namespace Settings

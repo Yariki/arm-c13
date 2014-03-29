@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Language {
+
+namespace ARM.Data.Interfaces.Language
+{
     public interface ILanguageDal : IDal<Models.Language>
     {
-
-	}//end ILanguageDal
-
+    }//end ILanguageDal
 }//end namespace Language

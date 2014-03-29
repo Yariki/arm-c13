@@ -5,15 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Student;
-namespace ARM.Data.Implementation.Student {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Student
+{
     public class StudentDal : BaseDal<Models.Student>, IStudentDal
     {
-
-	}//end StudentDal
-
+        public StudentDal(IContext<Models.Student> context)
+            : base(context)
+        {
+        }
+    }//end StudentDal
 }//end namespace Student

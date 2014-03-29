@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Language {
+
+namespace ARM.Data.Interfaces.Language
+{
     public interface ILanguageBll : IBll<Models.Language>
     {
-
-	}//end ILanguageBll
-
+    }//end ILanguageBll
 }//end namespace Language

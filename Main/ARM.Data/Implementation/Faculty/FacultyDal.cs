@@ -5,14 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Faculty;
-namespace ARM.Data.Implementation.Faculty {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Faculty
+{
     public class FacultyDal : BaseDal<Models.Faculty>, IFacultyDal
     {
-	}//end FacultyDal
-
+        public FacultyDal(IContext<Models.Faculty> context)
+            : base(context)
+        {
+        }
+    }//end FacultyDal
 }//end namespace Faculty

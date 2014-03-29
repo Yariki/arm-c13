@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Student {
+
+namespace ARM.Data.Interfaces.Student
+{
     public interface IStudentContext : IContext<Models.Student>
     {
-
-	}//end IStudentContext
-
+    }//end IStudentContext
 }//end namespace Student

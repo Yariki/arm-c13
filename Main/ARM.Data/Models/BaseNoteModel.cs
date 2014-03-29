@@ -5,26 +5,22 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class BaseNoteModel : BaseNamedModel
+    {
+        public BaseNoteModel()
+        {
+        }
 
+        ~BaseNoteModel()
+        {
+        }
 
-
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class BaseNoteModel : BaseNamedModel {
-
-		public BaseNoteModel(){
-
-		}
-
-		~BaseNoteModel(){
-
-		}
-
-		public string Note{
-			get;
-			set;
-		}
-
-	}//end BaseNoteModel
-
+        public string Note
+        {
+            get;
+            set;
+        }
+    }//end BaseNoteModel
 }//end namespace Models

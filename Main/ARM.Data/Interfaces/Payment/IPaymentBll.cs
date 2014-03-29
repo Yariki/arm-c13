@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Payment {
+
+namespace ARM.Data.Interfaces.Payment
+{
     public interface IPaymentBll : IBll<Models.Payment>
     {
-
-	}//end IPaymentBll
-
+    }//end IPaymentBll
 }//end namespace Payment

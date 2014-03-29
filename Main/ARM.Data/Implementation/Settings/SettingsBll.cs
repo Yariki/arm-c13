@@ -5,17 +5,18 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Settings;
-namespace ARM.Data.Implementation.Settings {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
+
+namespace ARM.Data.Implementation.Settings
+{
     public class SettingsBll : BaseBll<Models.SettingParameters>, ISettingsBll
     {
-
-		
-
-	}//end SettingsBll
-
+        public SettingsBll(IDal<SettingParameters> dal)
+            : base(dal)
+        {
+        }
+    }//end SettingsBll
 }//end namespace Settings

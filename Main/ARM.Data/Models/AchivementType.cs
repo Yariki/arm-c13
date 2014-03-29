@@ -5,18 +5,14 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Data.Models {
-	public enum AchivementType : int {
-
-		None,
-		Art,
-		Science,
-		Sport,
-		Other
-
-	}//end AchivementType
-
+namespace ARM.Data.Models
+{
+    public enum AchivementType : int
+    {
+        None,
+        Art,
+        Science,
+        Sport,
+        Other
+    }//end AchivementType
 }//end namespace Models

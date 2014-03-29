@@ -5,35 +5,36 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Class : BaseNamedModel {
 
-		public Class(){
+namespace ARM.Data.Models
+{
+    public class Class : BaseNamedModel
+    {
+        public Class()
+        {
+        }
 
-		}
+        ~Class()
+        {
+        }
 
-		~Class(){
+        public long StaffID
+        {
+            get;
+            set;
+        }
 
-		}
+        public virtual Staff Lecturer
+        {
+            get;
+            set;
+        }
 
-		public long StaffID{
-			get;
-			set;
-		}
-
-		public virtual Staff Lecturer{
-			get;
-			set;
-		}
-
-		public ICollection<Session> Sessions{
-			get;
-			set;
-		}
-
-	}//end Class
-
+        public ICollection<Session> Sessions
+        {
+            get;
+            set;
+        }
+    }//end Class
 }//end namespace Models

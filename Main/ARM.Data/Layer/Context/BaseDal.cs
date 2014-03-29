@@ -5,50 +5,48 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Layer.Context {
-	public class BaseDal<T> : IDal<T> {
 
-		public BaseDal(){
+namespace ARM.Data.Layer.Context
+{
+    public class BaseDal<T> : IDal<T> where T : class
+    {
+        private IContext<T> _context;
 
-		}
+        public BaseDal(IContext<T> context)
+        {
+            _context = context;
+        }
 
-		~BaseDal(){
+        ///
+        /// <param name="obj"></param>
+        public void Insert(T obj)
+        {
+        }
 
-		}
+        ///
+        /// <param name="obj"></param>
+        public void Update(T obj)
+        {
+        }
 
-		/// 
-		/// <param name="obj"></param>
-		public void Insert(T obj){
+        ///
+        /// <param name="obj"></param>
+        public void Delete(T obj)
+        {
+        }
 
-		}
+        public IEnumerable<T> GetAll()
+        {
+            return null;
+        }
 
-		/// 
-		/// <param name="obj"></param>
-		public void Update(T obj){
-
-		}
-
-		/// 
-		/// <param name="obj"></param>
-		public void Delete(T obj){
-
-		}
-
-		public IEnumerable<T> GetAll(){
-
-			return null;
-		}
-
-		/// 
-		/// <param name="id"></param>
-		public T GetById(long id){
-
-			return default(T);
-		}
-
-	}//end BaseDal
-
+        ///
+        /// <param name="id"></param>
+        public T GetById(long id)
+        {
+            return default(T);
+        }
+    }//end BaseDal
 }//end namespace Context

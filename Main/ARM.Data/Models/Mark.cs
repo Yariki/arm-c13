@@ -5,62 +5,66 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Mark : BaseModel {
 
+namespace ARM.Data.Models
+{
+    public class Mark : BaseModel
+    {
 
+        ~Mark()
+        {
+        }
 
-		~Mark(){
+        public Mark()
+        {
+        }
 
-		}
+        public long StudentId
+        {
+            get;
+            set;
+        }
 
-		public Mark(){
+        public long SessionId()
+        {
+            return 0;
+        }
 
-		}
+        public long ClassId
+        {
+            get;
+            set;
+        }
 
-		public long StudentId{
-			get;
-			set;
-		}
+        public virtual Student Student
+        {
+            get;
+            set;
+        }
 
-		public long SessionId(){
+        public virtual Session Session
+        {
+            get;
+            set;
+        }
 
-			return 0;
-		}
+        public virtual Class Class
+        {
+            get;
+            set;
+        }
 
-		public long ClassId{
-			get;
-			set;
-		}
+        public DateTime Date
+        {
+            get;
+            set;
+        }
 
-		public virtual Student Student{
-			get;
-			set;
-		}
-
-		public virtual Session Session{
-			get;
-			set;
-		}
-
-		public virtual Class Class{
-			get;
-			set;
-		}
-
-		public DateTime Date{
-			get;
-			set;
-		}
-
-		public MarkType Type{
-			get;
-			set;
-		}
-
-	}//end Mark
-
+        public MarkType Type
+        {
+            get;
+            set;
+        }
+    }//end Mark
 }//end namespace Models

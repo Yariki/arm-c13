@@ -5,12 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Data.Models {
-	public enum StudentStatus : int {
-
-	}//end StudentStatus
-
+namespace ARM.Data.Models
+{
+    public enum StudentStatus : int
+    {
+    }//end StudentStatus
 }//end namespace Models

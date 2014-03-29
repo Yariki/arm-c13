@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Session;
-namespace ARM.Data.Implementation.Session {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Session
+{
     public class SessionDal : BaseDal<Models.Session>, ISessionDal
     {
-
-		
-
-	}//end SessionDal
-
+        public SessionDal(IContext<Models.Session> context)
+            : base(context)
+        {
+        }
+    }//end SessionDal
 }//end namespace Session

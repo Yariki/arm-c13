@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Specialty {
+
+namespace ARM.Data.Interfaces.Specialty
+{
     public interface ISpecialtyBll : IBll<Models.Specialty>
     {
-
-	}//end ISpecialtyBll
-
+    }//end ISpecialtyBll
 }//end namespace Specialty

@@ -5,13 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Address {
-	public interface IAddressBll : IBll<Models.Address>  {
 
-	}//end IAddressBll
-
+namespace ARM.Data.Interfaces.Address
+{
+    public interface IAddressBll : IBll<Models.Address>
+    {
+    }//end IAddressBll
 }//end namespace Address

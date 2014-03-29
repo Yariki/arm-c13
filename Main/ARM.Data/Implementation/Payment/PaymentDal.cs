@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Payment;
-namespace ARM.Data.Implementation.Payment {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Payment
+{
     public class PaymentDal : BaseDal<Models.Payment>, IPaymentDal
     {
-
-		
-
-	}//end PaymentDal
-
+        public PaymentDal(IContext<Models.Payment> context)
+            : base(context)
+        {
+        }
+    }//end PaymentDal
 }//end namespace Payment

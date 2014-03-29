@@ -5,26 +5,22 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Staff : Person
+    {
+        public Staff()
+        {
+        }
 
+        ~Staff()
+        {
+        }
 
-
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Staff : Person {
-
-		public Staff(){
-
-		}
-
-		~Staff(){
-
-		}
-
-		public StaffType StaffType{
-			get;
-			set;
-		}
-
-	}//end Staff
-
+        public StaffType StaffType
+        {
+            get;
+            set;
+        }
+    }//end Staff
 }//end namespace Models

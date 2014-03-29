@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Specialty {
+
+namespace ARM.Data.Interfaces.Specialty
+{
     public interface ISpecialtyDal : IDal<Models.Specialty>
     {
-
-	}//end ISpecialtyDal
-
+    }//end ISpecialtyDal
 }//end namespace Specialty

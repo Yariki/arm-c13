@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Language;
-namespace ARM.Data.Implementation.Language {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Language
+{
     public class LanguageBll : BaseBll<Models.Language>, ILanguageBll
     {
-
-
-	}//end LanguageBll
-
+        public LanguageBll(IDal<Models.Language> dal)
+            : base(dal)
+        {
+        }
+    }//end LanguageBll
 }//end namespace Language

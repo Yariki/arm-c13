@@ -5,31 +5,28 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Specialty : BaseNamedModel
+    {
+        public Specialty()
+        {
+        }
 
+        ~Specialty()
+        {
+        }
 
+        public long FacultyId
+        {
+            get;
+            set;
+        }
 
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Specialty : BaseNamedModel {
-
-		public Specialty(){
-
-		}
-
-		~Specialty(){
-
-		}
-
-		public long FacultyId{
-			get;
-			set;
-		}
-
-		public virtual Faculty Faculty{
-			get;
-			set;
-		}
-
-	}//end Specialty
-
+        public virtual Faculty Faculty
+        {
+            get;
+            set;
+        }
+    }//end Specialty
 }//end namespace Models

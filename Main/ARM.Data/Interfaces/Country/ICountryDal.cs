@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Country {
+
+namespace ARM.Data.Interfaces.Country
+{
     public interface ICountryDal : IDal<Models.Country>
     {
-
-	}//end ICountryDal
-
+    }//end ICountryDal
 }//end namespace Country

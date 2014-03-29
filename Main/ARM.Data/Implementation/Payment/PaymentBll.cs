@@ -5,17 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Payment;
-namespace ARM.Data.Implementation.Payment {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Payment
+{
     public class PaymentBll : BaseBll<Models.Payment>, IPaymentBll
     {
-
-		
-
-	}//end PaymentBll
-
+        public PaymentBll(IDal<Models.Payment> dal)
+            : base(dal)
+        {
+        }
+    }//end PaymentBll
 }//end namespace Payment

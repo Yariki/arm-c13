@@ -5,76 +5,34 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Contract : BaseNoteModel
+    {
+        public string Number { get; set; }
 
+        public EducationLevel Level { get; set; }
 
+        public long ParentId { get; set; }
 
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Contract : BaseNoteModel {
+        public long UniversityId { get; set; }
 
-		public Contract(){
+        public long StudentId { get; set; }
 
-		}
+        public long SpecialityId { get; set; }
 
-		~Contract(){
+        public decimal Price { get; set; }
 
-		}
+        public virtual Parent Customer { get; set; }
 
-		public string Number{
-			get;
-			set;
-		}
+        public virtual University University { get; set; }
 
-		public EducationLevel Level{
-			get;
-			set;
-		}
+        public virtual Student Student { get; set; }
 
-		public long ParentId{
-			get;
-			set;
-		}
+        public virtual Specialty Speciality { get; set; }
 
-		public long UniversityId{
-			get;
-			set;
-		}
-
-		public long StudentId{
-			get;
-			set;
-		}
-
-		public long SpecialityId{
-			get;
-			set;
-		}
-
-		public decimal Price{
-			get;
-			set;
-		}
-
-		public virtual Parent Customer{
-			get;
-			set;
-		}
-
-		public virtual University University{
-			get;
-			set;
-		}
-
-		public virtual Student Student{
-			get;
-			set;
-		}
-
-		public virtual Specialty Speciality{
-			get;
-			set;
-		}
-
-	}//end Contract
-
-}//end namespace Models
+        ~Contract()
+        {
+        }
+    } //end Contract
+} //end namespace Models

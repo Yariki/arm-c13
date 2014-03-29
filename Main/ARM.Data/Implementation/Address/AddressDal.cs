@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Address;
-namespace ARM.Data.Implementation.Address {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Address
+{
     public class AddressDal : BaseDal<Models.Address>, IAddressDal
     {
-
-
-	}//end AddressDal
-
+        public AddressDal(IContext<Models.Address> context)
+            : base(context)
+        {
+        }
+    }//end AddressDal
 }//end namespace Address

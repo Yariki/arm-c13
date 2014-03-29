@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Contract {
+
+namespace ARM.Data.Interfaces.Contract
+{
     public interface IContractBll : IBll<Models.Contract>
     {
-
-	}//end IContractBll
-
+    }//end IContractBll
 }//end namespace Contract

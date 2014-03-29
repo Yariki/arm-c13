@@ -5,29 +5,28 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
 
-namespace ARM.Data.Layer.Interfaces {
-	public interface IDal<T>  {
+namespace ARM.Data.Layer.Interfaces
+{
+    public interface IDal<T>
+    {
+        ///
+        /// <param name="obj"></param>
+        void Insert(T obj);
 
-		/// 
-		/// <param name="obj"></param>
-		void Insert(T obj);
+        ///
+        /// <param name="obj"></param>
+        void Update(T obj);
 
-		/// 
-		/// <param name="obj"></param>
-		void Update(T obj);
+        ///
+        /// <param name="obj"></param>
+        void Delete(T obj);
 
-		/// 
-		/// <param name="obj"></param>
-		void Delete (T obj);
+        IEnumerable<T> GetAll();
 
-		IEnumerable<T> GetAll();
-
-		/// 
-		/// <param name="id"></param>
-		T GetById(long id);
-	}//end IDal
-
+        ///
+        /// <param name="id"></param>
+        T GetById(long id);
+    }//end IDal
 }//end namespace Interfaces

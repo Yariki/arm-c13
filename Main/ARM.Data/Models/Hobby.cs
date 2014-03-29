@@ -5,31 +5,28 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Hobby : BaseNoteModel
+    {
+        public Hobby()
+        {
+        }
 
+        ~Hobby()
+        {
+        }
 
+        public long StudentId
+        {
+            get;
+            set;
+        }
 
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Hobby : BaseNoteModel {
-
-		public Hobby(){
-
-		}
-
-		~Hobby(){
-
-		}
-
-		public long StudentId{
-			get;
-			set;
-		}
-
-		public virtual Student Student{
-			get;
-			set;
-		}
-
-	}//end Hobby
-
+        public virtual Student Student
+        {
+            get;
+            set;
+        }
+    }//end Hobby
 }//end namespace Models

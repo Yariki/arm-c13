@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Invoice {
+
+namespace ARM.Data.Interfaces.Invoice
+{
     public interface IInvoiceContext : IContext<Models.Invoice>
     {
-
-	}//end IInvoiceContext
-
+    }//end IInvoiceContext
 }//end namespace Invoice

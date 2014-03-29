@@ -5,21 +5,16 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Data.Models
+{
+    public class Language : BaseNamedModel
+    {
+        public Language()
+        {
+        }
 
-
-
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Language : BaseNamedModel {
-
-		public Language(){
-
-		}
-
-		~Language(){
-
-		}
-
-	}//end Language
-
+        ~Language()
+        {
+        }
+    }//end Language
 }//end namespace Models

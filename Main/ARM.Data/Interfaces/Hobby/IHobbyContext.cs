@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Hobby {
+
+namespace ARM.Data.Interfaces.Hobby
+{
     public interface IHobbyContext : IContext<Models.Hobby>
     {
-
-	}//end IHobbyContext
-
+    }//end IHobbyContext
 }//end namespace Hobby

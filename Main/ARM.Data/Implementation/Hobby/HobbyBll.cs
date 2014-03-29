@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Hobby;
-namespace ARM.Data.Implementation.Hobby {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Hobby
+{
     public class HobbyBll : BaseBll<Models.Hobby>, IHobbyBll
     {
-
-
-	}//end HobbyBll
-
+        public HobbyBll(IDal<Models.Hobby> dal)
+            : base(dal)
+        {
+        }
+    }//end HobbyBll
 }//end namespace Hobby

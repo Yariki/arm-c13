@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Mark {
+
+namespace ARM.Data.Interfaces.Mark
+{
     public interface IMarkDal : IDal<Models.Mark>
     {
-
-	}//end IMarkDal
-
+    }//end IMarkDal
 }//end namespace Mark

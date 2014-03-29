@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.Parent {
+
+namespace ARM.Data.Interfaces.Parent
+{
     public interface IParentBll : IBll<Models.Parent>
     {
-
-	}//end IParentBll
-
+    }//end IParentBll
 }//end namespace Parent

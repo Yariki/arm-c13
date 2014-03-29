@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.Country;
-namespace ARM.Data.Implementation.Country {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.Country
+{
     public class CountryBll : BaseBll<Models.Country>, ICountryBll
     {
-
-
-	}//end CountryBll
-
+        public CountryBll(IDal<Models.Country> dal)
+            : base(dal)
+        {
+        }
+    }//end CountryBll
 }//end namespace Country

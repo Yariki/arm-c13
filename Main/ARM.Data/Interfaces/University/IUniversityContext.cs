@@ -5,14 +5,11 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Data.Layer.Interfaces;
-namespace ARM.Data.Interfaces.University {
+
+namespace ARM.Data.Interfaces.University
+{
     public interface IUniversityContext : IContext<Models.University>
     {
-
-	}//end IUniversityContext
-
+    }//end IUniversityContext
 }//end namespace University

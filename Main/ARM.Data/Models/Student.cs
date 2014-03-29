@@ -5,111 +5,127 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Collections.Generic;
-using ARM.Data.Models;
-namespace ARM.Data.Models {
-	public class Student : Person {
 
-		public Student(){
+namespace ARM.Data.Models
+{
+    public class Student : Person
+    {
+        public Student()
+        {
+        }
 
-		}
+        ~Student()
+        {
+        }
 
-		~Student(){
+        public virtual IList<Parent> Parents
+        {
+            get;
+            set;
+        }
 
-		}
+        public long GroupId
+        {
+            get;
+            set;
+        }
 
-		public virtual IList<Parent> Parents{
-			get;
-			set;
-		}
+        public virtual Group Group
+        {
+            get;
+            set;
+        }
 
-		public long GroupId{
-			get;
-			set;
-		}
+        public virtual IList<Hobby> Hobbies
+        {
+            get;
+            set;
+        }
 
-		public virtual Group Group{
-			get;
-			set;
-		}
+        public virtual IList<Achivement> Achivements
+        {
+            get;
+            set;
+        }
 
-		public virtual IList<Hobby> Hobbies{
-			get;
-			set;
-		}
+        public DateTime DateFirstEnter
+        {
+            get;
+            set;
+        }
 
-		public virtual IList<Achivement> Achivements{
-			get;
-			set;
-		}
+        public DateTime DateLeft
+        {
+            get;
+            set;
+        }
 
-		public DateTime DateFirstEnter{
-			get;
-			set;
-		}
+        public ICollection<Language> Languages
+        {
+            get;
+            set;
+        }
 
-		public DateTime DateLeft{
-			get;
-			set;
-		}
+        public long FacultyId
+        {
+            get;
+            set;
+        }
 
-		public ICollection<Language> Languages{
-			get;
-			set;
-		}
+        public virtual Faculty Faculty
+        {
+            get;
+            set;
+        }
 
-		public long FacultyId{
-			get;
-			set;
-		}
+        public StudyMode StudyMode
+        {
+            get;
+            set;
+        }
 
-		public virtual Faculty Faculty{
-			get;
-			set;
-		}
+        public string GradeBookNumber
+        {
+            get;
+            set;
+        }
 
-		public StudyMode StudyMode{
-			get;
-			set;
-		}
+        public long ContractId
+        {
+            get;
+            set;
+        }
 
-		public string GradeBookNumber{
-			get;
-			set;
-		}
+        public virtual Contract Contract
+        {
+            get;
+            set;
+        }
 
-		public long ContractId{
-			get;
-			set;
-		}
+        public bool IsForeign
+        {
+            get;
+            set;
+        }
 
-		public virtual Contract Contract{
-			get;
-			set;
-		}
+        public long SpecialityId
+        {
+            get;
+            set;
+        }
 
-		public bool IsForeign{
-			get;
-			set;
-		}
+        public virtual Specialty Speciality
+        {
+            get;
+            set;
+        }
 
-		public long SpecialityId{
-			get;
-			set;
-		}
-
-		public virtual Specialty Speciality{
-			get;
-			set;
-		}
-
-		public StudentStatus Status{
-			get;
-			set;
-		}
-
-	}//end Student
-
+        public StudentStatus Status
+        {
+            get;
+            set;
+        }
+    }//end Student
 }//end namespace Models

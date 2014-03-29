@@ -5,17 +5,13 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Data.Models {
-	public enum StaffType : int {
-
-		None,
-		Phd,
-		Lecture,
-		Technician
-
-	}//end StaffType
-
+namespace ARM.Data.Models
+{
+    public enum StaffType : int
+    {
+        None,
+        Phd,
+        Lecture,
+        Technician
+    }//end StaffType
 }//end namespace Models

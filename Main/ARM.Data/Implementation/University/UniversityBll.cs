@@ -5,16 +5,17 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Data.Layer.Context;
 using ARM.Data.Interfaces.University;
-namespace ARM.Data.Implementation.University {
+using ARM.Data.Layer.Context;
+using ARM.Data.Layer.Interfaces;
+
+namespace ARM.Data.Implementation.University
+{
     public class UniversityBll : BaseBll<Models.University>, IUniversityBll
     {
-
-
-	}//end UniversityBll
-
+        public UniversityBll(IDal<Models.University> dal)
+            : base(dal)
+        {
+        }
+    }//end UniversityBll
 }//end namespace University
