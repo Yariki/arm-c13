@@ -60,3 +60,5 @@
 /Samples/ARMEnumTest/obj
 /Samples/ARMManyTest/bin
 /Samples/ARMManyTest/obj
+/Main/ARM.Core/*.user
+/Main/ARM.Data/*.user

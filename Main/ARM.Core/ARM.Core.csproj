@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +41,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ARMBaseAttribute.cs" />
+    <Compile Include="Attributes\ARMEmailAttribute.cs" />
+    <Compile Include="Attributes\ARMMaxAttribute.cs" />
+    <Compile Include="Attributes\ARMMinAttribute.cs" />
+    <Compile Include="Attributes\ARMMobilPhoneAttribute.cs" />
+    <Compile Include="Attributes\ARMNumericAttribute.cs" />
+    <Compile Include="Attributes\ARMPhoneAttribute.cs" />
+    <Compile Include="Attributes\ARMRangeAttribute.cs" />
+    <Compile Include="Attributes\ARMRequiredAttribute.cs" />
+    <Compile Include="Attributes\ARMStringAttribute.cs" />
+    <Compile Include="Attributes\ARMUrlAttribute.cs" />
+    <Compile Include="Attributes\ARMValidationAttribute.cs" />
+    <Compile Include="Enums\ToolbarCommand.cs" />
+    <Compile Include="Enums\ViewMode.cs" />
+    <Compile Include="EventArguments\ValidationEventArgs.cs" />
+    <Compile Include="Interfaces\Data\IARMModel.cs" />
+    <Compile Include="Interfaces\IARMDataViewModel.cs" />
+    <Compile Include="Interfaces\IARMGridViewModel.cs" />
+    <Compile Include="Interfaces\IARMModelPropertyInfo.cs" />
+    <Compile Include="Interfaces\IARMToolboxCommand.cs" />
+    <Compile Include="Interfaces\IARMToolboxView.cs" />
+    <Compile Include="Interfaces\IARMToolboxViewModel.cs" />
+    <Compile Include="Interfaces\IARMValidatableViewModel.cs" />
+    <Compile Include="Interfaces\IARMValidationAdaptor.cs" />
+    <Compile Include="Interfaces\IARMValidationAttribute.cs" />
+    <Compile Include="Interfaces\IARMValidationResult.cs" />
+    <Compile Include="Interfaces\IARMValidationRule.cs" />
+    <Compile Include="Interfaces\IARMView.cs" />
+    <Compile Include="Interfaces\IARMViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ARMModelsPeopertyCache.cs" />
+    <Compile Include="Validation\ARMValidationAdaptor.cs" />
+    <Compile Include="Validation\ARMValidationResult.cs" />
+    <Compile Include="Validation\ARMValidationRulesFactory.cs" />
+    <Compile Include="Validation\Rules\ARMEmailValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMMaxValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMMInValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMMobilPhoneValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMNumericValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMRangeValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMStringValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMUrlValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMValidationRule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
