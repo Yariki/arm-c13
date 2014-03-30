@@ -5,33 +5,31 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using ARM.Core.Attributes;
 
-namespace ARM.Core.Validation {
-	public class ARMValidationRulesFactory {
+namespace ARM.Core.Validation
+{
+    public class ARMValidationRulesFactory
+    {
 
+        ~ARMValidationRulesFactory()
+        {
+        }
 
+        protected ARMValidationRulesFactory()
+        {
+        }
 
-		~ARMValidationRulesFactory(){
+        public ARMValidationRulesFactory Instance
+        {
+            get;
+            set;
+        }
 
-		}
-
-		protected ARMValidationRulesFactory(){
-
-		}
-
-		public ARMValidationRulesFactory Instance{
-			get;
-			set;
-		}
-
-		/// 
-		/// <param name="attr"></param>
-		public void GetRule(ARMBaseAttribute attr){
-
-		}
-
-	}//end ARMValidationRulesFactory
-
+        ///
+        /// <param name="attr"></param>
+        public void GetRule(ARMBaseAttribute attr)
+        {
+        }
+    }//end ARMValidationRulesFactory
 }//end namespace Validation

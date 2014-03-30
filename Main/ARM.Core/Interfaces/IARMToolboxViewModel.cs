@@ -5,18 +5,18 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
-using ARM.Core.Interfaces;
-namespace ARM.Core.Interfaces {
-	public interface IARMToolboxViewModel : IARMViewModel  {
 
-		IList<IARMToolboxCommand> Commands{
-			get;
-			set;
-		}
+namespace ARM.Core.Interfaces
+{
+    public interface IARMToolboxViewModel : IARMViewModel
+    {
+        IList<IARMToolboxCommand> Commands
+        {
+            get;
+            set;
+        }
 
-		void InitializeCommands();
-	}//end IARMToolboxViewModel
-
+        void InitializeCommands();
+    }//end IARMToolboxViewModel
 }//end namespace Interfaces

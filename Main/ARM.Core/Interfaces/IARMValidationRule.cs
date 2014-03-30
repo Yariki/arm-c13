@@ -5,13 +5,10 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Core.Interfaces {
-	public interface IARMValidationRule  {
-
-		IARMValidationResult Evalute();
-	}//end IARMValidationRule
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMValidationRule
+    {
+        IARMValidationResult Evalute();
+    }//end IARMValidationRule
 }//end namespace Interfaces

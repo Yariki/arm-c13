@@ -5,34 +5,33 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using ARM.Core.EventArguments;
 
-namespace ARM.Core.Interfaces {
-	public interface IARMValidationAdaptor : IDataErrorInfo  {
+namespace ARM.Core.Interfaces
+{
+    public interface IARMValidationAdaptor : IDataErrorInfo
+    {
+        void InitializeRules();
 
-		void InitializeRules();
+        ///
+        /// <param name="rule"></param>
+        void AddRule(IARMValidationRule rule);
 
-		/// 
-		/// <param name="rule"></param>
-		void AddRule(IARMValidationRule rule);
+        ///
+        /// <param name="propName"></param>
+        void Validate<T>(Expression<Func<T>> propName);
 
-		/// 
-		/// <param name="propName"></param>
-		void Validate<T>(Expression<Func<T>> propName);
+        void ValidateAll();
 
-		void ValidateAll();
+        event EventHandler<ValidationEventArgs> ValidationCompleted;
 
-		event EventHandler<ValidationEventArgs> ValidationCompleted;
+        ///
+        /// <param name="propName"></param>
+        string GetResult<T>(Expression<Func<T>> propName);
 
-		/// 
-		/// <param name="propName"></param>
-		string GetResult<T>(Expression<Func<T>> propName);
-
-		string GetResultForAll();
-	}//end IARMValidationAdaptor
-
+        string GetResultForAll();
+    }//end IARMValidationAdaptor
 }//end namespace Interfaces

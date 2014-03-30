@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 
 namespace ARM.Data.Layer.Interfaces
@@ -25,11 +26,11 @@ namespace ARM.Data.Layer.Interfaces
 
         ///
         /// <param name="id"></param>
-        void Delete(long id);
+        void Delete(T id);
 
         ///
         /// <param name="id"></param>
-        T GetById(long id);
+        T GetById(Guid id);
 
         IEnumerable<T> GetAll();
     }//end IBll

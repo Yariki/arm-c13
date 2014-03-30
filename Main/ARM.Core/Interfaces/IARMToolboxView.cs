@@ -5,13 +5,9 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Core.Interfaces;
-namespace ARM.Core.Interfaces {
-	public interface IARMToolboxView : IARMView  {
-
-	}//end IARMToolboxView
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMToolboxView : IARMView
+    {
+    }//end IARMToolboxView
 }//end namespace Interfaces

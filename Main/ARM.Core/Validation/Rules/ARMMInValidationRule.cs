@@ -5,35 +5,28 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Core.Interfaces;
-using ARM.Core.Validation.Rules;
-namespace ARM.Core.Validation.Rules {
-	public class ARMMinValidationRule : ARMNumericValidationRule {
-
-		public ARMMinValidationRule(){
-
-		}
+namespace ARM.Core.Validation.Rules
+{
+    public class ARMMinValidationRule : ARMNumericValidationRule
+    {
+        public ARMMinValidationRule()
+        {
+        }
 
         ~ARMMinValidationRule()
         {
+        }
 
-		}
+        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        {
+            return null;
+        }
 
-		protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(){
-
-			return null;
-		}
-
-		/// 
-		/// <param name="min"></param>
-		/// <param name="max"></param>
-		public ARMMinValidationRule(decimal min, decimal max){
-
-		}
-
-	}//end ARMMInValidationRule
-
+        ///
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public ARMMinValidationRule(decimal min, decimal max)
+        {
+        }
+    }//end ARMMInValidationRule
 }//end namespace Rules

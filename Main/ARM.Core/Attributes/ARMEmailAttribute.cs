@@ -5,21 +5,16 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Attributes
+{
+    public class ARMEmailAttribute : ARMStringAttribute
+    {
+        public ARMEmailAttribute()
+        {
+        }
 
-
-
-using ARM.Core.Attributes;
-namespace ARM.Core.Attributes {
-	public class ARMEmailAttribute : ARMStringAttribute {
-
-		public ARMEmailAttribute(){
-
-		}
-
-		~ARMEmailAttribute(){
-
-		}
-
-	}//end ARMEmailAttribute
-
+        ~ARMEmailAttribute()
+        {
+        }
+    }//end ARMEmailAttribute
 }//end namespace Attributes

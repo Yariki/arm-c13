@@ -5,28 +5,23 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Validation.Rules
+{
+    public class ARMStringValidationRule : ARMValidationRule
+    {
 
+        ~ARMStringValidationRule()
+        {
+        }
 
+        protected ARMStringValidationRule()
+        {
+        }
 
-using ARM.Core.Validation.Rules;
-namespace ARM.Core.Validation.Rules {
-	public class ARMStringValidationRule : ARMValidationRule {
-
-
-
-		~ARMStringValidationRule(){
-
-		}
-
-		protected ARMStringValidationRule(){
-
-		}
-
-		protected string Pattern{
-			get;
-			set;
-		}
-
-	}//end ARMStringValidationRule
-
+        protected string Pattern
+        {
+            get;
+            set;
+        }
+    }//end ARMStringValidationRule
 }//end namespace Rules

@@ -5,18 +5,10 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-using ARM.Core.Interfaces;
-namespace ARM.Core.Interfaces {
-	public interface IARMDataViewModel : IARMViewModel  {
-
-		/// 
-		/// <param name="obj"></param>
-		void SetBusinessObject(object obj);
-
-		object GetBusinessObject();
-	}//end IARMDataViewModel
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMDataViewModel : IARMViewModel
+    {
+        object DataObject();
+    }//end IARMDataViewModel
 }//end namespace Interfaces

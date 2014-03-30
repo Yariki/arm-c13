@@ -5,16 +5,15 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.ComponentModel;
-using ARM.Core.Interfaces;
-namespace ARM.Core.Interfaces {
-	public interface IARMViewModel : INotifyPropertyChanged  {
 
-		IARMView View{
-			get;
-			set;
-		}
-	}//end IARMViewModel
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMViewModel : INotifyPropertyChanged
+    {
+        IARMView View
+        {
+            get;
+        }
+    }//end IARMViewModel
 }//end namespace Interfaces

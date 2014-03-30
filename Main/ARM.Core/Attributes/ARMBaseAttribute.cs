@@ -5,20 +5,18 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 
-namespace ARM.Core.Attributes {
-	public abstract class ARMBaseAttribute : Attribute {
+namespace ARM.Core.Attributes
+{
+    public abstract class ARMBaseAttribute : Attribute
+    {
+        public ARMBaseAttribute()
+        {
+        }
 
-		public ARMBaseAttribute(){
-
-		}
-
-		~ARMBaseAttribute(){
-
-		}
-
-	}//end ARMBaseAttribute
-
+        ~ARMBaseAttribute()
+        {
+        }
+    }//end ARMBaseAttribute
 }//end namespace Attributes

@@ -5,17 +5,13 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Core.Enums {
-	public enum ViewMode : int {
-
-		None,
-		Add,
-		Edit,
-		View
-
-	}//end ViewMode
-
+namespace ARM.Core.Enums
+{
+    public enum ViewMode : int
+    {
+        None,
+        Add,
+        Edit,
+        View
+    }//end ViewMode
 }//end namespace Enums

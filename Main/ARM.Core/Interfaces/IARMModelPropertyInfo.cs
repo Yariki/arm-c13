@@ -5,32 +5,35 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Reflection;
 
-namespace ARM.Core.Interfaces {
-	public interface IARMModelPropertyInfo  {
+namespace ARM.Core.Interfaces
+{
+    public interface IARMModelPropertyInfo
+    {
+        PropertyInfo Property
+        {
+            get;
+            set;
+        }
 
-		PropertyInfo Property{
-			get;
-			set;
-		}
+        bool IsRequired
+        {
+            get;
+            set;
+        }
 
-		bool IsRequired{
-			get;
-			set;
-		}
+        Type ReturnType
+        {
+            get;
+            set;
+        }
 
-		Type ReturnType{
-			get;
-			set;
-		}
-
-		IARMValidationAttribute ValidationAttribute{
-			get;
-			set;
-		}
-	}//end IARMModelPropertyInfo
-
+        IARMValidationAttribute ValidationAttribute
+        {
+            get;
+            set;
+        }
+    }//end IARMModelPropertyInfo
 }//end namespace Interfaces

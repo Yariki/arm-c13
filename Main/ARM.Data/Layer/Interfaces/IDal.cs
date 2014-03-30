@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 
 namespace ARM.Data.Layer.Interfaces
@@ -14,6 +15,8 @@ namespace ARM.Data.Layer.Interfaces
         ///
         /// <param name="obj"></param>
         void Insert(T obj);
+
+        void InsertAll(IEnumerable<T> list);
 
         ///
         /// <param name="obj"></param>
@@ -27,6 +30,6 @@ namespace ARM.Data.Layer.Interfaces
 
         ///
         /// <param name="id"></param>
-        T GetById(long id);
+        T GetById(Guid id);
     }//end IDal
 }//end namespace Interfaces

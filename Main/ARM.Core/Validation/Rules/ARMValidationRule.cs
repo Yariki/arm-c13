@@ -5,31 +5,28 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Core.Interfaces;
-namespace ARM.Core.Validation.Rules {
-	public abstract class ARMValidationRule : IARMValidationRule {
 
-		public ARMValidationRule(){
+namespace ARM.Core.Validation.Rules
+{
+    public abstract class ARMValidationRule : IARMValidationRule
+    {
+        public ARMValidationRule()
+        {
+        }
 
-		}
+        ~ARMValidationRule()
+        {
+        }
 
-		~ARMValidationRule(){
+        protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        {
+            return null;
+        }
 
-		}
-
-		protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute(){
-
-			return null;
-		}
-
-		public IARMValidationResult Evalute(){
-
-			return null;
-		}
-
-	}//end ARMValidationRule
-
+        public IARMValidationResult Evalute()
+        {
+            return null;
+        }
+    }//end ARMValidationRule
 }//end namespace Rules

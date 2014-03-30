@@ -5,32 +5,35 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Windows.Input;
 using ARM.Core.Enums;
 
-namespace ARM.Core.Interfaces {
-	public interface IARMToolboxCommand : ICommand  {
+namespace ARM.Core.Interfaces
+{
+    public interface IARMToolboxCommand : ICommand
+    {
+        string Image
+        {
+            get;
+            set;
+        }
 
-		string Image{
-			get;
-			set;
-		}
+        string Tooltip
+        {
+            get;
+            set;
+        }
 
-		string Tooltip{
-			get;
-			set;
-		}
+        object Tag
+        {
+            get;
+            set;
+        }
 
-		object Tag{
-			get;
-			set;
-		}
-
-		ToolbarCommand Type{
-			get;
-			set;
-		}
-	}//end IARMToolboxCommand
-
+        ToolbarCommand Type
+        {
+            get;
+            set;
+        }
+    }//end IARMToolboxCommand
 }//end namespace Interfaces

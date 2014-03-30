@@ -5,27 +5,21 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Validation.Rules
+{
+    public class ARMUrlValidationRule : ARMStringValidationRule
+    {
+        public ARMUrlValidationRule()
+        {
+        }
 
+        ~ARMUrlValidationRule()
+        {
+        }
 
-
-using ARM.Core.Interfaces;
-using ARM.Core.Validation.Rules;
-namespace ARM.Core.Validation.Rules {
-	public class ARMUrlValidationRule : ARMStringValidationRule {
-
-		public ARMUrlValidationRule(){
-
-		}
-
-		~ARMUrlValidationRule(){
-
-		}
-
-		protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(){
-
-			return null;
-		}
-
-	}//end ARMUrlValidationRule
-
+        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        {
+            return null;
+        }
+    }//end ARMUrlValidationRule
 }//end namespace Rules

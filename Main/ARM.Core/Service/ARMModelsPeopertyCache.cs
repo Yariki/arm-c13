@@ -5,46 +5,45 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Collections.Generic;
 using ARM.Core.Interfaces;
 
-namespace ARM.Core.Service {
-	public class ARMModelsPeopertyCache {
+namespace ARM.Core.Service
+{
+    public class ARMModelsPeopertyCache
+    {
+        private static Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
 
-		private static Dictionary<Type,List<IARMModelPropertyInfo>> _dictCache = null;
+        public ARMModelsPeopertyCache()
+        {
+        }
 
-		public ARMModelsPeopertyCache(){
+        ~ARMModelsPeopertyCache()
+        {
+        }
 
-		}
+        public ARMModelsPeopertyCache Instance
+        {
+            get;
+            set;
+        }
 
-		~ARMModelsPeopertyCache(){
+        private void InitCache()
+        {
+        }
 
-		}
+        ///
+        /// <param name="type"></param>
+        private void AddNewType(Type type)
+        {
+        }
 
-		public ARMModelsPeopertyCache Instance{
-			get;
-			set;
-		}
-
-		private void InitCache(){
-
-		}
-
-		/// 
-		/// <param name="type"></param>
-		private void AddNewType(Type type){
-
-		}
-
-		/// 
-		/// <param name="type"></param>
-		public List<IARMModelPropertyInfo> GetPropertyInfos(Type type){
-
-			return null;
-		}
-
-	}//end ARMModelsPeopertyCache
-
+        ///
+        /// <param name="type"></param>
+        public List<IARMModelPropertyInfo> GetPropertyInfos(Type type)
+        {
+            return null;
+        }
+    }//end ARMModelsPeopertyCache
 }//end namespace Service

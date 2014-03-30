@@ -5,13 +5,12 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.ComponentModel;
-using ARM.Core.Interfaces;
-namespace ARM.Core.Interfaces {
-	public interface IARMValidatableViewModel : IARMDataViewModel, IDataErrorInfo  {
 
-		void InitializeValidationRules();
-	}//end IARMValidatableViewModel
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMValidatableViewModel : IARMDataViewModel, IDataErrorInfo
+    {
+        void InitializeValidationRules();
+    }//end IARMValidatableViewModel
 }//end namespace Interfaces

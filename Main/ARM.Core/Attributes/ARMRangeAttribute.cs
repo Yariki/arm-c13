@@ -5,21 +5,16 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Attributes
+{
+    public class ARMRangeAttribute : ARMNumericAttribute
+    {
+        public ARMRangeAttribute()
+        {
+        }
 
-
-
-using ARM.Core.Attributes;
-namespace ARM.Core.Attributes {
-	public class ARMRangeAttribute : ARMNumericAttribute {
-
-		public ARMRangeAttribute(){
-
-		}
-
-		~ARMRangeAttribute(){
-
-		}
-
-	}//end ARMRangeAttribute
-
+        ~ARMRangeAttribute()
+        {
+        }
+    }//end ARMRangeAttribute
 }//end namespace Attributes

@@ -64,3 +64,9 @@
 /Main/ARM.Data/*.user
 
 /*.suo
+/Main/ARM.Infrastructure/bin
+/Main/ARM.Infrastructure/obj
+/Main/ARM.Module/bin
+/Main/ARM.Module/obj
+
+/Main/ARM.Infrastructure/*.user

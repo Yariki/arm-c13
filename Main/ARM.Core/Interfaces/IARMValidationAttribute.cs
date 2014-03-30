@@ -5,12 +5,9 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
-namespace ARM.Core.Interfaces {
-	public interface IARMValidationAttribute  {
-
-	}//end IARMValidationAttribute
-
+namespace ARM.Core.Interfaces
+{
+    public interface IARMValidationAttribute
+    {
+    }//end IARMValidationAttribute
 }//end namespace Interfaces

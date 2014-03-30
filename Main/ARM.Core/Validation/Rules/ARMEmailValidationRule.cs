@@ -5,27 +5,21 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Validation.Rules
+{
+    public class ARMEmailValidationRule : ARMStringValidationRule
+    {
+        public ARMEmailValidationRule()
+        {
+        }
 
+        ~ARMEmailValidationRule()
+        {
+        }
 
-
-using ARM.Core.Interfaces;
-using ARM.Core.Validation.Rules;
-namespace ARM.Core.Validation.Rules {
-	public class ARMEmailValidationRule : ARMStringValidationRule {
-
-		public ARMEmailValidationRule(){
-
-		}
-
-		~ARMEmailValidationRule(){
-
-		}
-
-		protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(){
-
-			return null;
-		}
-
-	}//end ARMEmailValidationRule
-
+        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        {
+            return null;
+        }
+    }//end ARMEmailValidationRule
 }//end namespace Rules

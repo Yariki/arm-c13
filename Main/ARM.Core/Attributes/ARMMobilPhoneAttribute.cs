@@ -5,21 +5,16 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Attributes
+{
+    public class ARMMobilPhoneAttribute : ARMStringAttribute
+    {
+        public ARMMobilPhoneAttribute()
+        {
+        }
 
-
-
-using ARM.Core.Attributes;
-namespace ARM.Core.Attributes {
-	public class ARMMobilPhoneAttribute : ARMStringAttribute {
-
-		public ARMMobilPhoneAttribute(){
-
-		}
-
-		~ARMMobilPhoneAttribute(){
-
-		}
-
-	}//end ARMMobilPhoneAttribute
-
+        ~ARMMobilPhoneAttribute()
+        {
+        }
+    }//end ARMMobilPhoneAttribute
 }//end namespace Attributes

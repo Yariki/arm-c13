@@ -5,62 +5,62 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
-
 using System;
 using System.Linq.Expressions;
 using ARM.Core.EventArguments;
 using ARM.Core.Interfaces;
-namespace ARM.Core.Validation {
-	public class ARMValidationAdaptor : IARMValidationAdaptor {
 
-		public ARMValidationAdaptor(){
+namespace ARM.Core.Validation
+{
+    public class ARMValidationAdaptor : IARMValidationAdaptor
+    {
+        public ARMValidationAdaptor()
+        {
+        }
 
-		}
+        ~ARMValidationAdaptor()
+        {
+        }
 
-		~ARMValidationAdaptor(){
+        public void InitializeRules()
+        {
+        }
 
-		}
+        ///
+        /// <param name="rule"></param>
+        public void AddRule(IARMValidationRule rule)
+        {
+        }
 
-		public void InitializeRules(){
+        ///
+        /// <param name="propName"></param>
+        public void Validate<T>(Expression<Func<T>> propName)
+        {
+        }
 
-		}
+        public void ValidateAll()
+        {
+        }
 
-		/// 
-		/// <param name="rule"></param>
-		public void AddRule(IARMValidationRule rule){
+        public event EventHandler<ValidationEventArgs> ValidationCompleted;
 
-		}
+        ///
+        /// <param name="propName"></param>
+        public string GetResult<T>(Expression<Func<T>> propName)
+        {
+            return "";
+        }
 
-		/// 
-		/// <param name="propName"></param>
-		public void Validate<T>(Expression<Func<T>> propName){
+        public string GetResultForAll()
+        {
+            return "";
+        }
 
-		}
+        public string this[string columnName]
+        {
+            get { throw new NotImplementedException(); }
+        }
 
-		public void ValidateAll(){
-
-		}
-
-	    public event EventHandler<ValidationEventArgs> ValidationCompleted;
-
-		/// 
-		/// <param name="propName"></param>
-		public string GetResult<T>(Expression<Func<T>> propName){
-
-			return "";
-		}
-
-		public string GetResultForAll(){
-
-			return "";
-		}
-
-	    public string this[string columnName]
-	    {
-	        get { throw new NotImplementedException(); }
-	    }
-
-	    public string Error { get; private set; }
-	}//end ARMValidationAdaptor
-
+        public string Error { get; private set; }
+    }//end ARMValidationAdaptor
 }//end namespace Validation

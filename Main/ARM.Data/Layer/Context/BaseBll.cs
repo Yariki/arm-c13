@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
 
@@ -23,12 +24,14 @@ namespace ARM.Data.Layer.Context
         /// <param name="obj"></param>
         public void Insert(T obj)
         {
+            _dal.Insert(obj);
         }
 
         ///
         /// <param name="arg"></param>
         public void InsertAll(IEnumerable<T> arg)
         {
+            _dal.InsertAll(arg);
         }
 
         ///
@@ -41,24 +44,20 @@ namespace ARM.Data.Layer.Context
         /// <param name="item"></param>
         public void Delete(T item)
         {
+            _dal.Delete(item);
         }
 
         ///
         /// <param name="id"></param>
-        public T GetById(long id)
+        public T GetById(Guid id)
         {
-            return default(T);
+            return _dal.GetById(id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return null;
+            return _dal.GetAll();
         }
 
-        ///
-        /// <param name="id"></param>
-        public void Delete(long id)
-        {
-        }
     }//end BaseBll
 }//end namespace Context

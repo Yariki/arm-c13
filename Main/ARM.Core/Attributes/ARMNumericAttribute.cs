@@ -5,31 +5,28 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+namespace ARM.Core.Attributes
+{
+    public abstract class ARMNumericAttribute : ARMValidationAttribute
+    {
+        public ARMNumericAttribute()
+        {
+        }
 
+        ~ARMNumericAttribute()
+        {
+        }
 
+        public decimal Max
+        {
+            get;
+            set;
+        }
 
-using ARM.Core.Attributes;
-namespace ARM.Core.Attributes {
-	public abstract class ARMNumericAttribute : ARMValidationAttribute {
-
-		public ARMNumericAttribute(){
-
-		}
-
-		~ARMNumericAttribute(){
-
-		}
-
-		public decimal Max{
-			get;
-			set;
-		}
-
-		public decimal Min{
-			get;
-			set;
-		}
-
-	}//end ARMNumericAttribute
-
+        public decimal Min
+        {
+            get;
+            set;
+        }
+    }//end ARMNumericAttribute
 }//end namespace Attributes

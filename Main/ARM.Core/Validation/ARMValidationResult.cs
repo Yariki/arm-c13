@@ -5,30 +5,30 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
-
 using System.Collections.Generic;
 using ARM.Core.Interfaces;
-namespace ARM.Core.Validation {
-	public class ARMValidationResult : IARMValidationResult {
 
-		public ARMValidationResult(){
+namespace ARM.Core.Validation
+{
+    public class ARMValidationResult : IARMValidationResult
+    {
+        public ARMValidationResult()
+        {
+        }
 
-		}
+        ~ARMValidationResult()
+        {
+        }
 
-		~ARMValidationResult(){
+        public bool IsValid
+        {
+            get;
+            set;
+        }
 
-		}
-
-		public bool IsValid{
-			get;
-			set;
-		}
-
-		public IEnumerable<string> GetErrors(){
-
-			return null;
-		}
-
-	}//end ARMValidationResult
-
+        public IEnumerable<string> GetErrors()
+        {
+            return null;
+        }
+    }//end ARMValidationResult
 }//end namespace Validation

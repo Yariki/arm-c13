@@ -5,22 +5,18 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
-
-
-
 using ARM.Core.Interfaces;
-using ARM.Core.Attributes;
-namespace ARM.Core.Attributes {
-	public class ARMValidationAttribute : ARMBaseAttribute, IARMValidationAttribute {
 
-		public ARMValidationAttribute(){
+namespace ARM.Core.Attributes
+{
+    public class ARMValidationAttribute : ARMBaseAttribute, IARMValidationAttribute
+    {
+        public ARMValidationAttribute()
+        {
+        }
 
-		}
-
-		~ARMValidationAttribute(){
-
-		}
-
-	}//end ARMValidationAttribute
-
+        ~ARMValidationAttribute()
+        {
+        }
+    }//end ARMValidationAttribute
 }//end namespace Attributes

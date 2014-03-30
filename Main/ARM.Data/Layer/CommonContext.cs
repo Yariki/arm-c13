@@ -87,102 +87,102 @@ namespace ARM.Data.Layer
 
         IDbSet<Achivement> IContext<Achivement>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Achivements;
         }
 
         IDbSet<Address> IContext<Address>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Addresses;
         }
 
         IDbSet<Class> IContext<Class>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Classes;
         }
 
         IDbSet<Contract> IContext<Contract>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Contracts;
         }
 
         IDbSet<Country> IContext<Country>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Countries;
         }
 
         IDbSet<Faculty> IContext<Faculty>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Faculties;
         }
 
         IDbSet<Group> IContext<Group>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Groups;
         }
 
         IDbSet<Hobby> IContext<Hobby>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Hobbies;
         }
 
         IDbSet<Invoice> IContext<Invoice>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Invoices;
         }
 
         IDbSet<Language> IContext<Language>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Languages;
         }
 
         IDbSet<Mark> IContext<Mark>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Marks;
         }
 
         IDbSet<Parent> IContext<Parent>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Parents;
         }
 
         IDbSet<Payment> IContext<Payment>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Payments;
         }
 
         IDbSet<Session> IContext<Session>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Sessions;
         }
 
         IDbSet<SettingParameters> IContext<SettingParameters>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return SettingParameterses;
         }
 
         IDbSet<Specialty> IContext<Specialty>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Specialties;
         }
 
         IDbSet<Staff> IContext<Staff>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Staves;
         }
 
         IDbSet<Student> IContext<Student>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Students;
         }
 
         IDbSet<University> IContext<University>.GetItems()
         {
-            throw new System.NotImplementedException();
+            return Universities;
         }
 
         public void Save()
         {
-            
+            this.SaveChanges();
         }
 
     }
