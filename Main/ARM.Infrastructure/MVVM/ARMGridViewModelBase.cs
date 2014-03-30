@@ -12,7 +12,7 @@ using ARM.Core.MVVM;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public class ARMGridViewModelBase<T> : ARMViewModelBase, IARMGridViewModel<T>
+    public class ARMGridViewModelBase<T> : ARMWorkspaceViewModelBase, IARMGridViewModel<T>
     {
         public ARMGridViewModelBase(IARMView view)
         :base(view)

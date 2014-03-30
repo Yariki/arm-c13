@@ -7,7 +7,7 @@
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMDataViewModel : IARMViewModel
+    public interface IARMDataViewModel : IARMWorkspaceViewModel
     {
         object DataObject();
     }//end IARMDataViewModel

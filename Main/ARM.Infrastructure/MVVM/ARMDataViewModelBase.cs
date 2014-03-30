@@ -13,7 +13,7 @@ using ARM.Core.MVVM;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public class ARMDataViewModelBase : ARMViewModelBase, IARMDataViewModel
+    public class ARMDataViewModelBase : ARMWorkspaceViewModelBase, IARMDataViewModel
     {
         private object _dataObject;
         private Dictionary<string, object> _values;

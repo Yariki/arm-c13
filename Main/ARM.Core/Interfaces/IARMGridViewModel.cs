@@ -10,7 +10,7 @@ using ARM.Core.Enums;
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMGridViewModel<T> : IARMViewModel
+    public interface IARMGridViewModel<T> : IARMWorkspaceViewModel
     {
         IList<T> DataSource
         {
