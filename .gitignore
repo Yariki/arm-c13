@@ -70,3 +70,5 @@
 /Main/ARM.Module/obj
 
 /Main/ARM.Infrastructure/*.user
+
+/Main/ARM.Module/ARM.Module.csproj.user

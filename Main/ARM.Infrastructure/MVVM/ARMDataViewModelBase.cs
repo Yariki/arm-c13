@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Windows.Input;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 
@@ -97,5 +98,15 @@ namespace ARM.Infrastructure.MVVM
         {
             return null;
         }
+		
+		#region [commands]
+		
+		public ICommand SaveCommand {get;private set;}
+		
+		public ICommand CancelCommand {get;private set;}
+			
+		#endregion
+		
+		
     }//end ARMDataViewModelBase
 }//end namespace MVVM

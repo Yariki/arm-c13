@@ -15,25 +15,28 @@ namespace ARM.Core.Interfaces
         string Image
         {
             get;
-            set;
         }
 
+		string ResourceName
+		{
+			get;
+		}
+		
         string Tooltip
         {
             get;
-            set;
         }
 
         object Tag
         {
             get;
-            set;
         }
 
         ToolbarCommand Type
         {
             get;
-            set;
         }
+		
+		int Order{get;}
     }//end IARMToolboxCommand
 }//end namespace Interfaces
