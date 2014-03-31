@@ -55,6 +55,7 @@
     <Reference Include="NSubstitute">
       <HintPath>..\..\packages\NSubstitute.1.7.2.0\lib\NET40\NSubstitute.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PrismMVVMLibrary">
       <HintPath>..\..\packages\PrismMVVMLibrary.2.0.0.10\lib\net40\PrismMVVMLibrary.dll</HintPath>
     </Reference>
@@ -70,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
+    <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
+    <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
+    <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
+    <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
+    <Compile Include="Interfaces\IARMMenuCommand.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
