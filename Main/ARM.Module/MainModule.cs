@@ -5,20 +5,25 @@
 //  Created on:      31-Mar-2014 11:50:26 PM
 ///////////////////////////////////////////////////////////
 
-
+using ARM.Core.Module;
+using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
-namespace ARM.Module {
-	public class MainModule : IModule {
+namespace ARM.Module
+{
+    public class MainModule : ARMBaseModule
+    {
+        public MainModule( IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator )
+            :base(regionManager,unityContainer,eventAggregator)
+        {
+        }
 
-		public MainModule(){
+        protected override void RegistreInterfaces()
+        {
+            base.RegistreInterfaces();
 
-		}
-
-	    public void Initialize()
-	    {
-	        throw new System.NotImplementedException();
-	    }
-	}//end MainModule
-
+        }
+    }//end MainModule
 }//end namespace ARM.Module

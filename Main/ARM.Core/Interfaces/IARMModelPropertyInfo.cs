@@ -15,25 +15,21 @@ namespace ARM.Core.Interfaces
         PropertyInfo Property
         {
             get;
-            set;
         }
 
         bool IsRequired
         {
             get;
-            set;
         }
 
         Type ReturnType
         {
             get;
-            set;
         }
 
         IARMValidationAttribute ValidationAttribute
         {
             get;
-            set;
         }
     }//end IARMModelPropertyInfo
 }//end namespace Interfaces

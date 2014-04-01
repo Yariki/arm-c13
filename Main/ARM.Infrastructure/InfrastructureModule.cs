@@ -6,19 +6,23 @@
 ///////////////////////////////////////////////////////////
 
 
+using ARM.Core.Module;
+using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure {
-	public class InfrastructureModule : IModule {
+	public class InfrastructureModule : ARMBaseModule 
+    {
 
-		public InfrastructureModule(){
+        public InfrastructureModule(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator) 
+            : base(regionManager,unityContainer,eventAggregator)
+        {
 
 		}
 
-	    public void Initialize()
-	    {
-	        throw new System.NotImplementedException();
-	    }
 	}//end InfrastructureModule
 
 }//end namespace ARM.Infrastructure

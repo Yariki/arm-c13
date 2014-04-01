@@ -7,30 +7,59 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using ARM.Core.Attributes;
+using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
+using ARM.Core.Interfaces.Data;
+using ARM.Core.Reflection;
+using Microsoft.Practices.ObjectBuilder2;
 
 namespace ARM.Core.Service
 {
-    public class ARMModelsPeopertyCache
+    public class ARMModelsPropertyCache
     {
         private static Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
 
-        public ARMModelsPeopertyCache()
+
+        private ARMModelsPropertyCache()
         {
+            InitCache();
         }
 
-        ~ARMModelsPeopertyCache()
+        #region [static]
+
+        private static Lazy<ARMModelsPropertyCache> _instance = new Lazy<ARMModelsPropertyCache>(() => new ARMModelsPropertyCache()); 
+
+        public static ARMModelsPropertyCache Instance
         {
+            get { return _instance.Value; }
         }
 
-        public ARMModelsPeopertyCache Instance
-        {
-            get;
-            set;
-        }
+        #endregion
 
+        
         private void InitCache()
         {
+            var listType =
+                AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes().Where(t => t is IARMModel));
+            foreach (var type in listType)
+            {
+                var listPi = type.GetAllPublicProperties();
+                if(!listPi.Any()) continue;
+                var listArmPi = new List<ARMModelPropertyInfo>();
+                foreach (var propertyInfo in listPi)
+                {
+                    bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
+                    IARMValidationAttribute validAttr = null;
+                    if (propertyInfo.HasAttribute<ARMValidationAttribute>())
+                    {
+                        validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
+                    }
+                    listArmPi.Add(new ARMModelPropertyInfo(propertyInfo,isRequired,validAttr));
+                }
+            }
         }
 
         ///
