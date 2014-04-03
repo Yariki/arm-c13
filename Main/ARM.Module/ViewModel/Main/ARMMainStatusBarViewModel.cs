@@ -7,12 +7,14 @@
 
 using ARM.Core.MVVM;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.View;
 
 namespace ARM.Module.ViewModel.Main
 {
-    public class ARMMainStatusBasrViewModel :ARMViewModelBase, IARMMainStatusBarViewModel
+    public class ARMMainStatusBarViewModel :ARMViewModelBase, IARMMainStatusBarViewModel
     {
-        public ARMMainStatusBasrViewModel() : base(null)
+        public ARMMainStatusBarViewModel(IARMMainStatusBarView statusBarView) 
+            : base(statusBarView)
         {
         }
 

@@ -7,8 +7,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using ARM.Core.Attributes;
 using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
@@ -25,6 +27,7 @@ namespace ARM.Core.Service
 
         private ARMModelsPropertyCache()
         {
+            _dictCache = new Dictionary<Type, List<IARMModelPropertyInfo>>();
             InitCache();
         }
 
@@ -46,33 +49,42 @@ namespace ARM.Core.Service
                 AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes().Where(t => t is IARMModel));
             foreach (var type in listType)
             {
-                var listPi = type.GetAllPublicProperties();
-                if(!listPi.Any()) continue;
-                var listArmPi = new List<ARMModelPropertyInfo>();
-                foreach (var propertyInfo in listPi)
-                {
-                    bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
-                    IARMValidationAttribute validAttr = null;
-                    if (propertyInfo.HasAttribute<ARMValidationAttribute>())
-                    {
-                        validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
-                    }
-                    listArmPi.Add(new ARMModelPropertyInfo(propertyInfo,isRequired,validAttr));
-                }
+                AddType(type);
             }
+        }
+
+        private static void AddType(Type type)
+        {
+            var listPi = type.GetAllPublicProperties();
+            if (!listPi.Any()) return;
+            List<IARMModelPropertyInfo> listArmPi = new List<IARMModelPropertyInfo>();
+            foreach (var propertyInfo in listPi)
+            {
+                bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
+                IARMValidationAttribute validAttr = null;
+                if (propertyInfo.HasAttribute<ARMValidationAttribute>())
+                {
+                    validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
+                }
+                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr));
+            }
+            _dictCache[type] = listArmPi;
         }
 
         ///
         /// <param name="type"></param>
         private void AddNewType(Type type)
         {
+            Contract.Requires(type != null);
+            AddType(type);
         }
 
         ///
         /// <param name="type"></param>
         public List<IARMModelPropertyInfo> GetPropertyInfos(Type type)
         {
-            return null;
+            Contract.Requires(type != null);
+            return _dictCache.ContainsKey(type) ? _dictCache[type] : null;
         }
     }//end ARMModelsPeopertyCache
 }//end namespace Service

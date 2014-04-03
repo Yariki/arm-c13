@@ -12,16 +12,16 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainMenuViewModel : IARMViewModel
     {
-        ObservableCollection<IARMMenuCommand> Files();
+        ObservableCollection<IARMMenuCommand> Files { get; }
 
-        ObservableCollection<IARMMenuCommand> Documents();
+        ObservableCollection<IARMMenuCommand> Documents { get; }
 
-        ObservableCollection<IARMMenuCommand> References();
+        ObservableCollection<IARMMenuCommand> References { get; }
 
-        ObservableCollection<IARMMenuCommand> Reports();
+        ObservableCollection<IARMMenuCommand> Reports { get; }
 
-        ObservableCollection<IARMMenuCommand> Services();
+        ObservableCollection<IARMMenuCommand> Services { get; }
 
-        ObservableCollection<IARMMenuCommand> Helps();
+        ObservableCollection<IARMMenuCommand> Helps { get; }
     }//end IARMMainMenuViewModel
 }//end namespace Interfaces

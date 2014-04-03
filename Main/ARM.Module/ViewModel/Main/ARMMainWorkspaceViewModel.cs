@@ -9,42 +9,49 @@ using System.Collections.ObjectModel;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.View;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
+using Xceed.Wpf.Toolkit;
 
 namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainWorkspaceViewModel : ARMViewModelBase, IARMMainWorkspaceViewModel
     {
-        public ARMMainWorkspaceViewModel()
-            : base(null)
+        private readonly IUnityContainer _unityContainer;
+        private readonly IRegionManager _regionManager;
+
+        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer,IRegionManager regionManager,  IARMMainWorkspaceView workspaceView)
+            : base(workspaceView)
         {
+            _unityContainer = unityContainer;
+            _regionManager = regionManager;
+            Menu = _unityContainer.Resolve<IARMMainMenuViewModel>();
+            Toolbox = _unityContainer.Resolve<IARMMainToolboxViewModel>();
+            StatusBar = _unityContainer.Resolve<IARMMainStatusBarViewModel>();
+
         }
 
-        public IARMView MenuView { get; set; }
-
-        public IARMView ToolboxView { get; set; }
-
-        public IARMView StatusBarView { get; set; }
-
-        IARMMainMenuViewModel IARMMainWorkspaceViewModel.Menu()
+        public IARMView MenuView 
         {
-            throw new System.NotImplementedException();
+            get { return Menu.View; }
         }
 
-        IARMMainToolboxViewModel IARMMainWorkspaceViewModel.Toolbox()
+        public IARMView ToolboxView
         {
-            throw new System.NotImplementedException();
+            get { return Toolbox.View; }
         }
 
-        IARMMainStatusBarViewModel IARMMainWorkspaceViewModel.StatusBar()
+        public IARMView StatusBarView
         {
-            throw new System.NotImplementedException();
+            get { return StatusBar.View; }
         }
 
-        public IARMMainMenuViewModel Menu { get; set; }
+        public IARMMainMenuViewModel Menu { get; private set; }
 
-        public IARMMainToolboxViewModel Toolbox { get; set; }
+        public IARMMainToolboxViewModel Toolbox { get; private set; }
 
-        public IARMMainStatusBarViewModel StatusBar { get; set; }
+        public IARMMainStatusBarViewModel StatusBar { get; private set; }
 
         public ObservableCollection<IARMWorkspaceViewModel> Items { get; set; }
 

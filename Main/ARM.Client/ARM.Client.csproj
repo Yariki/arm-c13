@@ -126,6 +126,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ARM.Core\ARM.Core.csproj">
+      <Project>{96EBE2BE-DA94-4718-B320-D971CEBF716F}</Project>
+      <Name>ARM.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARM.Infrastructure\ARM.Infrastructure.csproj">
+      <Project>{9E56542C-A377-4307-9F43-69CAC911F6EE}</Project>
+      <Name>ARM.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ARM.Module\ARM.Module.csproj">
       <Project>{05594D64-3EC3-4BA6-8DDE-0E4513FA4B93}</Project>
       <Name>ARM.Module</Name>

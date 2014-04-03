@@ -10,48 +10,21 @@ using System.ComponentModel;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.View;
 
 namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainMenuViewModel : ARMViewModelBase, IARMMainMenuViewModel
     {
-        public ARMMainMenuViewModel() : base(null)
+        public ARMMainMenuViewModel(IARMMainMenuView menuView ) : base(menuView)
         {
         }
 
-
-        public ObservableCollection<IARMMenuCommand> Files()
-        {
-            return null;
-        }
-
-        public ObservableCollection<IARMMenuCommand> Documents()
-        {
-            return null;
-        }
-
-        public ObservableCollection<IARMMenuCommand> References()
-        {
-            return null;
-        }
-
-        public ObservableCollection<IARMMenuCommand> Reports()
-        {
-            return null;
-        }
-
-        public ObservableCollection<IARMMenuCommand> Services()
-        {
-            return null;
-        }
-
-        public ObservableCollection<IARMMenuCommand> Helps()
-        {
-            return null;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public IARMView View { get; private set; }
+        public ObservableCollection<IARMMenuCommand> Files { get; private set; }
+        public ObservableCollection<IARMMenuCommand> Documents { get; private set; }
+        public ObservableCollection<IARMMenuCommand> References { get; private set; }
+        public ObservableCollection<IARMMenuCommand> Reports { get; private set; }
+        public ObservableCollection<IARMMenuCommand> Services { get; private set; }
+        public ObservableCollection<IARMMenuCommand> Helps { get; private set; }
     }//end ARMMainMenuViewModel
 }//end namespace Main

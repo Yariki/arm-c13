@@ -27,25 +27,22 @@ namespace ARM.Module.Interfaces
         IARMView MenuView
         {
             get;
-            set;
         }
 
         IARMView ToolboxView
         {
             get;
-            set;
         }
 
         IARMView StatusBarView
         {
             get;
-            set;
         }
 
-        IARMMainMenuViewModel Menu();
+        IARMMainMenuViewModel Menu { get; }
 
-        IARMMainToolboxViewModel Toolbox();
+        IARMMainToolboxViewModel Toolbox { get; }
 
-        IARMMainStatusBarViewModel StatusBar();
+        IARMMainStatusBarViewModel StatusBar { get; }
     }//end IARMMainWorkspaceViewModel
 }//end namespace Interfaces

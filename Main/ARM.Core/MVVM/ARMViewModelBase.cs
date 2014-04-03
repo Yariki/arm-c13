@@ -8,6 +8,9 @@
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Messaging;
+using System.Threading;
+using System.Windows.Threading;
 using ARM.Core.Interfaces;
 
 namespace ARM.Core.MVVM
@@ -19,6 +22,19 @@ namespace ARM.Core.MVVM
         protected ARMViewModelBase(IARMView view)
         {
             View = view;
+            SetDataContext();
+        }
+
+        private void SetDataContext()
+        {
+            if (SynchronizationContext.Current is DispatcherSynchronizationContext)
+            {
+                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => this.View.DataContext = this));
+            }
+            else
+            {
+                this.View.DataContext = this;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,6 +43,11 @@ namespace ARM.Core.MVVM
         /// <param name="propertyName"></param>
         protected void OnPropertyChanged(string propertyName)
         {
+            var temp = PropertyChanged;
+            if (temp != null)
+            {
+                temp(this,new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         ///

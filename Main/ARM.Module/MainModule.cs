@@ -6,10 +6,15 @@
 ///////////////////////////////////////////////////////////
 
 using ARM.Core.Module;
+using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.View;
+using ARM.Module.View;
+using ARM.Module.ViewModel.Main;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using ARM.Infrastructure.Region;
 
 namespace ARM.Module
 {
@@ -23,7 +28,30 @@ namespace ARM.Module
         protected override void RegistreInterfaces()
         {
             base.RegistreInterfaces();
+            //registre view
+            UnityContainer.RegisterType<IARMMainWorkspaceView, ARMMainWorkspaceView>();
+            UnityContainer.RegisterType<IARMMainMenuView, ARMMenuView>();
+            UnityContainer.RegisterType<IARMMainStatusBarView, ARMStatusBarView>();
+            UnityContainer.RegisterType<IARMMainToolboxView, ARMToolboxView>();
+            //register view model
+            UnityContainer.RegisterType<IARMMainWorkspaceViewModel, ARMMainWorkspaceViewModel>();
+            UnityContainer.RegisterType<IARMMainMenuViewModel, ARMMainMenuViewModel>();
+            UnityContainer.RegisterType<IARMMainStatusBarViewModel, ARMMainStatusBarViewModel>();
+            UnityContainer.RegisterType<IARMMainToolboxViewModel, ARMMainToolboxViewModel>();
+        }
 
+        protected override void InjectViews()
+        {
+            base.InjectViews();
+            IARMMainWorkspaceViewModel mainViewModel = UnityContainer.Resolve<IARMMainWorkspaceViewModel>();
+            IRegion region = RegionManager.Regions[ARMMainRegionNames.WORKSPACE_REGION];
+            region.Add(mainViewModel.View);
+            region = RegionManager.Regions[ARMMainRegionNames.MENU_REGION];
+            region.Add(mainViewModel.MenuView);
+            region = RegionManager.Regions[ARMMainRegionNames.STATUSBAR_REGION];
+            region.Add(mainViewModel.StatusBarView);
+            region = RegionManager.Regions[ARMMainRegionNames.TOOLBOX_REGION];
+            region.Add(mainViewModel.ToolboxView);
         }
     }//end MainModule
 }//end namespace ARM.Module

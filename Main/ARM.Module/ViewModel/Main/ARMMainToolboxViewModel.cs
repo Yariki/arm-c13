@@ -8,20 +8,17 @@
 using System.Collections.ObjectModel;
 using ARM.Core.MVVM;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.View;
 
 namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainToolboxViewModel : ARMViewModelBase, IARMMainToolboxViewModel
     {
-        public ARMMainToolboxViewModel() : base(null)
+        public ARMMainToolboxViewModel(IARMMainToolboxView toolboxView) 
+            : base(toolboxView)
         {
         }
 
-       
-
-        public ObservableCollection<IARMMainToolboxCommand> Commands()
-        {
-            return null;
-        }
+        public ObservableCollection<IARMMainToolboxCommand> Commands { get; private set; }
     }//end ARMMainToolboxViewModel
 }//end namespace Main

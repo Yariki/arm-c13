@@ -5,7 +5,7 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Core.Module
 {
-    public class ARMBaseModule : IModule
+    public abstract class ARMBaseModule : IModule
     {
 
         #region [needs]

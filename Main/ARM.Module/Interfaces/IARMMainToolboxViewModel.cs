@@ -12,6 +12,6 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainToolboxViewModel : IARMViewModel
     {
-        ObservableCollection<IARMMainToolboxCommand> Commands();
+        ObservableCollection<IARMMainToolboxCommand> Commands { get; }
     }//end IARMMainToolboxViewModel
 }//end namespace Interfaces
