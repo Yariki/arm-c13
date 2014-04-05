@@ -7,17 +7,21 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Input;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
+using ARM.Core.Service;
+using ARM.Core.Extensions;
 
 namespace ARM.Infrastructure.MVVM
 {
     public class ARMDataViewModelBase : ARMWorkspaceViewModelBase, IARMDataViewModel
     {
         private object _dataObject;
-        private Dictionary<string, object> _values;
+        private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
+        private readonly List<IARMModelPropertyInfo> _listProperty; 
 
         ///
         /// <param name="businessObject"></param>
@@ -25,24 +29,40 @@ namespace ARM.Infrastructure.MVVM
         protected ARMDataViewModelBase(object businessObject, IARMView view) 
             : base(view)
         {
+            _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(businessObject.GetType()).ToList();
         }
 
         ///
         /// <param name="obj"></param>
-        protected void SetBusinessObject(object obj)
+        protected void SetBusinessObject<TObj>(TObj obj)
         {
+            this._dataObject = (object) obj;
         }
 
-        protected object GetBusinessObject()
+        protected TObj GetBusinessObject<TObj>()
         {
-            return null;
+            return (TObj)_dataObject;
+        }
+
+        protected bool HasProperty(string name)
+        {
+            if (!_listProperty.Any())
+                return false;
+            return _listProperty.Any(i => i.Property.Name == name);
+        }
+
+        protected IARMModelPropertyInfo GetPropertyInfo(string name)
+        {
+            if (!_listProperty.Any())
+                return null;
+            return _listProperty.FirstOrDefault(i => i.Property.Name == name);
         }
 
         ///
         /// <param name="expression"></param>
         protected T Get<T>(Expression<Func<T>> expression)
         {
-            return default(T);
+            return Get<T>(this.GetPropertyName(expression), default(T));
         }
 
         ///
@@ -50,14 +70,14 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="defaultValue"></param>
         protected T Get<T>(Expression<Func<T>> expression, T defaultValue)
         {
-            return default(T);
+            return Get<T>(this.GetPropertyName(expression),defaultValue);
         }
 
         ///
         /// <param name="name"></param>
         protected T Get<T>(string name)
         {
-            return default(T);
+            return Get<T>(name,default(T));
         }
 
         ///
@@ -65,7 +85,16 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="defaultValue"></param>
         protected T Get<T>(string name, T defaultValue)
         {
-            return default(T);
+            if (_dataObject != null && HasProperty(name))
+            {
+                IARMModelPropertyInfo pi = GetPropertyInfo(name);
+                return pi.Property.GetPropertyValue<T>(_dataObject);
+            }
+            if (_values.ContainsKey(name))
+            {
+                return (T)_values[name];
+            }
+            return defaultValue;
         }
 
         ///

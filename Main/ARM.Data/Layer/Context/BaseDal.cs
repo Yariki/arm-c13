@@ -14,7 +14,7 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Context
 {
-    public class BaseDal<T> : IDal<T> where T : class
+    public abstract class BaseDal<T> : IDal<T> where T : class
     {
         private IContext<T> _context;
 
@@ -63,6 +63,12 @@ namespace ARM.Data.Layer.Context
         public T GetById(Guid id)
         {
             return _context.GetItems().FirstOrDefault(item => (item as BaseModel).Id == id);
+        }
+
+        public void Dispose()
+        {
+            if(_context != null)
+                _context.Dispose();
         }
     }//end BaseDal
 }//end namespace Context

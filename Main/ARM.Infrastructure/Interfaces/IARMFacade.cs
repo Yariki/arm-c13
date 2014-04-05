@@ -15,12 +15,6 @@ namespace ARM.Infrastructure.Interfaces
             set;
         }
 
-        IARMDataFacade Data
-        {
-            get;
-            set;
-        }
-
         IARMMessageBoxFacade MessageBox
         {
             get;

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace ARM.Data.Layer.Interfaces
 {
-    public interface IBll<T>
+    public interface IBll<T> : IDisposable
     {
         ///
         /// <param name="obj"></param>

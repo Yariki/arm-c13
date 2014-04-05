@@ -1,4 +1,4 @@
-namespace ARM.Data.Migrations
+namespace ARM.Data.CommonContextMigrations
 {
     using System;
     using System.Data.Entity;
@@ -9,7 +9,8 @@ namespace ARM.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"CommonContextMigrations";
         }
 
         protected override void Seed(ARM.Data.Layer.CommonContext context)

@@ -27,14 +27,7 @@ namespace ARM.Core.MVVM
 
         private void SetDataContext()
         {
-            if (SynchronizationContext.Current is DispatcherSynchronizationContext)
-            {
-                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => this.View.DataContext = this));
-            }
-            else
-            {
-                this.View.DataContext = this;
-            }
+            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => this.View.DataContext = this));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -46,7 +39,7 @@ namespace ARM.Core.MVVM
             var temp = PropertyChanged;
             if (temp != null)
             {
-                temp(this,new PropertyChangedEventArgs(propertyName));
+                temp(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -54,6 +47,18 @@ namespace ARM.Core.MVVM
         /// <param name="exp"></param>
         protected void OnPropertyChanged<T>(Expression<Func<T>> exp)
         {
+            MemberExpression memberExpression = exp.Body as MemberExpression;
+            if (memberExpression == null)
+                throw new ArgumentException("Expression is empty");
+            OnPropertyChanged(memberExpression.Member.Name);
+        }
+
+        protected string GetPropertyName<T>(Expression<Func<T>> exp)
+        {
+            var memExpression = exp.Body as MemberExpression;
+            if (memExpression == null)
+                return string.Empty;
+            return memExpression.Member.Name;
         }
 
         public IARMView View

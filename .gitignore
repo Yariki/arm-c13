@@ -72,3 +72,7 @@
 /Main/ARM.Infrastructure/*.user
 
 /Main/ARM.Module/ARM.Module.csproj.user
+/Samples/ARMAutoReg/bin
+/Samples/ARMAutoReg/obj
+
+/arm_c13_import.log

@@ -27,6 +27,8 @@ namespace ARM.Data.Models
             set;
         }
 
+        public string Url { get; set; }
+
         public virtual Staff Head
         {
             get;

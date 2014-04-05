@@ -5,11 +5,12 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Data.Entity;
 
 namespace ARM.Data.Layer.Interfaces
 {
-    public interface IContext<T> where T : class
+    public interface IContext<T> : IDisposable where T : class
     {
         IDbSet<T> GetItems();
 

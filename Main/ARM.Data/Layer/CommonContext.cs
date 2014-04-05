@@ -24,8 +24,8 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer
 {
-    public class CommonContext : DbContext, IAchivementContext, IAddressContext, IClassContext, IContractContext, ICountryContext, IFacultyContext, IGroupContext, IHobbyContext,
-        IInvoiceContext, ILanguageContext, IMarkContext, IParentContext, IPaymentContext, ISessionContext, ISettingsContext, ISpecialtyContext, IStaffContext, IStudentContext, IUniversityContext
+    // this class is used only for migrations at all.
+    public class CommonContext : DbContext
     {
 
         public CommonContext()
@@ -85,105 +85,6 @@ namespace ARM.Data.Layer
 
         #endregion
 
-        IDbSet<Achivement> IContext<Achivement>.GetItems()
-        {
-            return Achivements;
-        }
-
-        IDbSet<Address> IContext<Address>.GetItems()
-        {
-            return Addresses;
-        }
-
-        IDbSet<Class> IContext<Class>.GetItems()
-        {
-            return Classes;
-        }
-
-        IDbSet<Contract> IContext<Contract>.GetItems()
-        {
-            return Contracts;
-        }
-
-        IDbSet<Country> IContext<Country>.GetItems()
-        {
-            return Countries;
-        }
-
-        IDbSet<Faculty> IContext<Faculty>.GetItems()
-        {
-            return Faculties;
-        }
-
-        IDbSet<Group> IContext<Group>.GetItems()
-        {
-            return Groups;
-        }
-
-        IDbSet<Hobby> IContext<Hobby>.GetItems()
-        {
-            return Hobbies;
-        }
-
-        IDbSet<Invoice> IContext<Invoice>.GetItems()
-        {
-            return Invoices;
-        }
-
-        IDbSet<Language> IContext<Language>.GetItems()
-        {
-            return Languages;
-        }
-
-        IDbSet<Mark> IContext<Mark>.GetItems()
-        {
-            return Marks;
-        }
-
-        IDbSet<Parent> IContext<Parent>.GetItems()
-        {
-            return Parents;
-        }
-
-        IDbSet<Payment> IContext<Payment>.GetItems()
-        {
-            return Payments;
-        }
-
-        IDbSet<Session> IContext<Session>.GetItems()
-        {
-            return Sessions;
-        }
-
-        IDbSet<SettingParameters> IContext<SettingParameters>.GetItems()
-        {
-            return SettingParameterses;
-        }
-
-        IDbSet<Specialty> IContext<Specialty>.GetItems()
-        {
-            return Specialties;
-        }
-
-        IDbSet<Staff> IContext<Staff>.GetItems()
-        {
-            return Staves;
-        }
-
-        IDbSet<Student> IContext<Student>.GetItems()
-        {
-            return Students;
-        }
-
-        IDbSet<University> IContext<University>.GetItems()
-        {
-            return Universities;
-        }
-
-        public void Save()
-        {
-            this.SaveChanges();
-        }
 
     }
 }

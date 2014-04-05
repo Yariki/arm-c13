@@ -9,21 +9,60 @@ using System;
 using System.Windows.Input;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
+using Microsoft.Practices.Prism.Commands;
 
 namespace ARM.Infrastructure.MVVM
 {
     public class ARMWorkspaceViewModelBase : ARMViewModelBase,IARMWorkspaceViewModel
     {
-        public ARMWorkspaceViewModelBase(IARMView view)
-            : base(view)
+
+#region [needs]
+
+        private ICommand _closeCommand;
+#endregion
+
+
+        public class CloseAbort
         {
+            public bool Handled { get; set; }
         }
 
+        public ARMWorkspaceViewModelBase(IARMView view)
+            : base(view)
+        {   
+        }
+
+        
         public ICommand CloseCommand
         {
-            get; private set;
+            get
+            {
+                if (_closeCommand == null)
+                {
+                    _closeCommand = new DelegateCommand(OnClose);
+                }
+                return _closeCommand;
+            }
         }
 
         public event EventHandler RequestClose;
+
+        protected virtual void Closing(CloseAbort args)
+        {   
+        }
+
+        protected virtual void Closed(){}
+
+        private void OnClose()
+        {
+            var args = new CloseAbort() {Handled = false};
+            Closing(args);
+
+            EventHandler temp = RequestClose;
+            if (temp != null && !args.Handled)
+                temp(this, EventArgs.Empty);
+            Closed();
+        }
+
     }//end ARMWorkspaceViewModelBase
 }//end namespace MVVM

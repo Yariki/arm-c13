@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace ARM.Data.Layer.Interfaces
 {
-    public interface IDal<T>
+    public interface IDal<T> : IDisposable
     {
         ///
         /// <param name="obj"></param>

@@ -112,7 +112,7 @@
     <Compile Include="MVVM\Commands\Base\ARMToolboxCommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\ARMModelPropertyInfo.cs" />
-    <Compile Include="Service\ARMModelsPeopertyCache.cs" />
+    <Compile Include="Service\ARMModelsPropertyCache.cs" />
     <Compile Include="Validation\ARMValidationAdaptor.cs" />
     <Compile Include="Validation\ARMValidationResult.cs" />
     <Compile Include="Validation\ARMValidationRulesFactory.cs" />

@@ -11,7 +11,7 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Layer.Context
 {
-    public class BaseBll<T> : IBll<T> where T : class
+    public abstract class BaseBll<T> : IBll<T> where T : class
     {
         private IDal<T> _dal;
 
@@ -59,5 +59,10 @@ namespace ARM.Data.Layer.Context
             return _dal.GetAll();
         }
 
+        public void Dispose()
+        {
+            if(_dal != null)
+                _dal.Dispose();
+        }
     }//end BaseBll
 }//end namespace Context

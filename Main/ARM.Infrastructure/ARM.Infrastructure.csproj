@@ -73,7 +73,6 @@
   <ItemGroup>
     <Compile Include="Enums\LogLevel.cs" />
     <Compile Include="InfrastructureModule.cs" />
-    <Compile Include="Interfaces\IARMDataFacade.cs" />
     <Compile Include="Interfaces\IARMFacade.cs" />
     <Compile Include="Interfaces\IARMLoggerFacade.cs" />
     <Compile Include="Interfaces\IARMMessageBoxFacade.cs" />
