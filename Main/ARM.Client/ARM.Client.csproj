@@ -130,6 +130,10 @@
       <Project>{96EBE2BE-DA94-4718-B320-D971CEBF716F}</Project>
       <Name>ARM.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ARM.Data\ARM.Data.csproj">
+      <Project>{2925eefb-3c38-40c2-8b83-d119efd17946}</Project>
+      <Name>ARM.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ARM.Infrastructure\ARM.Infrastructure.csproj">
       <Project>{9E56542C-A377-4307-9F43-69CAC911F6EE}</Project>
       <Name>ARM.Infrastructure</Name>

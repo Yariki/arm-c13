@@ -7,8 +7,6 @@ namespace ARM.Client
 {
     public class ARMBootStraper : UnityBootstrapper
     {
-        
-
         protected override DependencyObject CreateShell()
         {
             MainWindow mainWindow = Container.Resolve<MainWindow>();
@@ -25,6 +23,9 @@ namespace ARM.Client
         protected override IModuleCatalog CreateModuleCatalog()
         {
             var catalog = new ModuleCatalog();
+            catalog.AddModule(typeof (ARM.Data.ARMDataModule));
+            catalog.AddModule(typeof(ARM.Core.CoreModule));
+            catalog.AddModule(typeof(ARM.Infrastructure.InfrastructureModule));
             catalog.AddModule(typeof(ARM.Module.MainModule));
             return catalog;
         }

@@ -76,3 +76,5 @@
 /Samples/ARMAutoReg/obj
 
 /arm_c13_import.log
+/Main/ARM.Resource/bin
+/Main/ARM.Resource/obj
