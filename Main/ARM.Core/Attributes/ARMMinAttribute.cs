@@ -17,4 +17,4 @@ namespace ARM.Core.Attributes
         {
         }
     }//end ARMMinAttribute
-}//end namespace Attributes
+}//end namespace Attributes 

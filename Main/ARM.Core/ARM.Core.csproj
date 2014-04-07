@@ -60,6 +60,7 @@
       <HintPath>..\..\packages\PrismMVVMLibrary.2.0.0.10\lib\net40\PrismMVVMLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
@@ -74,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ARMBaseAttribute.cs" />
     <Compile Include="Attributes\ARMEmailAttribute.cs" />
+    <Compile Include="Attributes\ARMGridAttribute.cs" />
     <Compile Include="Attributes\ARMMaxAttribute.cs" />
     <Compile Include="Attributes\ARMMinAttribute.cs" />
     <Compile Include="Attributes\ARMMobilPhoneAttribute.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Interfaces\IARMViewModel.cs" />
     <Compile Include="Interfaces\IARMWorkspaceViewModel.cs" />
     <Compile Include="Module\ARMBaseModule.cs" />
+    <Compile Include="MVVM\ARMToolboxBase.cs" />
     <Compile Include="MVVM\ARMViewModelBase.cs" />
     <Compile Include="MVVM\Commands\ARMToolboxAddCommand.cs" />
     <Compile Include="MVVM\Commands\ARMToolboxDeleteCommand.cs" />
@@ -118,7 +121,7 @@
     <Compile Include="Validation\ARMValidationRulesFactory.cs" />
     <Compile Include="Validation\Rules\ARMEmailValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMMaxValidationRule.cs" />
-    <Compile Include="Validation\Rules\ARMMInValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMMinValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMMobilPhoneValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMNumericValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMRangeValidationRule.cs" />

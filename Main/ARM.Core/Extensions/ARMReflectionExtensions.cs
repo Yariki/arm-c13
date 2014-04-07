@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO.Pipes;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 
 namespace ARM.Core.Extensions
@@ -61,6 +62,18 @@ namespace ARM.Core.Extensions
             Contract.Requires(pi != null);
             var arr = pi.GetCustomAttributes(typeof (T), true);
             return (T)arr[0];
+        }
+
+        #endregion
+
+        #region [static]
+
+        public static string GetPropertyName<T>(Expression<Func<T>> exp)
+        {
+            MemberExpression me = exp.Body as MemberExpression;
+            if (me == null)
+                return string.Empty;
+            return me.Member.Name;
         }
 
         #endregion

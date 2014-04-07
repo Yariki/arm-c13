@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using ARM.Data.Interfaces.Achivement;
 using ARM.Data.Interfaces.Address;
 using ARM.Data.Interfaces.Class;
@@ -62,6 +64,7 @@ namespace ARM.Data.Layer
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
             base.OnModelCreating(modelBuilder);
             //contract
             modelBuilder.Entity<Contract>()
@@ -80,6 +83,34 @@ namespace ARM.Data.Layer
                 .WithMany(c =>c.Marks)
                 .HasForeignKey(c => c.StudentId)
                 .WillCascadeOnDelete(false);
+            //student
+            modelBuilder.Entity<Student>()
+                .HasRequired(s => s.Address)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Student>()
+                .HasRequired(s => s.LivingAddress)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            //table per concrete class
+            modelBuilder.Entity<Person>()
+                .Property(p => p.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            modelBuilder.Entity<Parent>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Parent");
+            });
+            modelBuilder.Entity<Staff>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Staff");
+            });
+            modelBuilder.Entity<Student>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Student");
+            });
 
         }
 

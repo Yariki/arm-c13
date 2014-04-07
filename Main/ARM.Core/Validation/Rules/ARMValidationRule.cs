@@ -19,12 +19,12 @@ namespace ARM.Core.Validation.Rules
         {
         }
 
-        protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;
         }
 
-        public IARMValidationResult Evalute()
+        public IARMValidationResult Evalute(object val)
         {
             return null;
         }

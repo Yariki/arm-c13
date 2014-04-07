@@ -5,14 +5,30 @@
 //  Created on:      01-Apr-2014 12:36:35 AM
 ///////////////////////////////////////////////////////////
 
+using System;
+using ARM.Core.Enums;
 using ARM.Core.MVVM.Commands.Base;
 
 namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxAddCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxAddCommand()
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+            : base(action, predicate)
+        {
+            Type = ToolbarCommand.Add;
+            Title = "Add";
+        }
+
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action) 
+            : this(action,null)
         {
         }
+
+        protected override int GetOrder()
+        {
+            return 0;
+        }
+
     }//end ARMToolboxAddCommand
 }//end namespace Commands

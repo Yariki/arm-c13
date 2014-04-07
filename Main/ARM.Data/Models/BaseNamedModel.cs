@@ -5,18 +5,15 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+using System.ComponentModel.DataAnnotations;
+using ARM.Core.Attributes;
+
 namespace ARM.Data.Models
 {
-    public class BaseNamedModel : BaseModel
+    public abstract class BaseNamedModel : BaseModel
     {
-        public BaseNamedModel()
-        {
-        }
-
-        ~BaseNamedModel()
-        {
-        }
-
+        [ARMGrid]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Name")]
         public string Name
         {
             get;

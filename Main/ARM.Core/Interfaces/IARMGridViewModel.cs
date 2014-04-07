@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using ARM.Core.Enums;
 
@@ -12,10 +13,9 @@ namespace ARM.Core.Interfaces
 {
     public interface IARMGridViewModel<T> : IARMWorkspaceViewModel
     {
-        IList<T> DataSource
+        IEnumerable<T> DataSource
         {
             get;
-            set;
         }
 
         ///
@@ -25,7 +25,8 @@ namespace ARM.Core.Interfaces
         IARMToolboxViewModel Toolbox
         {
             get;
-            set;
         }
+
+        Type EntityType { get; }
     }//end IARMGridViewModel
 }//end namespace Interfaces

@@ -81,9 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201404051236054_Initial.cs" />
-    <Compile Include="CommonContextMigrations\201404051236054_Initial.Designer.cs">
-      <DependentUpon>201404051236054_Initial.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404072327106_Initial.cs" />
+    <Compile Include="CommonContextMigrations\201404072327106_Initial.Designer.cs">
+      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -252,11 +252,14 @@
       <Project>{96EBE2BE-DA94-4718-B320-D971CEBF716F}</Project>
       <Name>ARM.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ARM.Resource\ARM.Resource.csproj">
+      <Project>{A4B7F6B2-3D63-44B2-9F54-627EF12BEAA6}</Project>
+      <Name>ARM.Resource</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201404051236054_Initial.resx">
-      <DependentUpon>201404051236054_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404072327106_Initial.resx">
+      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

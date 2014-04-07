@@ -12,10 +12,6 @@ namespace ARM.Data.Models
 {
     public class Address : BaseModel
     {
-        public Address()
-        {
-            Persons = new HashSet<Person>();
-        }
 
         public Guid CountryId
         {
@@ -59,10 +55,5 @@ namespace ARM.Data.Models
             set;
         }
 
-        public ICollection<Person> Persons
-        {
-            get;
-            set;
-        }
     }//end Address
 }//end namespace Models

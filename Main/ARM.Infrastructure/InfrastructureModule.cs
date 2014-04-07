@@ -6,7 +6,9 @@
 ///////////////////////////////////////////////////////////
 
 
+using ARM.Core.Interfaces;
 using ARM.Core.Module;
+using ARM.Infrastructure.MVVM.View;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
@@ -23,6 +25,11 @@ namespace ARM.Infrastructure {
 
 		}
 
-	}//end InfrastructureModule
+	    protected override void RegistreInterfaces()
+	    {
+	        base.RegistreInterfaces();
+	        UnityContainer.RegisterType<IARMToolboxView, ARMToolboxView>();
+	    }
+    }//end InfrastructureModule
 
 }//end namespace ARM.Infrastructure

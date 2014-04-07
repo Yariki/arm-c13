@@ -123,6 +123,9 @@
   <data name="MENU_DOCUMENTS_TITLE" xml:space="preserve">
     <value>Documents</value>
   </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="MENU_FILE_TITLE" xml:space="preserve">
     <value>File</value>
   </data>
@@ -137,5 +140,17 @@
   </data>
   <data name="MENU_SERVICES_TITLE" xml:space="preserve">
     <value>Services</value>
+  </data>
+  <data name="Model_DateModified" xml:space="preserve">
+    <value>Date Modified</value>
+  </data>
+  <data name="Model_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Model_Rector" xml:space="preserve">
+    <value>Rector</value>
+  </data>
+  <data name="Menu_University" xml:space="preserve">
+    <value>Universities</value>
   </data>
 </root>

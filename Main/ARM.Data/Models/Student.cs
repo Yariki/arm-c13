@@ -14,6 +14,17 @@ namespace ARM.Data.Models
 {
     public class Student : Person
     {
+        [Required]
+        public Guid AddressId { get; set; }
+
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; }
+
+        [Required]
+        public Guid LivingAddressId { get; set; }
+
+        [ForeignKey("LivingAddressId")]
+        public virtual Address LivingAddress { get; set; }
 
         public virtual IList<Parent> Parents
         {

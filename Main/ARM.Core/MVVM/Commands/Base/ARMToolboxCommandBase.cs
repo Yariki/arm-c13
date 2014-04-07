@@ -13,18 +13,13 @@ namespace ARM.Core.MVVM.Commands.Base
 {
     public class ARMToolboxCommandBase : IARMToolboxCommand
     {
-        private Action<object> _action;
-        private Predicate<object> _predicate;
-
-        public ARMToolboxCommandBase()
-            :this(null,null)
-        {
-        }
+        private Action<ToolbarCommand> _action;
+        private Func<ToolbarCommand,bool> _predicate;
 
         ///
         /// <param name="action"></param>
         /// <param name="predicate"></param>
-        public ARMToolboxCommandBase(Action<object> action, Predicate<object> predicate)
+        public ARMToolboxCommandBase(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
         {
             _action = action;
             _predicate = predicate;
@@ -32,7 +27,7 @@ namespace ARM.Core.MVVM.Commands.Base
 
         ///
         /// <param name="action"></param>
-        public ARMToolboxCommandBase(Action<object> action)
+        public ARMToolboxCommandBase(Action<ToolbarCommand> action)
             :this(action,null)
         {
 
@@ -58,30 +53,36 @@ namespace ARM.Core.MVVM.Commands.Base
             return 0;
         }
 
+        protected virtual object GetTag()
+        {
+            return null;
+        }
+
         public void Execute(object parameter)
         {
             if(_action == null)
                 return;
-            _action(parameter);
+            _action(Type);
         }
 
         public bool CanExecute(object parameter)
         {
-            return _predicate != null && _predicate(parameter);
+            return _predicate != null && _predicate(Type);
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public string Image { get; private set; }
+        public string Title { get; protected set; }
+        public string Image { get { return GetImagePath(); } }
 
-        public string ResourceName { get; private set; }
+        public string ResourceName { get { return GetResourceName(); } }
 
-        public string Tooltip { get; private set; }
+        public string Tooltip { get { return GetTooltip(); } }
 
-        public object Tag { get; private set; }
+        public object Tag { get { return GetTag(); } }
 
-        public ToolbarCommand Type { get; private set; }
+        public ToolbarCommand Type { get; protected set; }
 
-        public int Order { get; private set; }
+        public int Order { get { return GetOrder(); } }
     }//end ARMToolboxCommandBase
 }//end namespace Base

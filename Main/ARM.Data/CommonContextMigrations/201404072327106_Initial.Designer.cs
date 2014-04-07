@@ -13,7 +13,7 @@ namespace ARM.Data.CommonContextMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201404051236054_Initial"; }
+            get { return "201404072327106_Initial"; }
         }
         
         string IMigrationMetadata.Source

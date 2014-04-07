@@ -123,6 +123,9 @@
   <data name="MENU_DOCUMENTS_TITLE" xml:space="preserve">
     <value>Документи</value>
   </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Вихід</value>
+  </data>
   <data name="MENU_FILE_TITLE" xml:space="preserve">
     <value>Файл</value>
   </data>
@@ -137,5 +140,17 @@
   </data>
   <data name="MENU_SERVICES_TITLE" xml:space="preserve">
     <value>Сервіси</value>
+  </data>
+  <data name="Model_DateModified" xml:space="preserve">
+    <value>Дата Редагування</value>
+  </data>
+  <data name="Model_Name" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Model_Rector" xml:space="preserve">
+    <value>Ректор</value>
+  </data>
+  <data name="Menu_University" xml:space="preserve">
+    <value>Університети</value>
   </data>
 </root>

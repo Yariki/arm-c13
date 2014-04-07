@@ -6,10 +6,14 @@
 ///////////////////////////////////////////////////////////
 
 using System.Windows.Input;
+using ARM.Module.Enums;
 
 namespace ARM.Module.Interfaces
 {
     public interface IARMMenuCommand : ICommand
     {
+        string Title { get; set; }
+        string Tooltip { get; set; }
+        eARMMainMenuCommand MenuCommand { get; }
     }//end IARMMenuCommand
 }//end namespace Interfaces

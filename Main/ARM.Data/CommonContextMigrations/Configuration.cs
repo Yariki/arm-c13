@@ -9,7 +9,7 @@ namespace ARM.Data.CommonContextMigrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"CommonContextMigrations";
         }
 

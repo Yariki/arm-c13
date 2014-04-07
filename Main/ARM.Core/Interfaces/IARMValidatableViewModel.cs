@@ -11,6 +11,6 @@ namespace ARM.Core.Interfaces
 {
     public interface IARMValidatableViewModel : IARMDataViewModel, IDataErrorInfo
     {
-        void InitializeValidationRules();
+        bool IsValid { get; set; }
     }//end IARMValidatableViewModel
 }//end namespace Interfaces

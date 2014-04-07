@@ -7,20 +7,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ARM.Data.Models
 {
-    public class Person : BaseModel
+    public abstract class Person : BaseModel
     {
-        public Person()
-        {
-            Addresses = new HashSet<Address>();
-        }
-
-        ~Person()
-        {
-        }
-
+        
         public string FirstName
         {
             get;
@@ -38,8 +31,6 @@ namespace ARM.Data.Models
             get;
             set;
         }
-
-        public ICollection<Address> Addresses { get; set; }
 
         public string Email
         {

@@ -7,18 +7,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ARM.Data.Models
 {
     public class Parent : Person
     {
-        public Parent()
-        {
-        }
-
-        ~Parent()
-        {
-        }
+        
 
         public Guid? StudentId
         {
@@ -31,6 +27,13 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        [Required]
+        public Guid AddressId { get; set; }
+
+        [ForeignKey("AddressId")]
+        public virtual Address Address { get; set; }
+
 
         public virtual IList<Contract> Contracts { get; set; }
         

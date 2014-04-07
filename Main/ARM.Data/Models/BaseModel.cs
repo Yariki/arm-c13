@@ -6,17 +6,20 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using ARM.Core.Attributes;
 using ARM.Core.Interfaces.Data;
+using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
-    public class BaseModel : IARMModel
+    public abstract class BaseModel : IARMModel
     {
-        public BaseModel()
-        {
-            DateModified = DateTime.Now;
+        protected BaseModel()
+        {   
+
         }
 
         public Guid Id
@@ -25,6 +28,8 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMGrid]
+        [Display(ResourceType =   typeof(ARM.Resource.AppResource.Resources),Name = "Model_DateModified")]
         public DateTime DateModified
         {
             get;

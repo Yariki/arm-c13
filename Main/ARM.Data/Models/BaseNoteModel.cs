@@ -7,16 +7,8 @@
 
 namespace ARM.Data.Models
 {
-    public class BaseNoteModel : BaseNamedModel
+    public abstract class BaseNoteModel : BaseNamedModel
     {
-        public BaseNoteModel()
-        {
-        }
-
-        ~BaseNoteModel()
-        {
-        }
-
         public string Note
         {
             get;

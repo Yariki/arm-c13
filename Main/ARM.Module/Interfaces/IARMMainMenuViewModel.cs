@@ -5,13 +5,19 @@
 //  Created on:      01-Apr-2014 1:37:55 AM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.ObjectModel;
 using ARM.Core.Interfaces;
+using ARM.Module.Enums;
 
 namespace ARM.Module.Interfaces
 {
     public interface IARMMainMenuViewModel : IARMViewModel
     {
+        void InitializeCommands();
+
+        void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate);
+
         ObservableCollection<IARMMenuCommand> Files { get; }
 
         ObservableCollection<IARMMenuCommand> Documents { get; }

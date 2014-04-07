@@ -6,13 +6,16 @@
             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
              >
     <Grid>
-        <xcad:DockingManager>
+        <xcad:DockingManager DocumentsSource="{Binding Items}">
+            <xcad:DockingManager.LayoutItemTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding View}"></ContentControl>
+                </DataTemplate>
+            </xcad:DockingManager.LayoutItemTemplate>
             <xcad:LayoutRoot x:Name="RootDockLayout">
-                <xcad:LayoutPanel Orientation="Horizontal">
+                <xcad:LayoutPanel Orientation="Horizontal"  >
                     <xcad:LayoutDocumentPaneGroup >
-                        <xcad:LayoutDocumentPane>
-                            <xcad:LayoutDocument Title="Doc 1"></xcad:LayoutDocument>
-                            <xcad:LayoutDocument Title="Doc 2"></xcad:LayoutDocument>
+                        <xcad:LayoutDocumentPane >
                         </xcad:LayoutDocumentPane>
                     </xcad:LayoutDocumentPaneGroup>
                 </xcad:LayoutPanel>

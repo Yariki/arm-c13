@@ -17,6 +17,9 @@ namespace ARM.Core.MVVM
 {
     public abstract class ARMViewModelBase : IARMViewModel
     {
+
+        protected bool Disposed = false;
+
         ///
         /// <param name="view"></param>
         protected ARMViewModelBase(IARMView view)
@@ -61,10 +64,20 @@ namespace ARM.Core.MVVM
             return memExpression.Member.Name;
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+                
+        }
+
         public IARMView View
         {
             get;
             protected set;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);            
         }
     }//end ARMViewModelBase
 }//end namespace MVVM

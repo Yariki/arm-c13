@@ -5,11 +5,12 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.ComponentModel;
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMViewModel : INotifyPropertyChanged
+    public interface IARMViewModel : INotifyPropertyChanged,IDisposable
     {
         IARMView View
         {

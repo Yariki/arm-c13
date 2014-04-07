@@ -14,6 +14,10 @@ using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
 using ARM.Core.Extensions;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Events;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
@@ -21,15 +25,19 @@ namespace ARM.Infrastructure.MVVM
     {
         private object _dataObject;
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
-        private readonly List<IARMModelPropertyInfo> _listProperty; 
+        private readonly List<IARMModelPropertyInfo> _listProperty;
 
-        ///
-        /// <param name="businessObject"></param>
-        /// <param name="view"></param>
-        protected ARMDataViewModelBase(object businessObject, IARMView view) 
-            : base(view)
+        /// 
+        ///  <param name="businessObject"></param>
+        ///  <param name="view"></param>
+        /// <param name="regionManager"></param>
+        protected ARMDataViewModelBase(object businessObject,IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,  IARMView view) 
+            : base(regionManager,unityContainer,eventAggregator,view)
         {
+            SetBusinessObject(businessObject);
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(businessObject.GetType()).ToList();
+            SaveCommand = new DelegateCommand<object>(SaveExecute, CanSaveExecte);
+            CancelCommand = new DelegateCommand<object>(CancelExecute,CanCancelExecute);
         }
 
         ///
@@ -56,6 +64,11 @@ namespace ARM.Infrastructure.MVVM
             if (!_listProperty.Any())
                 return null;
             return _listProperty.FirstOrDefault(i => i.Property.Name == name);
+        }
+
+        protected IList<IARMModelPropertyInfo> GetAllArmPropertyInfo()
+        {
+            return _listProperty;
         }
 
         ///
@@ -88,7 +101,7 @@ namespace ARM.Infrastructure.MVVM
             if (_dataObject != null && HasProperty(name))
             {
                 IARMModelPropertyInfo pi = GetPropertyInfo(name);
-                return pi.Property.GetPropertyValue<T>(_dataObject);
+                return pi != null ? pi.Property.GetPropertyValue<T>(_dataObject) : defaultValue;
             }
             if (_values.ContainsKey(name))
             {
@@ -102,6 +115,8 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="val"></param>
         protected void Set<T>(Expression<Func<T>> expression, T val)
         {
+            var name = GetPropertyName(expression);
+            Set<T>(name,val);
         }
 
         ///
@@ -109,12 +124,44 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="val"></param>
         protected void Set<T>(string name, T val)
         {
+            if (_dataObject != null && HasProperty(name))
+            {
+                IARMModelPropertyInfo pi = GetPropertyInfo(name);
+                if(pi != null)
+                    pi.Property.SetPropertyValue(_dataObject, val);
+            }
+            else if (_values.ContainsKey(name))
+            {
+                _values[name] = val;
+            }
+            OnPropertyChanged(name);
+            OnSetValue(name);
         }
 
         ///
         /// <param name="name"></param>
-        protected virtual void Validate(string name)
+        protected virtual void OnSetValue(string name)
         {
+        }
+
+        protected virtual bool CanSaveExecte(object arg)
+        {
+            return true;
+        }
+
+        protected virtual void SaveExecute(object arg)
+        {
+            
+        }
+
+        protected virtual bool CanCancelExecute(object arg)
+        {
+            return true;
+        }
+
+        protected virtual void CancelExecute(object arg)
+        {
+            
         }
 
         public IARMView View
@@ -123,9 +170,9 @@ namespace ARM.Infrastructure.MVVM
             set;
         }
 
-        public object DataObject()
+        public object DataObject
         {
-            return null;
+            get { return _dataObject; }
         }
 		
 		#region [commands]
@@ -136,6 +183,7 @@ namespace ARM.Infrastructure.MVVM
 			
 		#endregion
 		
+
 		
     }//end ARMDataViewModelBase
 }//end namespace MVVM

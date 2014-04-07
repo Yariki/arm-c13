@@ -10,6 +10,9 @@ using System.Windows.Input;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Events;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
@@ -17,8 +20,10 @@ namespace ARM.Infrastructure.MVVM
     {
 
 #region [needs]
-
         private ICommand _closeCommand;
+        protected readonly IRegionManager RegionManager;
+        protected readonly IUnityContainer UnityContainer;
+        protected readonly IEventAggregator EventAggregator;
 #endregion
 
 
@@ -27,9 +32,12 @@ namespace ARM.Infrastructure.MVVM
             public bool Handled { get; set; }
         }
 
-        public ARMWorkspaceViewModelBase(IARMView view)
+        public ARMWorkspaceViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator, IARMView view)
             : base(view)
-        {   
+        {
+            RegionManager = regionManager;
+            UnityContainer = unityContainer;
+            EventAggregator = eventAggregator;
         }
 
         

@@ -5,14 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              >
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="MenuItemTemplate" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.ToolTip>
+                    <ToolTip><TextBlock Text="{Binding Tooltip}"></TextBlock> </ToolTip>
+                </Grid.ToolTip>
+                <Image Grid.Column="0"></Image>
+                <TextBlock Grid.Column="1" Text="{Binding Title}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
     <Grid>
-        <Menu x:Name="RootMenu">
-            <MenuItem Header="{x:Static prop:Resources.MENU_FILE_TITLE}" ItemsSource="{Binding Files}"></MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MENU_DOCUMENTS_TITLE}" ItemsSource="{Binding Documents}"></MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MENU_REFERENCES_TITLE}" ItemsSource="{Binding References}"></MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MENU_REPORTS_TITLE}" ItemsSource="{Binding Reports}"></MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MENU_SERVICES_TITLE}" ItemsSource="{Binding Services}"></MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MENU_HELP_TITLE}" ItemsSource="{Binding Helps}"></MenuItem>
+        <Menu x:Name="RootMenu" >
+            <MenuItem Header="{x:Static prop:Resources.MENU_FILE_TITLE}" ItemsSource="{Binding Files}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
+            <MenuItem Header="{x:Static prop:Resources.MENU_DOCUMENTS_TITLE}" ItemsSource="{Binding Documents}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
+            <MenuItem Header="{x:Static prop:Resources.MENU_REFERENCES_TITLE}" ItemsSource="{Binding References}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
+            <MenuItem Header="{x:Static prop:Resources.MENU_REPORTS_TITLE}" ItemsSource="{Binding Reports}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
+            <MenuItem Header="{x:Static prop:Resources.MENU_SERVICES_TITLE}" ItemsSource="{Binding Services}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
+            <MenuItem Header="{x:Static prop:Resources.MENU_HELP_TITLE}" ItemsSource="{Binding Helps}" ItemTemplate="{StaticResource MenuItemTemplate}"></MenuItem>
         </Menu>        
     </Grid>
 </UserControl>

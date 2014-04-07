@@ -5,24 +5,36 @@
 //  Created on:      31-Mar-2014 11:49:54 PM
 ///////////////////////////////////////////////////////////
 
-
+using System;
+using System.Windows.Threading;
+using ARM.Core.Interfaces;
 using ARM.Core.Module;
+using ARM.Core.MVVM;
+using ARM.Core.Service;
 using Microsoft.Practices.Prism.Events;
-using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-namespace ARM.Core {
-	public class CoreModule : ARMBaseModule 
+namespace ARM.Core
+{
+    public class CoreModule : ARMBaseModule
     {
-
         public CoreModule(IRegionManager regionManager, IUnityContainer unityContainer,
-            IEventAggregator eventAggregator) 
-            : base(regionManager,unityContainer,eventAggregator)
+            IEventAggregator eventAggregator)
+            : base(regionManager, unityContainer, eventAggregator)
         {
+        }
 
-		}
+        protected override void RegistreInterfaces()
+        {
+            base.RegistreInterfaces();
+            UnityContainer.RegisterType<IARMToolboxViewModel, ARMToolboxBase>();
+        }
 
-	}//end CoreModule
-
+        protected override void InternalInitialize()
+        {
+            base.InternalInitialize();
+            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => ARMModelsPropertyCache.Instance.Initialize()));
+        }
+    }//end CoreModule
 }//end namespace ARM.Core

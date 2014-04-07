@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using ARM.Core.EventArguments;
@@ -14,12 +15,12 @@ namespace ARM.Core.Interfaces
 {
     public interface IARMValidationAdaptor : IDataErrorInfo
     {
-        void InitializeRules();
-
+        void SetValidationObject(object obj, IList<IARMModelPropertyInfo> listPi);
         ///
         /// <param name="rule"></param>
-        void AddRule(IARMValidationRule rule);
+        void AddRule<T>(Expression<Func<T>> expression, IARMValidationRule rule);
 
+        void Validate(string name);
         ///
         /// <param name="propName"></param>
         void Validate<T>(Expression<Func<T>> propName);
@@ -31,6 +32,8 @@ namespace ARM.Core.Interfaces
         ///
         /// <param name="propName"></param>
         string GetResult<T>(Expression<Func<T>> propName);
+
+        string GetResult(string name);
 
         string GetResultForAll();
     }//end IARMValidationAdaptor

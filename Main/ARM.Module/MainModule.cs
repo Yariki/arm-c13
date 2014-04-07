@@ -5,23 +5,27 @@
 //  Created on:      31-Mar-2014 11:50:26 PM
 ///////////////////////////////////////////////////////////
 
+using ARM.Core.Interfaces;
 using ARM.Core.Module;
+using ARM.Infrastructure.Interfaces.Grid;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.View;
 using ARM.Module.View;
+using ARM.Module.View.Grid;
 using ARM.Module.ViewModel.Main;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 using ARM.Infrastructure.Region;
+using Unity.AutoRegistration;
 
 namespace ARM.Module
 {
     public class MainModule : ARMBaseModule
     {
-        public MainModule( IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator )
-            :base(regionManager,unityContainer,eventAggregator)
+        public MainModule(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator)
+            : base(regionManager, unityContainer, eventAggregator)
         {
         }
 
@@ -34,10 +38,19 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMMainStatusBarView, ARMStatusBarView>();
             UnityContainer.RegisterType<IARMMainToolboxView, ARMToolboxView>();
             //register view model
-            UnityContainer.RegisterType<IARMMainWorkspaceViewModel, ARMMainWorkspaceViewModel>();
+            UnityContainer.RegisterType<IARMMainWorkspaceViewModel, ARMMainWorkspaceViewModel>(new ContainerControlledLifetimeManager());
             UnityContainer.RegisterType<IARMMainMenuViewModel, ARMMainMenuViewModel>();
             UnityContainer.RegisterType<IARMMainStatusBarViewModel, ARMMainStatusBarViewModel>();
             UnityContainer.RegisterType<IARMMainToolboxViewModel, ARMMainToolboxViewModel>();
+
+            //additional
+            UnityContainer.RegisterType<IARMGridView, ARMGridView>();
+
+            UnityContainer.ConfigureAutoRegistration()
+                .ExcludeSystemAssemblies()
+                .Include(type => type.ImplementsOpenGeneric(typeof(IARMGridViewModel<>)), Then.Register().UsingPerCallMode())
+                    .ApplyAutoRegistration();
+
         }
 
         protected override void InjectViews()

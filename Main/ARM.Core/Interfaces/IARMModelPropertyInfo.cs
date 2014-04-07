@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
 namespace ARM.Core.Interfaces
@@ -31,5 +32,10 @@ namespace ARM.Core.Interfaces
         {
             get;
         }
+
+        bool VisibleInGrid { get; }
+
+        DisplayAttribute Display { get; }
+
     }//end IARMModelPropertyInfo
 }//end namespace Interfaces

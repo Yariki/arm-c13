@@ -20,6 +20,8 @@ namespace ARM.Core.EventArguments
         {
         }
 
+        public string PropertyName { get; set; }
+
         public IARMValidationResult Result
         {
             get;

@@ -5,41 +5,64 @@
 //  Created on:      30-Mar-2014 8:12:16 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using ARM.Core.EventArguments;
 using ARM.Core.Interfaces;
+using Microsoft.Practices.Prism.Events;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
     public class ARMValidatableViewModelBase : ARMDataViewModelBase, IARMValidatableViewModel
     {
         private ARM.Core.Interfaces.IARMValidationAdaptor _validationAdaptor;
+        
 
         ///
         /// <param name="businessObject"></param>
         /// <param name="view"></param>
-        protected ARMValidatableViewModelBase(object businessObject, IARMView view) : base(businessObject,view)
+        protected ARMValidatableViewModelBase(object businessObject, IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,IARMView view) 
+            : base(businessObject,regionManager,unityContainer,eventAggregator,view)
         {
+            _validationAdaptor = UnityContainer.Resolve<IARMValidationAdaptor>();
+            _validationAdaptor.SetValidationObject(GetBusinessObject<object>(),GetAllArmPropertyInfo());
+            _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
         }
 
-        public IARMView View
+        private void ValidationAdaptorOnValidationCompleted(object sender, ValidationEventArgs validationEventArgs)
         {
-            get;
-            set;
-        }
-
-        public void InitializeValidationRules()
-        {
-        }
-
-        public object DataObject()
-        {
-            return null;
+            if (!validationEventArgs.Result.IsValid)
+            {
+                OnPropertyChanged(validationEventArgs.PropertyName);
+            }
+            IsValid = validationEventArgs.Result.IsValid;
         }
 
         public string this[string columnName]
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _validationAdaptor[columnName]; }
         }
 
-        public string Error { get; private set; }
+        public string Error 
+        {
+            get { return _validationAdaptor.Error; }
+        }
+
+        protected override void OnSetValue(string name)
+        {
+            Validate(name);
+        }
+
+        private void Validate(string name)
+        {
+            _validationAdaptor.Validate(name);    
+        }
+
+        public bool IsValid
+        {
+            get { return Get(() => IsValid); }
+            set { Set(() => IsValid,value); }
+        }
     }//end ARMValidatableViewModelBase
 }//end namespace MVVM

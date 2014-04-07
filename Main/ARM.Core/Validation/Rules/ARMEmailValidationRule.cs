@@ -17,7 +17,7 @@ namespace ARM.Core.Validation.Rules
         {
         }
 
-        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute()
+        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;
         }

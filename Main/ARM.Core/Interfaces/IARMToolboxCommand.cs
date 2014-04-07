@@ -12,6 +12,8 @@ namespace ARM.Core.Interfaces
 {
     public interface IARMToolboxCommand : ICommand
     {
+        string Title { get; }
+
         string Image
         {
             get;

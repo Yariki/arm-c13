@@ -79,6 +79,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string Menu_Exit {
+            get {
+                return ResourceManager.GetString("Menu_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
         public static string MENU_FILE_TITLE {
@@ -120,6 +129,42 @@ namespace ARM.Resource.AppResource {
         public static string MENU_SERVICES_TITLE {
             get {
                 return ResourceManager.GetString("MENU_SERVICES_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Universities.
+        /// </summary>
+        public static string Menu_University {
+            get {
+                return ResourceManager.GetString("Menu_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Modified.
+        /// </summary>
+        public static string Model_DateModified {
+            get {
+                return ResourceManager.GetString("Model_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Model_Name {
+            get {
+                return ResourceManager.GetString("Model_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rector.
+        /// </summary>
+        public static string Model_Rector {
+            get {
+                return ResourceManager.GetString("Model_Rector", resourceCulture);
             }
         }
     }

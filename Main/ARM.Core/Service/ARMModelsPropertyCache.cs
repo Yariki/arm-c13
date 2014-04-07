@@ -7,6 +7,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -22,13 +24,13 @@ namespace ARM.Core.Service
 {
     public class ARMModelsPropertyCache
     {
-        private static Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
-
+        private Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
+        private const string AssemblyPrefix = "ARM";
+            
 
         private ARMModelsPropertyCache()
         {
             _dictCache = new Dictionary<Type, List<IARMModelPropertyInfo>>();
-            InitCache();
         }
 
         #region [static]
@@ -42,18 +44,17 @@ namespace ARM.Core.Service
 
         #endregion
 
-        
         private void InitCache()
         {
             var listType =
-                AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes().Where(t => t is IARMModel));
+                AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.Contains(AssemblyPrefix)).SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IARMModel))));
             foreach (var type in listType)
             {
                 AddType(type);
             }
         }
 
-        private static void AddType(Type type)
+        private  void AddType(Type type)
         {
             var listPi = type.GetAllPublicProperties();
             if (!listPi.Any()) return;
@@ -61,19 +62,30 @@ namespace ARM.Core.Service
             foreach (var propertyInfo in listPi)
             {
                 bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
+                bool visiblbeInGrid = propertyInfo.HasAttribute<ARMGridAttribute>();
                 IARMValidationAttribute validAttr = null;
+                DisplayAttribute disAttr = null;
                 if (propertyInfo.HasAttribute<ARMValidationAttribute>())
                 {
                     validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
                 }
-                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr));
+                if (propertyInfo.HasAttribute<DisplayAttribute>())
+                {
+                    disAttr = propertyInfo.GetAttribute<DisplayAttribute>();
+                }
+                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr,visiblbeInGrid,disAttr));
             }
             _dictCache[type] = listArmPi;
         }
 
+        public void Initialize()
+        {
+            InitCache();
+        }
+
         ///
         /// <param name="type"></param>
-        private void AddNewType(Type type)
+        public void AddNewType(Type type)
         {
             Contract.Requires(type != null);
             AddType(type);

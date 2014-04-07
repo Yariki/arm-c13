@@ -7,27 +7,33 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using ARM.Core.Attributes;
 
 namespace ARM.Data.Models
 {
     public class University : BaseNamedModel
     {
-    
-    
+
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public Guid? StaffId
         {
             get;
             set;
         }
 
+        public string Url { get; set; }
+
+        public string Email { get; set; }
+
+        [ARMGrid]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public virtual Staff Rector
         {
             get;
             set;
         }
-
-        public string Url { get; set; }
-        public string Email { get; set; }
 
         public virtual IList<Faculty> Faculties { get; set; }
 

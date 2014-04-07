@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Layer.Context
@@ -20,6 +21,12 @@ namespace ARM.Data.Layer.Context
         public void Save()
         {
             SaveChanges();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

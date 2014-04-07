@@ -5,16 +5,25 @@
 //  Created on:      01-Apr-2014 12:36:35 AM
 ///////////////////////////////////////////////////////////
 
+using System;
+using ARM.Core.Enums;
 using ARM.Core.MVVM.Commands.Base;
 
 namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxEditCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxEditCommand()
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+            : base(action, predicate)
         {
+            Type = ToolbarCommand.Edit;
+            Title = "Edit";
         }
 
-    
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action) 
+            : this(action,null)
+        {
+
+        }
     }//end ARMToolboxEditCommand
 }//end namespace Commands

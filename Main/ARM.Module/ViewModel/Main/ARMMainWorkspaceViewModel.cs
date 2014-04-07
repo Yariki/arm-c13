@@ -5,9 +5,15 @@
 //  Created on:      02-Apr-2014 1:17:47 AM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows.Controls;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
+using ARM.Data.Models;
+using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Regions;
@@ -21,18 +27,20 @@ namespace ARM.Module.ViewModel.Main
         private readonly IUnityContainer _unityContainer;
         private readonly IRegionManager _regionManager;
 
-        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer,IRegionManager regionManager,  IARMMainWorkspaceView workspaceView)
+        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer, IRegionManager regionManager, IARMMainWorkspaceView workspaceView)
             : base(workspaceView)
         {
+            Items = new ObservableCollection<IARMWorkspaceViewModel>();
             _unityContainer = unityContainer;
             _regionManager = regionManager;
             Menu = _unityContainer.Resolve<IARMMainMenuViewModel>();
             Toolbox = _unityContainer.Resolve<IARMMainToolboxViewModel>();
             StatusBar = _unityContainer.Resolve<IARMMainStatusBarViewModel>();
-
+            Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
+            Menu.InitializeCommands();
         }
 
-        public IARMView MenuView 
+        public IARMView MenuView
         {
             get { return Menu.View; }
         }
@@ -52,9 +60,45 @@ namespace ARM.Module.ViewModel.Main
         public IARMMainToolboxViewModel Toolbox { get; private set; }
 
         public IARMMainStatusBarViewModel StatusBar { get; private set; }
+        public event EventHandler Close;
 
-        public ObservableCollection<IARMWorkspaceViewModel> Items { get; set; }
+        public void OnClosing(CancelEventArgs arg)
+        {
+
+        }
+
+        public ObservableCollection<IARMWorkspaceViewModel> Items { get; private  set; }
 
         public IARMWorkspaceViewModel CurrentWorkspace { get; set; }
+
+        #region [private]
+
+        #region [menu]
+
+        private void OnMenuExecute(eARMMainMenuCommand cmd)
+        {
+            switch (cmd)
+            {
+                case eARMMainMenuCommand.Exit:
+                    if (Close != null)
+                        Close(this, EventArgs.Empty);
+                    break;
+                case eARMMainMenuCommand.ReferenceUniversity:
+                    Items.Add(_unityContainer.Resolve<IARMGridViewModel<University>>());
+                    break;
+            }
+        }
+
+        private bool OnMenuCanExecute(eARMMainMenuCommand cmd)
+        {
+            return true;
+        }
+
+        #endregion
+
+
+        #endregion
+
+
     } //end ARMMainWorkspaceViewModel
 } //end namespace Main

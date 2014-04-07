@@ -5,7 +5,9 @@
 //  Created on:      01-Apr-2014 1:37:55 AM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using ARM.Core.Interfaces;
 
 namespace ARM.Module.Interfaces
@@ -15,7 +17,6 @@ namespace ARM.Module.Interfaces
         ObservableCollection<IARMWorkspaceViewModel> Items
         {
             get;
-            set;
         }
 
         IARMWorkspaceViewModel CurrentWorkspace
@@ -44,5 +45,11 @@ namespace ARM.Module.Interfaces
         IARMMainToolboxViewModel Toolbox { get; }
 
         IARMMainStatusBarViewModel StatusBar { get; }
+
+        event EventHandler Close;
+
+        void OnClosing(CancelEventArgs arg);
+
+
     }//end IARMMainWorkspaceViewModel
 }//end namespace Interfaces

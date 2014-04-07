@@ -5,15 +5,30 @@
 //  Created on:      01-Apr-2014 12:36:35 AM
 ///////////////////////////////////////////////////////////
 
+using System;
+using ARM.Core.Enums;
 using ARM.Core.MVVM.Commands.Base;
 
 namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxDeleteCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxDeleteCommand()
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+            : base(action, predicate)
+        {
+            Type = ToolbarCommand.Delete;
+            Title = "Delete";
+        }
+
+
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action) 
+            : this(action,null)
         {
         }
 
+        protected override int GetOrder()
+        {
+            return 2;
+        }
     }//end ARMToolboxDeleteCommand
 }//end namespace Commands

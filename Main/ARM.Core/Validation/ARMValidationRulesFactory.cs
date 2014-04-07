@@ -5,31 +5,37 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using ARM.Core.Attributes;
+using ARM.Core.Interfaces;
+using ARM.Core.Validation.Rules;
 
 namespace ARM.Core.Validation
 {
     public class ARMValidationRulesFactory
     {
 
-        ~ARMValidationRulesFactory()
-        {
-        }
-
         protected ARMValidationRulesFactory()
         {
         }
 
-        public ARMValidationRulesFactory Instance
+        private static Lazy<ARMValidationRulesFactory> _instance = new Lazy<ARMValidationRulesFactory>(() => new ARMValidationRulesFactory()); 
+
+        public static ARMValidationRulesFactory Instance
         {
-            get;
-            set;
+            get { return _instance.Value; }
         }
 
         ///
         /// <param name="attr"></param>
-        public void GetRule(ARMBaseAttribute attr)
+        public IARMValidationRule GetRule(IARMValidationAttribute attr)
         {
+            if (attr is ARMMaxAttribute)
+            {
+                var maxAttr = attr as ARMMaxAttribute;
+                return new ARMMaxValidationRule(maxAttr.Min,maxAttr.Max);
+            }
+            return null;
         }
     }//end ARMValidationRulesFactory
 }//end namespace Validation

@@ -9,6 +9,6 @@ namespace ARM.Core.Interfaces
 {
     public interface IARMValidationRule
     {
-        IARMValidationResult Evalute();
+        IARMValidationResult Evalute(object val);
     }//end IARMValidationRule
 }//end namespace Interfaces
