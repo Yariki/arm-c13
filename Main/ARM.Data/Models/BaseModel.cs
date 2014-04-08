@@ -22,6 +22,7 @@ namespace ARM.Data.Models
 
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id
         {
             get;

@@ -85,6 +85,10 @@
     <Compile Include="CommonContextMigrations\201404072327106_Initial.Designer.cs">
       <DependentUpon>201404072327106_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.cs" />
+    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.Designer.cs">
+      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -260,6 +264,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CommonContextMigrations\201404072327106_Initial.resx">
       <DependentUpon>201404072327106_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404081801017_Id_Gen.resx">
+      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

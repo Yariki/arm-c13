@@ -61,6 +61,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Universities.
+        /// </summary>
+        public static string Grid_University_Title {
+            get {
+                return ResourceManager.GetString("Grid_University_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ARM - bla - bla.
         /// </summary>
         public static string MAINWINDOW_TITLE {

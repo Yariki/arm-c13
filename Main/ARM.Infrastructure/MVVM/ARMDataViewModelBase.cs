@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Input;
+using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
@@ -25,27 +26,30 @@ namespace ARM.Infrastructure.MVVM
     {
         private object _dataObject;
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
-        private readonly List<IARMModelPropertyInfo> _listProperty;
+        private List<IARMModelPropertyInfo> _listProperty;
 
         /// 
         ///  <param name="businessObject"></param>
         ///  <param name="view"></param>
         /// <param name="regionManager"></param>
-        protected ARMDataViewModelBase(object businessObject,IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,  IARMView view) 
+        protected ARMDataViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,  IARMView view) 
             : base(regionManager,unityContainer,eventAggregator,view)
         {
-            SetBusinessObject(businessObject);
-            _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(businessObject.GetType()).ToList();
+            
             SaveCommand = new DelegateCommand<object>(SaveExecute, CanSaveExecte);
             CancelCommand = new DelegateCommand<object>(CancelExecute,CanCancelExecute);
         }
 
         ///
         /// <param name="obj"></param>
-        protected void SetBusinessObject<TObj>(TObj obj)
+        public void SetBusinessObject<TObj>(TObj obj,ViewMode mode)
         {
             this._dataObject = (object) obj;
+            Mode = mode;
+            _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
         }
+
+        public ViewMode Mode { get; private set; }
 
         protected TObj GetBusinessObject<TObj>()
         {

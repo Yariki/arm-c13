@@ -125,9 +125,11 @@
     <Compile Include="Validation\Rules\ARMMobilPhoneValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMNumericValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMRangeValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMReferenceValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMStringValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMUrlValidationRule.cs" />
     <Compile Include="Validation\Rules\ARMValidationRule.cs" />
+    <Compile Include="Validation\Rules\ARMValuableValidationRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

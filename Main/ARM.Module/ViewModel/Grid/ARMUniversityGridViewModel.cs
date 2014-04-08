@@ -14,5 +14,10 @@ namespace ARM.Module.ViewModel.Grid
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
+
+        public override string Title
+        {
+            get { return Resource.AppResource.Resources.Grid_University_Title; }
+        }
     }
 }

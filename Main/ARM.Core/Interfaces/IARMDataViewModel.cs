@@ -5,10 +5,19 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using ARM.Core.Enums;
+
 namespace ARM.Core.Interfaces
 {
     public interface IARMDataViewModel : IARMWorkspaceViewModel
     {
         object DataObject { get; }
+
+        /// 
+        ///  <param name="obj"></param>
+        /// <param name="mode"></param>
+        void SetBusinessObject<TObj>(TObj obj,ViewMode mode);
+
+        ViewMode Mode { get; }
     }//end IARMDataViewModel
 }//end namespace Interfaces

@@ -58,6 +58,8 @@ namespace ARM.Infrastructure.MVVM
             get { return typeof (T); }
         }
 
+        public abstract string Title { get; }
+
         #region [protected]
 
         protected override void Dispose(bool disposing)

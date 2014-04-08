@@ -4,14 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:armviewmodel="clr-namespace:ARM.Infrastructure.MVVM;assembly=ARM.Infrastructure"
+             xmlns:ws="clr-namespace:ARM.Module.Helpers.WorkspaceSelector"
              >
+    <UserControl.Resources>
+        
+        <DataTemplate x:Key="GridModelDataTemplate">
+            <ContentControl  Content="{Binding View}"></ContentControl>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="DataModelDataTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ContentControl  Content="{Binding View}" Grid.Row="0"></ContentControl>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                    <Button Command="{Binding SaveCommand}">OK</Button>
+                    <Button Command="{Binding CancelCommand}">Cancel</Button>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        
+        <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}" DataViewModel="{StaticResource DataModelDataTemplate}" />
+        
+        
+    </UserControl.Resources>
     <Grid>
-        <xcad:DockingManager DocumentsSource="{Binding Items}">
-            <xcad:DockingManager.LayoutItemTemplate>
+        <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}" LayoutItemTemplateSelector="{StaticResource ArmWorkspaceSelector}">
+            <xcad:DockingManager.Theme>
+                <xcad:VS2010Theme></xcad:VS2010Theme>
+            </xcad:DockingManager.Theme>
+            <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
-                    <ContentControl Content="{Binding View}"></ContentControl>
+                    <TextBlock x:Name="TextTitle" Text="{Binding Content.Title,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                 </DataTemplate>
-            </xcad:DockingManager.LayoutItemTemplate>
+            </xcad:DockingManager.DocumentHeaderTemplate>
+            
             <xcad:LayoutRoot x:Name="RootDockLayout">
                 <xcad:LayoutPanel Orientation="Horizontal"  >
                     <xcad:LayoutDocumentPaneGroup >

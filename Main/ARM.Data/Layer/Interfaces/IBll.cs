@@ -33,5 +33,7 @@ namespace ARM.Data.Layer.Interfaces
         T GetById(Guid id);
 
         IEnumerable<T> GetAll();
+
+        void Save();
     }//end IBll
 }//end namespace Interfaces

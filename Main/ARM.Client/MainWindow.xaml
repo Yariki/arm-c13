@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cal="http://www.codeplex.com/CompositeWPF" 
         xmlns:infr="clr-namespace:ARM.Infrastructure.Region;assembly=ARM.Infrastructure"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="650" Width="825"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

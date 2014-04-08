@@ -22,8 +22,8 @@ namespace ARM.Infrastructure.MVVM
         ///
         /// <param name="businessObject"></param>
         /// <param name="view"></param>
-        protected ARMValidatableViewModelBase(object businessObject, IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,IARMView view) 
-            : base(businessObject,regionManager,unityContainer,eventAggregator,view)
+        protected ARMValidatableViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,IARMView view) 
+            : base(regionManager,unityContainer,eventAggregator,view)
         {
             _validationAdaptor = UnityContainer.Resolve<IARMValidationAdaptor>();
             _validationAdaptor.SetValidationObject(GetBusinessObject<object>(),GetAllArmPropertyInfo());

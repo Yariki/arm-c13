@@ -65,6 +65,14 @@ namespace ARM.Data.Layer.Context
             return _context.GetItems().FirstOrDefault(item => (item as BaseModel).Id == id);
         }
 
+        public void Save()
+        {
+            if (_context != null)
+            {
+                _context.Save();
+            }
+        }
+
         public void Dispose()
         {
             if(_context != null)

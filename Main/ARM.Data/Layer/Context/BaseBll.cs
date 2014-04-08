@@ -59,6 +59,11 @@ namespace ARM.Data.Layer.Context
             return _dal.GetAll();
         }
 
+        public void Save()
+        {
+            _dal.Save();
+        }
+
         public void Dispose()
         {
             if(_dal != null)

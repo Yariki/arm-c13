@@ -18,5 +18,7 @@ namespace ARM.Core.Interfaces
         }
 
         IEnumerable<string> GetErrors();
+        void AddMessage(string mes);
+        void ClearMessages();
     }//end IARMValidationResult
 }//end namespace Interfaces

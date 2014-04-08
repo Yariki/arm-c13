@@ -19,7 +19,7 @@ namespace ARM.Core.Validation
         {
         }
 
-        private static Lazy<ARMValidationRulesFactory> _instance = new Lazy<ARMValidationRulesFactory>(() => new ARMValidationRulesFactory()); 
+        private static readonly Lazy<ARMValidationRulesFactory> _instance = new Lazy<ARMValidationRulesFactory>(() => new ARMValidationRulesFactory()); 
 
         public static ARMValidationRulesFactory Instance
         {
@@ -35,7 +35,43 @@ namespace ARM.Core.Validation
                 var maxAttr = attr as ARMMaxAttribute;
                 return new ARMMaxValidationRule(maxAttr.Min,maxAttr.Max);
             }
+            if (attr is ARMMinAttribute)
+            {
+                var minAttr = attr as ARMMinAttribute;
+                return new ARMMinValidationRule(minAttr.Min,minAttr.Max);
+            }
+            if (attr is ARMRangeAttribute)
+            {
+                var rangeAttr = attr as ARMRangeAttribute;
+                return new ARMRangeValidationRule(rangeAttr.Min,rangeAttr.Max);
+            }
+            if (attr is ARMEmailAttribute)
+            {
+                var emailAttr = attr as ARMEmailAttribute;
+                return new ARMEmailValidationRule();
+            }
+            if (attr is ARMMobilPhoneAttribute)
+            {
+                var mobileAttr = attr as ARMMobilPhoneAttribute;
+                return new ARMMobilPhoneValidationRule();
+            }
+            if (attr is ARMUrlAttribute)
+            {
+                var urlAttr = attr as ARMUrlAttribute;
+                return new ARMUrlValidationRule();
+            }
             return null;
         }
+
+        public IARMValidationRule GetRuleForReferenceType()
+        {
+            return new ARMReferenceValidationRule();
+        }
+
+        public IARMValidationRule GetRuleForValuableType()
+        {
+            return new ARMValuableValidationRule();
+        }
+
     }//end ARMValidationRulesFactory
 }//end namespace Validation

@@ -11,14 +11,6 @@ namespace ARM.Core.Validation.Rules
 {
     public abstract class ARMValidationRule : IARMValidationRule
     {
-        public ARMValidationRule()
-        {
-        }
-
-        ~ARMValidationRule()
-        {
-        }
-
         protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;
@@ -26,7 +18,7 @@ namespace ARM.Core.Validation.Rules
 
         public IARMValidationResult Evalute(object val)
         {
-            return null;
+            return InternalEvalute(val);
         }
     }//end ARMValidationRule
 }//end namespace Rules

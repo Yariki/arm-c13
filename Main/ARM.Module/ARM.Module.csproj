@@ -99,12 +99,15 @@
     <Compile Include="Commands\Menu\File\ARMMenuExitCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
+    <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
     <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
     <Compile Include="Interfaces\View\IARMMainToolboxView.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="View\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
     </Compile>
@@ -130,6 +134,9 @@
     </Compile>
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMUniversityView.xaml.cs">
+      <DependentUpon>ARMUniversityView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +181,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\References\ARMUniversityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

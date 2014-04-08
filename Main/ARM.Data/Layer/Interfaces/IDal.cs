@@ -31,5 +31,7 @@ namespace ARM.Data.Layer.Interfaces
         ///
         /// <param name="id"></param>
         T GetById(Guid id);
+
+        void Save();
     }//end IDal
 }//end namespace Interfaces

@@ -6,18 +6,24 @@
 ///////////////////////////////////////////////////////////
 
 using System.Collections.Generic;
+using System.Linq;
 using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation
 {
     public class ARMValidationResult : IARMValidationResult
     {
-        public ARMValidationResult()
+        private readonly IList<string> _listMessage = new List<string>();
+
+
+        public void AddMessage(string mes)
         {
+            _listMessage.Add(mes);
         }
 
-        ~ARMValidationResult()
+        public void ClearMessages()
         {
+            _listMessage.Clear();
         }
 
         public bool IsValid
@@ -28,7 +34,7 @@ namespace ARM.Core.Validation
 
         public IEnumerable<string> GetErrors()
         {
-            return null;
+            return _listMessage.AsEnumerable();
         }
     }//end ARMValidationResult
 }//end namespace Validation
