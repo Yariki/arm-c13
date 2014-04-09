@@ -5,8 +5,12 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
+
 namespace ARM.Data.Models
 {
+    [ARMMetadata(Metadata = eARMMetadata.Language)]
     public class Language : BaseNamedModel
     { 
     }//end Language

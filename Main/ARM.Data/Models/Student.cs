@@ -9,9 +9,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Student)]
+
     public class Student : Person
     {
         [Required]

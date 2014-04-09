@@ -77,6 +77,7 @@
     <Compile Include="Attributes\ARMEmailAttribute.cs" />
     <Compile Include="Attributes\ARMGridAttribute.cs" />
     <Compile Include="Attributes\ARMMaxAttribute.cs" />
+    <Compile Include="Attributes\ARMMetadataAttribute.cs" />
     <Compile Include="Attributes\ARMMinAttribute.cs" />
     <Compile Include="Attributes\ARMMobilPhoneAttribute.cs" />
     <Compile Include="Attributes\ARMNumericAttribute.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Attributes\ARMUrlAttribute.cs" />
     <Compile Include="Attributes\ARMValidationAttribute.cs" />
     <Compile Include="CoreModule.cs" />
+    <Compile Include="Enums\eARMMetadata.cs" />
     <Compile Include="Enums\ToolbarCommand.cs" />
     <Compile Include="Enums\ViewMode.cs" />
     <Compile Include="EventArguments\ValidationEventArgs.cs" />

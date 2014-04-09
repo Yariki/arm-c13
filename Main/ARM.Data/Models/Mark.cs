@@ -7,9 +7,13 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    [ARMMetadata(Metadata = eARMMetadata.Mark)]
+
     public class Mark : BaseModel
     {
         [Required]

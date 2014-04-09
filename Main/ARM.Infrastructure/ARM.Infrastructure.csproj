@@ -95,6 +95,13 @@
   <ItemGroup>
     <Compile Include="Controls\ARMDataGridControl.cs" />
     <Compile Include="Enums\LogLevel.cs" />
+    <Compile Include="Events\ARMEntityAddEvent.cs" />
+    <Compile Include="Events\ARMEntityEditEvent.cs" />
+    <Compile Include="Events\ARMEntityViewEvent.cs" />
+    <Compile Include="Events\EventPayload\ARMAddEventPayload.cs" />
+    <Compile Include="Events\EventPayload\ARMBasePayload.cs" />
+    <Compile Include="Events\EventPayload\ARMEditEventPayload.cs" />
+    <Compile Include="Events\EventPayload\ARMViewPayload.cs" />
     <Compile Include="InfrastructureModule.cs" />
     <Compile Include="Interfaces\Grid\IARMGridView.cs" />
     <Compile Include="Interfaces\IARMFacade.cs" />
@@ -133,6 +140,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

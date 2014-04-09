@@ -6,9 +6,12 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Hobby)]
     public class Hobby : BaseNoteModel
     {
         public Hobby()

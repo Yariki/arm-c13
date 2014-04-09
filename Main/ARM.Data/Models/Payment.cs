@@ -8,9 +8,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Cache;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Payment)]
+
     public class Payment : BaseNamedModel
     {
         [Required]

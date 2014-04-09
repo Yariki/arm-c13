@@ -48,5 +48,6 @@ namespace ARM.Core.MVVM
             InternalAction = action;
             InternalPredicate = predicate;
         }
+        
     }
 }

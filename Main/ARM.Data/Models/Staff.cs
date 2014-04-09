@@ -7,9 +7,13 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Staff)]
+
     public class Staff : Person
     {
         public Staff()

@@ -8,9 +8,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Specialty)]
+
     public class Specialty : BaseNamedModel
     {
         public Specialty()

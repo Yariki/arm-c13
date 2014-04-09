@@ -7,9 +7,12 @@
 
 using System;
 using System.Collections.Generic;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Group)]
     public class Group : BaseNamedModel
     {
         public Group()

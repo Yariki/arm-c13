@@ -7,9 +7,13 @@
 
 using System;
 using System.Collections.Generic;
+using ARM.Core.Attributes;
+using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+  [ARMMetadata(Metadata = eARMMetadata.Session)]
+
     public class Session : BaseNamedModel
     {
         public DateTime DateBegin
