@@ -151,6 +151,42 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Model_Action_Add {
+            get {
+                return ResourceManager.GetString("Model_Action_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Model_Action_Edit {
+            get {
+                return ResourceManager.GetString("Model_Action_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string Model_Action_View {
+            get {
+                return ResourceManager.GetString("Model_Action_View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} University.
+        /// </summary>
+        public static string Model_Data_University {
+            get {
+                return ResourceManager.GetString("Model_Data_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Modified.
         /// </summary>
         public static string Model_DateModified {

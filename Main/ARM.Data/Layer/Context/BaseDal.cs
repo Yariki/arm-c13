@@ -14,7 +14,7 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Context
 {
-    public abstract class BaseDal<T> : IDal<T> where T : class
+    public abstract class BaseDal<T> : IDal<T> where T : BaseModel
     {
         private IContext<T> _context;
 

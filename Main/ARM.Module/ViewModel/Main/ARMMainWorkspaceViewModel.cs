@@ -10,12 +10,17 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Controls;
+using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Data.Models;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
+using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 using Xceed.Wpf.Toolkit;
@@ -25,19 +30,52 @@ namespace ARM.Module.ViewModel.Main
     public class ARMMainWorkspaceViewModel : ARMViewModelBase, IARMMainWorkspaceViewModel
     {
         private readonly IUnityContainer _unityContainer;
-        private readonly IRegionManager _regionManager;
+        private readonly IEventAggregator _eventAggregator;
 
-        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer, IRegionManager regionManager, IARMMainWorkspaceView workspaceView)
+        #region [needs]
+
+        private SubscriptionToken _tokenAdd;
+        private SubscriptionToken _tokenEdit;
+        private SubscriptionToken _tokenView;
+
+        #endregion
+
+
+        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMMainWorkspaceView workspaceView)
             : base(workspaceView)
         {
             Items = new ObservableCollection<IARMWorkspaceViewModel>();
             _unityContainer = unityContainer;
-            _regionManager = regionManager;
+            _eventAggregator = eventAggregator;
             Menu = _unityContainer.Resolve<IARMMainMenuViewModel>();
             Toolbox = _unityContainer.Resolve<IARMMainToolboxViewModel>();
             StatusBar = _unityContainer.Resolve<IARMMainStatusBarViewModel>();
             Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
             Menu.InitializeCommands();
+            InitEventAggregator();
+        }
+
+        private void InitEventAggregator()
+        {
+            if(_eventAggregator == null)
+                return;
+            var addEvent = _eventAggregator.GetEvent<ARMEntityAddEvent>();
+            if (addEvent != null)
+            {
+                _tokenAdd = addEvent.Subscribe(OnAddEntity);
+            }
+
+            var editEvent = _eventAggregator.GetEvent<ARMEntityEditEvent>();
+            if (editEvent != null)
+            {
+                _tokenEdit = editEvent.Subscribe(OnEditEntity);
+            }
+
+            var viewEvent = _eventAggregator.GetEvent<ARMEntityViewEvent>();
+            if (viewEvent != null)
+            {
+                _tokenView = viewEvent.Subscribe(OnViewEntity);
+            }
         }
 
         public IARMView MenuView
@@ -96,8 +134,39 @@ namespace ARM.Module.ViewModel.Main
 
         #endregion
 
+        #region [global event add, edit, view]
+
+        private void OnAddEntity(ARMAddEventPayload obj)
+        {
+            if(obj == null)
+                return;
+            switch (obj.Metadata)
+            {
+                case eARMMetadata.University:
+                    var viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
+                    if (viewModel != null)
+                    {
+                        viewModel.SetBusinessObject(new University(),obj.Mode);
+                        Items.Add(viewModel);
+                    }
+                    break;
+            }
+        }
+
+        private void OnEditEntity(ARMEditEventPayload obj)
+        {
+
+        }
+
+        private void OnViewEntity(ARMViewPayload obj)
+        {
+
+        }
 
         #endregion
+
+        #endregion
+
 
 
     } //end ARMMainWorkspaceViewModel

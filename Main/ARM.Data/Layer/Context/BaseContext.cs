@@ -1,10 +1,12 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Context
 {
-    public abstract class BaseContext<T> : DbContext, IContext<T> where T : class
+    public abstract class BaseContext<T> : DbContext, IContext<T> where T : BaseModel
     {
 
         public BaseContext()
@@ -25,8 +27,9 @@ namespace ARM.Data.Layer.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Entity<T>().Property(o => o.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //base.OnModelCreating(modelBuilder);
         }
     }
 }

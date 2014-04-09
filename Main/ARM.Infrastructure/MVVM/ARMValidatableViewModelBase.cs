@@ -14,7 +14,7 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public class ARMValidatableViewModelBase : ARMDataViewModelBase, IARMValidatableViewModel
+    public abstract class ARMValidatableViewModelBase : ARMDataViewModelBase, IARMValidatableViewModel
     {
         private ARM.Core.Interfaces.IARMValidationAdaptor _validationAdaptor;
         

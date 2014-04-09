@@ -18,8 +18,8 @@ namespace ARM.Data.Models
     public abstract class BaseModel : IARMModel
     {
         protected BaseModel()
-        {   
-
+        {
+            DateModified = DateTime.Now;
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

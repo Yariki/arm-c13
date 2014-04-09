@@ -22,7 +22,7 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public class ARMDataViewModelBase : ARMWorkspaceViewModelBase, IARMDataViewModel
+    public abstract class ARMDataViewModelBase : ARMWorkspaceViewModelBase, IARMDataViewModel
     {
         private object _dataObject;
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
@@ -166,12 +166,6 @@ namespace ARM.Infrastructure.MVVM
         protected virtual void CancelExecute(object arg)
         {
             
-        }
-
-        public IARMView View
-        {
-            get;
-            set;
         }
 
         public object DataObject

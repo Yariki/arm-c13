@@ -4,6 +4,7 @@ using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.MVVM;
+using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -13,7 +14,7 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMUniversityDataViewModel : ARMDataViewModelBase, IARMUniversityDataViewModel
     {
-        protected ARMUniversityDataViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
+        public ARMUniversityDataViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMUniversityView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
 
@@ -59,7 +60,19 @@ namespace ARM.Module.ViewModel.References
                         universityRepositary.Save();
                         break;
                 }
+            }
+        }
 
+        public override string Title
+        {
+            get
+            {
+                return string.Format(Resource.AppResource.Resources.Model_Data_University,
+                    Mode == ViewMode.Add
+                        ? Resource.AppResource.Resources.Model_Action_Add
+                        : Mode == ViewMode.Edit
+                            ? Resource.AppResource.Resources.Model_Action_Edit
+                            : Mode == ViewMode.View ? Resource.AppResource.Resources.Model_Action_View : "");
             }
         }
     }

@@ -9,10 +9,14 @@ using ARM.Core.Interfaces;
 using ARM.Core.Module;
 using ARM.Infrastructure.Interfaces.Grid;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.References.View;
+using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
 using ARM.Module.View;
 using ARM.Module.View.Grid;
+using ARM.Module.View.References;
 using ARM.Module.ViewModel.Main;
+using ARM.Module.ViewModel.References;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
@@ -45,9 +49,12 @@ namespace ARM.Module
 
             //additional
             UnityContainer.RegisterType<IARMGridView, ARMGridView>();
+            UnityContainer.RegisterType<IARMUniversityDataViewModel, ARMUniversityDataViewModel>();
+            UnityContainer.RegisterType<IARMUniversityView, ARMUniversityView>();
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
+                //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())
                 .Include(type => type.ImplementsOpenGeneric(typeof(IARMGridViewModel<>)), Then.Register().UsingPerCallMode())
                     .ApplyAutoRegistration();
 

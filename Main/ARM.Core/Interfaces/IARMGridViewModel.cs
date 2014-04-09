@@ -29,6 +29,5 @@ namespace ARM.Core.Interfaces
 
         Type EntityType { get; }
 
-        string Title { get; }
     }//end IARMGridViewModel
 }//end namespace Interfaces

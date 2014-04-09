@@ -11,8 +11,11 @@ using System.Linq;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
+using ARM.Core.Service;
 using ARM.Data.Layer.Interfaces;
 using ARM.Data.UnitOfWork.Implementation;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.Interfaces.Grid;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -23,13 +26,13 @@ namespace ARM.Infrastructure.MVVM
 {
     public abstract class ARMGridViewModelBase<T> : ARMWorkspaceViewModelBase, IARMGridViewModel<T>
     {
-        private IBll<T> _bll = null; 
+        private IBll<T> _bll = null;
 
-        public ARMGridViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator, IARMGridView view)
-        :base(regionManager,unityContainer,eventAggregator, view)
+        public ARMGridViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
+            : base(regionManager, unityContainer, eventAggregator, view)
         {
             Toolbox = UnityContainer.Resolve<IARMToolboxViewModel>();
-            Toolbox.SetActions(OnToolboxExecute,OnToolboxCanExecute);
+            Toolbox.SetActions(OnToolboxExecute, OnToolboxCanExecute);
             Toolbox.InitializeCommands();
 
             Init();
@@ -55,10 +58,8 @@ namespace ARM.Infrastructure.MVVM
 
         public Type EntityType
         {
-            get { return typeof (T); }
+            get { return typeof(T); }
         }
-
-        public abstract string Title { get; }
 
         #region [protected]
 
@@ -69,7 +70,7 @@ namespace ARM.Infrastructure.MVVM
             {
                 if (disposing)
                 {
-                    if(_bll != null)
+                    if (_bll != null)
                         _bll.Dispose();
                     DataSource = null;
                 }
@@ -82,7 +83,17 @@ namespace ARM.Infrastructure.MVVM
 
         private void OnToolboxExecute(ToolbarCommand cmd)
         {
-            MessageBox.Show(cmd.ToString());
+            switch (cmd)
+            {
+                case ToolbarCommand.Add:
+                    var addEvent = EventAggregator.GetEvent<ARMEntityAddEvent>();
+                    addEvent.Publish(new ARMAddEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T))));
+                    break;
+                case ToolbarCommand.Edit:
+                    break;
+                case ToolbarCommand.Delete:
+                    break;
+            }
         }
 
         private bool OnToolboxCanExecute(ToolbarCommand cmd)

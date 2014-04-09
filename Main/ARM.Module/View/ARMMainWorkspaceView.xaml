@@ -43,7 +43,7 @@
             </xcad:DockingManager.DocumentHeaderTemplate>
             
             <xcad:LayoutRoot x:Name="RootDockLayout">
-                <xcad:LayoutPanel Orientation="Horizontal"  >
+                <xcad:LayoutPanel Orientation="Horizontal" >
                     <xcad:LayoutDocumentPaneGroup >
                         <xcad:LayoutDocumentPane >
                         </xcad:LayoutDocumentPane>

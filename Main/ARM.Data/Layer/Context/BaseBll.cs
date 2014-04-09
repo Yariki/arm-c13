@@ -8,10 +8,11 @@
 using System;
 using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Context
 {
-    public abstract class BaseBll<T> : IBll<T> where T : class
+    public abstract class BaseBll<T> : IBll<T> where T : BaseModel
     {
         private IDal<T> _dal;
 

@@ -16,7 +16,7 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public class ARMWorkspaceViewModelBase : ARMViewModelBase,IARMWorkspaceViewModel
+    public abstract class ARMWorkspaceViewModelBase : ARMViewModelBase,IARMWorkspaceViewModel
     {
 
 #region [needs]
@@ -52,6 +52,8 @@ namespace ARM.Infrastructure.MVVM
                 return _closeCommand;
             }
         }
+
+        public abstract string Title { get; }
 
         public event EventHandler RequestClose;
 
