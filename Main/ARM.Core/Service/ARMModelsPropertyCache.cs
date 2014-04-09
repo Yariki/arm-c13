@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using ARM.Core.Attributes;
+using ARM.Core.Enums;
 using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Core.Interfaces.Data;
@@ -22,81 +23,96 @@ using Microsoft.Practices.ObjectBuilder2;
 
 namespace ARM.Core.Service
 {
-    public class ARMModelsPropertyCache
+  public class ARMModelsPropertyCache
+  {
+    private Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
+    private Dictionary<eARMMetadata, Type> _dictMetadata = null;
+    private const string AssemblyPrefix = "ARM";
+
+
+    private ARMModelsPropertyCache()
     {
-        private Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
-        private const string AssemblyPrefix = "ARM";
-            
+      _dictCache = new Dictionary<Type, List<IARMModelPropertyInfo>>();
+      _dictMetadata = new Dictionary<eARMMetadata, Type>();
+    }
 
-        private ARMModelsPropertyCache()
+    #region [static]
+
+    private static Lazy<ARMModelsPropertyCache> _instance = new Lazy<ARMModelsPropertyCache>(() => new ARMModelsPropertyCache());
+
+    public static ARMModelsPropertyCache Instance
+    {
+      get { return _instance.Value; }
+    }
+
+    #endregion
+
+    private void InitCache()
+    {
+      var listType =
+          AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.Contains(AssemblyPrefix)).SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IARMModel))));
+      foreach (var type in listType)
+      {
+        AddType(type);
+      }
+    }
+
+    private void AddType(Type type)
+    {
+      var listPi = type.GetAllPublicProperties();
+      if (!listPi.Any()) return;
+      List<IARMModelPropertyInfo> listArmPi = new List<IARMModelPropertyInfo>();
+      foreach (var propertyInfo in listPi)
+      {
+        bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
+        bool visiblbeInGrid = propertyInfo.HasAttribute<ARMGridAttribute>();
+        IARMValidationAttribute validAttr = null;
+        DisplayAttribute disAttr = null;
+        if (propertyInfo.HasAttribute<ARMValidationAttribute>())
         {
-            _dictCache = new Dictionary<Type, List<IARMModelPropertyInfo>>();
+          validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
         }
-
-        #region [static]
-
-        private static Lazy<ARMModelsPropertyCache> _instance = new Lazy<ARMModelsPropertyCache>(() => new ARMModelsPropertyCache()); 
-
-        public static ARMModelsPropertyCache Instance
+        if (propertyInfo.HasAttribute<DisplayAttribute>())
         {
-            get { return _instance.Value; }
+          disAttr = propertyInfo.GetAttribute<DisplayAttribute>();
         }
+        listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr, visiblbeInGrid, disAttr));
+      }
+      _dictCache[type] = listArmPi;
 
-        #endregion
+      if (type.HasAttribute<ARMMetadataAttribute>())
+      {
+        eARMMetadata metadata = type.GetAttribute<ARMMetadataAttribute>().Metadata;
+        _dictMetadata[metadata] = type;
+      }
+    }
 
-        private void InitCache()
-        {
-            var listType =
-                AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.Contains(AssemblyPrefix)).SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IARMModel))));
-            foreach (var type in listType)
-            {
-                AddType(type);
-            }
-        }
+    public void Initialize()
+    {
+      InitCache();
+    }
 
-        private  void AddType(Type type)
-        {
-            var listPi = type.GetAllPublicProperties();
-            if (!listPi.Any()) return;
-            List<IARMModelPropertyInfo> listArmPi = new List<IARMModelPropertyInfo>();
-            foreach (var propertyInfo in listPi)
-            {
-                bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
-                bool visiblbeInGrid = propertyInfo.HasAttribute<ARMGridAttribute>();
-                IARMValidationAttribute validAttr = null;
-                DisplayAttribute disAttr = null;
-                if (propertyInfo.HasAttribute<ARMValidationAttribute>())
-                {
-                    validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
-                }
-                if (propertyInfo.HasAttribute<DisplayAttribute>())
-                {
-                    disAttr = propertyInfo.GetAttribute<DisplayAttribute>();
-                }
-                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr,visiblbeInGrid,disAttr));
-            }
-            _dictCache[type] = listArmPi;
-        }
+    ///
+    /// <param name="type"></param>
+    public void AddNewType(Type type)
+    {
+      Contract.Requires(type != null);
+      AddType(type);
+    }
 
-        public void Initialize()
-        {
-            InitCache();
-        }
+    ///
+    /// <param name="type"></param>
+    public List<IARMModelPropertyInfo> GetPropertyInfos(Type type)
+    {
+      Contract.Requires(type != null);
+      return _dictCache.ContainsKey(type) ? _dictCache[type] : null;
+    }
 
-        ///
-        /// <param name="type"></param>
-        public void AddNewType(Type type)
-        {
-            Contract.Requires(type != null);
-            AddType(type);
-        }
+    public Type GetTypeByMetadata(eARMMetadata metadata)
+    {
+      Contract.Requires(metadata != eARMMetadata.None);
+      return _dictMetadata[metadata];
+    }
 
-        ///
-        /// <param name="type"></param>
-        public List<IARMModelPropertyInfo> GetPropertyInfos(Type type)
-        {
-            Contract.Requires(type != null);
-            return _dictCache.ContainsKey(type) ? _dictCache[type] : null;
-        }
-    }//end ARMModelsPeopertyCache
+  }//end ARMModelsPeopertyCache
 }//end namespace Service

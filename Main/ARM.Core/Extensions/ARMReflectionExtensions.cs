@@ -6,6 +6,7 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using ARM.Core.Attributes;
 
 namespace ARM.Core.Extensions
 {
@@ -24,12 +25,23 @@ namespace ARM.Core.Extensions
             Contract.Requires(t != null);
             Contract.Requires(string.IsNullOrEmpty(name));
             return t.GetAllPublicProperties().Any(pi => pi.Name.ToLower() == name.ToLower());
-
         }
+
+      public static bool HasAttribute<T>(this Type t)
+      {
+        Contract.Requires(t != null);
+        return t.GetCustomAttributes(typeof (T), true).Any();
+      }
+
+      public static T GetAttribute<T>(this Type t )
+      {
+        Contract.Requires(t != null);
+        return t.GetCustomAttributes(typeof (T), true).OfType<T>().ElementAt(0);
+      }
+
 
 
         #endregion
-
 
         #region [property info]
         
