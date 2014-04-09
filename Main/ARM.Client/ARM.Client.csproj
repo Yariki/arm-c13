@@ -17,7 +17,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,7 +27,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\ROutput\</OutputPath>
@@ -142,6 +142,10 @@
     <ProjectReference Include="..\ARM.Module\ARM.Module.csproj">
       <Project>{05594D64-3EC3-4BA6-8DDE-0E4513FA4B93}</Project>
       <Name>ARM.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARM.Resource\ARM.Resource.csproj">
+      <Project>{a4b7f6b2-3d63-44b2-9f54-627ef12beaa6}</Project>
+      <Name>ARM.Resource</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
