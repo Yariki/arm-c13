@@ -54,6 +54,7 @@ namespace ARM.Module.ViewModel.Main
 
             References = new ObservableCollection<IARMMenuCommand>();
             References.Add(new ARMMenuUniversityCommand(_actionMenu,_canFunc));
+            References.Add(new ARMMenuStaffCommand(_actionMenu,_canFunc));
         }
 
         #endregion

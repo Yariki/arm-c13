@@ -7,49 +7,66 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ARM.Core.Attributes;
 
 namespace ARM.Data.Models
 {
     public abstract class Person : BaseModel
     {
-        
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_FirstName")]
+        [ARMGrid(Order = 1)]
+        [Required]
         public string FirstName
         {
             get;
             set;
         }
 
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_MiddleName")]
+        [ARMGrid(Order = 3)]
         public String MiddleName
         {
             get;
             set;
         }
 
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_LastName")]
+        [ARMGrid(Order = 2)]
+        [Required]
         public string LastName
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 4)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_Email")]
         public string Email
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 5)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_PhoneMobile")]
         public string PhoneMobile
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 6)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_PhoneHome")]
         public string PhoneHome
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 7)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_Sex")]
         public SexType Sex
         {
             get;

@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
@@ -16,14 +17,9 @@ namespace ARM.Data.Models
 
     public class Staff : Person
     {
-        public Staff()
-        {
-        }
 
-        ~Staff()
-        {
-        }
-
+        [ARMGrid(Order = 8)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Staff_Type")]
         public StaffType StaffType
         {
             get;

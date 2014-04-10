@@ -6,19 +6,17 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Implementation.Staff
 {
-    public class StaffContext : BaseContext<Models.Staff>,IStaffContext
+    public class StaffContext : BaseContext<Models.Staff>, IStaffContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Person>()
-               .Property(p => p.Id)
-               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             modelBuilder.Entity<Models.Staff>().Map(m =>
             {
                 m.MapInheritedProperties();
                 m.ToTable("Staff");
             });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

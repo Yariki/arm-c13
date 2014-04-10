@@ -57,7 +57,7 @@ namespace ARM.Module.ViewModel.Main
 
         private void InitEventAggregator()
         {
-            if(_eventAggregator == null)
+            if (_eventAggregator == null)
                 return;
             var addEvent = _eventAggregator.GetEvent<ARMEntityAddEvent>();
             if (addEvent != null)
@@ -105,7 +105,7 @@ namespace ARM.Module.ViewModel.Main
 
         }
 
-        public ObservableCollection<IARMWorkspaceViewModel> Items { get; private  set; }
+        public ObservableCollection<IARMWorkspaceViewModel> Items { get; private set; }
 
         public IARMWorkspaceViewModel CurrentWorkspace { get; set; }
 
@@ -124,6 +124,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceUniversity:
                     Items.Add(_unityContainer.Resolve<IARMGridViewModel<University>>());
                     break;
+                case eARMMainMenuCommand.ReferenceStaff:
+                    Items.Add(_unityContainer.Resolve<IARMGridViewModel<Staff>>());
+                    break;
             }
         }
 
@@ -138,7 +141,7 @@ namespace ARM.Module.ViewModel.Main
 
         private void OnAddEntity(ARMAddEventPayload obj)
         {
-            if(obj == null)
+            if (obj == null)
                 return;
             switch (obj.Metadata)
             {
@@ -146,7 +149,7 @@ namespace ARM.Module.ViewModel.Main
                     var viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(new University(),obj.Mode);
+                        viewModel.SetBusinessObject(new University(), obj.Mode);
                         Items.Add(viewModel);
                     }
                     break;

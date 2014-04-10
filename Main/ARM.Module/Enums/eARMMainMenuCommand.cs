@@ -7,6 +7,7 @@
         About,
         DocumentInvoice,
         DocumentPayment,
-        ReferenceUniversity
+        ReferenceUniversity,
+        ReferenceStaff
     }
 }
