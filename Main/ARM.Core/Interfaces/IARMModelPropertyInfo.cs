@@ -35,6 +35,8 @@ namespace ARM.Core.Interfaces
 
         bool VisibleInGrid { get; }
 
+        int OrderInGrid { get; }
+
         DisplayAttribute Display { get; }
 
     }//end IARMModelPropertyInfo

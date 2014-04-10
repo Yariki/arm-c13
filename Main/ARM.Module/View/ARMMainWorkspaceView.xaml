@@ -34,7 +34,7 @@
     <Grid>
         <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}" LayoutItemTemplateSelector="{StaticResource ArmWorkspaceSelector}">
             <xcad:DockingManager.Theme>
-                <xcad:VS2010Theme></xcad:VS2010Theme>
+                <xcad:AeroTheme></xcad:AeroTheme>
             </xcad:DockingManager.Theme>
             <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>

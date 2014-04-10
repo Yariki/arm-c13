@@ -4,8 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Control="clr-namespace:ARM.Infrastructure.Controls;assembly=ARM.Infrastructure"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <Style TargetType="{x:Type xcdg:GroupByControl}">
+            <Setter Property="AllowGroupingModification" Value="False"/>
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -13,6 +21,7 @@
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" x:Name="Toolbox" Content="{Binding Toolbox.View}"></ContentControl>
 
-        <Control:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding Items}" TypeOfEntity="{Binding EntityType}" ></Control:ARMDataGridControl>
+        <Control:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding DataSource,UpdateSourceTrigger=PropertyChanged}" TypeOfEntity="{Binding EntityType}"
+                                    ></Control:ARMDataGridControl>
     </Grid>
 </UserControl>

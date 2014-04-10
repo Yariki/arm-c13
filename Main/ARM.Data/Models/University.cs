@@ -30,7 +30,7 @@ namespace ARM.Data.Models
 
         public string Email { get; set; }
 
-        [ARMGrid]
+        [ARMGrid (Order = 2)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public virtual Staff Rector
         {

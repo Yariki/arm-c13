@@ -66,8 +66,13 @@ namespace ARM.Core.Service
             {
                 bool isRequired = propertyInfo.HasAttribute<RequiredAttributeAttribute>();
                 bool visiblbeInGrid = propertyInfo.HasAttribute<ARMGridAttribute>();
+                int orderinGrid = 0;
                 IARMValidationAttribute validAttr = null;
                 DisplayAttribute disAttr = null;
+                if (visiblbeInGrid)
+                {
+                    orderinGrid = propertyInfo.GetAttribute<ARMGridAttribute>().Order;
+                }
                 if (propertyInfo.HasAttribute<ARMValidationAttribute>())
                 {
                     validAttr = propertyInfo.GetAttribute<ARMValidationAttribute>();
@@ -76,7 +81,7 @@ namespace ARM.Core.Service
                 {
                     disAttr = propertyInfo.GetAttribute<DisplayAttribute>();
                 }
-                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr, visiblbeInGrid, disAttr));
+                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr, visiblbeInGrid,orderinGrid, disAttr));
             }
             _dictCache[type] = listArmPi;
 

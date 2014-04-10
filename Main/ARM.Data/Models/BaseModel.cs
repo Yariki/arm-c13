@@ -22,14 +22,13 @@ namespace ARM.Data.Models
             DateModified = DateTime.Now;
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id
         {
             get;
             set;
         }
 
-        [ARMGrid]
+        [ARMGrid(Order = int.MaxValue)]
         [Display(ResourceType =   typeof(ARM.Resource.AppResource.Resources),Name = "Model_DateModified")]
         public DateTime DateModified
         {

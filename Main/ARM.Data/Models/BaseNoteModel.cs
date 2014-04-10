@@ -5,10 +5,13 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+using ARM.Core.Attributes;
+
 namespace ARM.Data.Models
 {
     public abstract class BaseNoteModel : BaseNamedModel
     {
+        [ARMGrid(Order = int.MaxValue - 1)]
         public string Note
         {
             get;

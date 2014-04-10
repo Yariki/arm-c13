@@ -111,8 +111,7 @@ namespace ARM.Infrastructure.MVVM
             _bll = UnityContainer.Resolve<IBll<T>>();
             if (_bll != null)
             {
-                var list = _bll.GetAll().ToList();
-                DataSource = list;
+                DataSource = _bll.GetAll().ToList();
                 OnPropertyChanged(() => DataSource);
             }
         }

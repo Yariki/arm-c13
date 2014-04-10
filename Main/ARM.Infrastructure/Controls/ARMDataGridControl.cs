@@ -11,6 +11,17 @@ namespace ARM.Infrastructure.Controls
 {
     public class ARMDataGridControl : DataGridControl
     {
+
+        #region [ctor]
+        
+        public ARMDataGridControl()
+            :base()
+        {
+            AutoCreateColumns = false;
+            ReadOnly = true;
+        }
+        #endregion
+
         #region [depedency property]
 
         #region [type of entity]
@@ -37,7 +48,7 @@ namespace ARM.Infrastructure.Controls
             List<IARMModelPropertyInfo> propertyInfos = ARMModelsPropertyCache.Instance.GetPropertyInfos(newType);
             if(propertyInfos == null || !propertyInfos.Any())
                 return;
-            foreach (var armModelPropertyInfo in propertyInfos.Where(p => p.VisibleInGrid).OrderBy(p => p.Property.MetadataToken))
+            foreach (var armModelPropertyInfo in propertyInfos.Where(p => p.VisibleInGrid).OrderBy(p => p.OrderInGrid))
             {
                 var column = new Column();
                 column.FieldName = armModelPropertyInfo.Property.Name;

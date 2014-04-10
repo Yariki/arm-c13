@@ -12,7 +12,7 @@ namespace ARM.Data.Models
 {
     public abstract class BaseNamedModel : BaseModel
     {
-        [ARMGrid]
+        [ARMGrid(Order = 1)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Name")]
         public string Name
         {
