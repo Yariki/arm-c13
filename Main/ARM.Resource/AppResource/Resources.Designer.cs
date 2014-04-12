@@ -61,6 +61,60 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string Enum_Female {
+            get {
+                return ResourceManager.GetString("Enum_Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lecture.
+        /// </summary>
+        public static string Enum_Lecture {
+            get {
+                return ResourceManager.GetString("Enum_Lecture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string Enum_Male {
+            get {
+                return ResourceManager.GetString("Enum_Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string Enum_None {
+            get {
+                return ResourceManager.GetString("Enum_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phd.
+        /// </summary>
+        public static string Enum_Phd {
+            get {
+                return ResourceManager.GetString("Enum_Phd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technician.
+        /// </summary>
+        public static string Enum_Technician {
+            get {
+                return ResourceManager.GetString("Enum_Technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Staff.
         /// </summary>
         public static string Grid_Staff_Title {
@@ -183,6 +237,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Action_View {
             get {
                 return ResourceManager.GetString("Model_Action_View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Staff.
+        /// </summary>
+        public static string Model_Data_Staff {
+            get {
+                return ResourceManager.GetString("Model_Data_Staff", resourceCulture);
             }
         }
         

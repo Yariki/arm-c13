@@ -21,7 +21,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public Guid StudentId
+        public Guid StudentId 
         {
             get;
             set;

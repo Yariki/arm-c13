@@ -195,4 +195,25 @@
   <data name="Grid_Staff_Title" xml:space="preserve">
     <value>Staff</value>
   </data>
+  <data name="Enum_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Enum_Lecture" xml:space="preserve">
+    <value>Lecture</value>
+  </data>
+  <data name="Enum_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Enum_Phd" xml:space="preserve">
+    <value>Phd</value>
+  </data>
+  <data name="Enum_Technician" xml:space="preserve">
+    <value>Technician</value>
+  </data>
+  <data name="Model_Data_Staff" xml:space="preserve">
+    <value>{0} Staff</value>
+  </data>
 </root>

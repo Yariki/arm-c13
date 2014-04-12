@@ -36,13 +36,13 @@ namespace ARM.Infrastructure.MVVM
             : base(regionManager,unityContainer,eventAggregator,view)
         {
             
-            SaveCommand = new DelegateCommand<object>(SaveExecute, CanSaveExecte);
-            CancelCommand = new DelegateCommand<object>(CancelExecute,CanCancelExecute);
+            SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
+            CancelCommand = new ARMRelayCommand(CancelExecute,CanCancelExecute);
         }
 
         ///
         /// <param name="obj"></param>
-        public void SetBusinessObject<TObj>(TObj obj,ViewMode mode)
+        public virtual void SetBusinessObject<TObj>(TObj obj,ViewMode mode)
         {
             this._dataObject = (object) obj;
             Mode = mode;
@@ -134,7 +134,7 @@ namespace ARM.Infrastructure.MVVM
                 if(pi != null)
                     pi.Property.SetPropertyValue(_dataObject, val);
             }
-            else if (_values.ContainsKey(name))
+            else 
             {
                 _values[name] = val;
             }

@@ -51,6 +51,11 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMGridView, ARMGridView>();
             UnityContainer.RegisterType<IARMUniversityDataViewModel, ARMUniversityDataViewModel>();
             UnityContainer.RegisterType<IARMUniversityView, ARMUniversityView>();
+            
+            UnityContainer.RegisterType<IARMStaffView, ARMStaffView>();
+            UnityContainer.RegisterType<IARMStaffValidatableViewModel, ARMStaffValidatableViewModel>();
+
+
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()

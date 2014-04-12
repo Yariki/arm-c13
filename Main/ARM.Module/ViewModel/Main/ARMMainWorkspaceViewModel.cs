@@ -8,6 +8,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading;
 using System.Windows.Controls;
 using ARM.Core.Enums;
@@ -31,6 +32,9 @@ namespace ARM.Module.ViewModel.Main
     {
         private readonly IUnityContainer _unityContainer;
         private readonly IEventAggregator _eventAggregator;
+
+        private IARMWorkspaceViewModel _current;
+        private int _currentIndex;
 
         #region [needs]
 
@@ -107,7 +111,26 @@ namespace ARM.Module.ViewModel.Main
 
         public ObservableCollection<IARMWorkspaceViewModel> Items { get; private set; }
 
-        public IARMWorkspaceViewModel CurrentWorkspace { get; set; }
+        public int CurrentWorkspaceIndex
+        {
+            get { return _currentIndex; }
+            set
+            {
+                _currentIndex = value;
+                OnPropertyChanged(() => CurrentWorkspaceIndex);
+                CurrentWorkspace = Items.ElementAt(_currentIndex);
+            }
+        }
+
+        public IARMWorkspaceViewModel CurrentWorkspace 
+        {
+            get { return _current; }
+            set
+            {
+                _current = value;
+                OnPropertyChanged(() => CurrentWorkspace );
+            }
+        }
 
         #region [private]
 
@@ -143,17 +166,29 @@ namespace ARM.Module.ViewModel.Main
         {
             if (obj == null)
                 return;
+            IARMDataViewModel viewModel = null;
             switch (obj.Metadata)
             {
                 case eARMMetadata.University:
-                    var viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
+                    viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
                     if (viewModel != null)
                     {
                         viewModel.SetBusinessObject(new University(), obj.Mode);
                         Items.Add(viewModel);
                     }
                     break;
+                case eARMMetadata.Staff:
+                    viewModel = _unityContainer.Resolve<IARMStaffValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        viewModel.SetBusinessObject(new Staff(), obj.Mode);
+                        Items.Add(viewModel);
+                    }
+                    break;
             }
+            CurrentWorkspace = viewModel;
+            _currentIndex = Items.IndexOf(CurrentWorkspace);
+            OnPropertyChanged(() => CurrentWorkspaceIndex);
         }
 
         private void OnEditEntity(ARMEditEventPayload obj)

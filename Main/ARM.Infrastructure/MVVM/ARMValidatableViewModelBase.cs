@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using ARM.Core.Enums;
 using ARM.Core.EventArguments;
 using ARM.Core.Interfaces;
 using Microsoft.Practices.Prism.Events;
@@ -26,7 +27,13 @@ namespace ARM.Infrastructure.MVVM
             : base(regionManager,unityContainer,eventAggregator,view)
         {
             _validationAdaptor = UnityContainer.Resolve<IARMValidationAdaptor>();
-            _validationAdaptor.SetValidationObject(GetBusinessObject<object>(),GetAllArmPropertyInfo());
+        }
+
+
+        public override void SetBusinessObject<TObj>(TObj obj, ViewMode mode)
+        {
+            base.SetBusinessObject(obj,mode);
+            _validationAdaptor.SetValidationObject(GetBusinessObject<object>(), GetAllArmPropertyInfo());
             _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
         }
 

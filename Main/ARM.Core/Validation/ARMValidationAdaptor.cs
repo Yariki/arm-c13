@@ -35,8 +35,25 @@ namespace ARM.Core.Validation
         {
             foreach (var armModelPropertyInfo in list)
             {
-                IARMValidationRule rule =
-                    ARMValidationRulesFactory.Instance.GetRule(armModelPropertyInfo.ValidationAttribute);
+                if(!armModelPropertyInfo.IsRequired && armModelPropertyInfo.ValidationAttribute == null)
+                    continue;
+                IARMValidationRule rule = null;
+
+                if (armModelPropertyInfo.ValidationAttribute != null)
+                {
+                    rule = ARMValidationRulesFactory.Instance.GetRule(armModelPropertyInfo.ValidationAttribute);
+                }
+                else if(armModelPropertyInfo.IsRequired)
+                {
+                    if (armModelPropertyInfo.Property.PropertyType.IsValueType)
+                    {
+                        rule = ARMValidationRulesFactory.Instance.GetRuleForValuableType();
+                    }
+                    else
+                    {
+                        rule = ARMValidationRulesFactory.Instance.GetRuleForReferenceType();
+                    }
+                }
                 _propertyInfos[armModelPropertyInfo.Property.Name] = armModelPropertyInfo.Property;
                 _rules[armModelPropertyInfo.Property.Name] = rule;
             }
@@ -63,6 +80,9 @@ namespace ARM.Core.Validation
 
         public void Validate(string name)
         {
+            if(!_rules.ContainsKey(name))
+                return;
+            
             var rule = _rules[name];
             var pi = _propertyInfos[name];
             if (_dataObject != null && rule != null && pi != null)
@@ -77,11 +97,13 @@ namespace ARM.Core.Validation
                 else
                 {
                     _results[name] = string.Empty;
+                    RaiseValidationCompleted(name, result);
                 }
             }
             else
             {
                 _results[name] = string.Empty;
+                RaiseValidationCompleted(name, new ARMValidationResult(){IsValid = true});
             }
         }
 
@@ -101,7 +123,7 @@ namespace ARM.Core.Validation
 
         public string GetResult(string name)
         {
-            return _results[name];
+            return _results.ContainsKey(name ) ? _results[name] : string.Empty;
         }
 
         public string GetResultForAll()

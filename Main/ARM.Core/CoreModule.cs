@@ -11,6 +11,7 @@ using ARM.Core.Interfaces;
 using ARM.Core.Module;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
+using ARM.Core.Validation;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -29,6 +30,7 @@ namespace ARM.Core
         {
             base.RegistreInterfaces();
             UnityContainer.RegisterType<IARMToolboxViewModel, ARMToolboxBase>();
+            UnityContainer.RegisterType<IARMValidationAdaptor, ARMValidationAdaptor>();
         }
 
         protected override void InternalInitialize()

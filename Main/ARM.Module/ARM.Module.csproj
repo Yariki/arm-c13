@@ -107,7 +107,9 @@
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMStaffValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMStaffView.cs" />
     <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
@@ -121,7 +123,7 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\References\ARMStaffDataViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMStaffValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="View\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
@@ -137,6 +139,9 @@
     </Compile>
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMStaffView.xaml.cs">
+      <DependentUpon>ARMStaffView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMUniversityView.xaml.cs">
       <DependentUpon>ARMUniversityView.xaml</DependentUpon>
@@ -181,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Grid\ARMGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMStaffView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

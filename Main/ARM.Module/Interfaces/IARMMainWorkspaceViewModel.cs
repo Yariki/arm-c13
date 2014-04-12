@@ -45,6 +45,7 @@ namespace ARM.Module.Interfaces
         IARMMainToolboxViewModel Toolbox { get; }
 
         IARMMainStatusBarViewModel StatusBar { get; }
+        int CurrentWorkspaceIndex { get; set; }
 
         event EventHandler Close;
 
