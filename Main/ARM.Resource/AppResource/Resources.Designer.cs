@@ -214,11 +214,47 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Message_ErrorCaprion {
+            get {
+                return ResourceManager.GetString("Message_ErrorCaprion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Message_InformationCaption {
+            get {
+                return ResourceManager.GetString("Message_InformationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        public static string Message_QuestionCaption {
+            get {
+                return ResourceManager.GetString("Message_QuestionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to save changes?.
         /// </summary>
         public static string Message_Save {
             get {
                 return ResourceManager.GetString("Message_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Message_WarningCaption {
+            get {
+                return ResourceManager.GetString("Message_WarningCaption", resourceCulture);
             }
         }
         

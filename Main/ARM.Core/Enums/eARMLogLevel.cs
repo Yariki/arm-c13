@@ -7,7 +7,7 @@
 
 namespace ARM.Infrastructure.Enums
 {
-    public enum LogLevel : int
+    public enum eARMLogLevel : int
     {
         None,
         Warning,

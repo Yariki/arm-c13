@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
+using ARM.Core.Logging;
 using ARM.Core.MVVM;
 using ARM.Data.Models;
 using ARM.Infrastructure.Events;

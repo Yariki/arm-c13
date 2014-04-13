@@ -219,4 +219,16 @@
   <data name="Message_Save" xml:space="preserve">
     <value>Do you want to save changes?</value>
   </data>
+  <data name="Message_ErrorCaprion" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Message_InformationCaption" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Message_QuestionCaption" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Message_WarningCaption" xml:space="preserve">
+    <value>Warning</value>
+  </data>
 </root>

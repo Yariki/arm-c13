@@ -1,6 +1,6 @@
 ﻿namespace ARM.Infrastructure.Region
 {
-    public class ARMMainRegionNames
+    public static class ARMMainRegionNames
     {
         public static string MENU_REGION = "MainMenuRegion";
         public static string TOOLBOX_REGION = "MainToolboxRegion";

@@ -94,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ARMDataGridControl.cs" />
-    <Compile Include="Enums\LogLevel.cs" />
     <Compile Include="Events\ARMCloseEvent.cs" />
     <Compile Include="Events\ARMEntityProcessEvent.cs" />
     <Compile Include="Events\ARMSyncEvent.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="InfrastructureModule.cs" />
     <Compile Include="Interfaces\Grid\IARMGridView.cs" />
     <Compile Include="Interfaces\IARMFacade.cs" />
-    <Compile Include="Interfaces\IARMLoggerFacade.cs" />
     <Compile Include="Interfaces\IARMMessageBoxFacade.cs" />
     <Compile Include="MVVM\ARMDataViewModelBase.cs" />
     <Compile Include="MVVM\ARMGridViewModelBase.cs" />
@@ -119,6 +117,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region\ARMMainRegionNames.cs" />
     <Compile Include="Utils\ARMEventToCommandBehavior.cs" />
+    <Compile Include="Utils\ARMMessageFacade.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ARM.Core\ARM.Core.csproj">
@@ -147,7 +146,9 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

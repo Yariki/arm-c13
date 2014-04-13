@@ -5,7 +5,7 @@
 //  Created on:      30-Mar-2014 8:12:16 PM
 ///////////////////////////////////////////////////////////
 
-namespace ARM.Infrastructure.Interfaces
+namespace ARM.Core.Interfaces
 {
     public interface IARMLoggerFacade
     {
