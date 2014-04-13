@@ -43,14 +43,17 @@ namespace ARM.Data.Layer.Context
         /// <param name="obj"></param>
         public void Update(T obj)
         {
-            
+            _context.Update(obj);
         }
 
         ///
         /// <param name="obj"></param>
         public void Delete(T obj)
         {
-            _context.GetItems().Remove(obj);
+            if(obj == null)
+                return;
+            var entry = _context.GetItems().Find(obj.Id);
+            _context.GetItems().Remove(entry);
         }
 
         public IEnumerable<T> GetAll()
@@ -62,7 +65,7 @@ namespace ARM.Data.Layer.Context
         /// <param name="id"></param>
         public T GetById(Guid id)
         {
-            return _context.GetItems().FirstOrDefault(item => (item as BaseModel).Id == id);
+            return _context.GetItems().FirstOrDefault(item => item.Id == id);
         }
 
         public void Save()
@@ -71,6 +74,11 @@ namespace ARM.Data.Layer.Context
             {
                 _context.Save();
             }
+        }
+
+        public void Refresh()
+        {
+            _context.Refresh();
         }
 
         public void Dispose()

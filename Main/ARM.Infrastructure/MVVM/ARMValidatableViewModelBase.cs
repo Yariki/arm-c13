@@ -30,11 +30,12 @@ namespace ARM.Infrastructure.MVVM
         }
 
 
-        public override void SetBusinessObject<TObj>(TObj obj, ViewMode mode)
+        public override void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id)
         {
-            base.SetBusinessObject(obj,mode);
+            base.SetBusinessObject(mode,metadata,id);
             _validationAdaptor.SetValidationObject(GetBusinessObject<object>(), GetAllArmPropertyInfo());
             _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
+            IsValid = true;
         }
 
         private void ValidationAdaptorOnValidationCompleted(object sender, ValidationEventArgs validationEventArgs)

@@ -15,7 +15,7 @@ namespace ARM.Infrastructure.Events
 	/// <summary>
 	/// Description of ARMEntityAddEvent.
 	/// </summary>
-	public class ARMEntityAddEvent : CompositePresentationEvent<ARMAddEventPayload>
+	public class ARMEntityProcessEvent : CompositePresentationEvent<ARMProcessEntityEventPayload>
 	{
 	}
 }

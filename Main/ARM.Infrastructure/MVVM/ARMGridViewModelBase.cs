@@ -10,21 +10,20 @@ using System.Collections.Generic;
 using System.Linq;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
-using ARM.Core.MVVM;
+using ARM.Core.Interfaces.Data;
+using ARM.Core.Module;
 using ARM.Core.Service;
 using ARM.Data.Layer.Interfaces;
-using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.Interfaces.Grid;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
-using Xceed.Wpf.Toolkit;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public abstract class ARMGridViewModelBase<T> : ARMWorkspaceViewModelBase, IARMGridViewModel<T>
+    public abstract class ARMGridViewModelBase<T> : ARMWorkspaceViewModelBase, IARMGridViewModel<T> where T : IARMModel
     {
         private IBll<T> _bll = null;
 
@@ -34,12 +33,11 @@ namespace ARM.Infrastructure.MVVM
             Toolbox = UnityContainer.Resolve<IARMToolboxViewModel>();
             Toolbox.SetActions(OnToolboxExecute, OnToolboxCanExecute);
             Toolbox.InitializeCommands();
-
             Init();
         }
 
-        public IEnumerable<T> DataSource
-        {
+        public IEnumerable<T> DataSource 
+        { 
             get;
             private set;
         }
@@ -61,6 +59,8 @@ namespace ARM.Infrastructure.MVVM
             get { return typeof(T); }
         }
 
+        public T SelectedEntity { get; set; }
+
         #region [protected]
 
         protected override void Dispose(bool disposing)
@@ -73,25 +73,30 @@ namespace ARM.Infrastructure.MVVM
                     if (_bll != null)
                         _bll.Dispose();
                     DataSource = null;
+                    EventAggregator.GetEvent<ARMSyncEvent>().Unsubscribe(OnSyncEvent);
                 }
             }
         }
 
-        #endregion
+        #endregion [protected]
 
         #region [toolbox commands]
 
         private void OnToolboxExecute(ToolbarCommand cmd)
         {
+            var processEvent = EventAggregator.GetEvent<ARMEntityProcessEvent>();
             switch (cmd)
             {
                 case ToolbarCommand.Add:
-                    var addEvent = EventAggregator.GetEvent<ARMEntityAddEvent>();
-                    addEvent.Publish(new ARMAddEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T))));
+                    processEvent.Publish(new ARMProcessEntityEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T)),ViewMode.Add,Guid.Empty));
                     break;
                 case ToolbarCommand.Edit:
+                    if(SelectedEntity != null)
+                        processEvent.Publish(new ARMProcessEntityEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T)), ViewMode.Edit, SelectedEntity.Id));
                     break;
                 case ToolbarCommand.Delete:
+                    if (SelectedEntity != null)
+                        DeleteEntity(SelectedEntity);    
                     break;
             }
         }
@@ -101,8 +106,7 @@ namespace ARM.Infrastructure.MVVM
             return true;
         }
 
-        #endregion
-
+        #endregion [toolbox commands]
 
         #region [private]
 
@@ -114,9 +118,37 @@ namespace ARM.Infrastructure.MVVM
                 DataSource = _bll.GetAll().ToList();
                 OnPropertyChanged(() => DataSource);
             }
+            EventAggregator.GetEvent<ARMSyncEvent>().Subscribe(OnSyncEvent);
         }
 
-        #endregion
+        private void OnSyncEvent(ARMSyncEventPayload syncPayload)
+        {
+            if (syncPayload == null || _bll == null)
+                return;
+            var metadata = ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T));
+            if (metadata != syncPayload.Metadata)
+                return;
+            UpdateSource();
+        }
 
+        private void UpdateSource()
+        {
+
+            DataSource = null;
+            _bll.Refresh();
+            DataSource = _bll.GetAll().ToList();
+            OnPropertyChanged(() => DataSource);
+        }
+
+        private void DeleteEntity(T entity)
+        {
+            if (_bll == null)
+                return;
+            _bll.Delete(entity);
+            _bll.Save();
+            UpdateSource();
+        }
+
+        #endregion [private]
     }//end ARMGridViewModelBase
 }//end namespace MVVM

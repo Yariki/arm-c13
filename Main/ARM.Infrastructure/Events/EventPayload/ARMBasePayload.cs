@@ -12,27 +12,27 @@ using ARM.Core.Enums;
 
 namespace ARM.Infrastructure.Events.EventPayload
 {
-	/// <summary>
-	/// Description of ARMBaserPayload.
-	/// </summary>
-	public abstract class ARMBasePayload
-	{
-		protected ARMBasePayload(ViewMode mode,Guid id)
-		{
-			Mode = mode;
-		  Id = id;
-		}
-		
-		public ViewMode Mode { get; protected set;}
-		
-		public eARMMetadata Metadata {get; protected set;}
-		
-    public Guid Id { get; protected set; }
+    /// <summary>
+    /// Description of ARMBaserPayload.
+    /// </summary>
+    public abstract class ARMBasePayload
+    {
+        protected ARMBasePayload(ViewMode mode, Guid id)
+        {
+            Mode = mode;
+            Id = id;
+        }
 
-		protected void SetMetadata(eARMMetadata metadata)
-		{
-			Metadata = metadata;
-		}
-		
-	}
+        public ViewMode Mode { get; protected set; }
+
+        public eARMMetadata Metadata { get; protected set; }
+
+        public Guid Id { get; protected set; }
+
+        protected void SetMetadata(eARMMetadata metadata)
+        {
+            Metadata = metadata;
+        }
+
+    }
 }

@@ -129,11 +129,12 @@ namespace ARM.Module.ViewModel.References
                         staffRepository.Save();
                         break;
                     case  ViewMode.Edit:
-                        staffRepository.Insert(GetBusinessObject<Staff>());
+                        staffRepository.Update(GetBusinessObject<Staff>());
                         staffRepository.Save();
                         break;
                 }
             }
+            base.SaveExecute(arg);
         }
     }
 }

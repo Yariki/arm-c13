@@ -1,5 +1,6 @@
 ﻿using ARM.Core.Module;
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Sevice.Resolver;
 using ARM.Data.UnitOfWork.Implementation;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -29,6 +30,7 @@ namespace ARM.Data
                 .Include(type => type.ImplementsOpenGeneric(typeof(IDal<>)), Then.Register().UsingPerCallMode())
                 .Include(type => type.ImplementsOpenGeneric(typeof(IBll<>)),Then.Register().UsingPerCallMode())
                 .ApplyAutoRegistration();
+            UnityContainer.RegisterType<IARMDataModelResolver, ARMDataModelResolveHelper>(new ContainerControlledLifetimeManager());
         }
     }
 }

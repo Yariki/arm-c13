@@ -22,6 +22,7 @@
         <ContentControl Grid.Row="0" x:Name="Toolbox" Content="{Binding Toolbox.View}"></ContentControl>
 
         <Control:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding DataSource,UpdateSourceTrigger=PropertyChanged}" TypeOfEntity="{Binding EntityType}"
+                                    SelectedItem="{Binding SelectedEntity,Mode=TwoWay}"
                                     ></Control:ARMDataGridControl>
     </Grid>
 </UserControl>

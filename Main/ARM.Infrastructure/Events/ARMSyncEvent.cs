@@ -3,7 +3,7 @@ using Microsoft.Practices.Prism.Events;
 
 namespace ARM.Infrastructure.Events
 {
-  public class ARMEntityViewEvent : CompositePresentationEvent<ARMViewPayload>
-  {  
-  }
+    public class ARMSyncEvent : CompositePresentationEvent<ARMSyncEventPayload>
+    {
+    }
 }

@@ -5,9 +5,12 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Core.Interfaces.Data
 {
     public interface IARMModel
     {
+        Guid Id { get; set; }
     }//end IARMModel
 }//end namespace Data

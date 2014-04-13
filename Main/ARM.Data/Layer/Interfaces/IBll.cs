@@ -26,7 +26,7 @@ namespace ARM.Data.Layer.Interfaces
 
         ///
         /// <param name="id"></param>
-        void Delete(T id);
+        void Delete(T obj);
 
         ///
         /// <param name="id"></param>
@@ -35,5 +35,7 @@ namespace ARM.Data.Layer.Interfaces
         IEnumerable<T> GetAll();
 
         void Save();
+
+        void Refresh();
     }//end IBll
 }//end namespace Interfaces

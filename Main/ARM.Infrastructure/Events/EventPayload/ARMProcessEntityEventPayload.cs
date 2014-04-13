@@ -14,10 +14,10 @@ namespace ARM.Infrastructure.Events.EventPayload
 	/// <summary>
 	/// Description of ARMAddEventPayload.
 	/// </summary>
-	public class ARMAddEventPayload : ARMBasePayload
+	public class ARMProcessEntityEventPayload : ARMBasePayload
 	{
-		public ARMAddEventPayload(eARMMetadata metadata)
-			:base(ViewMode.Add,Guid.Empty)
+		public ARMProcessEntityEventPayload(eARMMetadata metadata,ViewMode mode, Guid id)
+			:base(mode,id)
 		{
 			SetMetadata(metadata);
 		}

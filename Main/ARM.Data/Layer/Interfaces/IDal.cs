@@ -33,5 +33,7 @@ namespace ARM.Data.Layer.Interfaces
         T GetById(Guid id);
 
         void Save();
+
+        void Refresh();
     }//end IDal
 }//end namespace Interfaces

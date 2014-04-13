@@ -3,7 +3,8 @@ using Microsoft.Practices.Prism.Events;
 
 namespace ARM.Infrastructure.Events
 {
-  public class ARMEntityEditEvent : CompositePresentationEvent<ARMEditEventPayload>
-  {  
-  }
+    public class ARMCloseEvent : CompositePresentationEvent<ARMCloseEventPayload>
+    {
+         
+    }
 }

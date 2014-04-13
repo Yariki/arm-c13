@@ -15,6 +15,9 @@ using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
 using ARM.Core.Extensions;
+using ARM.Data.Sevice.Resolver;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -35,21 +38,27 @@ namespace ARM.Infrastructure.MVVM
         protected ARMDataViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,  IARMView view) 
             : base(regionManager,unityContainer,eventAggregator,view)
         {
-            
             SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
             CancelCommand = new ARMRelayCommand(CancelExecute,CanCancelExecute);
         }
 
         ///
         /// <param name="obj"></param>
-        public virtual void SetBusinessObject<TObj>(TObj obj,ViewMode mode)
+        public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id)
         {
-            this._dataObject = (object) obj;
             Mode = mode;
+            var dataModelReoslver = UnityContainer.Resolve<IARMDataModelResolver>();
+            if (dataModelReoslver != null)
+            {
+                _dataObject = dataModelReoslver.GetDataModel(metadata, id);
+            }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
+            Metadata = ARMModelsPropertyCache.Instance.GetMetadataByType(_dataObject.GetType());
         }
 
         public ViewMode Mode { get; private set; }
+        public eARMMetadata Metadata { get; private set; }
+        public bool HasChanges { get; set; }
 
         protected TObj GetBusinessObject<TObj>()
         {
@@ -140,6 +149,7 @@ namespace ARM.Infrastructure.MVVM
             }
             OnPropertyChanged(name);
             OnSetValue(name);
+            HasChanges = true;
         }
 
         ///
@@ -155,7 +165,9 @@ namespace ARM.Infrastructure.MVVM
 
         protected virtual void SaveExecute(object arg)
         {
-            
+            HasChanges = false;
+            EventAggregator.GetEvent<ARMSyncEvent>().Publish(new ARMSyncEventPayload(Metadata));
+            Close();
         }
 
         protected virtual bool CanCancelExecute(object arg)
@@ -165,7 +177,7 @@ namespace ARM.Infrastructure.MVVM
 
         protected virtual void CancelExecute(object arg)
         {
-            
+            Close();
         }
 
         public object DataObject
@@ -180,8 +192,34 @@ namespace ARM.Infrastructure.MVVM
 		public ICommand CancelCommand {get;private set;}
 			
 		#endregion
-		
 
-		
+        #region [dispose]
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!Disposed && disposing)
+            {
+                _dataObject = null;
+                _listProperty.Clear();
+                _listProperty = null;
+                _values.Clear();
+            }
+            base.Dispose(disposing);
+        }
+
+        #endregion
+
+
+        #region [private]
+
+        private void Close()
+        {
+            EventAggregator.GetEvent<ARMCloseEvent>().Publish(new ARMCloseEventPayload(this));
+        }
+
+        #endregion
+
+
+
     }//end ARMDataViewModelBase
 }//end namespace MVVM

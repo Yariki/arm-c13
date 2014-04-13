@@ -38,9 +38,8 @@ namespace ARM.Module.ViewModel.Main
 
         #region [needs]
 
-        private SubscriptionToken _tokenAdd;
-        private SubscriptionToken _tokenEdit;
-        private SubscriptionToken _tokenView;
+        private SubscriptionToken _tokenProcess;
+        private SubscriptionToken _tokenClose;
 
         #endregion
 
@@ -63,22 +62,15 @@ namespace ARM.Module.ViewModel.Main
         {
             if (_eventAggregator == null)
                 return;
-            var addEvent = _eventAggregator.GetEvent<ARMEntityAddEvent>();
+            var addEvent = _eventAggregator.GetEvent<ARMEntityProcessEvent>();
             if (addEvent != null)
             {
-                _tokenAdd = addEvent.Subscribe(OnAddEntity);
+                _tokenProcess = addEvent.Subscribe(OnProcessEntity);
             }
-
-            var editEvent = _eventAggregator.GetEvent<ARMEntityEditEvent>();
-            if (editEvent != null)
+            var closeEvent = _eventAggregator.GetEvent<ARMCloseEvent>();
+            if (closeEvent != null)
             {
-                _tokenEdit = editEvent.Subscribe(OnEditEntity);
-            }
-
-            var viewEvent = _eventAggregator.GetEvent<ARMEntityViewEvent>();
-            if (viewEvent != null)
-            {
-                _tokenView = viewEvent.Subscribe(OnViewEntity);
+                _tokenClose = closeEvent.Subscribe(OnCloseModel);
             }
         }
 
@@ -138,6 +130,7 @@ namespace ARM.Module.ViewModel.Main
 
         private void OnMenuExecute(eARMMainMenuCommand cmd)
         {
+            IARMWorkspaceViewModel workspaceViewModel = null;
             switch (cmd)
             {
                 case eARMMainMenuCommand.Exit:
@@ -145,11 +138,16 @@ namespace ARM.Module.ViewModel.Main
                         Close(this, EventArgs.Empty);
                     break;
                 case eARMMainMenuCommand.ReferenceUniversity:
-                    Items.Add(_unityContainer.Resolve<IARMGridViewModel<University>>());
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<University>>();
                     break;
                 case eARMMainMenuCommand.ReferenceStaff:
-                    Items.Add(_unityContainer.Resolve<IARMGridViewModel<Staff>>());
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Staff>>();
                     break;
+            }
+            if (workspaceViewModel != null)
+            {
+                Items.Add(workspaceViewModel);
+                CurrentWorkspace = workspaceViewModel;
             }
         }
 
@@ -160,9 +158,9 @@ namespace ARM.Module.ViewModel.Main
 
         #endregion
 
-        #region [global event add, edit, view]
+        #region [global event ]
 
-        private void OnAddEntity(ARMAddEventPayload obj)
+        private void OnProcessEntity(ARMProcessEntityEventPayload obj)
         {
             if (obj == null)
                 return;
@@ -173,7 +171,7 @@ namespace ARM.Module.ViewModel.Main
                     viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(new University(), obj.Mode);
+                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.University,obj.Id);
                         Items.Add(viewModel);
                     }
                     break;
@@ -181,7 +179,7 @@ namespace ARM.Module.ViewModel.Main
                     viewModel = _unityContainer.Resolve<IARMStaffValidatableViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(new Staff(), obj.Mode);
+                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Staff, obj.Id);
                         Items.Add(viewModel);
                     }
                     break;
@@ -191,14 +189,12 @@ namespace ARM.Module.ViewModel.Main
             OnPropertyChanged(() => CurrentWorkspaceIndex);
         }
 
-        private void OnEditEntity(ARMEditEventPayload obj)
+        private void OnCloseModel(ARMCloseEventPayload obj)
         {
-
-        }
-
-        private void OnViewEntity(ARMViewPayload obj)
-        {
-
+            if (obj == null || obj.Model == null)
+                return;
+            Items.Remove(obj.Model);
+            obj.Model.Dispose();
         }
 
         #endregion

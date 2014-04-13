@@ -110,6 +110,7 @@ namespace ARM.Core.Service
         public List<IARMModelPropertyInfo> GetPropertyInfos(Type type)
         {
             Contract.Requires(type != null);
+            type = GetCorrecType(type);
             return _dictCache.ContainsKey(type) ? _dictCache[type] : null;
         }
 
@@ -122,8 +123,18 @@ namespace ARM.Core.Service
         public eARMMetadata GetMetadataByType(Type t)
         {
             Contract.Requires(t != null);
+            t = GetCorrecType(t);
             var kpV = _dictMetadata.FirstOrDefault(kp => kp.Value == t);
             return kpV.Key;
+        }
+
+        private Type GetCorrecType(Type t)
+        {
+            if (t.BaseType != null && t.Namespace == "System.Data.Entity.DynamicProxies")
+            {
+                return t.BaseType;
+            }
+            return t;
         }
 
     }//end ARMModelsPeopertyCache

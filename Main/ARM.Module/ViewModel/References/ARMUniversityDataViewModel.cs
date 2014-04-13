@@ -61,6 +61,7 @@ namespace ARM.Module.ViewModel.References
                         break;
                 }
             }
+            base.SaveExecute(arg);
         }
 
         public override string Title

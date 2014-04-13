@@ -8,10 +8,12 @@
 using System;
 using System.Collections.Generic;
 using ARM.Core.Enums;
+using ARM.Core.Interfaces.Data;
+using ARM.Core.Module;
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMGridViewModel<T> : IARMWorkspaceViewModel
+    public interface IARMGridViewModel<T> : IARMWorkspaceViewModel where T : IARMModel
     {
         IEnumerable<T> DataSource
         {
@@ -28,6 +30,8 @@ namespace ARM.Core.Interfaces
         }
 
         Type EntityType { get; }
+
+        T SelectedEntity { get; set; }
 
     }//end IARMGridViewModel
 }//end namespace Interfaces

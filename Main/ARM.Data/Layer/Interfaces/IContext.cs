@@ -15,5 +15,10 @@ namespace ARM.Data.Layer.Interfaces
         IDbSet<T> GetItems();
 
         void Save();
+
+        void Update(T obj);
+
+        void Refresh();
+
     }//end IContext
 }//end namespace Interfaces

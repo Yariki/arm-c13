@@ -39,6 +39,7 @@ namespace ARM.Data.Layer.Context
         /// <param name="obj"></param>
         public void Update(T obj)
         {
+            _dal.Update(obj);
         }
 
         ///
@@ -63,6 +64,11 @@ namespace ARM.Data.Layer.Context
         public void Save()
         {
             _dal.Save();
+        }
+
+        public void Refresh()
+        {
+            _dal.Refresh();
         }
 
         public void Dispose()

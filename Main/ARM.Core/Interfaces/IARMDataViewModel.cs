@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 4:59:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using ARM.Core.Enums;
 
 namespace ARM.Core.Interfaces
@@ -16,8 +17,12 @@ namespace ARM.Core.Interfaces
         /// 
         ///  <param name="obj"></param>
         /// <param name="mode"></param>
-        void SetBusinessObject<TObj>(TObj obj,ViewMode mode);
+        void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id);
 
         ViewMode Mode { get; }
+
+        eARMMetadata Metadata { get; }
+
+        bool HasChanges { get; set; }
     }//end IARMDataViewModel
 }//end namespace Interfaces

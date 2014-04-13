@@ -95,13 +95,13 @@
   <ItemGroup>
     <Compile Include="Controls\ARMDataGridControl.cs" />
     <Compile Include="Enums\LogLevel.cs" />
-    <Compile Include="Events\ARMEntityAddEvent.cs" />
-    <Compile Include="Events\ARMEntityEditEvent.cs" />
-    <Compile Include="Events\ARMEntityViewEvent.cs" />
-    <Compile Include="Events\EventPayload\ARMAddEventPayload.cs" />
+    <Compile Include="Events\ARMCloseEvent.cs" />
+    <Compile Include="Events\ARMEntityProcessEvent.cs" />
+    <Compile Include="Events\ARMSyncEvent.cs" />
+    <Compile Include="Events\EventPayload\ARMProcessEntityEventPayload.cs" />
     <Compile Include="Events\EventPayload\ARMBasePayload.cs" />
-    <Compile Include="Events\EventPayload\ARMEditEventPayload.cs" />
-    <Compile Include="Events\EventPayload\ARMViewPayload.cs" />
+    <Compile Include="Events\EventPayload\ARMCloseEventPayload.cs" />
+    <Compile Include="Events\EventPayload\ARMSyncEventPayload.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="InfrastructureModule.cs" />
     <Compile Include="Interfaces\Grid\IARMGridView.cs" />
