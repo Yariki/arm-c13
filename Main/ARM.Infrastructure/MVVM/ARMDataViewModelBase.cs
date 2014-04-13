@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Windows;
 using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
@@ -40,6 +41,7 @@ namespace ARM.Infrastructure.MVVM
         {
             SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
             CancelCommand = new ARMRelayCommand(CancelExecute,CanCancelExecute);
+            HasChanges = false;
         }
 
         ///
@@ -59,6 +61,20 @@ namespace ARM.Infrastructure.MVVM
         public ViewMode Mode { get; private set; }
         public eARMMetadata Metadata { get; private set; }
         public bool HasChanges { get; set; }
+
+        public virtual bool Closing()
+        {
+            if (HasChanges)
+            {
+                var result = MessageBox.Show(Resource.AppResource.Resources.Message_Save, "Warning",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    SaveExecute(null);
+                }
+            }
+            return false;
+        }
 
         protected TObj GetBusinessObject<TObj>()
         {
@@ -140,8 +156,11 @@ namespace ARM.Infrastructure.MVVM
             if (_dataObject != null && HasProperty(name))
             {
                 IARMModelPropertyInfo pi = GetPropertyInfo(name);
-                if(pi != null)
+                if (pi != null)
+                {
                     pi.Property.SetPropertyValue(_dataObject, val);
+                    HasChanges = true;
+                }
             }
             else 
             {
@@ -149,7 +168,7 @@ namespace ARM.Infrastructure.MVVM
             }
             OnPropertyChanged(name);
             OnSetValue(name);
-            HasChanges = true;
+            
         }
 
         ///

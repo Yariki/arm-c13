@@ -6,6 +6,8 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Diagnostics.SymbolStore;
+using System.Windows;
 using ARM.Core.Enums;
 using ARM.Core.EventArguments;
 using ARM.Core.Interfaces;
@@ -47,6 +49,23 @@ namespace ARM.Infrastructure.MVVM
             IsValid = validationEventArgs.Result.IsValid;
         }
 
+        protected void ValidateBeforeSave()
+        {
+            if(_validationAdaptor == null)
+                return;
+            _validationAdaptor.ValidateAll();
+            var res = _validationAdaptor.GetResultForAll();
+            IsValid = true;
+            foreach (var re in res)
+            {
+                if (!string.IsNullOrEmpty(re.Value))
+                {
+                    IsValid = false;
+                    OnPropertyChanged(re.Key);
+                }
+            }
+        }
+
         public string this[string columnName]
         {
             get { return _validationAdaptor[columnName]; }
@@ -71,6 +90,21 @@ namespace ARM.Infrastructure.MVVM
         {
             get { return Get(() => IsValid); }
             set { Set(() => IsValid,value); }
+        }
+
+        public override bool Closing()
+        {
+            if (HasChanges && IsValid)
+            {
+                var result = MessageBox.Show(Resource.AppResource.Resources.Message_Save, "Warning",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    SaveExecute(null);
+                }
+                return !IsValid;
+            }
+            return !IsValid;
         }
     }//end ARMValidatableViewModelBase
 }//end namespace MVVM

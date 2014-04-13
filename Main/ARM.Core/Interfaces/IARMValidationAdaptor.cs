@@ -35,6 +35,6 @@ namespace ARM.Core.Interfaces
 
         string GetResult(string name);
 
-        string GetResultForAll();
+        Dictionary<string,string> GetResultForAll();
     }//end IARMValidationAdaptor
 }//end namespace Interfaces

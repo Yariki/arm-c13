@@ -109,6 +109,22 @@ namespace ARM.Core.Validation
 
         public void ValidateAll()
         {
+            foreach (var armValidationRule in _rules)
+            {
+                var name = armValidationRule.Key;
+                var rule = armValidationRule.Value;
+                var pi = _propertyInfos[name];
+                var val = pi.GetPropertyValue<object>(_dataObject);
+                var result = rule.Evalute(val);
+                if (!result.IsValid)
+                {
+                    _results[name] = string.Join(" -> ", result.GetErrors());
+                }
+                else
+                {
+                    _results[name] = string.Empty;
+                }
+            }
         }
 
         public event EventHandler<ValidationEventArgs> ValidationCompleted;
@@ -126,9 +142,9 @@ namespace ARM.Core.Validation
             return _results.ContainsKey(name ) ? _results[name] : string.Empty;
         }
 
-        public string GetResultForAll()
+        public Dictionary<string,string> GetResultForAll()
         {
-            return string.Join(Environment.NewLine, _results.Values);
+            return _results;
         }
 
         public string this[string columnName]
@@ -136,7 +152,7 @@ namespace ARM.Core.Validation
             get { return GetResult(columnName); }
         }
 
-        public string Error { get {return GetResultForAll();} }
+        public string Error { get {return string.Join(" - ", GetResultForAll().Values);} }
 
 
         private void RaiseValidationCompleted(string name,IARMValidationResult result)

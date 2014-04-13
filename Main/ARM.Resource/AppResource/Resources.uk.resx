@@ -216,4 +216,7 @@
   <data name="Model_Data_Staff" xml:space="preserve">
     <value>{0} Персонал</value>
   </data>
+  <data name="Message_Save" xml:space="preserve">
+    <value>Чи хочите Ви зберегти зміни?</value>
+  </data>
 </root>

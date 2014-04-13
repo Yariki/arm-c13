@@ -214,6 +214,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to save changes?.
+        /// </summary>
+        public static string Message_Save {
+            get {
+                return ResourceManager.GetString("Message_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Model_Action_Add {

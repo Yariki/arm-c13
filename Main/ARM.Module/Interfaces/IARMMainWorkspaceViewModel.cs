@@ -8,6 +8,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Input;
 using ARM.Core.Interfaces;
 
 namespace ARM.Module.Interfaces
@@ -50,6 +51,8 @@ namespace ARM.Module.Interfaces
         event EventHandler Close;
 
         void OnClosing(CancelEventArgs arg);
+
+        ICommand ClosingCommand { get; }
 
 
     }//end IARMMainWorkspaceViewModel

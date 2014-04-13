@@ -24,5 +24,7 @@ namespace ARM.Core.Interfaces
         eARMMetadata Metadata { get; }
 
         bool HasChanges { get; set; }
+
+        bool Closing();
     }//end IARMDataViewModel
 }//end namespace Interfaces

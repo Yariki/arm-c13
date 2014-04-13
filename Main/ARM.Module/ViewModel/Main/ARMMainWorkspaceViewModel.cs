@@ -9,8 +9,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Controls;
+using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
@@ -21,10 +23,13 @@ using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using Xceed.Wpf.AvalonDock;
 using Xceed.Wpf.Toolkit;
+using Xceed.Wpf.Toolkit.Core.Converters;
 
 namespace ARM.Module.ViewModel.Main
 {
@@ -56,6 +61,7 @@ namespace ARM.Module.ViewModel.Main
             Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
             Menu.InitializeCommands();
             InitEventAggregator();
+            ClosingCommand = new DelegateCommand<object>(OnClosingDocument, (o) => true);
         }
 
         private void InitEventAggregator()
@@ -100,6 +106,8 @@ namespace ARM.Module.ViewModel.Main
         {
 
         }
+
+        public ICommand ClosingCommand { get; private set; }
 
         public ObservableCollection<IARMWorkspaceViewModel> Items { get; private set; }
 
@@ -198,6 +206,14 @@ namespace ARM.Module.ViewModel.Main
         }
 
         #endregion
+
+        private void OnClosingDocument(object obj)
+        {
+            DocumentClosingEventArgs arg = obj as DocumentClosingEventArgs;
+            if(arg == null || !(CurrentWorkspace is IARMDataViewModel))
+                return;
+            arg.Cancel = (CurrentWorkspace as IARMDataViewModel).Closing();
+        }
 
         #endregion
 

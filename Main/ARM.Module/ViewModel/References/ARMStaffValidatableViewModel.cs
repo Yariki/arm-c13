@@ -119,6 +119,10 @@ namespace ARM.Module.ViewModel.References
 
         protected override void SaveExecute(object arg)
         {
+            ValidateBeforeSave();
+            if(!IsValid)
+                return;
+            
             using (IUnitOfWork unitOfWork = UnityContainer.Resolve<IUnitOfWork>() )
             {
                 var staffRepository = unitOfWork.StaffRepository;

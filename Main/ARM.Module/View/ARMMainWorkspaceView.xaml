@@ -6,6 +6,8 @@
             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
              xmlns:armviewmodel="clr-namespace:ARM.Infrastructure.MVVM;assembly=ARM.Infrastructure"
              xmlns:ws="clr-namespace:ARM.Module.Helpers.WorkspaceSelector"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:localBeh="clr-namespace:ARM.Infrastructure.Utils;assembly=ARM.Infrastructure"
              >
     <UserControl.Resources>
         
@@ -27,11 +29,7 @@
             </Grid>
         </DataTemplate>
         
-        
-        
-        
         <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}" DataViewModel="{StaticResource DataModelDataTemplate}" />
-        
         
     </UserControl.Resources>
     <Grid>
@@ -45,12 +43,15 @@
             
             <xcad:LayoutRoot x:Name="RootDockLayout">
                 <xcad:LayoutPanel Orientation="Horizontal"  >
-                    <xcad:LayoutDocumentPaneGroup>
-                        <xcad:LayoutDocumentPane  >
+                    <xcad:LayoutDocumentPaneGroup >
+                        <xcad:LayoutDocumentPane >
                         </xcad:LayoutDocumentPane>
                     </xcad:LayoutDocumentPaneGroup>
                 </xcad:LayoutPanel>
             </xcad:LayoutRoot>
+            <i:Interaction.Behaviors>
+                <localBeh:ARMEventToCommandBehavior Event="DocumentClosing" Command="{Binding ClosingCommand}" PassArguments="True" PassSender="False"></localBeh:ARMEventToCommandBehavior>
+            </i:Interaction.Behaviors>
         </xcad:DockingManager>
     </Grid>
 </UserControl>
