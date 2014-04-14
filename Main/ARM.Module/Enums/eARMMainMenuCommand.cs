@@ -8,6 +8,8 @@
         DocumentInvoice,
         DocumentPayment,
         ReferenceUniversity,
-        ReferenceStaff
+        ReferenceStaff,
+        ReferenceLanguage,
+        ReferenceCountry
     }
 }

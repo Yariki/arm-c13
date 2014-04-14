@@ -231,4 +231,13 @@
   <data name="Message_WarningCaption" xml:space="preserve">
     <value>Увага</value>
   </data>
+  <data name="Grid_Country_Title" xml:space="preserve">
+    <value>Країни</value>
+  </data>
+  <data name="Grid_Language_Title" xml:space="preserve">
+    <value>Мови</value>
+  </data>
+  <data name="Model_Data_Language" xml:space="preserve">
+    <value>{0} мову</value>
+  </data>
 </root>

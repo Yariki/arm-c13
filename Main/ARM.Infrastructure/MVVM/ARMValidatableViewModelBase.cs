@@ -11,6 +11,7 @@ using System.Windows;
 using ARM.Core.Enums;
 using ARM.Core.EventArguments;
 using ARM.Core.Interfaces;
+using ARM.Infrastructure.Facade;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -66,6 +67,16 @@ namespace ARM.Infrastructure.MVVM
             }
         }
 
+        protected string FormatTitle(string format)
+        {
+            return string.Format(format,
+                    Mode == ViewMode.Add
+                        ? Resource.AppResource.Resources.Model_Action_Add
+                        : Mode == ViewMode.Edit
+                            ? Resource.AppResource.Resources.Model_Action_Edit
+                            : Mode == ViewMode.View ? Resource.AppResource.Resources.Model_Action_View : "");
+        }
+
         public string this[string columnName]
         {
             get { return _validationAdaptor[columnName]; }
@@ -79,6 +90,11 @@ namespace ARM.Infrastructure.MVVM
         protected override void OnSetValue(string name)
         {
             Validate(name);
+        }
+
+        protected override bool CanSaveExecte(object arg)
+        {
+            return IsValid;
         }
 
         private void Validate(string name)
@@ -96,8 +112,7 @@ namespace ARM.Infrastructure.MVVM
         {
             if (HasChanges && IsValid)
             {
-                var result = MessageBox.Show(Resource.AppResource.Resources.Message_Save, "Warning",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = ARMSystemFacade.Instance.MessageBox.ShowQuestion(Resource.AppResource.Resources.Message_Save);
                 if (result == MessageBoxResult.Yes)
                 {
                     SaveExecute(null);

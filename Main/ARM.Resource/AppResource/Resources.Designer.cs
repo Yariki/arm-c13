@@ -115,6 +115,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Grid_Country_Title {
+            get {
+                return ResourceManager.GetString("Grid_Country_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Grid_Language_Title {
+            get {
+                return ResourceManager.GetString("Grid_Language_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Staff.
         /// </summary>
         public static string Grid_Staff_Title {
@@ -282,6 +300,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Action_View {
             get {
                 return ResourceManager.GetString("Model_Action_View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Language.
+        /// </summary>
+        public static string Model_Data_Language {
+            get {
+                return ResourceManager.GetString("Model_Data_Language", resourceCulture);
             }
         }
         

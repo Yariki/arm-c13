@@ -123,13 +123,13 @@ namespace ARM.Module.ViewModel.Main
             }
         }
 
-        public IARMWorkspaceViewModel CurrentWorkspace 
+        public IARMWorkspaceViewModel CurrentWorkspace
         {
             get { return _current; }
             set
             {
                 _current = value;
-                OnPropertyChanged(() => CurrentWorkspace );
+                OnPropertyChanged(() => CurrentWorkspace);
             }
         }
 
@@ -151,6 +151,12 @@ namespace ARM.Module.ViewModel.Main
                     break;
                 case eARMMainMenuCommand.ReferenceStaff:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Staff>>();
+                    break;
+                case eARMMainMenuCommand.ReferenceLanguage:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Language>>();
+                    break;
+                case eARMMainMenuCommand.ReferenceCountry:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Country>>();
                     break;
             }
             if (workspaceViewModel != null)
@@ -180,7 +186,7 @@ namespace ARM.Module.ViewModel.Main
                     viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.University,obj.Id);
+                        viewModel.SetBusinessObject(obj.Mode, eARMMetadata.University, obj.Id);
                         Items.Add(viewModel);
                     }
                     break;
@@ -188,7 +194,15 @@ namespace ARM.Module.ViewModel.Main
                     viewModel = _unityContainer.Resolve<IARMStaffValidatableViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Staff, obj.Id);
+                        viewModel.SetBusinessObject(obj.Mode, eARMMetadata.Staff, obj.Id);
+                        Items.Add(viewModel);
+                    }
+                    break;
+                case  eARMMetadata.Language:
+                    viewModel = _unityContainer.Resolve<IARMLanguageValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Language,obj.Id);
                         Items.Add(viewModel);
                     }
                     break;
@@ -211,7 +225,7 @@ namespace ARM.Module.ViewModel.Main
         private void OnClosingDocument(object obj)
         {
             DocumentClosingEventArgs arg = obj as DocumentClosingEventArgs;
-            if(arg == null || !(CurrentWorkspace is IARMDataViewModel))
+            if (arg == null || !(CurrentWorkspace is IARMDataViewModel))
                 return;
             arg.Cancel = (CurrentWorkspace as IARMDataViewModel).Closing();
         }

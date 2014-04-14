@@ -14,13 +14,11 @@ namespace ARM.Infrastructure.Interfaces
         IARMLoggerFacade Logger
         {
             get;
-            set;
         }
 
         IARMMessageBoxFacade MessageBox
         {
             get;
-            set;
         }
     }//end IARMFacade
 }//end namespace Interfaces

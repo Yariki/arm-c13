@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
+using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
@@ -24,12 +26,7 @@ namespace ARM.Module.ViewModel.References
         {
             get
             {
-                return string.Format(Resource.AppResource.Resources.Model_Data_Staff,
-                    Mode == ViewMode.Add
-                        ? Resource.AppResource.Resources.Model_Action_Add
-                        : Mode == ViewMode.Edit
-                            ? Resource.AppResource.Resources.Model_Action_Edit
-                            : Mode == ViewMode.View ? Resource.AppResource.Resources.Model_Action_View : "");
+                return FormatTitle(Resource.AppResource.Resources.Model_Data_Staff);
             } 
         }
 
@@ -111,12 +108,6 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
-        protected override bool CanSaveExecte(object arg)
-        {
-            System.Diagnostics.Debug.WriteLine(IsValid);
-            return IsValid;
-        }
-
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();
@@ -125,18 +116,25 @@ namespace ARM.Module.ViewModel.References
             
             using (IUnitOfWork unitOfWork = UnityContainer.Resolve<IUnitOfWork>() )
             {
-                var staffRepository = unitOfWork.StaffRepository;
-                switch (Mode)
+                try
                 {
-                    case ViewMode.Add:
-                        staffRepository.Insert(GetBusinessObject<Staff>());
-                        staffRepository.Save();
-                        break;
-                    case  ViewMode.Edit:
-                        staffRepository.Update(GetBusinessObject<Staff>());
-                        staffRepository.Save();
-                        break;
+                    var staffRepository = unitOfWork.StaffRepository;
+                    switch (Mode)
+                    {
+                        case ViewMode.Add:
+                            staffRepository.Insert(GetBusinessObject<Staff>());
+                            break;
+                        case ViewMode.Edit:
+                            staffRepository.Update(GetBusinessObject<Staff>());
+                            break;
+                    }
+                    staffRepository.Save();
                 }
+                catch (Exception ex)
+                {
+                    ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                }
+                
             }
             base.SaveExecute(arg);
         }

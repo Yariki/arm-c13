@@ -55,6 +55,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMStaffView, ARMStaffView>();
             UnityContainer.RegisterType<IARMStaffValidatableViewModel, ARMStaffValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMLanguageView, ARMLanguageView>();
+            UnityContainer.RegisterType<IARMLanguageValidatableViewModel, ARMLanguageValidatableViewModel>();
+
 
 
             UnityContainer.ConfigureAutoRegistration()

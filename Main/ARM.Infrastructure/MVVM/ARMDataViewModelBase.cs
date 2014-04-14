@@ -19,6 +19,7 @@ using ARM.Core.Extensions;
 using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.Facade;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -66,8 +67,7 @@ namespace ARM.Infrastructure.MVVM
         {
             if (HasChanges)
             {
-                var result = MessageBox.Show(Resource.AppResource.Resources.Message_Save, "Warning",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = ARMSystemFacade.Instance.MessageBox.ShowQuestion(Resource.AppResource.Resources.Message_Save);
                 if (result == MessageBoxResult.Yes)
                 {
                     SaveExecute(null);

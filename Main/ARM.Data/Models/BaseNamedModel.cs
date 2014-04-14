@@ -14,6 +14,7 @@ namespace ARM.Data.Models
     {
         [ARMGrid(Order = 1)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Name")]
+        [Required]
         public string Name
         {
             get;
