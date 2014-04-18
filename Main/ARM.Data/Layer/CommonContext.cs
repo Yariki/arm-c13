@@ -57,6 +57,7 @@ namespace ARM.Data.Layer
         public DbSet<Staff> Staves { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<University> Universities { get; set; }
+        public DbSet<User> Users { get; set; }
 
         #endregion
 

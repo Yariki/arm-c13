@@ -89,6 +89,14 @@
     <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.Designer.cs">
       <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201404152240516_AddUser.cs" />
+    <Compile Include="CommonContextMigrations\201404152240516_AddUser.Designer.cs">
+      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.cs" />
+    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.Designer.cs">
+      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -147,6 +155,9 @@
     <Compile Include="Implementation\University\UniversityBll.cs" />
     <Compile Include="Implementation\University\UniversityContext.cs" />
     <Compile Include="Implementation\University\UniversityDal.cs" />
+    <Compile Include="Implementation\User\UserBll.cs" />
+    <Compile Include="Implementation\User\UserContext.cs" />
+    <Compile Include="Implementation\User\UserDal.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementBll.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementContext.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementDal.cs" />
@@ -204,6 +215,9 @@
     <Compile Include="Interfaces\University\IUniversityBll.cs" />
     <Compile Include="Interfaces\University\IUniversityContext.cs" />
     <Compile Include="Interfaces\University\IUniversityDal.cs" />
+    <Compile Include="Interfaces\User\IUserBll.cs" />
+    <Compile Include="Interfaces\User\IUserContext.cs" />
+    <Compile Include="Interfaces\User\IUserDal.cs" />
     <Compile Include="Layer\CommonContext.cs" />
     <Compile Include="Layer\Context\BaseBll.cs" />
     <Compile Include="Layer\Context\BaseContext.cs" />
@@ -221,6 +235,7 @@
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\eARMSystemLanguage.cs" />
     <Compile Include="Models\EducationLevel.cs" />
     <Compile Include="Models\Faculty.cs" />
     <Compile Include="Models\Group.cs" />
@@ -243,6 +258,7 @@
     <Compile Include="Models\StudentStatus.cs" />
     <Compile Include="Models\StudyMode.cs" />
     <Compile Include="Models\University.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Resolver\ARMDataModelResolveHelper.cs" />
     <Compile Include="Service\Resolver\IARMDataModelResolver.cs" />
@@ -269,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201404081801017_Id_Gen.resx">
       <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404152240516_AddUser.resx">
+      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404152243349_AddUser_2.resx">
+      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

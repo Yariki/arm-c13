@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ARM.Module.Interfaces.View;
 
-namespace ARM.Module.View
+namespace ARM.Module.View.Main
 {
     /// <summary>
     /// Interaction logic for ARMMainWorkspaceView.xaml

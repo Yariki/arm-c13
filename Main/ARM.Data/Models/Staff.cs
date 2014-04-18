@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:45 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,7 +27,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-
+        
         public virtual IList<Class> Classes { get; set; }
     }//end Staff
 }//end namespace Models

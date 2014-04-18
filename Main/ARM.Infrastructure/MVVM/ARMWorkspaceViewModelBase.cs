@@ -57,6 +57,11 @@ namespace ARM.Infrastructure.MVVM
 
         public event EventHandler RequestClose;
 
+        public virtual bool Closing()
+        {
+            return false;
+        }
+
         protected virtual void Closing(CloseAbort args)
         {   
         }

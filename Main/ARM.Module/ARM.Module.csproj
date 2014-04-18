@@ -109,6 +109,8 @@
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMLanguageValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStaffValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
@@ -129,23 +131,27 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMStaffValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="ViewModel\References\ARMLanguageValidatableViewModel.cs" />
-    <Compile Include="View\ARMMainWorkspaceView.xaml.cs">
+    <Compile Include="View\Main\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ARMMenuView.xaml.cs">
+    <Compile Include="View\Main\ARMMenuView.xaml.cs">
       <DependentUpon>ARMMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ARMStatusBarView.xaml.cs">
+    <Compile Include="View\Main\ARMStatusBarView.xaml.cs">
       <DependentUpon>ARMStatusBarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ARMToolboxView.xaml.cs">
+    <Compile Include="View\Main\ARMToolboxView.xaml.cs">
       <DependentUpon>ARMToolboxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMCountryView.xaml.cs">
+      <DependentUpon>ARMCountryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMLanguageView.xaml.cs">
       <DependentUpon>ARMLanguageView.xaml</DependentUpon>
@@ -179,23 +185,27 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\ARMMainWorkspaceView.xaml">
+    <Page Include="View\Main\ARMMainWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ARMMenuView.xaml">
+    <Page Include="View\Main\ARMMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ARMStatusBarView.xaml">
+    <Page Include="View\Main\ARMStatusBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ARMToolboxView.xaml">
+    <Page Include="View\Main\ARMToolboxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Grid\ARMGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMCountryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

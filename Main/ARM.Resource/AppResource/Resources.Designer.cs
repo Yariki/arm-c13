@@ -304,6 +304,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Country.
+        /// </summary>
+        public static string Model_Data_Country {
+            get {
+                return ResourceManager.GetString("Model_Data_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Language.
         /// </summary>
         public static string Model_Data_Language {

@@ -8,20 +8,19 @@
 using ARM.Core.Interfaces;
 using ARM.Core.Module;
 using ARM.Infrastructure.Interfaces.Grid;
+using ARM.Infrastructure.Region;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
-using ARM.Module.View;
 using ARM.Module.View.Grid;
+using ARM.Module.View.Main;
 using ARM.Module.View.References;
 using ARM.Module.ViewModel.Main;
 using ARM.Module.ViewModel.References;
 using Microsoft.Practices.Prism.Events;
-using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
-using ARM.Infrastructure.Region;
 using Unity.AutoRegistration;
 
 namespace ARM.Module
@@ -51,21 +50,21 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMGridView, ARMGridView>();
             UnityContainer.RegisterType<IARMUniversityDataViewModel, ARMUniversityDataViewModel>();
             UnityContainer.RegisterType<IARMUniversityView, ARMUniversityView>();
-            
+
             UnityContainer.RegisterType<IARMStaffView, ARMStaffView>();
             UnityContainer.RegisterType<IARMStaffValidatableViewModel, ARMStaffValidatableViewModel>();
 
             UnityContainer.RegisterType<IARMLanguageView, ARMLanguageView>();
             UnityContainer.RegisterType<IARMLanguageValidatableViewModel, ARMLanguageValidatableViewModel>();
 
-
+            UnityContainer.RegisterType<IARMCountryView, ARMCountryView>();
+            UnityContainer.RegisterType<IARMCountryValidatableViewModel, ARMCountryValidatableViewModel>();
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())
                 .Include(type => type.ImplementsOpenGeneric(typeof(IARMGridViewModel<>)), Then.Register().UsingPerCallMode())
                     .ApplyAutoRegistration();
-
         }
 
         protected override void InjectViews()

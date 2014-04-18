@@ -13,16 +13,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Faculty)]
+    [ARMMetadata(Metadata = eARMMetadata.Faculty)]
     public class Faculty : BaseNamedModel
     {
-        public Faculty()
-        {
-        }
-
-        ~Faculty()
-        {
-        }
 
         public Guid? StaffId
         {
@@ -49,7 +42,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
         public virtual IList<Group> Groups { get; set; }
     }//end Faculty
 }//end namespace Models

@@ -41,5 +41,10 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }//end BaseModel
 }//end namespace Models

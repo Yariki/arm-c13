@@ -206,6 +206,14 @@ namespace ARM.Module.ViewModel.Main
                         Items.Add(viewModel);
                     }
                     break;
+                case eARMMetadata.Country:
+                    viewModel = _unityContainer.Resolve<IARMCountryValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Country, obj.Id);
+                        Items.Add(viewModel);
+                    }
+                    break;
             }
             CurrentWorkspace = viewModel;
             _currentIndex = Items.IndexOf(CurrentWorkspace);

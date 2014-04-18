@@ -39,6 +39,7 @@ namespace ARM.Data.Models
         }
 
         public virtual IList<Faculty> Faculties { get; set; }
+        public virtual IList<Staff> Staves { get; set; } 
 
     }//end University
 }//end namespace Models

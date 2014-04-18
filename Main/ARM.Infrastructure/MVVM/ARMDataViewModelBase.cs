@@ -50,20 +50,20 @@ namespace ARM.Infrastructure.MVVM
         public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id)
         {
             Mode = mode;
+            Metadata = metadata;
             var dataModelReoslver = UnityContainer.Resolve<IARMDataModelResolver>();
             if (dataModelReoslver != null)
             {
                 _dataObject = dataModelReoslver.GetDataModel(metadata, id);
             }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
-            Metadata = ARMModelsPropertyCache.Instance.GetMetadataByType(_dataObject.GetType());
         }
 
         public ViewMode Mode { get; private set; }
         public eARMMetadata Metadata { get; private set; }
         public bool HasChanges { get; set; }
 
-        public virtual bool Closing()
+        public override bool Closing()
         {
             if (HasChanges)
             {

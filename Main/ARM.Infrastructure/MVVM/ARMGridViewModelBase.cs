@@ -27,7 +27,7 @@ namespace ARM.Infrastructure.MVVM
     {
         private IBll<T> _bll = null;
 
-        public ARMGridViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
+        protected ARMGridViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             Toolbox = UnityContainer.Resolve<IARMToolboxViewModel>();

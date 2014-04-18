@@ -18,6 +18,7 @@ using ARM.Data.Interfaces.Specialty;
 using ARM.Data.Interfaces.Staff;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Interfaces.University;
+using ARM.Data.Interfaces.User;
 using ARM.Data.UnitOfWork.Implementation;
 using Microsoft.Practices.Unity;
 
@@ -46,6 +47,7 @@ namespace ARM.Data.UnitOfWork.Interfaces
         private IStaffBll _staffRepository;
         private IStudentBll _studentRepository;
         private IUniversityBll _universityRepository;
+        private IUserBll _userRepositotry;
 
         private bool _disposed = false;
         private readonly IUnityContainer _unityContainer;
@@ -117,6 +119,8 @@ namespace ARM.Data.UnitOfWork.Interfaces
                 _studentRepository.Dispose();
             if(_universityRepository != null)
                 _universityRepository.Dispose();
+            if(_userRepositotry  != null)
+                _userRepositotry.Dispose();
         }
 
         #endregion
@@ -216,6 +220,11 @@ namespace ARM.Data.UnitOfWork.Interfaces
         public IUniversityBll UniversityRepository
         {
             get { return _universityRepository ?? (_universityRepository = _unityContainer.Resolve<IUniversityBll>()); }
+        }
+
+        public IUserBll UserRepository 
+        {
+            get { return _userRepositotry ?? (_userRepositotry = _unityContainer.Resolve<IUserBll>()); }
         }
 
         #endregion

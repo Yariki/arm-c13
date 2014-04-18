@@ -240,4 +240,7 @@
   <data name="Model_Data_Language" xml:space="preserve">
     <value>{0} Language</value>
   </data>
+  <data name="Model_Data_Country" xml:space="preserve">
+    <value>{0} Country</value>
+  </data>
 </root>

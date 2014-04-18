@@ -18,6 +18,7 @@ using ARM.Data.Interfaces.Specialty;
 using ARM.Data.Interfaces.Staff;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Interfaces.University;
+using ARM.Data.Interfaces.User;
 
 namespace ARM.Data.UnitOfWork.Implementation
 {
@@ -42,5 +43,6 @@ namespace ARM.Data.UnitOfWork.Implementation
         IStaffBll StaffRepository { get; }
         IStudentBll StudentRepository { get; }
         IUniversityBll UniversityRepository { get; }
+        IUserBll UserRepository { get; }
     }
 }
