@@ -421,7 +421,7 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Faculty.
+        ///   Looks up a localized string similar to Faculties.
         /// </summary>
         public static string Model_Faculty_Title {
             get {
