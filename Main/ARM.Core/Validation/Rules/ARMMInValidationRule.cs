@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Core.Validation.Rules
 {
     public class ARMMinValidationRule : ARMNumericValidationRule
@@ -19,13 +21,24 @@ namespace ARM.Core.Validation.Rules
 
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
-            return null;
+            var result = new ARMValidationResult() { IsValid = true };
+            if (val != null)
+            {
+                double v = Convert.ToDouble(val);
+                result.IsValid = Min < v;
+                if (!result.IsValid)
+                {
+                    result.AddMessage(string.Format("Value shouldn't be less {0}.", Min));
+                }
+            }
+            return result;
         }
 
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public ARMMinValidationRule(decimal min, decimal max)
+        public ARMMinValidationRule(double min, double max)
+            :base(min,max)
         {
         }
     }//end ARMMInValidationRule

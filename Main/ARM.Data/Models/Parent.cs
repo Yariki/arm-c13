@@ -32,7 +32,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        [Required]
+        [ARMRequired]
         public Guid AddressId { get; set; }
 
         [ForeignKey("AddressId")]

@@ -1,4 +1,5 @@
-﻿using ARM.Core.Interfaces;
+﻿using System;
+using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation.Rules
 {
@@ -36,6 +37,12 @@ namespace ARM.Core.Validation.Rules
             {
                 result.IsValid = false;
                 result.AddMessage("Property 'decimal' should be equal or greater then '0'.");
+                return result;
+            }
+            if (val is Guid && (Guid) val == Guid.Empty)
+            {
+                result.IsValid = false;
+                result.AddMessage(string.Format("Property 'Guid' should be equal '{0}'.",Guid.Empty));
                 return result;
             }
 

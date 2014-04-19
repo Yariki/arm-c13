@@ -33,9 +33,9 @@ namespace ARM.Infrastructure.MVVM
         }
 
 
-        public override void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id)
+        public override void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
-            base.SetBusinessObject(mode,metadata,id);
+            base.SetBusinessObject(mode,metadata,id,isIdEmpty);
             _validationAdaptor.SetValidationObject(GetBusinessObject<object>(), GetAllArmPropertyInfo());
             _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
             IsValid = true;

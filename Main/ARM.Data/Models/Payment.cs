@@ -17,7 +17,7 @@ namespace ARM.Data.Models
 
     public class Payment : BaseNamedModel
     {
-        [Required]
+        [ARMRequired]
         public Guid InvoiceId { get; set; }
 
         public DateTime Date { get; set; }

@@ -21,7 +21,7 @@ namespace ARM.Data.Models
 
         [ARMGrid(Order = 8)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Staff_Type")]
-        [Required]
+        [ARMRequired]
         public StaffType StaffType
         {
             get;

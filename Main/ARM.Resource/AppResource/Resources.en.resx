@@ -243,4 +243,46 @@
   <data name="Model_Data_Country" xml:space="preserve">
     <value>{0} Country</value>
   </data>
+  <data name="Model_Settings_Title" xml:space="preserve">
+    <value>Default Settings</value>
+  </data>
+  <data name="Model_Settings_DefBaseStipend" xml:space="preserve">
+    <value>Default Base stipend</value>
+  </data>
+  <data name="Model_Settings_DefCountry" xml:space="preserve">
+    <value>Default Country</value>
+  </data>
+  <data name="Model_Settings_DefEducationLevel" xml:space="preserve">
+    <value>Default Education level</value>
+  </data>
+  <data name="Model_Settings_DefIncreaseStipend" xml:space="preserve">
+    <value>Default Increased stipend</value>
+  </data>
+  <data name="Model_Settings_DefInvoiceStatus" xml:space="preserve">
+    <value>Defautl Invouce status</value>
+  </data>
+  <data name="Model_Settings_DefStipendMark" xml:space="preserve">
+    <value>Default Stipend mark</value>
+  </data>
+  <data name="Model_Settings_DefStipenHighMark" xml:space="preserve">
+    <value>Default Stipend high mark</value>
+  </data>
+  <data name="Model_Settings_DefUniversity" xml:space="preserve">
+    <value>Default University</value>
+  </data>
+  <data name="Enum_Bachelour" xml:space="preserve">
+    <value>Bachelour</value>
+  </data>
+  <data name="Enum_Master" xml:space="preserve">
+    <value>Master</value>
+  </data>
+  <data name="Enum_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Enum_PaidUp" xml:space="preserve">
+    <value>PaidUp</value>
+  </data>
+  <data name="Enum_Specialist" xml:space="preserve">
+    <value>Specialist</value>
+  </data>
 </root>

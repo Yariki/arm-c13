@@ -61,6 +61,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bachelour.
+        /// </summary>
+        public static string Enum_Bachelour {
+            get {
+                return ResourceManager.GetString("Enum_Bachelour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Enum_Female {
@@ -88,6 +97,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Master.
+        /// </summary>
+        public static string Enum_Master {
+            get {
+                return ResourceManager.GetString("Enum_Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string Enum_New {
+            get {
+                return ResourceManager.GetString("Enum_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         public static string Enum_None {
@@ -97,11 +124,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PaidUp.
+        /// </summary>
+        public static string Enum_PaidUp {
+            get {
+                return ResourceManager.GetString("Enum_PaidUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phd.
         /// </summary>
         public static string Enum_Phd {
             get {
                 return ResourceManager.GetString("Enum_Phd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialist.
+        /// </summary>
+        public static string Enum_Specialist {
+            get {
+                return ResourceManager.GetString("Enum_Specialist", resourceCulture);
             }
         }
         
@@ -426,6 +471,87 @@ namespace ARM.Resource.AppResource {
         public static string Model_Rector {
             get {
                 return ResourceManager.GetString("Model_Rector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Base stipend.
+        /// </summary>
+        public static string Model_Settings_DefBaseStipend {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefBaseStipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Country.
+        /// </summary>
+        public static string Model_Settings_DefCountry {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Education level.
+        /// </summary>
+        public static string Model_Settings_DefEducationLevel {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefEducationLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Increased stipend.
+        /// </summary>
+        public static string Model_Settings_DefIncreaseStipend {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefIncreaseStipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Defautl Invouce status.
+        /// </summary>
+        public static string Model_Settings_DefInvoiceStatus {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefInvoiceStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Stipend mark.
+        /// </summary>
+        public static string Model_Settings_DefStipendMark {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefStipendMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Stipend high mark.
+        /// </summary>
+        public static string Model_Settings_DefStipenHighMark {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefStipenHighMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default University.
+        /// </summary>
+        public static string Model_Settings_DefUniversity {
+            get {
+                return ResourceManager.GetString("Model_Settings_DefUniversity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Settings.
+        /// </summary>
+        public static string Model_Settings_Title {
+            get {
+                return ResourceManager.GetString("Model_Settings_Title", resourceCulture);
             }
         }
         

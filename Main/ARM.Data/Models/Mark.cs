@@ -16,14 +16,14 @@ namespace ARM.Data.Models
 
     public class Mark : BaseModel
     {
-        [Required]
+        [ARMRequired]
         public Guid? StudentId
         {
             get;
             set;
         }
 
-        [Required]
+        [ARMRequired]
         public Guid? ClassId
         {
             get;
@@ -41,7 +41,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        [Required]
+        [ARMRequired]
         public DateTime? Date
         {
             get;

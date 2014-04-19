@@ -9,7 +9,7 @@ namespace ARM.Core.Attributes
 {
     public abstract class ARMNumericAttribute : ARMValidationAttribute
     {
-        public ARMNumericAttribute()
+        protected ARMNumericAttribute()
         {
         }
 
@@ -17,13 +17,13 @@ namespace ARM.Core.Attributes
         {
         }
 
-        public decimal Max
+        public double Max
         {
             get;
             set;
         }
 
-        public decimal Min
+        public double Min
         {
             get;
             set;

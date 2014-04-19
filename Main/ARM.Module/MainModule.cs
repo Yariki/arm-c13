@@ -60,6 +60,10 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMCountryView, ARMCountryView>();
             UnityContainer.RegisterType<IARMCountryValidatableViewModel, ARMCountryValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMSettingsView, ARMSettingsView>();
+            UnityContainer.RegisterType<IARMSettingsValidatableViewModel, ARMSettingsValidatableViewModel>();
+
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

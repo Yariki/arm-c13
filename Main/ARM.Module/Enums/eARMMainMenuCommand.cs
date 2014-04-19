@@ -10,6 +10,7 @@
         ReferenceUniversity,
         ReferenceStaff,
         ReferenceLanguage,
-        ReferenceCountry
+        ReferenceCountry,
+        ReferenceSettings
     }
 }

@@ -57,6 +57,7 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuStaffCommand(_actionMenu,_canFunc));
             References.Add(new ARMMenuLanguageCommand(_actionMenu,_canFunc));
             References.Add(new ARMMenuCountryCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
         }
 
         #endregion

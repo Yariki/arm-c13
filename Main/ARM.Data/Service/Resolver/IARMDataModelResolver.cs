@@ -6,7 +6,7 @@ namespace ARM.Data.Sevice.Resolver
 {
     public interface IARMDataModelResolver
     {
-        object GetDataModel(eARMMetadata metadata, Guid id);
+        object GetDataModel(eARMMetadata metadata, Guid id, bool isIdEmpty);
         IEnumerable<object> GetAllByMetadata(eARMMetadata metadata);
     }
 }

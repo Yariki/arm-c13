@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Core.Validation.Rules
 {
     public class ARMMaxValidationRule : ARMNumericValidationRule
@@ -13,20 +15,26 @@ namespace ARM.Core.Validation.Rules
         {
         }
 
-        ~ARMMaxValidationRule()
-        {
-        }
-
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public ARMMaxValidationRule(decimal min, decimal max)
+        public ARMMaxValidationRule(double min, double max) : base(min,max)
         {
         }
 
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
-            return null;
+            var result = new ARMValidationResult() {IsValid = true};
+            if (val != null)
+            {
+                double v = Convert.ToDouble(val);
+                result.IsValid = v < Max;
+                if (!result.IsValid)
+                {
+                    result.AddMessage(string.Format("Value shouldn't be greater {0}.",Max));
+                }
+            }
+            return result;
         }
     }//end ARMMaxValidationRule
 }//end namespace Rules

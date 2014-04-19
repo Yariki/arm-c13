@@ -65,6 +65,7 @@ namespace ARM.Module.ViewModel.References
                     ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 }
             }
+            base.SaveExecute(arg);
         }
     }
 }

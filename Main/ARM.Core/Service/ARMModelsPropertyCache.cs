@@ -64,7 +64,7 @@ namespace ARM.Core.Service
             List<IARMModelPropertyInfo> listArmPi = new List<IARMModelPropertyInfo>();
             foreach (var propertyInfo in listPi)
             {
-                bool isRequired = propertyInfo.HasAttribute<RequiredAttribute>();
+                bool isRequired = propertyInfo.HasAttribute<ARMRequiredAttribute>();
                 bool visiblbeInGrid = propertyInfo.HasAttribute<ARMGridAttribute>();
                 int orderinGrid = 0;
                 IARMValidationAttribute validAttr = null;

@@ -16,12 +16,12 @@ namespace ARM.Data.Models
   [ARMMetadata(Metadata = eARMMetadata.Contract)]
     public class Contract : BaseNoteModel
     {
-        [Required]
+        [ARMRequired]
         public string Number { get; set; }
 
         public EducationLevel Level { get; set; }
 
-        [Required]
+        [ARMRequired]
         public Guid? ParentId { get; set; }
 
         public Guid UniversityId { get; set; }

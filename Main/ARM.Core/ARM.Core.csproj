@@ -92,6 +92,7 @@
     <Compile Include="Attributes\ARMStringAttribute.cs" />
     <Compile Include="Attributes\ARMUrlAttribute.cs" />
     <Compile Include="Attributes\ARMValidationAttribute.cs" />
+    <Compile Include="Const\GlobalConst.cs" />
     <Compile Include="CoreModule.cs" />
     <Compile Include="Enums\eARMMetadata.cs" />
     <Compile Include="Enums\eARMLogLevel.cs" />

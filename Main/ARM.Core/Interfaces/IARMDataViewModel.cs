@@ -17,7 +17,7 @@ namespace ARM.Core.Interfaces
         /// 
         ///  <param name="obj"></param>
         /// <param name="mode"></param>
-        void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id);
+        void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id, bool isIdEmpty);
 
         ViewMode Mode { get; }
 

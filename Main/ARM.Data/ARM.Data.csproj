@@ -97,6 +97,10 @@
     <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.Designer.cs">
       <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201404191311570_Settings.cs" />
+    <Compile Include="CommonContextMigrations\201404191311570_Settings.Designer.cs">
+      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -291,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201404152243349_AddUser_2.resx">
       <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404191311570_Settings.resx">
+      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

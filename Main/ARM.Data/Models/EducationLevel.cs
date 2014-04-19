@@ -10,7 +10,7 @@ namespace ARM.Data.Models
     public enum EducationLevel : int
     {
         Bachelour,
-        Alumnus,
-        Alumna
+        Specialist,
+        Master
     }//end EducationLevel
 }//end namespace Models

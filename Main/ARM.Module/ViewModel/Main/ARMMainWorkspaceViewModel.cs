@@ -13,6 +13,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ARM.Core.Const;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.Logging;
@@ -20,6 +21,7 @@ using ARM.Core.MVVM;
 using ARM.Data.Models;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.MVVM;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.References.ViewModel;
@@ -158,6 +160,13 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceCountry:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Country>>();
                     break;
+                case eARMMainMenuCommand.ReferenceSettings:
+                    workspaceViewModel = _unityContainer.Resolve<IARMSettingsValidatableViewModel>();
+                    if (workspaceViewModel != null)
+                    {
+                        (workspaceViewModel as IARMSettingsValidatableViewModel).SetBusinessObject(ViewMode.Edit, eARMMetadata.Settings,GlobalConst.IdDefault,true);
+                    }
+                    break;
             }
             if (workspaceViewModel != null)
             {
@@ -186,38 +195,38 @@ namespace ARM.Module.ViewModel.Main
                     viewModel = _unityContainer.Resolve<IARMUniversityDataViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode, eARMMetadata.University, obj.Id);
-                        Items.Add(viewModel);
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.University, obj.Id);
                     }
                     break;
                 case eARMMetadata.Staff:
                     viewModel = _unityContainer.Resolve<IARMStaffValidatableViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode, eARMMetadata.Staff, obj.Id);
-                        Items.Add(viewModel);
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Staff, obj.Id);
                     }
                     break;
-                case  eARMMetadata.Language:
+                case eARMMetadata.Language:
                     viewModel = _unityContainer.Resolve<IARMLanguageValidatableViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Language,obj.Id);
-                        Items.Add(viewModel);
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Language, obj.Id);
                     }
                     break;
                 case eARMMetadata.Country:
                     viewModel = _unityContainer.Resolve<IARMCountryValidatableViewModel>();
                     if (viewModel != null)
                     {
-                        viewModel.SetBusinessObject(obj.Mode,eARMMetadata.Country, obj.Id);
-                        Items.Add(viewModel);
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Country, obj.Id);
                     }
                     break;
             }
-            CurrentWorkspace = viewModel;
-            _currentIndex = Items.IndexOf(CurrentWorkspace);
-            OnPropertyChanged(() => CurrentWorkspaceIndex);
+            if (viewModel != null)
+            {
+                Items.Add(viewModel);
+                CurrentWorkspace = viewModel;
+                _currentIndex = Items.IndexOf(CurrentWorkspace);
+                OnPropertyChanged(() => CurrentWorkspaceIndex);    
+            }
         }
 
         private void OnCloseModel(ARMCloseEventPayload obj)

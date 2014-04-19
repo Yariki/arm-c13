@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
+using ARM.Core.Attributes;
 using ARM.Core.EventArguments;
 using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
@@ -39,7 +40,7 @@ namespace ARM.Core.Validation
                     continue;
                 IARMValidationRule rule = null;
 
-                if (armModelPropertyInfo.ValidationAttribute != null)
+                if (armModelPropertyInfo.ValidationAttribute != null && !(armModelPropertyInfo.ValidationAttribute is ARMRequiredAttribute))
                 {
                     rule = ARMValidationRulesFactory.Instance.GetRule(armModelPropertyInfo.ValidationAttribute);
                 }

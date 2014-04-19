@@ -5,28 +5,35 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using ARM.Core.Attributes;
+
 namespace ARM.Core.Validation.Rules
 {
     public class ARMRangeValidationRule : ARMNumericValidationRule
     {
-        public ARMRangeValidationRule()
-        {
-        }
-
-        ~ARMRangeValidationRule()
-        {
-        }
 
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public ARMRangeValidationRule(decimal min, decimal max)
+        public ARMRangeValidationRule(double min, double max) : base(min,max)
         {
         }
 
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
-            return null;
+            var result = new ARMValidationResult() { IsValid = true };
+            if (val != null)
+            {
+
+                double v = Convert.ToDouble(val);
+                result.IsValid = Min < v &&  v < Max;
+                if (!result.IsValid)
+                {
+                    result.AddMessage(string.Format("Value shouldn't be beetwen {0} - {1}.",Min,Max));
+                }
+            }
+            return result;
         }
     }//end ARMRangeValidationRule
 }//end namespace Rules

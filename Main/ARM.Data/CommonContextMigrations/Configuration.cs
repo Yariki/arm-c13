@@ -1,3 +1,6 @@
+﻿using System.Data.Entity.Core.Metadata.Edm;
+using ARM.Data.Models;
+
 namespace ARM.Data.CommonContextMigrations
 {
     using System;
@@ -7,9 +10,13 @@ namespace ARM.Data.CommonContextMigrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<ARM.Data.Layer.CommonContext>
     {
+
+        private const string GuidDefault = "00000000-0000-0000-0000-000000000001";
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            //AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"CommonContextMigrations";
         }
 
@@ -27,6 +34,27 @@ namespace ARM.Data.CommonContextMigrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Universities.AddOrUpdate(u => u.Id, new University() { Id = Guid.Parse(GuidDefault), Name = "KPI", DateModified = DateTime.Now });
+            context.Countries.AddOrUpdate(c => c.Id, new Country()
+            {
+                Id = Guid.Parse(GuidDefault),
+                Name = "Україна",
+                DateModified = DateTime.Now
+            });
+            context.SettingParameterses.AddOrUpdate(s => s.Id, new SettingParameters()
+            {
+                Id = Guid.Parse(GuidDefault),
+                DefUniversity = Guid.Parse(GuidDefault),
+                DefCountry = Guid.Parse(GuidDefault),
+                DefEducationLevel = EducationLevel.Bachelour,
+                DefInvoiceStatus = InvoiceStatus.New,
+                DefBaseStipend = 900,
+                DefIncreaseStipend = 1200,
+                DefStipendMark = 3,
+                DefStipenHighMark = 5
+            });
+
         }
     }
 }

@@ -16,9 +16,9 @@ namespace ARM.Data.Sevice.Resolver
             _unityContainer = unityContainer;
         }
 
-        public object GetDataModel(eARMMetadata metadata, Guid id)
+        public object GetDataModel(eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
-            if (id == Guid.Empty)
+            if (id == Guid.Empty && !isIdEmpty)
             {
                 var type = ARMModelsPropertyCache.Instance.GetTypeByMetadata(metadata);
                 return Activator.CreateInstance(type);

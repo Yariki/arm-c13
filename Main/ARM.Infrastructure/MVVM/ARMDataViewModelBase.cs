@@ -47,14 +47,14 @@ namespace ARM.Infrastructure.MVVM
 
         ///
         /// <param name="obj"></param>
-        public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id)
+        public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             Mode = mode;
             Metadata = metadata;
             var dataModelReoslver = UnityContainer.Resolve<IARMDataModelResolver>();
             if (dataModelReoslver != null)
             {
-                _dataObject = dataModelReoslver.GetDataModel(metadata, id);
+                _dataObject = dataModelReoslver.GetDataModel(metadata, id, isIdEmpty);
             }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
         }
@@ -130,7 +130,8 @@ namespace ARM.Infrastructure.MVVM
             if (_dataObject != null && HasProperty(name))
             {
                 IARMModelPropertyInfo pi = GetPropertyInfo(name);
-                return pi != null ? pi.Property.GetPropertyValue<T>(_dataObject) : defaultValue;
+                var val =  pi != null ? pi.Property.GetPropertyValue<T>(_dataObject) : defaultValue;
+                return val;
             }
             if (_values.ContainsKey(name))
             {

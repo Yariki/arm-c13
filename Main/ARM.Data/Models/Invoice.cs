@@ -23,7 +23,7 @@ namespace ARM.Data.Models
         ~Invoice()
         {
         }
-        [Required]
+        [ARMRequired]
         public Guid ContractId
         {
             get;
@@ -35,7 +35,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        [Required]
+        [ARMRequired]
         public decimal Price
         {
             get;

@@ -7,10 +7,10 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.User)]
     public class User : BaseNamedModel
     {
-        [Required]
+        [ARMRequired]
         public string Email { get; set; }
 
-        [Required]
+        [ARMRequired]
         public string Password { get; set; }
 
         public bool IsActive { get; set; }

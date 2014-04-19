@@ -17,7 +17,7 @@ namespace ARM.Data.Models
     {
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_FirstName")]
         [ARMGrid(Order = 1)]
-        [Required]
+        [ARMRequired]
         public string FirstName
         {
             get;
@@ -34,7 +34,7 @@ namespace ARM.Data.Models
 
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Person_LastName")]
         [ARMGrid(Order = 2)]
-        [Required]
+        [ARMRequired]
         public string LastName
         {
             get;

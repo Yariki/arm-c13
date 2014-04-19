@@ -20,17 +20,19 @@ namespace ARM.Core.Validation.Rules
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        protected ARMNumericValidationRule(decimal min, decimal max)
+        protected ARMNumericValidationRule(double min, double max)
         {
+            Min = min;
+            Max = max;
         }
 
-        protected decimal Max
+        protected double Max
         {
             get;
             set;
         }
 
-        protected decimal Min
+        protected double Min
         {
             get;
             set;

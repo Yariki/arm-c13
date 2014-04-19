@@ -19,6 +19,11 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
     [TemplatePart(Name = "PART_ButtonWndClear", Type = typeof(Button))]
     public class ARMLookupControl : Control, INotifyPropertyChanged
     {
+        #region [const]
+
+
+        #endregion
+
         #region [needs]
 
         public static string PART_TextBox = "PART_TextBoxValue";
@@ -96,7 +101,13 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         }
 
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-            "Value", typeof (Guid), typeof (ARMLookupControl), new PropertyMetadata(default(Guid),ValueOnChangeCallback));
+            "Value", typeof (Guid), typeof (ARMLookupControl), new PropertyMetadata(Guid.Empty,ValueOnChangeCallback));
+
+        public Guid Value
+        {
+            get { return (Guid)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
+        }
 
         private static void ValueOnChangeCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
@@ -107,20 +118,21 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
 
         }
 
-        public Guid Value
+        public static readonly DependencyProperty IsIdEmptyProperty = DependencyProperty.Register(
+            "IsIdEmpty", typeof (bool), typeof (ARMLookupControl), new PropertyMetadata(false));
+
+        public bool IsIdEmpty
         {
-            get { return (Guid) GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            get { return (bool) GetValue(IsIdEmptyProperty); }
+            set { SetValue(IsIdEmptyProperty, value); }
         }
-        
+
         #endregion
 
         #region [public]
 
         public void ValueChanged(DependencyPropertyChangedEventArgs args)
         {
-            if(args.OldValue == args.NewValue)
-                return;
             System.Windows.Threading.Dispatcher.CurrentDispatcher.BeginInvoke(
                 (Action) (() => ApplyValue((Guid) args.NewValue)));
         }
@@ -136,7 +148,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             var resolver = UnityContainer.Resolve<IARMDataModelResolver>();
             if (resolver == null)
                 return;
-            _model = resolver.GetDataModel(Metadata, id) as IARMModel;
+            _model = resolver.GetDataModel(Metadata, id,IsIdEmpty) as IARMModel;
             if (_model == null || _textBox == null)
             {
                 return;

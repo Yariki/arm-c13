@@ -18,13 +18,13 @@ namespace ARM.Data.Models
 
     public class Student : Person
     {
-        [Required]
+        [ARMRequired]
         public Guid AddressId { get; set; }
 
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }
 
-        [Required]
+        [ARMRequired]
         public Guid LivingAddressId { get; set; }
 
         [ForeignKey("LivingAddressId")]
@@ -78,7 +78,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        [Required]
+        [ARMRequired]
         public Guid? FacultyId
         {
             get;
@@ -111,7 +111,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        [Required]
+        [ARMRequired]
         public Guid? SpecialityId
         {
             get;
