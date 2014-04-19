@@ -13,6 +13,7 @@
         ReferenceCountry,
         ReferenceSettings,
         ReferenceFaculty,
-        ReferenceGroup
+        ReferenceGroup,
+        ReferenceSession
     }
 }

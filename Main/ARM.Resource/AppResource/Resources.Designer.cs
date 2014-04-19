@@ -385,6 +385,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Session.
+        /// </summary>
+        public static string Model_Data_Session {
+            get {
+                return ResourceManager.GetString("Model_Data_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Staff.
         /// </summary>
         public static string Model_Data_Staff {
@@ -543,6 +552,33 @@ namespace ARM.Resource.AppResource {
         public static string Model_Rector {
             get {
                 return ResourceManager.GetString("Model_Rector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begin date.
+        /// </summary>
+        public static string Model_Session_DateBegin {
+            get {
+                return ResourceManager.GetString("Model_Session_DateBegin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        public static string Model_Session_DateEnd {
+            get {
+                return ResourceManager.GetString("Model_Session_DateEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sessions.
+        /// </summary>
+        public static string Model_Session_Title {
+            get {
+                return ResourceManager.GetString("Model_Session_Title", resourceCulture);
             }
         }
         

@@ -309,4 +309,16 @@
   <data name="Model_Group_Title" xml:space="preserve">
     <value>Групи</value>
   </data>
+  <data name="Model_Data_Session" xml:space="preserve">
+    <value>{0} Сесію</value>
+  </data>
+  <data name="Model_Session_DateBegin" xml:space="preserve">
+    <value>Дата початку</value>
+  </data>
+  <data name="Model_Session_DateEnd" xml:space="preserve">
+    <value>Дата закінчення</value>
+  </data>
+  <data name="Model_Session_Title" xml:space="preserve">
+    <value>Сесії</value>
+  </data>
 </root>
