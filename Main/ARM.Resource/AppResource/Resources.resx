@@ -285,4 +285,16 @@
   <data name="Enum_Specialist" xml:space="preserve">
     <value>Specialist</value>
   </data>
+  <data name="Model_Faculty_Head" xml:space="preserve">
+    <value>Head</value>
+  </data>
+  <data name="Model_Faculty_Title" xml:space="preserve">
+    <value>Faculty</value>
+  </data>
+  <data name="Model_Faculty_University" xml:space="preserve">
+    <value>University</value>
+  </data>
+  <data name="Model_Data_Faculty" xml:space="preserve">
+    <value>{0} Faculty</value>
+  </data>
 </root>

@@ -11,6 +11,7 @@
         ReferenceStaff,
         ReferenceLanguage,
         ReferenceCountry,
-        ReferenceSettings
+        ReferenceSettings,
+        ReferenceFaculty
     }
 }

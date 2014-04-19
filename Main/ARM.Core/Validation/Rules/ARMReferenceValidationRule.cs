@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization.Formatters;
+﻿using System;
+using System.Runtime.Serialization.Formatters;
 using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation.Rules
@@ -14,12 +15,14 @@ namespace ARM.Core.Validation.Rules
                 result.AddMessage("Property sholdn't be equal 'NULL' or be empty.");
                 return result;
             }
+           
             if (ReferenceEquals(val, null))
             {
                 result.IsValid = false;
                 result.AddMessage("Property sholdn't be equal 'NULL'.");
                 return result;
             }
+            
             return result;
         }
     }

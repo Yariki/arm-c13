@@ -164,9 +164,13 @@ namespace ARM.Module.ViewModel.Main
                     workspaceViewModel = _unityContainer.Resolve<IARMSettingsValidatableViewModel>();
                     if (workspaceViewModel != null)
                     {
-                        (workspaceViewModel as IARMSettingsValidatableViewModel).SetBusinessObject(ViewMode.Edit, eARMMetadata.Settings,GlobalConst.IdDefault,true);
+                        (workspaceViewModel as IARMSettingsValidatableViewModel).SetBusinessObject(ViewMode.Edit, eARMMetadata.Settings, GlobalConst.IdDefault, true);
                     }
                     break;
+                case eARMMainMenuCommand.ReferenceFaculty:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Faculty>>();
+                    break;
+
             }
             if (workspaceViewModel != null)
             {
@@ -219,13 +223,20 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Country, obj.Id);
                     }
                     break;
+                case eARMMetadata.Faculty:
+                    viewModel = _unityContainer.Resolve<IARMFacultyValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Faculty, obj.Id);
+                    }
+                    break;
             }
             if (viewModel != null)
             {
                 Items.Add(viewModel);
                 CurrentWorkspace = viewModel;
                 _currentIndex = Items.IndexOf(CurrentWorkspace);
-                OnPropertyChanged(() => CurrentWorkspaceIndex);    
+                OnPropertyChanged(() => CurrentWorkspaceIndex);
             }
         }
 

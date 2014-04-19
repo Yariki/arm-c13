@@ -16,7 +16,7 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Faculty)]
     public class Faculty : BaseNamedModel
     {
-
+        [ARMRequired]    
         public Guid? StaffId
         {
             get;
@@ -31,6 +31,7 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
         public Guid UniversityId
         {
             get;

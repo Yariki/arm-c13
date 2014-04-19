@@ -358,6 +358,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Faculty.
+        /// </summary>
+        public static string Model_Data_Faculty {
+            get {
+                return ResourceManager.GetString("Model_Data_Faculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Language.
         /// </summary>
         public static string Model_Data_Language {
@@ -390,6 +399,33 @@ namespace ARM.Resource.AppResource {
         public static string Model_DateModified {
             get {
                 return ResourceManager.GetString("Model_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Head.
+        /// </summary>
+        public static string Model_Faculty_Head {
+            get {
+                return ResourceManager.GetString("Model_Faculty_Head", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faculty.
+        /// </summary>
+        public static string Model_Faculty_Title {
+            get {
+                return ResourceManager.GetString("Model_Faculty_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to University.
+        /// </summary>
+        public static string Model_Faculty_University {
+            get {
+                return ResourceManager.GetString("Model_Faculty_University", resourceCulture);
             }
         }
         

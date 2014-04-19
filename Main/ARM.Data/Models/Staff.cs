@@ -14,7 +14,7 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Staff)]
+    [ARMMetadata(Metadata = eARMMetadata.Staff)]
 
     public class Staff : Person
     {
@@ -27,7 +27,12 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
         public virtual IList<Class> Classes { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}", this.FirstName, this.LastName);
+        }
     }//end Staff
 }//end namespace Models

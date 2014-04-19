@@ -45,8 +45,12 @@ namespace ARM.Core.Validation.Rules
                 result.AddMessage(string.Format("Property 'Guid' should be equal '{0}'.",Guid.Empty));
                 return result;
             }
-
-
+            if (ReferenceEquals(val,null))
+            {
+                result.IsValid = false;
+                result.AddMessage("Property couldn't be empty");
+                return result;
+            }
             return result;
         }
     }
