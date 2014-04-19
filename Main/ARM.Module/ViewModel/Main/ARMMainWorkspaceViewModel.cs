@@ -9,6 +9,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Controls;
@@ -170,6 +171,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceFaculty:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Faculty>>();
                     break;
+                case eARMMainMenuCommand.ReferenceGroup:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Group>>();
+                    break;
 
             }
             if (workspaceViewModel != null)
@@ -228,6 +232,13 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Faculty, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Group:
+                    viewModel = _unityContainer.Resolve<IARMGroupValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Group, obj.Id);
                     }
                     break;
             }

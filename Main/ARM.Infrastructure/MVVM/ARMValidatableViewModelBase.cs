@@ -50,10 +50,10 @@ namespace ARM.Infrastructure.MVVM
             IsValid = validationEventArgs.Result.IsValid;
         }
 
-        protected void ValidateBeforeSave()
+        protected bool ValidateBeforeSave()
         {
             if(_validationAdaptor == null)
-                return;
+                return false;
             _validationAdaptor.ValidateAll();
             var res = _validationAdaptor.GetResultForAll();
             IsValid = true;
@@ -65,6 +65,7 @@ namespace ARM.Infrastructure.MVVM
                     OnPropertyChanged(re.Key);
                 }
             }
+            return IsValid;
         }
 
         protected string FormatTitle(string format)

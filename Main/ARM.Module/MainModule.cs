@@ -66,6 +66,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMFacultyView, ARMFacultyView>();
             UnityContainer.RegisterType<IARMFacultyValidatableViewModel, ARMFacultyValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMGroupView, ARMGroupView>();
+            UnityContainer.RegisterType<IARMGroupValidatableViewModel, ARMGroupValidatableViewModel>();
+
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()

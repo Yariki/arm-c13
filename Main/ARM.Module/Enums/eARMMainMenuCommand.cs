@@ -12,6 +12,7 @@
         ReferenceLanguage,
         ReferenceCountry,
         ReferenceSettings,
-        ReferenceFaculty
+        ReferenceFaculty,
+        ReferenceGroup
     }
 }

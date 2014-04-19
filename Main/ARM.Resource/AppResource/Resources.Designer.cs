@@ -367,6 +367,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Group.
+        /// </summary>
+        public static string Model_Data_Group {
+            get {
+                return ResourceManager.GetString("Model_Data_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Language.
         /// </summary>
         public static string Model_Data_Language {
@@ -426,6 +435,33 @@ namespace ARM.Resource.AppResource {
         public static string Model_Faculty_University {
             get {
                 return ResourceManager.GetString("Model_Faculty_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Curator.
+        /// </summary>
+        public static string Model_Group_Curator {
+            get {
+                return ResourceManager.GetString("Model_Group_Curator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faculty.
+        /// </summary>
+        public static string Model_Group_Faculty {
+            get {
+                return ResourceManager.GetString("Model_Group_Faculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Groups.
+        /// </summary>
+        public static string Model_Group_Title {
+            get {
+                return ResourceManager.GetString("Model_Group_Title", resourceCulture);
             }
         }
         
