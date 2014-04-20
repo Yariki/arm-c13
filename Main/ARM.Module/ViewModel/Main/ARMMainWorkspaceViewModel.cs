@@ -183,6 +183,13 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceAddress:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Address>>();
                     break;
+                case eARMMainMenuCommand.ReferenceParent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Parent>>();
+                    break;
+                case eARMMainMenuCommand.ReferenceSpeciality:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Specialty>>();
+                    break;
+
             }
             if (workspaceViewModel != null)
             {
@@ -273,6 +280,20 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Address, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Parent:
+                    viewModel = _unityContainer.Resolve<IARMParentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Parent, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Specialty:
+                    viewModel = _unityContainer.Resolve<IARMSpecialityValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Specialty, obj.Id);
                     }
                     break;
             }

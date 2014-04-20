@@ -71,5 +71,11 @@ namespace ARM.Data.Models
             set;
         }
 
+        public override string ToString()
+        {
+            return string.Format(Resource.AppResource.Resources.Model_Address_ToString, 
+                Country.ToString(), Region, City,
+                Street, House, Apartment);
+        }
     }//end Address
 }//end namespace Models

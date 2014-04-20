@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
@@ -17,15 +18,10 @@ namespace ARM.Data.Models
 
     public class Specialty : BaseNamedModel
     {
-        public Specialty()
-        {
-        }
-
-        ~Specialty()
-        {
-        }
-
-        public Guid? FacultyId
+        [ARMRequired]
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Speciality_Faculty")]
+        public Guid? FacultyId  
         {
             get;
             set;

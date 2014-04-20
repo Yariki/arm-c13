@@ -357,4 +357,28 @@
   <data name="Model_Data_Address" xml:space="preserve">
     <value>{0} Address</value>
   </data>
+  <data name="Model_Data_Parent" xml:space="preserve">
+    <value>{0} Parent</value>
+  </data>
+  <data name="Model_Parent_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Model_Parent_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Model_Parent_Title" xml:space="preserve">
+    <value>Parents</value>
+  </data>
+  <data name="Model_Address_ToString" xml:space="preserve">
+    <value>{0},r. {1}, s. {2}, st. {3}, h. {4}, a. {5}</value>
+  </data>
+  <data name="Model_Data_Speciality" xml:space="preserve">
+    <value>{0} Speciality</value>
+  </data>
+  <data name="Model_Speciality_Faculty" xml:space="preserve">
+    <value>Faculty</value>
+  </data>
+  <data name="Model_Speciality_Title" xml:space="preserve">
+    <value>Specialities</value>
+  </data>
 </root>

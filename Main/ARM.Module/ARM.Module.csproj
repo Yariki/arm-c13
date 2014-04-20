@@ -103,8 +103,10 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuFacultyCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuGroupCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuLanguageCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuParentCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuSessionCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuSettingsCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuSpecialityCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuStaffCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
@@ -120,8 +122,10 @@
     <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMFacultyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMGroupValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMParentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSessionValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSettingsValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMSpecialityValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
     <Compile Include="Interfaces\References\View\IARMClassView.cs" />
     <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
@@ -131,8 +135,10 @@
     <Compile Include="Interfaces\References\View\IARMFacultyView.cs" />
     <Compile Include="Interfaces\References\View\IARMGroupView.cs" />
     <Compile Include="Interfaces\References\View\IARMLanguageView.cs" />
+    <Compile Include="Interfaces\References\View\IARMParentView.cs" />
     <Compile Include="Interfaces\References\View\IARMSessionView.cs" />
     <Compile Include="Interfaces\References\View\IARMSettingsView.cs" />
+    <Compile Include="Interfaces\References\View\IARMSpecialityView.cs" />
     <Compile Include="Interfaces\References\View\IARMStaffView.cs" />
     <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
@@ -147,7 +153,9 @@
     <Compile Include="ViewModel\Grid\ARMFacultyGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMGroupGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMLanguageGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMParentGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMSessionGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMSpecialityGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMStaffGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUniversityGridViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainMenuViewModel.cs" />
@@ -159,8 +167,10 @@
     <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMFacultyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMGroupValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMParentValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSessionValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSettingsValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMSpecialityValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMStaffValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="ViewModel\References\ARMLanguageValidatableViewModel.cs" />
@@ -197,11 +207,17 @@
     <Compile Include="View\References\ARMLanguageView.xaml.cs">
       <DependentUpon>ARMLanguageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\References\ARMParentView.xaml.cs">
+      <DependentUpon>ARMParentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\References\ARMSessionView.xaml.cs">
       <DependentUpon>ARMSessionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMSettingsView.xaml.cs">
       <DependentUpon>ARMSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMSpecialityView.xaml.cs">
+      <DependentUpon>ARMSpecialityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMStaffView.xaml.cs">
       <DependentUpon>ARMStaffView.xaml</DependentUpon>
@@ -276,11 +292,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\References\ARMParentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\References\ARMSessionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMSpecialityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

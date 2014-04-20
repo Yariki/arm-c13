@@ -412,6 +412,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0},r. {1}, s. {2}, st. {3}, h. {4}, a. {5}.
+        /// </summary>
+        public static string Model_Address_ToString {
+            get {
+                return ResourceManager.GetString("Model_Address_ToString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Session.
         /// </summary>
         public static string Model_Class_Session {
@@ -493,11 +502,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Parent.
+        /// </summary>
+        public static string Model_Data_Parent {
+            get {
+                return ResourceManager.GetString("Model_Data_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Session.
         /// </summary>
         public static string Model_Data_Session {
             get {
                 return ResourceManager.GetString("Model_Data_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Speciality.
+        /// </summary>
+        public static string Model_Data_Speciality {
+            get {
+                return ResourceManager.GetString("Model_Data_Speciality", resourceCulture);
             }
         }
         
@@ -588,6 +615,33 @@ namespace ARM.Resource.AppResource {
         public static string Model_Name {
             get {
                 return ResourceManager.GetString("Model_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Model_Parent_Address {
+            get {
+                return ResourceManager.GetString("Model_Parent_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Parent_Student {
+            get {
+                return ResourceManager.GetString("Model_Parent_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parents.
+        /// </summary>
+        public static string Model_Parent_Title {
+            get {
+                return ResourceManager.GetString("Model_Parent_Title", resourceCulture);
             }
         }
         
@@ -768,6 +822,24 @@ namespace ARM.Resource.AppResource {
         public static string Model_Settings_Title {
             get {
                 return ResourceManager.GetString("Model_Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faculty.
+        /// </summary>
+        public static string Model_Speciality_Faculty {
+            get {
+                return ResourceManager.GetString("Model_Speciality_Faculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialities.
+        /// </summary>
+        public static string Model_Speciality_Title {
+            get {
+                return ResourceManager.GetString("Model_Speciality_Title", resourceCulture);
             }
         }
         

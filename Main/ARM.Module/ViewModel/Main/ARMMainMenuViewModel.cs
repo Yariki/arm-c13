@@ -55,12 +55,14 @@ namespace ARM.Module.ViewModel.Main
             References = new ObservableCollection<IARMMenuCommand>();
             References.Add(new ARMMenuUniversityCommand(_actionMenu,_canFunc));
             References.Add(new ARMMenuFacultyCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuSpecialityCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSessionCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuClassCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuGroupCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuStaffCommand(_actionMenu,_canFunc));
             References.Add(new ARMMenuLanguageCommand(_actionMenu,_canFunc));
             References.Add(new ARMMenuCountryCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuParentCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuAddressCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
             

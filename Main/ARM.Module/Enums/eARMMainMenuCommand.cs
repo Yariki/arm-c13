@@ -16,6 +16,8 @@
         ReferenceGroup,
         ReferenceSession,
         ReferenceClass,
-        ReferenceAddress
+        ReferenceAddress,
+        ReferenceParent,
+        ReferenceSpeciality
     }
 }

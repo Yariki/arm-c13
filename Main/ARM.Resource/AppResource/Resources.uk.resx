@@ -357,4 +357,28 @@
   <data name="Model_Data_Address" xml:space="preserve">
     <value>{0} Адресу</value>
   </data>
+  <data name="Model_Data_Parent" xml:space="preserve">
+    <value>{0} Батька </value>
+  </data>
+  <data name="Model_Parent_Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Model_Parent_Student" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+  <data name="Model_Parent_Title" xml:space="preserve">
+    <value>Батьки</value>
+  </data>
+  <data name="Model_Address_ToString" xml:space="preserve">
+    <value>{0}, обл. {1}, м. {2}, вул. {3}, б. {4}, кв. {5}</value>
+  </data>
+  <data name="Model_Data_Speciality" xml:space="preserve">
+    <value>{0} Спеціальність</value>
+  </data>
+  <data name="Model_Speciality_Faculty" xml:space="preserve">
+    <value>Факультет</value>
+  </data>
+  <data name="Model_Speciality_Title" xml:space="preserve">
+    <value>Спеціальність</value>
+  </data>
 </root>
