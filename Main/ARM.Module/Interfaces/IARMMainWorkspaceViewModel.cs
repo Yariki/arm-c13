@@ -15,45 +15,28 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainWorkspaceViewModel : IARMViewModel
     {
-        ObservableCollection<IARMWorkspaceViewModel> Items
-        {
-            get;
-        }
+        ObservableCollection<IARMWorkspaceViewModel> Items { get; }
 
-        IARMWorkspaceViewModel CurrentWorkspace
-        {
-            get;
-            set;
-        }
+        IARMWorkspaceViewModel CurrentWorkspace { get; set; }
 
-        IARMView MenuView
-        {
-            get;
-        }
+        IARMView MenuView { get; }
 
-        IARMView ToolboxView
-        {
-            get;
-        }
+        IARMView ToolboxView { get; }
 
-        IARMView StatusBarView
-        {
-            get;
-        }
+        IARMView StatusBarView { get; }
 
         IARMMainMenuViewModel Menu { get; }
 
         IARMMainToolboxViewModel Toolbox { get; }
 
         IARMMainStatusBarViewModel StatusBar { get; }
+
         int CurrentWorkspaceIndex { get; set; }
+
+        ICommand ClosingCommand { get; }
 
         event EventHandler Close;
 
         void OnClosing(CancelEventArgs arg);
-
-        ICommand ClosingCommand { get; }
-
-
-    }//end IARMMainWorkspaceViewModel
-}//end namespace Interfaces
+    } //end IARMMainWorkspaceViewModel
+} //end namespace Interfaces

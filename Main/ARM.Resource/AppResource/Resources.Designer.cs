@@ -61,11 +61,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set Password.
+        /// </summary>
+        public static string Button_SetPassword {
+            get {
+                return ResourceManager.GetString("Button_SetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bachelour.
         /// </summary>
         public static string Enum_Bachelour {
             get {
                 return ResourceManager.GetString("Enum_Bachelour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string Enum_English {
+            get {
+                return ResourceManager.GetString("Enum_English", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_Technician {
             get {
                 return ResourceManager.GetString("Enum_Technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        public static string Enum_Ukrainian {
+            get {
+                return ResourceManager.GetString("Enum_Ukrainian", resourceCulture);
             }
         }
         
@@ -547,6 +574,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} User.
+        /// </summary>
+        public static string Model_Data_User {
+            get {
+                return ResourceManager.GetString("Model_Data_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Modified.
         /// </summary>
         public static string Model_DateModified {
@@ -849,6 +885,51 @@ namespace ARM.Resource.AppResource {
         public static string Model_Staff_Type {
             get {
                 return ResourceManager.GetString("Model_Staff_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Model_User_Email {
+            get {
+                return ResourceManager.GetString("Model_User_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Active.
+        /// </summary>
+        public static string Model_User_IsActive {
+            get {
+                return ResourceManager.GetString("Model_User_IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User language.
+        /// </summary>
+        public static string Model_User_Language {
+            get {
+                return ResourceManager.GetString("Model_User_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Model_User_Password {
+            get {
+                return ResourceManager.GetString("Model_User_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string Model_User_Title {
+            get {
+                return ResourceManager.GetString("Model_User_Title", resourceCulture);
             }
         }
     }

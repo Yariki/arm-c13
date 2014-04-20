@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
@@ -9,6 +8,7 @@ using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -17,15 +17,59 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMParentValidatableViewModel : ARMValidatableViewModelBase, IARMParentValidatableViewModel
     {
-        public ARMParentValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMParentView view)
+        private Dictionary<SexType, string> _sourceSex;
+
+        public ARMParentValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMParentView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        public Dictionary<SexType, string> SourceSex
+        {
+            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
+        }
+
+        #region [override]
+
+        protected override void SaveExecute(object arg)
+        {
+            if (!ValidateBeforeSave())
+                return;
+            try
+            {
+                using (var unitOfWork = UnityContainer.Resolve<IUnitOfWork>())
+                {
+                    switch (Mode)
+                    {
+                        case ViewMode.Add:
+                            unitOfWork.ParentReposotory.Insert(GetBusinessObject<Parent>());
+                            break;
+
+                        case ViewMode.Edit:
+                            unitOfWork.ParentReposotory.Update(GetBusinessObject<Parent>());
+                            break;
+                    }
+                    unitOfWork.ParentReposotory.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+            base.SaveExecute(arg);
+        }
+
+        #endregion [override]
+
+        #region IARMParentValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Parent); }
+            get { return FormatTitle(Resources.Model_Data_Parent); }
         }
+
+        #endregion IARMParentValidatableViewModel Members
 
         #region [properties]
 
@@ -88,49 +132,6 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => AddressId, value); }
         }
 
-
-        #endregion
-
-        #region [source enum]
-
-        private Dictionary<SexType, string> _sourceSex;
-        public Dictionary<SexType, string> SourceSex
-        {
-            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
-        }
-
-        #endregion
-
-        #region [override]
-
-        protected override void SaveExecute(object arg)
-        {
-            if (!ValidateBeforeSave())
-                return;
-            try
-            {
-                using (var unitOfWork = UnityContainer.Resolve<IUnitOfWork>())
-                {
-                    switch (Mode)
-                    {
-                        case ViewMode.Add:
-                            unitOfWork.ParentReposotory.Insert(GetBusinessObject<Parent>());
-                            break;
-                        case ViewMode.Edit:
-                            unitOfWork.ParentReposotory.Update(GetBusinessObject<Parent>());
-                            break;
-                    }
-                    unitOfWork.ParentReposotory.Save();
-                }
-            }
-            catch (Exception ex)
-            {
-                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
-            }
-            base.SaveExecute(arg);
-        }
-
-        #endregion
-
+        #endregion [properties]
     }
 }

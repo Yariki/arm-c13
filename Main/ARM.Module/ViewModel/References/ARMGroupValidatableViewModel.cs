@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Runtime.Remoting;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -16,15 +15,20 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMGroupValidatableViewModel : ARMValidatableViewModelBase, IARMGroupValidatableViewModel
     {
-        public ARMGroupValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGroupView view)
+        public ARMGroupValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMGroupView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        #region IARMGroupValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Group); }
+            get { return FormatTitle(Resources.Model_Data_Group); }
         }
+
+        #endregion IARMGroupValidatableViewModel Members
 
         #region [properties]
 
@@ -51,8 +55,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => StaffId, value); }
         }
 
-
-        #endregion
+        #endregion [properties]
 
         protected override void SaveExecute(object arg)
         {
@@ -64,10 +67,10 @@ namespace ARM.Module.ViewModel.References
                 {
                     switch (Mode)
                     {
-
                         case ViewMode.Add:
                             unitOfWork.GroupRepository.Insert(GetBusinessObject<Group>());
                             break;
+
                         case ViewMode.Edit:
                             unitOfWork.GroupRepository.Update(GetBusinessObject<Group>());
                             break;
@@ -83,5 +86,4 @@ namespace ARM.Module.ViewModel.References
             base.SaveExecute(arg);
         }
     }
-
 }

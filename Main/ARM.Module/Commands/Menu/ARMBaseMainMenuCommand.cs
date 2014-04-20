@@ -6,14 +6,17 @@ namespace ARM.Module.Commands.Menu
 {
     public abstract class ARMBaseMainMenuCommand : IARMMenuCommand
     {
-        private Action<eARMMainMenuCommand> _action;
-        private Func<eARMMainMenuCommand, bool> _canExecute;
+        private readonly Action<eARMMainMenuCommand> _action;
+        private readonly Func<eARMMainMenuCommand, bool> _canExecute;
 
-        protected ARMBaseMainMenuCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
+        protected ARMBaseMainMenuCommand(Action<eARMMainMenuCommand> action,
+            Func<eARMMainMenuCommand, bool> canPredicate)
         {
             _action = action;
             _canExecute = canPredicate;
         }
+
+        #region IARMMenuCommand Members
 
         public void Execute(object parameter)
         {
@@ -31,7 +34,11 @@ namespace ARM.Module.Commands.Menu
         public event EventHandler CanExecuteChanged;
 
         public string Title { get; set; }
+
         public string Tooltip { get; set; }
+
         public eARMMainMenuCommand MenuCommand { get; protected set; }
+
+        #endregion IARMMenuCommand Members
     }
 }

@@ -14,10 +14,6 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainMenuViewModel : IARMViewModel
     {
-        void InitializeCommands();
-
-        void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate);
-
         ObservableCollection<IARMMenuCommand> Files { get; }
 
         ObservableCollection<IARMMenuCommand> Documents { get; }
@@ -29,5 +25,9 @@ namespace ARM.Module.Interfaces
         ObservableCollection<IARMMenuCommand> Services { get; }
 
         ObservableCollection<IARMMenuCommand> Helps { get; }
-    }//end IARMMainMenuViewModel
-}//end namespace Interfaces
+
+        void InitializeCommands();
+
+        void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate);
+    } //end IARMMainMenuViewModel
+} //end namespace Interfaces

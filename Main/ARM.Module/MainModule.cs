@@ -68,7 +68,7 @@ namespace ARM.Module
 
             UnityContainer.RegisterType<IARMGroupView, ARMGroupView>();
             UnityContainer.RegisterType<IARMGroupValidatableViewModel, ARMGroupValidatableViewModel>();
-            
+
             UnityContainer.RegisterType<IARMSessionView, ARMSessionView>();
             UnityContainer.RegisterType<IARMSessionValidatableViewModel, ARMSessionValidatableViewModel>();
 
@@ -83,6 +83,9 @@ namespace ARM.Module
 
             UnityContainer.RegisterType<IARMSpecialityView, ARMSpecialityView>();
             UnityContainer.RegisterType<IARMSpecialityValidatableViewModel, ARMSpecialityValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMUserView, ARMUserView>();
+            UnityContainer.RegisterType<IARMUserValidatableViewModel, ARMUserValidatableViewModel>();
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()

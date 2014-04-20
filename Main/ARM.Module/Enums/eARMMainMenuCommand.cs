@@ -18,6 +18,7 @@
         ReferenceClass,
         ReferenceAddress,
         ReferenceParent,
-        ReferenceSpeciality
+        ReferenceSpeciality,
+        ReferenceUser
     }
 }

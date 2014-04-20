@@ -7,9 +7,9 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.Grid
 {
-    public class ARMStaffGridViewModel :ARMGridViewModelBase<Staff>
+    public class ARMStaffGridViewModel : ARMGridViewModelBase<Staff>
     {
-        public ARMStaffGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) 
+        public ARMStaffGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }

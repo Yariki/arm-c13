@@ -1,6 +1,5 @@
 ﻿using System;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
@@ -33,7 +32,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => Name, value); }
         }
 
-        #endregion
+        #endregion [properties]
 
         protected override void SaveExecute(object arg)
         {
@@ -51,6 +50,7 @@ namespace ARM.Module.ViewModel.References
                         case ViewMode.Add:
                             languageRepository.Insert(GetBusinessObject<Language>());
                             break;
+
                         case ViewMode.Edit:
                             languageRepository.Update(GetBusinessObject<Language>());
                             break;
@@ -58,10 +58,9 @@ namespace ARM.Module.ViewModel.References
                     languageRepository.Save();
                 }
                 catch (Exception ex)
-                {   
+                {
                     ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 }
-                
             }
 
             base.SaveExecute(arg);

@@ -9,7 +9,7 @@ namespace ARM.Module.ViewModel.Grid
 {
     public class ARMSpecialityGridViewModel : ARMGridViewModelBase<Specialty>
     {
-        public ARMSpecialityGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) 
+        public ARMSpecialityGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }

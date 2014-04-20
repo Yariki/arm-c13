@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.File
 {
     public class ARMMenuExitCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuExitCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuExitCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.Exit;

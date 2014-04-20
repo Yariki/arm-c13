@@ -1,12 +1,12 @@
 ﻿using System;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -17,16 +17,21 @@ namespace ARM.Module.ViewModel.References
     {
         private IUnitOfWork _unitOfWork;
 
-        public ARMFacultyValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMFacultyView view)
+        public ARMFacultyValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMFacultyView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             _unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
+        #region IARMFacultyValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Faculty); }
+            get { return FormatTitle(Resources.Model_Data_Faculty); }
         }
+
+        #endregion IARMFacultyValidatableViewModel Members
 
         #region [properties]
 
@@ -59,7 +64,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => UniversityId, value); }
         }
 
-        #endregion
+        #endregion [properties]
 
         #region [override]
 
@@ -105,10 +110,10 @@ namespace ARM.Module.ViewModel.References
                     case ViewMode.Add:
                         _unitOfWork.FacultyRepository.Insert(GetBusinessObject<Faculty>());
                         break;
+
                     case ViewMode.Edit:
                         _unitOfWork.FacultyRepository.Update(GetBusinessObject<Faculty>());
                         break;
-
                 }
                 _unitOfWork.FacultyRepository.Save();
             }
@@ -120,6 +125,6 @@ namespace ARM.Module.ViewModel.References
             base.SaveExecute(arg);
         }
 
-        #endregion
+        #endregion [override]
     }
 }

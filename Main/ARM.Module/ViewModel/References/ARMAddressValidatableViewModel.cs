@@ -1,12 +1,12 @@
 ﻿using System;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -17,16 +17,21 @@ namespace ARM.Module.ViewModel.References
     {
         private IUnitOfWork _unitOfWork;
 
-        public ARMAddressValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMAddressView view)
+        public ARMAddressValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMAddressView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             _unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
+        #region IARMAddressValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Address); }
+            get { return FormatTitle(Resources.Model_Data_Address); }
         }
+
+        #endregion IARMAddressValidatableViewModel Members
 
         #region [properties]
 
@@ -71,7 +76,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => Apartment, value); }
         }
 
-        #endregion
+        #endregion [properties]
 
         #region [overrides]
 
@@ -100,6 +105,7 @@ namespace ARM.Module.ViewModel.References
                     case ViewMode.Add:
                         _unitOfWork.AddressRepository.Insert(GetBusinessObject<Address>());
                         break;
+
                     case ViewMode.Edit:
                         _unitOfWork.AddressRepository.Update(GetBusinessObject<Address>());
                         break;
@@ -127,7 +133,6 @@ namespace ARM.Module.ViewModel.References
             base.Dispose(disposing);
         }
 
-        #endregion
-
+        #endregion [overrides]
     }
 }

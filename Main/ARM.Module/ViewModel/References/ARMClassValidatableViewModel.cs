@@ -1,12 +1,12 @@
 ﻿using System;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -15,15 +15,20 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMClassValidatableViewModel : ARMValidatableViewModelBase, IARMClassValidatableViewModel
     {
-        public ARMClassValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMClassView view)
+        public ARMClassValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMClassView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        #region IARMClassValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Class); }
+            get { return FormatTitle(Resources.Model_Data_Class); }
         }
+
+        #endregion IARMClassValidatableViewModel Members
 
         #region [properties]
 
@@ -50,8 +55,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => SessionId, value); }
         }
 
-
-        #endregion
+        #endregion [properties]
 
         #region [override]
 
@@ -65,10 +69,10 @@ namespace ARM.Module.ViewModel.References
                 unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
                 switch (Mode)
                 {
-
                     case ViewMode.Add:
                         unitOfWork.ClassRepository.Insert(GetBusinessObject<Class>());
                         break;
+
                     case ViewMode.Edit:
                         unitOfWork.ClassRepository.Update(GetBusinessObject<Class>());
                         break;
@@ -88,8 +92,6 @@ namespace ARM.Module.ViewModel.References
             base.SaveExecute(arg);
         }
 
-        #endregion
-
-
+        #endregion [override]
     }
 }

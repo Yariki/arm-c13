@@ -11,13 +11,11 @@ using ARM.Module.Interfaces.View;
 
 namespace ARM.Module.ViewModel.Main
 {
-    public class ARMMainStatusBarViewModel :ARMViewModelBase, IARMMainStatusBarViewModel
+    public class ARMMainStatusBarViewModel : ARMViewModelBase, IARMMainStatusBarViewModel
     {
-        public ARMMainStatusBarViewModel(IARMMainStatusBarView statusBarView) 
+        public ARMMainStatusBarViewModel(IARMMainStatusBarView statusBarView)
             : base(statusBarView)
         {
         }
-
-      
     }//end ARMMainStatusBasrViewModel
 }//end namespace Main

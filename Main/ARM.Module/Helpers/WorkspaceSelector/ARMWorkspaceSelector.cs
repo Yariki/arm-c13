@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using ARM.Core.Interfaces;
 using ARM.Infrastructure.MVVM;
 
 namespace ARM.Module.Helpers.WorkspaceSelector
@@ -9,10 +8,9 @@ namespace ARM.Module.Helpers.WorkspaceSelector
     {
         private const string GridSuffix = "Grid";
 
-
         public DataTemplate GridViewModel { get; set; }
+
         public DataTemplate DataViewModel { get; set; }
-   
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {

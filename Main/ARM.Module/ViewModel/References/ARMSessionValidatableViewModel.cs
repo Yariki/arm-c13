@@ -1,12 +1,12 @@
 ﻿using System;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -15,15 +15,20 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMSessionValidatableViewModel : ARMValidatableViewModelBase, IARMSessionValidatableViewModel
     {
-        public ARMSessionValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMSessionView view)
+        public ARMSessionValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMSessionView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        #region IARMSessionValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Session); }
+            get { return FormatTitle(Resources.Model_Data_Session); }
         }
+
+        #endregion IARMSessionValidatableViewModel Members
 
         #region [properties]
 
@@ -45,8 +50,7 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => DateEnd, value); }
         }
 
-        #endregion
-
+        #endregion [properties]
 
         #region [override]
 
@@ -78,6 +82,7 @@ namespace ARM.Module.ViewModel.References
                         case ViewMode.Add:
                             unitOfWork.SessionRepository.Insert(GetBusinessObject<Session>());
                             break;
+
                         case ViewMode.Edit:
                             unitOfWork.SessionRepository.Update(GetBusinessObject<Session>());
                             break;
@@ -93,8 +98,6 @@ namespace ARM.Module.ViewModel.References
             base.SaveExecute(arg);
         }
 
-        #endregion
-
-
+        #endregion [override]
     }
 }

@@ -9,7 +9,8 @@ namespace ARM.Module.ViewModel.Grid
 {
     public class ARMParentGridViewModel : ARMGridViewModelBase<Parent>
     {
-        public ARMParentGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) : base(regionManager, unityContainer, eventAggregator, view)
+        public ARMParentGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
+            : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 

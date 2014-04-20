@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
@@ -16,9 +14,9 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
-    public class ARMSettingsValidatableViewModel : ARMValidatableViewModelBase,IARMSettingsValidatableViewModel
+    public class ARMSettingsValidatableViewModel : ARMValidatableViewModelBase, IARMSettingsValidatableViewModel
     {
-        public ARMSettingsValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMSettingsView view) 
+        public ARMSettingsValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMSettingsView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
@@ -33,19 +31,19 @@ namespace ARM.Module.ViewModel.References
         public Guid DefUniversity
         {
             get { return Get(() => DefUniversity); }
-            set { Set(() => DefUniversity,value);}
+            set { Set(() => DefUniversity, value); }
         }
 
         public Guid DefCountry
         {
             get { return Get(() => DefUniversity); }
-            set { Set(() => DefCountry,value); }
+            set { Set(() => DefCountry, value); }
         }
 
         public EducationLevel DefEducationLevel
         {
             get { return Get(() => DefEducationLevel); }
-            set { Set(() => DefEducationLevel,value); }
+            set { Set(() => DefEducationLevel, value); }
         }
 
         public InvoiceStatus DefInvoiceStatus
@@ -78,11 +76,11 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => DefStipenHighMark, value); }
         }
 
-        #endregion
+        #endregion [properties]
 
         #region [emun resource]
 
-        public IUnityContainer DiContainer 
+        public IUnityContainer DiContainer
         {
             get { return UnityContainer; }
         }
@@ -104,12 +102,12 @@ namespace ARM.Module.ViewModel.References
             get { return _sourceInvoice ?? (_sourceInvoice = EnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
         }
 
-        #endregion
+        #endregion [emun resource]
 
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();
-            if(!IsValid)
+            if (!IsValid)
                 return;
             try
             {

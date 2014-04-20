@@ -109,7 +109,9 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuSpecialityCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuStaffCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
+    <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
     <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
@@ -126,6 +128,8 @@
     <Compile Include="Interfaces\References\ViewModel\IARMSessionValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSettingsValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSpecialityValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMUserValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\Password\IARMPasswordViewModel.cs" />
     <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
     <Compile Include="Interfaces\References\View\IARMClassView.cs" />
     <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
@@ -141,6 +145,8 @@
     <Compile Include="Interfaces\References\View\IARMSpecialityView.cs" />
     <Compile Include="Interfaces\References\View\IARMStaffView.cs" />
     <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
+    <Compile Include="Interfaces\References\View\IARMUserView.cs" />
+    <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
     <Compile Include="Interfaces\View\IARMMainToolboxView.cs" />
@@ -158,6 +164,7 @@
     <Compile Include="ViewModel\Grid\ARMSpecialityGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMStaffGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUniversityGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMUserGridViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainMenuViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
@@ -174,6 +181,8 @@
     <Compile Include="ViewModel\References\ARMStaffValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="ViewModel\References\ARMLanguageValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="View\Main\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
     </Compile>
@@ -224,6 +233,12 @@
     </Compile>
     <Compile Include="View\References\ARMUniversityView.xaml.cs">
       <DependentUpon>ARMUniversityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMUserView.xaml.cs">
+      <DependentUpon>ARMUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
+      <DependentUpon>ARMPasswordView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +328,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMUniversityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\Password\ARMPasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

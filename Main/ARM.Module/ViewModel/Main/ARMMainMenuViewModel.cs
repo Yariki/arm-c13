@@ -19,18 +19,23 @@ namespace ARM.Module.ViewModel.Main
     public class ARMMainMenuViewModel : ARMViewModelBase, IARMMainMenuViewModel
     {
         private Action<eARMMainMenuCommand> _actionMenu;
-        private Func<eARMMainMenuCommand, bool> _canFunc; 
+        private Func<eARMMainMenuCommand, bool> _canFunc;
 
-        public ARMMainMenuViewModel(IARMMainMenuView menuView ) : base(menuView)
+        public ARMMainMenuViewModel(IARMMainMenuView menuView)
+            : base(menuView)
         {
         }
 
-
         public ObservableCollection<IARMMenuCommand> Files { get; private set; }
+
         public ObservableCollection<IARMMenuCommand> Documents { get; private set; }
+
         public ObservableCollection<IARMMenuCommand> References { get; private set; }
+
         public ObservableCollection<IARMMenuCommand> Reports { get; private set; }
+
         public ObservableCollection<IARMMenuCommand> Services { get; private set; }
+
         public ObservableCollection<IARMMenuCommand> Helps { get; private set; }
 
         public void InitializeCommands()
@@ -49,27 +54,24 @@ namespace ARM.Module.ViewModel.Main
         private void InitFile()
         {
             Files = new ObservableCollection<IARMMenuCommand>();
-            Files.Add(new ARMMenuExitCommand(_actionMenu,_canFunc));
-
+            Files.Add(new ARMMenuExitCommand(_actionMenu, _canFunc));
 
             References = new ObservableCollection<IARMMenuCommand>();
-            References.Add(new ARMMenuUniversityCommand(_actionMenu,_canFunc));
+            References.Add(new ARMMenuUniversityCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuFacultyCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSpecialityCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSessionCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuClassCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuGroupCommand(_actionMenu, _canFunc));
-            References.Add(new ARMMenuStaffCommand(_actionMenu,_canFunc));
-            References.Add(new ARMMenuLanguageCommand(_actionMenu,_canFunc));
+            References.Add(new ARMMenuStaffCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuLanguageCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuCountryCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuParentCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuAddressCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuUserCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
-            
         }
 
-        #endregion
-
-
+        #endregion [private]
     }//end ARMMainMenuViewModel
 }//end namespace Main

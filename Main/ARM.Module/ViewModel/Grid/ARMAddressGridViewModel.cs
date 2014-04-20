@@ -9,7 +9,8 @@ namespace ARM.Module.ViewModel.Grid
 {
     public class ARMAddressGridViewModel : ARMGridViewModelBase<Address>
     {
-        public ARMAddressGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) : base(regionManager, unityContainer, eventAggregator, view)
+        public ARMAddressGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
+            : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 

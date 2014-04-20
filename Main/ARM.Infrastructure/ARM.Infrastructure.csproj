@@ -94,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ARMDataGridControl.cs" />
+    <Compile Include="Controls\ARMDialogWindow\ARMDialogWindow.xaml.cs">
+      <DependentUpon>ARMDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ARMLookupControl\ARMLookupControl.cs" />
     <Compile Include="Controls\ARMLookupControl\ARMLookupView.xaml.cs">
       <DependentUpon>ARMLookupView.xaml</DependentUpon>
@@ -102,7 +105,9 @@
     <Compile Include="Controls\ARMLookupWindow\ARMLookupWindow.xaml.cs">
       <DependentUpon>ARMLookupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Interfaces\IARMDialogViewModel.cs" />
     <Compile Include="Controls\Interfaces\IARMLookupViewModel.cs" />
+    <Compile Include="Controls\Interfaces\View\IARMDialogView.cs" />
     <Compile Include="Controls\Interfaces\View\IARMLookupView.cs" />
     <Compile Include="Events\ARMCloseEvent.cs" />
     <Compile Include="Events\ARMEntityProcessEvent.cs" />
@@ -149,6 +154,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\ARMDialogWindow\ARMDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ARMLookupControl\ARMLookupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
@@ -27,7 +26,7 @@ namespace ARM.Module.ViewModel.References
             get
             {
                 return FormatTitle(Resource.AppResource.Resources.Model_Data_Staff);
-            } 
+            }
         }
 
         #region [model properties]
@@ -63,25 +62,25 @@ namespace ARM.Module.ViewModel.References
         public string Email
         {
             get { return Get(() => Email); }
-            set {Set(() => Email,value);}
+            set { Set(() => Email, value); }
         }
 
-        public string PhoneMobile 
+        public string PhoneMobile
         {
             get { return Get(() => PhoneMobile); }
-            set { Set(() => PhoneMobile,value);}
+            set { Set(() => PhoneMobile, value); }
         }
 
         public string PhoneHome
         {
             get { return Get(() => PhoneHome); }
-            set { Set(() => PhoneHome,value);}
+            set { Set(() => PhoneHome, value); }
         }
 
         public SexType Sex
         {
             get { return Get(() => Sex); }
-            set { Set(() => Sex,value);}
+            set { Set(() => Sex, value); }
         }
 
         public StaffType StaffType
@@ -90,31 +89,33 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => StaffType, value); }
         }
 
-        #endregion
+        #endregion [model properties]
 
         #region [enum resources]
 
         private Dictionary<SexType, string> _sourceSex;
+
         public Dictionary<SexType, string> SourceSex
         {
             get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         private Dictionary<StaffType, string> _sourceStaff;
-        public Dictionary<StaffType,string> SourceStaff 
+
+        public Dictionary<StaffType, string> SourceStaff
         {
             get { return _sourceStaff ?? (_sourceStaff = EnumHelper.Instance.GetLocalsForEnum<StaffType>()); }
         }
 
-        #endregion
+        #endregion [enum resources]
 
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();
-            if(!IsValid)
+            if (!IsValid)
                 return;
-            
-            using (IUnitOfWork unitOfWork = UnityContainer.Resolve<IUnitOfWork>() )
+
+            using (IUnitOfWork unitOfWork = UnityContainer.Resolve<IUnitOfWork>())
             {
                 try
                 {
@@ -124,6 +125,7 @@ namespace ARM.Module.ViewModel.References
                         case ViewMode.Add:
                             staffRepository.Insert(GetBusinessObject<Staff>());
                             break;
+
                         case ViewMode.Edit:
                             staffRepository.Update(GetBusinessObject<Staff>());
                             break;
@@ -134,7 +136,6 @@ namespace ARM.Module.ViewModel.References
                 {
                     ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 }
-                
             }
             base.SaveExecute(arg);
         }
