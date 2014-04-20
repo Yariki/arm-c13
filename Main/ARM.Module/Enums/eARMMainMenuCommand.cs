@@ -14,6 +14,8 @@
         ReferenceSettings,
         ReferenceFaculty,
         ReferenceGroup,
-        ReferenceSession
+        ReferenceSession,
+        ReferenceClass,
+        ReferenceAddress
     }
 }

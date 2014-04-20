@@ -321,4 +321,40 @@
   <data name="Model_Session_Title" xml:space="preserve">
     <value>Сесії</value>
   </data>
+  <data name="Model_Class_Session" xml:space="preserve">
+    <value>Сесія</value>
+  </data>
+  <data name="Model_Class_Staff" xml:space="preserve">
+    <value>Лектор</value>
+  </data>
+  <data name="Model_Class_Title" xml:space="preserve">
+    <value>Заняття</value>
+  </data>
+  <data name="Model_Data_Class" xml:space="preserve">
+    <value>{0} Заняття</value>
+  </data>
+  <data name="Model_Address_Apartment" xml:space="preserve">
+    <value>Квартира</value>
+  </data>
+  <data name="Model_Address_City" xml:space="preserve">
+    <value>Місто</value>
+  </data>
+  <data name="Model_Address_Country" xml:space="preserve">
+    <value>Країна</value>
+  </data>
+  <data name="Model_Address_House" xml:space="preserve">
+    <value>Будинок</value>
+  </data>
+  <data name="Model_Address_Region" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Model_Address_Street" xml:space="preserve">
+    <value>Вулиця</value>
+  </data>
+  <data name="Model_Address_Title" xml:space="preserve">
+    <value>Адреси</value>
+  </data>
+  <data name="Model_Data_Address" xml:space="preserve">
+    <value>{0} Адресу</value>
+  </data>
 </root>

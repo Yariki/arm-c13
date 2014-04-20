@@ -64,7 +64,6 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
-
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())

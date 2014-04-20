@@ -7,51 +7,64 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Security;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Address)]
+    [ARMMetadata(Metadata = eARMMetadata.Address)]
     public class Address : BaseModel
     {
-
+        [ARMRequired]
         public Guid CountryId
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 2)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_Region")]
         public string Region
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 3)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_City")]
         public string City
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 4)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_Street")]
         public string Street
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 4)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_House")]
         public string House
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 6)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_Apartment")]
         public string Apartment
         {
             get;
             set;
         }
-
+        [ARMGrid(Order = 7)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Address_Country")]
         public virtual Country Country
         {
             get;

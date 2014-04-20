@@ -97,6 +97,8 @@
   <ItemGroup>
     <Compile Include="Commands\Menu\ARMBaseMainMenuCommand.cs" />
     <Compile Include="Commands\Menu\File\ARMMenuExitCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuAddressCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuClassCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuCountryCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuFacultyCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuGroupCommand.cs" />
@@ -113,11 +115,15 @@
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMAddressValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMClassValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMFacultyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMGroupValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSessionValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSettingsValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
+    <Compile Include="Interfaces\References\View\IARMClassView.cs" />
     <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMLanguageValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStaffValidatableViewModel.cs" />
@@ -135,6 +141,8 @@
     <Compile Include="Interfaces\View\IARMMainWorkspaceView.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Grid\ARMAddressGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMClassGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMCountryGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMFacultyGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMGroupGridViewModel.cs" />
@@ -146,6 +154,8 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMAddressValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMClassValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMFacultyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMGroupValidatableViewModel.cs" />
@@ -168,6 +178,12 @@
     </Compile>
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMAddressView.xaml.cs">
+      <DependentUpon>ARMAddressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMClassView.xaml.cs">
+      <DependentUpon>ARMClassView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMCountryView.xaml.cs">
       <DependentUpon>ARMCountryView.xaml</DependentUpon>
@@ -233,6 +249,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Grid\ARMGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMAddressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

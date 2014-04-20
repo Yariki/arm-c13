@@ -177,7 +177,12 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceSession:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Session>>();
                     break;
-
+                case eARMMainMenuCommand.ReferenceClass:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Class>>();
+                    break;
+                case eARMMainMenuCommand.ReferenceAddress:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Address>>();
+                    break;
             }
             if (workspaceViewModel != null)
             {
@@ -188,6 +193,11 @@ namespace ARM.Module.ViewModel.Main
 
         private bool OnMenuCanExecute(eARMMainMenuCommand cmd)
         {
+            switch (cmd)
+            {
+                case eARMMainMenuCommand.ReferenceUniversity:
+                    return false;
+            }
             return true;
         }
 
@@ -249,6 +259,20 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Session, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Class:
+                    viewModel = _unityContainer.Resolve<IARMClassValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Class, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Address:
+                    viewModel = _unityContainer.Resolve<IARMAddressValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Address, obj.Id);
                     }
                     break;
             }

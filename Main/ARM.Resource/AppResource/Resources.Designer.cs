@@ -349,6 +349,114 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apartment.
+        /// </summary>
+        public static string Model_Address_Apartment {
+            get {
+                return ResourceManager.GetString("Model_Address_Apartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string Model_Address_City {
+            get {
+                return ResourceManager.GetString("Model_Address_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Model_Address_Country {
+            get {
+                return ResourceManager.GetString("Model_Address_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to House.
+        /// </summary>
+        public static string Model_Address_House {
+            get {
+                return ResourceManager.GetString("Model_Address_House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Model_Address_Region {
+            get {
+                return ResourceManager.GetString("Model_Address_Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string Model_Address_Street {
+            get {
+                return ResourceManager.GetString("Model_Address_Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string Model_Address_Title {
+            get {
+                return ResourceManager.GetString("Model_Address_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string Model_Class_Session {
+            get {
+                return ResourceManager.GetString("Model_Class_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lecturer.
+        /// </summary>
+        public static string Model_Class_Staff {
+            get {
+                return ResourceManager.GetString("Model_Class_Staff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classes.
+        /// </summary>
+        public static string Model_Class_Title {
+            get {
+                return ResourceManager.GetString("Model_Class_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Address.
+        /// </summary>
+        public static string Model_Data_Address {
+            get {
+                return ResourceManager.GetString("Model_Data_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Class.
+        /// </summary>
+        public static string Model_Data_Class {
+            get {
+                return ResourceManager.GetString("Model_Data_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Country.
         /// </summary>
         public static string Model_Data_Country {
