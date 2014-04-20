@@ -7,21 +7,27 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Session)]
-
+    [ARMMetadata(Metadata = eARMMetadata.Session)]
     public class Session : BaseNamedModel
     {
+        [ARMRequired]
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Session_DateBegin")]
         public DateTime DateBegin
         {
             get;
             set;
         }
 
+        [ARMRequired]
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Session_DateEnd")]
         public DateTime DateEnd
         {
             get;

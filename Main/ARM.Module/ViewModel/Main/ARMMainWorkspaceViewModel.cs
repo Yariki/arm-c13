@@ -174,6 +174,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceGroup:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Group>>();
                     break;
+                case eARMMainMenuCommand.ReferenceSession:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Session>>();
+                    break;
 
             }
             if (workspaceViewModel != null)
@@ -239,6 +242,13 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Group, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Session:
+                    viewModel = _unityContainer.Resolve<IARMSessionValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Session, obj.Id);
                     }
                     break;
             }

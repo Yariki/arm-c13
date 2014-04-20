@@ -166,7 +166,9 @@
     <Style TargetType="{x:Type xceed:DoubleUpDown}" BasedOn="{StaticResource CommonStyle}">
         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultErrorTemplateNumericUpDown}"></Setter>
     </Style>
-    
-    
+
+    <Style TargetType="{x:Type xceed:DateTimePicker}" BasedOn="{StaticResource CommonStyle}">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultErrorTemplateNumericUpDown}"></Setter>
+    </Style>
 
 </ResourceDictionary>
