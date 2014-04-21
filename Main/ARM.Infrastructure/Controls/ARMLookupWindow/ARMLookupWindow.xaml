@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-         WindowState="Normal" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
-             MinHeight="400" MinWidth="550" SizeToContent="WidthAndHeight" ShowInTaskbar="False" >
+         WindowState="Normal" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterOwner"
+             MinHeight="400" MinWidth="550" ShowInTaskbar="False" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

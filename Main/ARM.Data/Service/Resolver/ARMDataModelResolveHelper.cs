@@ -46,7 +46,7 @@ namespace ARM.Data.Sevice.Resolver
                 if (readyBll != null)
                 {
                     var result = new List<object>();
-                    foreach (object item in readyBll.GetAll())
+                    foreach (object item in readyBll.GetAllWithRelated())
                     {
                         result.Add(item);
                     }

@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:37 PM
 ///////////////////////////////////////////////////////////
 
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Security.Cryptography.X509Certificates;
 using ARM.Data.Interfaces.Address;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +19,12 @@ namespace ARM.Data.Implementation.Address
         public AddressDal(IContext<Models.Address> context)
             : base(context)
         {
+           
+        }
+
+        public override IEnumerable<Models.Address> GetAllWithRelated()
+        {
+            return Context.GetItems().Include(a => a.Country);
         }
     }//end AddressDal
 }//end namespace Address

@@ -74,7 +74,7 @@ namespace ARM.Data.Models
         public override string ToString()
         {
             return string.Format(Resource.AppResource.Resources.Model_Address_ToString, 
-                Country.ToString(), Region, City,
+                Country != null ? Country.ToString() : "<n/a>", Region, City,
                 Street, House, Apartment);
         }
     }//end Address

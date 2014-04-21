@@ -19,6 +19,7 @@
         ReferenceAddress,
         ReferenceParent,
         ReferenceSpeciality,
-        ReferenceUser
+        ReferenceUser,
+        ReferenceStudent,
     }
 }

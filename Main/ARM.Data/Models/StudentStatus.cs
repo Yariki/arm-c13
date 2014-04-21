@@ -9,5 +9,8 @@ namespace ARM.Data.Models
 {
     public enum StudentStatus : int
     {
+        Studies,
+        Graduated,
+        Expelled,
     }//end StudentStatus
 }//end namespace Models

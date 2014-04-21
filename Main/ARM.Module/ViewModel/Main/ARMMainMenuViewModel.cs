@@ -64,6 +64,7 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuClassCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuGroupCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuStaffCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuStudentCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuLanguageCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuCountryCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuParentCommand(_actionMenu, _canFunc));

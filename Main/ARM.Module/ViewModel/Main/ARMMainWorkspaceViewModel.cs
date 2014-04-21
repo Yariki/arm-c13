@@ -187,6 +187,10 @@ namespace ARM.Module.ViewModel.Main
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<User>>();
                     break;
 
+                case eARMMainMenuCommand.ReferenceStudent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Student>>();
+                    break;
+
             }
             if (workspaceViewModel != null)
             {
@@ -309,6 +313,13 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.User, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Student:
+                    viewModel = _unityContainer.Resolve<IARMStudentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Student, obj.Id);
                     }
                     break;
             }
