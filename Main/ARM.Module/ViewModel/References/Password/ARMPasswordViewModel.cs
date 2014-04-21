@@ -1,4 +1,7 @@
-﻿using ARM.Core.Extensions;
+﻿using System;
+using System.Windows.Input;
+using System.Windows.Media;
+using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Infrastructure.Controls.Interfaces;
 using ARM.Infrastructure.MVVM;
@@ -11,9 +14,17 @@ namespace ARM.Module.ViewModel.References.Password
 {
     public class ARMPasswordViewModel : ARMDataViewModelBase,IARMPasswordViewModel, IARMDialogViewModel
     {
+        private bool _hasErrors;
+
+        private readonly SolidColorBrush errorBrush = new SolidColorBrush(Colors.OrangeRed);
+        private readonly SolidColorBrush withoutErrorBrush = new SolidColorBrush(Colors.LimeGreen);
+
+
+
         public ARMPasswordViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view) 
             : base(regionManager, unityContainer, eventAggregator, view)
         {
+            OkCommand = new ARMRelayCommand(OnExecute,OnCanExecute);        
         }
 
         public override string Title
@@ -26,13 +37,27 @@ namespace ARM.Module.ViewModel.References.Password
         public string Password1
         {
             get { return Get(() => Password1); }
-            set { Set(() => Password1, value); }
+            set
+            {
+                Set(() => Password1, value); 
+                CheckPasswords();
+            }
         }
 
         public string Password2
         {
             get { return Get(() => Password2); }
-            set { Set(() => Password2, value); }
+            set
+            {
+                Set(() => Password2, value); 
+                CheckPasswords();
+            }
+        }
+
+        public SolidColorBrush Indicator
+        {
+            get { return Get(() => Indicator); }
+            set { Set(() => Indicator, value); }
         }
 
         #endregion
@@ -50,10 +75,6 @@ namespace ARM.Module.ViewModel.References.Password
                 {
                     return "Password couldn't be empty!";
                 }
-                if ( ( columnName == ARMReflectionExtensions.GetPropertyName(() => Password1) || columnName == ARMReflectionExtensions.GetPropertyName(() => Password2) ) && Password1 != Password2)
-                {
-                    return "Password should be equal";
-                }
                 return string.Empty;
             }
         }
@@ -62,6 +83,28 @@ namespace ARM.Module.ViewModel.References.Password
         {
             get { return string.Empty; }
         }
-        
+
+        public ICommand OkCommand { get; private set; }
+
+        private bool OnCanExecute(object o)
+        {
+            return !_hasErrors;
+        }
+
+        private void OnExecute(object o)
+        {
+
+        }
+
+        private void CheckPasswords()
+        {
+            if (string.IsNullOrEmpty(Password1) || string.IsNullOrEmpty(Password2))
+            {
+                _hasErrors = true;
+            }
+            else
+                _hasErrors = Password1 != Password2;
+            Indicator = _hasErrors ? errorBrush : withoutErrorBrush;
+        }
     }
 }

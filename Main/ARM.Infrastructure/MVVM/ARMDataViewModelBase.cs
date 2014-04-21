@@ -220,9 +220,15 @@ namespace ARM.Infrastructure.MVVM
             if (!Disposed && disposing)
             {
                 _dataObject = null;
-                _listProperty.Clear();
-                _listProperty = null;
-                _values.Clear();
+                if (_listProperty != null)
+                {
+                    _listProperty.Clear();
+                    _listProperty = null;
+                }
+                if (_values != null)
+                {
+                    _values.Clear();
+                }
             }
             base.Dispose(disposing);
         }
