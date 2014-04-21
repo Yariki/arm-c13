@@ -164,7 +164,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             ARMLookupWindow.ARMLookupWindow wnd = new ARMLookupWindow.ARMLookupWindow(viewModel);
 
             var result = wnd.ShowDialog();
-            if (result.HasValue && result.Value)
+            if (result.HasValue && result.Value && viewModel.SelectedItem != null)
             {
                 _textBox.Text = viewModel.SelectedItem.ToString();
                 Value = (viewModel.SelectedItem as IARMModel).Id;

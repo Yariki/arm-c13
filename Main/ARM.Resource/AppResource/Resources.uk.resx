@@ -321,4 +321,163 @@
   <data name="Model_Session_Title" xml:space="preserve">
     <value>Сесії</value>
   </data>
+  <data name="Model_Class_Session" xml:space="preserve">
+    <value>Сесія</value>
+  </data>
+  <data name="Model_Class_Staff" xml:space="preserve">
+    <value>Лектор</value>
+  </data>
+  <data name="Model_Class_Title" xml:space="preserve">
+    <value>Заняття</value>
+  </data>
+  <data name="Model_Data_Class" xml:space="preserve">
+    <value>{0} Заняття</value>
+  </data>
+  <data name="Model_Address_Apartment" xml:space="preserve">
+    <value>Квартира</value>
+  </data>
+  <data name="Model_Address_City" xml:space="preserve">
+    <value>Місто</value>
+  </data>
+  <data name="Model_Address_Country" xml:space="preserve">
+    <value>Країна</value>
+  </data>
+  <data name="Model_Address_House" xml:space="preserve">
+    <value>Будинок</value>
+  </data>
+  <data name="Model_Address_Region" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Model_Address_Street" xml:space="preserve">
+    <value>Вулиця</value>
+  </data>
+  <data name="Model_Address_Title" xml:space="preserve">
+    <value>Адреси</value>
+  </data>
+  <data name="Model_Data_Address" xml:space="preserve">
+    <value>{0} Адресу</value>
+  </data>
+  <data name="Model_Data_Parent" xml:space="preserve">
+    <value>{0} Батька </value>
+  </data>
+  <data name="Model_Parent_Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Model_Parent_Student" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+  <data name="Model_Parent_Title" xml:space="preserve">
+    <value>Батьки</value>
+  </data>
+  <data name="Model_Address_ToString" xml:space="preserve">
+    <value>{0}, обл. {1}, м. {2}, вул. {3}, б. {4}, кв. {5}</value>
+  </data>
+  <data name="Model_Data_Speciality" xml:space="preserve">
+    <value>{0} Спеціальність</value>
+  </data>
+  <data name="Model_Speciality_Faculty" xml:space="preserve">
+    <value>Факультет</value>
+  </data>
+  <data name="Model_Speciality_Title" xml:space="preserve">
+    <value>Спеціальність</value>
+  </data>
+  <data name="Model_Data_User" xml:space="preserve">
+    <value>{0} Користувача</value>
+  </data>
+  <data name="Model_User_Email" xml:space="preserve">
+    <value>Електронна адреса</value>
+  </data>
+  <data name="Model_User_IsActive" xml:space="preserve">
+    <value>Активний</value>
+  </data>
+  <data name="Model_User_Language" xml:space="preserve">
+    <value>Мова користувача</value>
+  </data>
+  <data name="Model_User_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Model_User_Title" xml:space="preserve">
+    <value>Користувачі</value>
+  </data>
+  <data name="Enum_English" xml:space="preserve">
+    <value>Англійська</value>
+  </data>
+  <data name="Enum_Ukrainian" xml:space="preserve">
+    <value>Українська</value>
+  </data>
+  <data name="Button_SetPassword" xml:space="preserve">
+    <value>Задата пароль</value>
+  </data>
+  <data name="Model_Data_Student" xml:space="preserve">
+    <value>{0} Студента</value>
+  </data>
+  <data name="Model_Student_Achivements" xml:space="preserve">
+    <value>Досігнення</value>
+  </data>
+  <data name="Model_Student_Address1" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Model_Student_Address2" xml:space="preserve">
+    <value>Адреса проживання</value>
+  </data>
+  <data name="Model_Student_Contracts" xml:space="preserve">
+    <value>Контракти</value>
+  </data>
+  <data name="Model_Student_DateEnter" xml:space="preserve">
+    <value>Дата вступу</value>
+  </data>
+  <data name="Model_Student_DateLeft" xml:space="preserve">
+    <value>Дата виходу</value>
+  </data>
+  <data name="Model_Student_Faculty" xml:space="preserve">
+    <value>Факультет</value>
+  </data>
+  <data name="Model_Student_GradeBookNumber" xml:space="preserve">
+    <value>Номер залікової книжки</value>
+  </data>
+  <data name="Model_Student_Group" xml:space="preserve">
+    <value>Група</value>
+  </data>
+  <data name="Model_Student_Hobbies" xml:space="preserve">
+    <value>Хоббі</value>
+  </data>
+  <data name="Model_Student_IsForeign" xml:space="preserve">
+    <value>Іноземець</value>
+  </data>
+  <data name="Model_Student_Languages" xml:space="preserve">
+    <value>Мови</value>
+  </data>
+  <data name="Model_Student_Marks" xml:space="preserve">
+    <value>Оцінки</value>
+  </data>
+  <data name="Model_Student_Parents" xml:space="preserve">
+    <value>Батьки</value>
+  </data>
+  <data name="Model_Student_Speciality" xml:space="preserve">
+    <value>Спеціальність</value>
+  </data>
+  <data name="Model_Student_Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Model_Student_StudyMode" xml:space="preserve">
+    <value>Тип навчання</value>
+  </data>
+  <data name="Model_Student_Title" xml:space="preserve">
+    <value>Студенти</value>
+  </data>
+  <data name="Enum_Distance" xml:space="preserve">
+    <value>Заочне</value>
+  </data>
+  <data name="Enum_Expelled" xml:space="preserve">
+    <value>Відрахований</value>
+  </data>
+  <data name="Enum_FullTime" xml:space="preserve">
+    <value>Денне</value>
+  </data>
+  <data name="Enum_Graduated" xml:space="preserve">
+    <value>Закінчив</value>
+  </data>
+  <data name="Enum_Studies" xml:space="preserve">
+    <value>Навчається</value>
+  </data>
 </root>

@@ -61,6 +61,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set Password.
+        /// </summary>
+        public static string Button_SetPassword {
+            get {
+                return ResourceManager.GetString("Button_SetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bachelour.
         /// </summary>
         public static string Enum_Bachelour {
@@ -70,11 +79,56 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distance.
+        /// </summary>
+        public static string Enum_Distance {
+            get {
+                return ResourceManager.GetString("Enum_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string Enum_English {
+            get {
+                return ResourceManager.GetString("Enum_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expelled.
+        /// </summary>
+        public static string Enum_Expelled {
+            get {
+                return ResourceManager.GetString("Enum_Expelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Enum_Female {
             get {
                 return ResourceManager.GetString("Enum_Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FullTime.
+        /// </summary>
+        public static string Enum_FullTime {
+            get {
+                return ResourceManager.GetString("Enum_FullTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graduated.
+        /// </summary>
+        public static string Enum_Graduated {
+            get {
+                return ResourceManager.GetString("Enum_Graduated", resourceCulture);
             }
         }
         
@@ -151,11 +205,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Studies.
+        /// </summary>
+        public static string Enum_Studies {
+            get {
+                return ResourceManager.GetString("Enum_Studies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Technician.
         /// </summary>
         public static string Enum_Technician {
             get {
                 return ResourceManager.GetString("Enum_Technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        public static string Enum_Ukrainian {
+            get {
+                return ResourceManager.GetString("Enum_Ukrainian", resourceCulture);
             }
         }
         
@@ -349,6 +421,123 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apartment.
+        /// </summary>
+        public static string Model_Address_Apartment {
+            get {
+                return ResourceManager.GetString("Model_Address_Apartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string Model_Address_City {
+            get {
+                return ResourceManager.GetString("Model_Address_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Model_Address_Country {
+            get {
+                return ResourceManager.GetString("Model_Address_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to House.
+        /// </summary>
+        public static string Model_Address_House {
+            get {
+                return ResourceManager.GetString("Model_Address_House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Model_Address_Region {
+            get {
+                return ResourceManager.GetString("Model_Address_Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string Model_Address_Street {
+            get {
+                return ResourceManager.GetString("Model_Address_Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string Model_Address_Title {
+            get {
+                return ResourceManager.GetString("Model_Address_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0},r. {1}, s. {2}, st. {3}, h. {4}, a. {5}.
+        /// </summary>
+        public static string Model_Address_ToString {
+            get {
+                return ResourceManager.GetString("Model_Address_ToString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string Model_Class_Session {
+            get {
+                return ResourceManager.GetString("Model_Class_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lecturer.
+        /// </summary>
+        public static string Model_Class_Staff {
+            get {
+                return ResourceManager.GetString("Model_Class_Staff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classes.
+        /// </summary>
+        public static string Model_Class_Title {
+            get {
+                return ResourceManager.GetString("Model_Class_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Address.
+        /// </summary>
+        public static string Model_Data_Address {
+            get {
+                return ResourceManager.GetString("Model_Data_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Class.
+        /// </summary>
+        public static string Model_Data_Class {
+            get {
+                return ResourceManager.GetString("Model_Data_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Country.
         /// </summary>
         public static string Model_Data_Country {
@@ -385,11 +574,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Parent.
+        /// </summary>
+        public static string Model_Data_Parent {
+            get {
+                return ResourceManager.GetString("Model_Data_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Session.
         /// </summary>
         public static string Model_Data_Session {
             get {
                 return ResourceManager.GetString("Model_Data_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Speciality.
+        /// </summary>
+        public static string Model_Data_Speciality {
+            get {
+                return ResourceManager.GetString("Model_Data_Speciality", resourceCulture);
             }
         }
         
@@ -403,11 +610,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Student.
+        /// </summary>
+        public static string Model_Data_Student {
+            get {
+                return ResourceManager.GetString("Model_Data_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} University.
         /// </summary>
         public static string Model_Data_University {
             get {
                 return ResourceManager.GetString("Model_Data_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} User.
+        /// </summary>
+        public static string Model_Data_User {
+            get {
+                return ResourceManager.GetString("Model_Data_User", resourceCulture);
             }
         }
         
@@ -480,6 +705,33 @@ namespace ARM.Resource.AppResource {
         public static string Model_Name {
             get {
                 return ResourceManager.GetString("Model_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Model_Parent_Address {
+            get {
+                return ResourceManager.GetString("Model_Parent_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Parent_Student {
+            get {
+                return ResourceManager.GetString("Model_Parent_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parents.
+        /// </summary>
+        public static string Model_Parent_Title {
+            get {
+                return ResourceManager.GetString("Model_Parent_Title", resourceCulture);
             }
         }
         
@@ -664,11 +916,236 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Faculty.
+        /// </summary>
+        public static string Model_Speciality_Faculty {
+            get {
+                return ResourceManager.GetString("Model_Speciality_Faculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialities.
+        /// </summary>
+        public static string Model_Speciality_Title {
+            get {
+                return ResourceManager.GetString("Model_Speciality_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Staff Type.
         /// </summary>
         public static string Model_Staff_Type {
             get {
                 return ResourceManager.GetString("Model_Staff_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Achivements.
+        /// </summary>
+        public static string Model_Student_Achivements {
+            get {
+                return ResourceManager.GetString("Model_Student_Achivements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Model_Student_Address1 {
+            get {
+                return ResourceManager.GetString("Model_Student_Address1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Living address.
+        /// </summary>
+        public static string Model_Student_Address2 {
+            get {
+                return ResourceManager.GetString("Model_Student_Address2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contracts.
+        /// </summary>
+        public static string Model_Student_Contracts {
+            get {
+                return ResourceManager.GetString("Model_Student_Contracts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date entering.
+        /// </summary>
+        public static string Model_Student_DateEnter {
+            get {
+                return ResourceManager.GetString("Model_Student_DateEnter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date left.
+        /// </summary>
+        public static string Model_Student_DateLeft {
+            get {
+                return ResourceManager.GetString("Model_Student_DateLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faculty.
+        /// </summary>
+        public static string Model_Student_Faculty {
+            get {
+                return ResourceManager.GetString("Model_Student_Faculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gradebook number.
+        /// </summary>
+        public static string Model_Student_GradeBookNumber {
+            get {
+                return ResourceManager.GetString("Model_Student_GradeBookNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Model_Student_Group {
+            get {
+                return ResourceManager.GetString("Model_Student_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hobbies.
+        /// </summary>
+        public static string Model_Student_Hobbies {
+            get {
+                return ResourceManager.GetString("Model_Student_Hobbies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Foreign.
+        /// </summary>
+        public static string Model_Student_IsForeign {
+            get {
+                return ResourceManager.GetString("Model_Student_IsForeign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Languages.
+        /// </summary>
+        public static string Model_Student_Languages {
+            get {
+                return ResourceManager.GetString("Model_Student_Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marks.
+        /// </summary>
+        public static string Model_Student_Marks {
+            get {
+                return ResourceManager.GetString("Model_Student_Marks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parents.
+        /// </summary>
+        public static string Model_Student_Parents {
+            get {
+                return ResourceManager.GetString("Model_Student_Parents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speciality.
+        /// </summary>
+        public static string Model_Student_Speciality {
+            get {
+                return ResourceManager.GetString("Model_Student_Speciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Model_Student_Status {
+            get {
+                return ResourceManager.GetString("Model_Student_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Study Mode.
+        /// </summary>
+        public static string Model_Student_StudyMode {
+            get {
+                return ResourceManager.GetString("Model_Student_StudyMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studetns.
+        /// </summary>
+        public static string Model_Student_Title {
+            get {
+                return ResourceManager.GetString("Model_Student_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Model_User_Email {
+            get {
+                return ResourceManager.GetString("Model_User_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Active.
+        /// </summary>
+        public static string Model_User_IsActive {
+            get {
+                return ResourceManager.GetString("Model_User_IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User language.
+        /// </summary>
+        public static string Model_User_Language {
+            get {
+                return ResourceManager.GetString("Model_User_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Model_User_Password {
+            get {
+                return ResourceManager.GetString("Model_User_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string Model_User_Title {
+            get {
+                return ResourceManager.GetString("Model_User_Title", resourceCulture);
             }
         }
     }

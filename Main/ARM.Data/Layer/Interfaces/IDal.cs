@@ -35,5 +35,7 @@ namespace ARM.Data.Layer.Interfaces
         void Save();
 
         void Refresh();
+
+        IEnumerable<T> GetAllWithRelated();
     }//end IDal
 }//end namespace Interfaces

@@ -2,8 +2,7 @@
 
 namespace ARM.Module.Interfaces.References.View
 {
-    public interface IARMLanguageView  : IARMView
+    public interface IARMLanguageView : IARMView
     {
-         
     }
 }

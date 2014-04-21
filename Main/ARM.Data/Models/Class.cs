@@ -7,35 +7,38 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Class)]
+    [ARMMetadata(Metadata = eARMMetadata.Class)]
     public class Class : BaseNamedModel
     {
-        public Class()
-        {
-        }
-
-        ~Class()
-        {
-        }
-
+        [ARMRequired]
         public Guid StaffId
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Staff")]
+        [ForeignKey("StaffId")]
         public virtual Staff Lecturer
         {
             get;
             set;
         }
 
+
+        [ARMRequired]
         public Guid SessionId { get; set; }
+
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Session")]
         public virtual Session Session { get; set; }
 
     }//end Class

@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Reference
 {
     public class ARMMenuLanguageCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuLanguageCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuLanguageCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceLanguage;

@@ -14,7 +14,7 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Student)]
+    [ARMMetadata(Metadata = eARMMetadata.Student)]
 
     public class Student : Person
     {
@@ -36,6 +36,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Student_Group")]
+        [ARMGrid(Order = 8)]
         public Guid? GroupId
         {
             get;
@@ -60,13 +63,16 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_DateEnter")]
+        [ARMGrid(Order = 9)]
         public DateTime DateFirstEnter
         {
             get;
             set;
         }
 
-        public DateTime DateLeft
+        public DateTime? DateLeft
         {
             get;
             set;
@@ -79,6 +85,8 @@ namespace ARM.Data.Models
         }
 
         [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Faculty")]
+        [ARMGrid(Order = 10)]
         public Guid? FacultyId
         {
             get;
@@ -91,20 +99,28 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_StudyMode")]
+        [ARMGrid(Order = 11)]
         public StudyMode StudyMode
         {
             get;
             set;
         }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_GradeBookNumber")]
         public string GradeBookNumber
         {
             get;
             set;
         }
 
-        public virtual IList<Contract> Contracts { get; set; } 
+        public virtual IList<Contract> Contracts { get; set; }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_IsForeign")]
+        [ARMGrid(Order = 12)]
         public bool IsForeign
         {
             get;
@@ -124,6 +140,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Status")]
+        [ARMGrid(Order = 13)]
         public StudentStatus Status
         {
             get;

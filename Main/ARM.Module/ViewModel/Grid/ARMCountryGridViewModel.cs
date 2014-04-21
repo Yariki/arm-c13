@@ -7,12 +7,11 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.Grid
 {
-    public class ARMCountryGridViewModel  :ARMGridViewModelBase<Country>
+    public class ARMCountryGridViewModel : ARMGridViewModelBase<Country>
     {
-        public ARMCountryGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) 
+        public ARMCountryGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
-            
         }
 
         public override string Title

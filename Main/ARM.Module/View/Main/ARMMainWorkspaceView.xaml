@@ -1,56 +1,56 @@
 ﻿<UserControl x:Class="ARM.Module.View.Main.ARMMainWorkspaceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-            xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
              xmlns:armviewmodel="clr-namespace:ARM.Infrastructure.MVVM;assembly=ARM.Infrastructure"
              xmlns:ws="clr-namespace:ARM.Module.Helpers.WorkspaceSelector"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:localBeh="clr-namespace:ARM.Infrastructure.Utils;assembly=ARM.Infrastructure"
-             >
+             xmlns:localBeh="clr-namespace:ARM.Infrastructure.Utils;assembly=ARM.Infrastructure">
     <UserControl.Resources>
-        
+
         <DataTemplate x:Key="GridModelDataTemplate">
-            <ContentControl  Content="{Binding View}"></ContentControl>
+            <ContentControl Content="{Binding View}" />
         </DataTemplate>
-        
+
         <DataTemplate x:Key="DataModelDataTemplate">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <ContentControl  Content="{Binding View}" Grid.Row="0"></ContentControl>
+                <ContentControl Content="{Binding View}" Grid.Row="0" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Command="{Binding SaveCommand}" Width="70" Margin="5">OK</Button>
                     <Button Command="{Binding CancelCommand}" Width="70" Margin="5">Cancel</Button>
                 </StackPanel>
             </Grid>
         </DataTemplate>
-        
-        <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}" DataViewModel="{StaticResource DataModelDataTemplate}" />
-        
+
+        <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}"
+                                 DataViewModel="{StaticResource DataModelDataTemplate}" />
     </UserControl.Resources>
     <Grid>
-        <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}" LayoutItemTemplateSelector="{StaticResource ArmWorkspaceSelector}"
-                             ActiveContent="{Binding CurrentWorkspace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+        <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}"
+                             LayoutItemTemplateSelector="{StaticResource ArmWorkspaceSelector}"
+                             ActiveContent="{Binding CurrentWorkspace,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
-                    <TextBlock x:Name="TextTitle" Text="{Binding Content.Title,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <TextBlock x:Name="TextTitle" Text="{Binding Content.Title,UpdateSourceTrigger=PropertyChanged}" />
                 </DataTemplate>
             </xcad:DockingManager.DocumentHeaderTemplate>
-            
+
             <xcad:LayoutRoot x:Name="RootDockLayout">
-                <xcad:LayoutPanel Orientation="Horizontal"  >
-                    <xcad:LayoutDocumentPaneGroup >
-                        <xcad:LayoutDocumentPane >
-                        </xcad:LayoutDocumentPane>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutDocumentPaneGroup>
+                        <xcad:LayoutDocumentPane />
                     </xcad:LayoutDocumentPaneGroup>
                 </xcad:LayoutPanel>
             </xcad:LayoutRoot>
             <i:Interaction.Behaviors>
-                <localBeh:ARMEventToCommandBehavior Event="DocumentClosing" Command="{Binding ClosingCommand}" PassArguments="True" PassSender="False"></localBeh:ARMEventToCommandBehavior>
+                <localBeh:ARMEventToCommandBehavior Event="DocumentClosing" Command="{Binding ClosingCommand}"
+                                                    PassArguments="True" PassSender="False" />
             </i:Interaction.Behaviors>
         </xcad:DockingManager>
     </Grid>

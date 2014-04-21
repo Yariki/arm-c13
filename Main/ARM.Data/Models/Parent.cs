@@ -14,18 +14,17 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Parent)]
-
+    [ARMMetadata(Metadata = eARMMetadata.Parent)]
     public class Parent : Person
     {
         
-
         public Guid? StudentId
         {
             get;
             set;
         }
 
+        [ForeignKey("StudentId")]
         public virtual Student Child
         {
             get;
@@ -40,6 +39,6 @@ namespace ARM.Data.Models
 
 
         public virtual IList<Contract> Contracts { get; set; }
-        
+
     }//end Parent
 }//end namespace Models

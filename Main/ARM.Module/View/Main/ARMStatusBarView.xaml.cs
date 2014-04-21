@@ -4,7 +4,7 @@ using ARM.Module.Interfaces.View;
 namespace ARM.Module.View.Main
 {
     /// <summary>
-    /// Interaction logic for ARMStatucBarView.xaml
+    ///     Interaction logic for ARMStatucBarView.xaml
     /// </summary>
     public partial class ARMStatusBarView : UserControl, IARMMainStatusBarView
     {

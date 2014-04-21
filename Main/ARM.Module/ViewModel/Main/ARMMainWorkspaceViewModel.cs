@@ -9,15 +9,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Messaging;
-using System.Threading;
-using System.Windows.Controls;
 using System.Windows.Input;
 using ARM.Core.Const;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
-using ARM.Core.Logging;
 using ARM.Core.MVVM;
 using ARM.Data.Models;
 using ARM.Infrastructure.Events;
@@ -29,31 +24,28 @@ using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
-using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 using Xceed.Wpf.AvalonDock;
-using Xceed.Wpf.Toolkit;
-using Xceed.Wpf.Toolkit.Core.Converters;
 
 namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainWorkspaceViewModel : ARMViewModelBase, IARMMainWorkspaceViewModel
     {
-        private readonly IUnityContainer _unityContainer;
         private readonly IEventAggregator _eventAggregator;
+        private readonly IUnityContainer _unityContainer;
 
         private IARMWorkspaceViewModel _current;
         private int _currentIndex;
 
         #region [needs]
 
-        private SubscriptionToken _tokenProcess;
         private SubscriptionToken _tokenClose;
+        private SubscriptionToken _tokenProcess;
 
-        #endregion
+        #endregion [needs]
 
-
-        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMMainWorkspaceView workspaceView)
+        public ARMMainWorkspaceViewModel(IUnityContainer unityContainer, IEventAggregator eventAggregator,
+            IARMMainWorkspaceView workspaceView)
             : base(workspaceView)
         {
             Items = new ObservableCollection<IARMWorkspaceViewModel>();
@@ -65,24 +57,10 @@ namespace ARM.Module.ViewModel.Main
             Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
             Menu.InitializeCommands();
             InitEventAggregator();
-            ClosingCommand = new DelegateCommand<object>(OnClosingDocument, (o) => true);
+            ClosingCommand = new DelegateCommand<object>(OnClosingDocument, o => true);
         }
 
-        private void InitEventAggregator()
-        {
-            if (_eventAggregator == null)
-                return;
-            var addEvent = _eventAggregator.GetEvent<ARMEntityProcessEvent>();
-            if (addEvent != null)
-            {
-                _tokenProcess = addEvent.Subscribe(OnProcessEntity);
-            }
-            var closeEvent = _eventAggregator.GetEvent<ARMCloseEvent>();
-            if (closeEvent != null)
-            {
-                _tokenClose = closeEvent.Subscribe(OnCloseModel);
-            }
-        }
+        #region IARMMainWorkspaceViewModel Members
 
         public IARMView MenuView
         {
@@ -104,11 +82,11 @@ namespace ARM.Module.ViewModel.Main
         public IARMMainToolboxViewModel Toolbox { get; private set; }
 
         public IARMMainStatusBarViewModel StatusBar { get; private set; }
+
         public event EventHandler Close;
 
         public void OnClosing(CancelEventArgs arg)
         {
-
         }
 
         public ICommand ClosingCommand { get; private set; }
@@ -136,6 +114,8 @@ namespace ARM.Module.ViewModel.Main
             }
         }
 
+        #endregion IARMMainWorkspaceViewModel Members
+
         #region [private]
 
         #region [menu]
@@ -149,33 +129,66 @@ namespace ARM.Module.ViewModel.Main
                     if (Close != null)
                         Close(this, EventArgs.Empty);
                     break;
+
                 case eARMMainMenuCommand.ReferenceUniversity:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<University>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceStaff:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Staff>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceLanguage:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Language>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceCountry:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Country>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceSettings:
                     workspaceViewModel = _unityContainer.Resolve<IARMSettingsValidatableViewModel>();
                     if (workspaceViewModel != null)
                     {
-                        (workspaceViewModel as IARMSettingsValidatableViewModel).SetBusinessObject(ViewMode.Edit, eARMMetadata.Settings, GlobalConst.IdDefault, true);
+                        (workspaceViewModel as IARMSettingsValidatableViewModel).SetBusinessObject(ViewMode.Edit,
+                            eARMMetadata.Settings, GlobalConst.IdDefault, true);
                     }
                     break;
+
                 case eARMMainMenuCommand.ReferenceFaculty:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Faculty>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceGroup:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Group>>();
                     break;
+
                 case eARMMainMenuCommand.ReferenceSession:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Session>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceClass:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Class>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceAddress:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Address>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceParent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Parent>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceSpeciality:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Specialty>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceUser:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<User>>();
+                    break;
+
+                case eARMMainMenuCommand.ReferenceStudent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Student>>();
                     break;
 
             }
@@ -188,10 +201,15 @@ namespace ARM.Module.ViewModel.Main
 
         private bool OnMenuCanExecute(eARMMainMenuCommand cmd)
         {
+            switch (cmd)
+            {
+                case eARMMainMenuCommand.ReferenceUniversity:
+                    return false;
+            }
             return true;
         }
 
-        #endregion
+        #endregion [menu]
 
         #region [global event ]
 
@@ -209,6 +227,7 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.University, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Staff:
                     viewModel = _unityContainer.Resolve<IARMStaffValidatableViewModel>();
                     if (viewModel != null)
@@ -216,6 +235,7 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Staff, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Language:
                     viewModel = _unityContainer.Resolve<IARMLanguageValidatableViewModel>();
                     if (viewModel != null)
@@ -223,6 +243,7 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Language, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Country:
                     viewModel = _unityContainer.Resolve<IARMCountryValidatableViewModel>();
                     if (viewModel != null)
@@ -230,6 +251,7 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Country, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Faculty:
                     viewModel = _unityContainer.Resolve<IARMFacultyValidatableViewModel>();
                     if (viewModel != null)
@@ -237,6 +259,7 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Faculty, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Group:
                     viewModel = _unityContainer.Resolve<IARMGroupValidatableViewModel>();
                     if (viewModel != null)
@@ -244,11 +267,59 @@ namespace ARM.Module.ViewModel.Main
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Group, obj.Id);
                     }
                     break;
+
                 case eARMMetadata.Session:
                     viewModel = _unityContainer.Resolve<IARMSessionValidatableViewModel>();
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Session, obj.Id);
+                    }
+                    break;
+
+                case eARMMetadata.Class:
+                    viewModel = _unityContainer.Resolve<IARMClassValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Class, obj.Id);
+                    }
+                    break;
+
+                case eARMMetadata.Address:
+                    viewModel = _unityContainer.Resolve<IARMAddressValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Address, obj.Id);
+                    }
+                    break;
+
+                case eARMMetadata.Parent:
+                    viewModel = _unityContainer.Resolve<IARMParentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Parent, obj.Id);
+                    }
+                    break;
+
+                case eARMMetadata.Specialty:
+                    viewModel = _unityContainer.Resolve<IARMSpecialityValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Specialty, obj.Id);
+                    }
+                    break;
+
+                case eARMMetadata.User:
+                    viewModel = _unityContainer.Resolve<IARMUserValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.User, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Student:
+                    viewModel = _unityContainer.Resolve<IARMStudentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Student, obj.Id);
                     }
                     break;
             }
@@ -269,19 +340,32 @@ namespace ARM.Module.ViewModel.Main
             obj.Model.Dispose();
         }
 
-        #endregion
+        #endregion [global event ]
 
         private void OnClosingDocument(object obj)
         {
-            DocumentClosingEventArgs arg = obj as DocumentClosingEventArgs;
+            var arg = obj as DocumentClosingEventArgs;
             if (arg == null || !(CurrentWorkspace is IARMDataViewModel))
                 return;
             arg.Cancel = (CurrentWorkspace as IARMDataViewModel).Closing();
         }
 
-        #endregion
+        #endregion [private]
 
-
-
+        private void InitEventAggregator()
+        {
+            if (_eventAggregator == null)
+                return;
+            var addEvent = _eventAggregator.GetEvent<ARMEntityProcessEvent>();
+            if (addEvent != null)
+            {
+                _tokenProcess = addEvent.Subscribe(OnProcessEntity);
+            }
+            var closeEvent = _eventAggregator.GetEvent<ARMCloseEvent>();
+            if (closeEvent != null)
+            {
+                _tokenClose = closeEvent.Subscribe(OnCloseModel);
+            }
+        }
     } //end ARMMainWorkspaceViewModel
 } //end namespace Main

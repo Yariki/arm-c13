@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Windows.Input;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
+using ARM.Data.Interfaces.Country;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
-using Microsoft.Practices.Prism.Commands;
+using ARM.Resource.AppResource;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -17,18 +16,22 @@ namespace ARM.Module.ViewModel.References
 {
     public class ARMCountryValidatableViewModel : ARMValidatableViewModelBase, IARMCountryValidatableViewModel
     {
-        public ARMCountryValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMCountryView view)
+        public ARMCountryValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
+            IEventAggregator eventAggregator, IARMCountryView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        #region IARMCountryValidatableViewModel Members
+
         public override string Title
         {
-            get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Country); }
+            get { return FormatTitle(Resources.Model_Data_Country); }
         }
 
-        #region [properties]
+        #endregion IARMCountryValidatableViewModel Members
 
+        #region [properties]
 
         public string Name
         {
@@ -36,24 +39,24 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => Name, value); }
         }
 
-        #endregion
-
+        #endregion [properties]
 
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();
             if (!IsValid)
                 return;
-            using (IUnitOfWork unitOfWork = UnityContainer.Resolve<IUnitOfWork>())
+            using (var unitOfWork = UnityContainer.Resolve<IUnitOfWork>())
             {
                 try
                 {
-                    var countryRepository = unitOfWork.CountryRepository;
+                    ICountryBll countryRepository = unitOfWork.CountryRepository;
                     switch (Mode)
                     {
                         case ViewMode.Add:
                             countryRepository.Insert(GetBusinessObject<Country>());
                             break;
+
                         case ViewMode.Edit:
                             countryRepository.Update(GetBusinessObject<Country>());
                             break;

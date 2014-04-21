@@ -14,6 +14,12 @@
         ReferenceSettings,
         ReferenceFaculty,
         ReferenceGroup,
-        ReferenceSession
+        ReferenceSession,
+        ReferenceClass,
+        ReferenceAddress,
+        ReferenceParent,
+        ReferenceSpeciality,
+        ReferenceUser,
+        ReferenceStudent,
     }
 }

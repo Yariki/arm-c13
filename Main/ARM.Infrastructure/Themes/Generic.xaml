@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl">
 
-    <SolidColorBrush x:Key="RedColorBrush" Color="Red"></SolidColorBrush>
-    <SolidColorBrush x:Key="DarkRedColorBrush" Color="DarkRed"></SolidColorBrush>
+    <SolidColorBrush x:Key="BlueColorBrush" Color="DodgerBlue"></SolidColorBrush>
+    <SolidColorBrush x:Key="DarkBlueColorBrush" Color="DarkBlue"></SolidColorBrush>
     <SolidColorBrush x:Key="WhiteColorBrush" Color="White"></SolidColorBrush>
     
     <Style x:Key="ButtonLookupFind" TargetType="Button">
@@ -11,7 +11,7 @@
         <Setter Property="Height" Value="22"></Setter>
         <Setter Property="Margin" Value="0"></Setter>
         <Setter Property="Padding" Value="0"></Setter>
-        <Setter Property="Foreground" Value="Red"></Setter>
+        <Setter Property="Foreground" Value="DodgerBlue"></Setter>
         <Setter Property="Background" Value="White"></Setter>
         <Setter Property="Template">
             <Setter.Value>
@@ -37,11 +37,11 @@
         
         <Style.Triggers>
             <Trigger Property="Button.IsMouseOver" Value="True">
-                <Setter Property="Button.Background" Value="{StaticResource RedColorBrush}" />
+                <Setter Property="Button.Background" Value="{StaticResource BlueColorBrush}" />
                 <Setter Property="Button.Foreground" Value="{StaticResource WhiteColorBrush}" />
             </Trigger>
             <Trigger Property="Button.IsPressed" Value="True">
-                <Setter Property="Button.Background" Value="{StaticResource DarkRedColorBrush}" />
+                <Setter Property="Button.Background" Value="{StaticResource DarkBlueColorBrush}" />
                 <Setter Property="Button.Foreground" Value="{StaticResource WhiteColorBrush}" />
             </Trigger>
         </Style.Triggers>
@@ -52,7 +52,7 @@
         <Setter Property="Height" Value="22"></Setter>
         <Setter Property="Margin" Value="0"></Setter>
         <Setter Property="Padding" Value="0"></Setter>
-        <Setter Property="Foreground" Value="Red"></Setter>
+        <Setter Property="Foreground" Value="DodgerBlue"></Setter>
         <Setter Property="Background" Value="White"></Setter>
         <Setter Property="Template">
             <Setter.Value>
@@ -78,11 +78,11 @@
 
         <Style.Triggers>
             <Trigger Property="Button.IsMouseOver" Value="True">
-                <Setter Property="Button.Background" Value="{StaticResource RedColorBrush}" />
+                <Setter Property="Button.Background" Value="{StaticResource BlueColorBrush}" />
                 <Setter Property="Button.Foreground" Value="{StaticResource WhiteColorBrush}" />
             </Trigger>
             <Trigger Property="Button.IsPressed" Value="True">
-                <Setter Property="Button.Background" Value="{StaticResource DarkRedColorBrush}" />
+                <Setter Property="Button.Background" Value="{StaticResource DarkBlueColorBrush}" />
                 <Setter Property="Button.Foreground" Value="{StaticResource WhiteColorBrush}" />
             </Trigger>
         </Style.Triggers>

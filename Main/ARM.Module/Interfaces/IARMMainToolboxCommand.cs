@@ -11,5 +11,5 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainToolboxCommand : IARMToolboxCommand
     {
-    }//end IARMMainToolboxCommand
-}//end namespace Interfaces
+    } //end IARMMainToolboxCommand
+} //end namespace Interfaces

@@ -14,7 +14,7 @@ namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainToolboxViewModel : ARMViewModelBase, IARMMainToolboxViewModel
     {
-        public ARMMainToolboxViewModel(IARMMainToolboxView toolboxView) 
+        public ARMMainToolboxViewModel(IARMMainToolboxView toolboxView)
             : base(toolboxView)
         {
         }

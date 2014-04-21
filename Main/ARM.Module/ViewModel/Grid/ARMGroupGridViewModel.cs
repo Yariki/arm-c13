@@ -1,5 +1,4 @@
-﻿using ARM.Core.Interfaces;
-using ARM.Data.Models;
+﻿using ARM.Data.Models;
 using ARM.Infrastructure.Interfaces.Grid;
 using ARM.Infrastructure.MVVM;
 using Microsoft.Practices.Prism.Events;
@@ -10,7 +9,7 @@ namespace ARM.Module.ViewModel.Grid
 {
     public class ARMGroupGridViewModel : ARMGridViewModelBase<Group>
     {
-        public ARMGroupGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view) 
+        public ARMGroupGridViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMGridView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }

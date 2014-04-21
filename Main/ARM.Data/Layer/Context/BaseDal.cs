@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using ARM.Data.Layer.Interfaces;
@@ -16,23 +17,23 @@ namespace ARM.Data.Layer.Context
 {
     public abstract class BaseDal<T> : IDal<T> where T : BaseModel
     {
-        private IContext<T> _context;
+        protected IContext<T> Context;
 
         public BaseDal(IContext<T> context)
         {
-            _context = context;
+            Context = context;
         }
 
         ///
         /// <param name="obj"></param>
         public void Insert(T obj)
         {
-            _context.GetItems().Add(obj);
+            Context.GetItems().Add(obj);
         }
 
         public void InsertAll(IEnumerable<T> list)
         {
-            var items = _context.GetItems();
+            var items = Context.GetItems();
             foreach (var item in list)
             {
                 items.Add(item);
@@ -43,7 +44,7 @@ namespace ARM.Data.Layer.Context
         /// <param name="obj"></param>
         public void Update(T obj)
         {
-            _context.Update(obj);
+            Context.Update(obj);
         }
 
         ///
@@ -52,39 +53,44 @@ namespace ARM.Data.Layer.Context
         {
             if(obj == null)
                 return;
-            var entry = _context.GetItems().Find(obj.Id);
-            _context.GetItems().Remove(entry);
+            var entry = Context.GetItems().Find(obj.Id);
+            Context.GetItems().Remove(entry);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _context.GetItems();
+            return Context.GetItems();
         }
 
         ///
         /// <param name="id"></param>
         public T GetById(Guid id)
         {
-            return _context.GetItems().FirstOrDefault(item => item.Id == id);
+            return Context.GetItems().FirstOrDefault(item => item.Id == id);
         }
 
         public void Save()
         {
-            if (_context != null)
+            if (Context != null)
             {
-                _context.Save();
+                Context.Save();
             }
         }
 
         public void Refresh()
         {
-            _context.Refresh();
+            Context.Refresh();
+        }
+
+        public virtual IEnumerable<T> GetAllWithRelated()
+        {
+            return Context.GetItems();
         }
 
         public void Dispose()
         {
-            if(_context != null)
-                _context.Dispose();
+            if(Context != null)
+                Context.Dispose();
         }
     }//end BaseDal
 }//end namespace Context

@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Reference
 {
     public class ARMMenuGroupCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceGroup;

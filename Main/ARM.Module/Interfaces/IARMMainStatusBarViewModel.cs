@@ -11,5 +11,5 @@ namespace ARM.Module.Interfaces
 {
     public interface IARMMainStatusBarViewModel : IARMViewModel
     {
-    }//end IARMMainStatusBarViewModel
-}//end namespace Interfaces
+    } //end IARMMainStatusBarViewModel
+} //end namespace Interfaces

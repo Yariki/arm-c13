@@ -13,7 +13,9 @@ namespace ARM.Module.Interfaces
     public interface IARMMenuCommand : ICommand
     {
         string Title { get; set; }
+
         string Tooltip { get; set; }
+
         eARMMainMenuCommand MenuCommand { get; }
-    }//end IARMMenuCommand
-}//end namespace Interfaces
+    } //end IARMMenuCommand
+} //end namespace Interfaces

@@ -321,4 +321,163 @@
   <data name="Model_Session_Title" xml:space="preserve">
     <value>Sessions</value>
   </data>
+  <data name="Model_Class_Session" xml:space="preserve">
+    <value>Session</value>
+  </data>
+  <data name="Model_Class_Staff" xml:space="preserve">
+    <value>Lecturer</value>
+  </data>
+  <data name="Model_Class_Title" xml:space="preserve">
+    <value>Classes</value>
+  </data>
+  <data name="Model_Data_Class" xml:space="preserve">
+    <value>{0} Class</value>
+  </data>
+  <data name="Model_Address_Apartment" xml:space="preserve">
+    <value>Apartment</value>
+  </data>
+  <data name="Model_Address_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Model_Address_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Model_Address_House" xml:space="preserve">
+    <value>House</value>
+  </data>
+  <data name="Model_Address_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Model_Address_Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="Model_Address_Title" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
+  <data name="Model_Data_Address" xml:space="preserve">
+    <value>{0} Address</value>
+  </data>
+  <data name="Model_Data_Parent" xml:space="preserve">
+    <value>{0} Parent</value>
+  </data>
+  <data name="Model_Parent_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Model_Parent_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Model_Parent_Title" xml:space="preserve">
+    <value>Parents</value>
+  </data>
+  <data name="Model_Address_ToString" xml:space="preserve">
+    <value>{0},r. {1}, s. {2}, st. {3}, h. {4}, a. {5}</value>
+  </data>
+  <data name="Model_Data_Speciality" xml:space="preserve">
+    <value>{0} Speciality</value>
+  </data>
+  <data name="Model_Speciality_Faculty" xml:space="preserve">
+    <value>Faculty</value>
+  </data>
+  <data name="Model_Speciality_Title" xml:space="preserve">
+    <value>Specialities</value>
+  </data>
+  <data name="Model_Data_User" xml:space="preserve">
+    <value>{0} User</value>
+  </data>
+  <data name="Model_User_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Model_User_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Model_User_Language" xml:space="preserve">
+    <value>User language</value>
+  </data>
+  <data name="Model_User_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Model_User_Title" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Enum_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Enum_Ukrainian" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
+  <data name="Button_SetPassword" xml:space="preserve">
+    <value>Set Password</value>
+  </data>
+  <data name="Model_Data_Student" xml:space="preserve">
+    <value>{0} Student</value>
+  </data>
+  <data name="Model_Student_Achivements" xml:space="preserve">
+    <value>Achivements</value>
+  </data>
+  <data name="Model_Student_Address1" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Model_Student_Address2" xml:space="preserve">
+    <value>Living address</value>
+  </data>
+  <data name="Model_Student_Contracts" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
+  <data name="Model_Student_DateEnter" xml:space="preserve">
+    <value>Date entering</value>
+  </data>
+  <data name="Model_Student_DateLeft" xml:space="preserve">
+    <value>Date left</value>
+  </data>
+  <data name="Model_Student_Faculty" xml:space="preserve">
+    <value>Faculty</value>
+  </data>
+  <data name="Model_Student_GradeBookNumber" xml:space="preserve">
+    <value>Gradebook number</value>
+  </data>
+  <data name="Model_Student_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Model_Student_Hobbies" xml:space="preserve">
+    <value>Hobbies</value>
+  </data>
+  <data name="Model_Student_IsForeign" xml:space="preserve">
+    <value>Is Foreign</value>
+  </data>
+  <data name="Model_Student_Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="Model_Student_Marks" xml:space="preserve">
+    <value>Marks</value>
+  </data>
+  <data name="Model_Student_Parents" xml:space="preserve">
+    <value>Parents</value>
+  </data>
+  <data name="Model_Student_Speciality" xml:space="preserve">
+    <value>Speciality</value>
+  </data>
+  <data name="Model_Student_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Model_Student_StudyMode" xml:space="preserve">
+    <value>Study Mode</value>
+  </data>
+  <data name="Model_Student_Title" xml:space="preserve">
+    <value>Studetns</value>
+  </data>
+  <data name="Enum_Distance" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="Enum_Expelled" xml:space="preserve">
+    <value>Expelled</value>
+  </data>
+  <data name="Enum_FullTime" xml:space="preserve">
+    <value>FullTime</value>
+  </data>
+  <data name="Enum_Graduated" xml:space="preserve">
+    <value>Graduated</value>
+  </data>
+  <data name="Enum_Studies" xml:space="preserve">
+    <value>Studies</value>
+  </data>
 </root>

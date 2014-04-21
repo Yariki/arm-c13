@@ -16,7 +16,8 @@ namespace ARM.Data.Layer.Context
 
         protected BaseContext()
             : base("ARMDatabase")
-        { }
+        {
+        }
 
         public DbSet<T> Items { get; set; }
 

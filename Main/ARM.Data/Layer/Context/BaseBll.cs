@@ -71,6 +71,11 @@ namespace ARM.Data.Layer.Context
             _dal.Refresh();
         }
 
+        public IEnumerable<T> GetAllWithRelated()
+        {
+            return _dal.GetAllWithRelated();
+        }
+
         public void Dispose()
         {
             if(_dal != null)
