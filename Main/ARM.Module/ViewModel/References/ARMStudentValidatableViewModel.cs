@@ -9,9 +9,12 @@ using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Controls.ARMDialogWindow;
+using ARM.Infrastructure.Controls.ARMLookupWindow;
+using ARM.Infrastructure.Controls.Interfaces;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
+using ARM.Module.Commands.Menu.Reference;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using Microsoft.Practices.Prism;
@@ -42,6 +45,9 @@ namespace ARM.Module.ViewModel.References
 
             AddHobbyCommand = new ARMRelayCommand(AddHobbyExecute);
             DeleteHobbyCommand = new ARMRelayCommand(DeleteHobbyExecute);
+
+            AddParentCommand = new ARMRelayCommand(AddParentExecute);
+            DeleteParentCommand = new ARMRelayCommand(DeleteParentExecute);
 
         }
 
@@ -111,10 +117,10 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => LivingAddressId, value); }
         }
 
-        public IList<Parent> Parents
+        public ObservableCollection<Parent> ParentsList
         {
-            get { return Get(() => Parents); }
-            set { Set(() => Parents, value); }
+            get { return Get(() => ParentsList); }
+            set { Set(() => ParentsList, value); }
         }
 
         public Guid? GroupId
@@ -238,6 +244,12 @@ namespace ARM.Module.ViewModel.References
                 if (HobbiesList == null)
                     HobbiesList = new ObservableCollection<Hobby>();
                 HobbiesList.AddRange(entity.Hobbies); 
+            }
+            if (entity.Parents != null && entity.Parents.Count > 0)
+            {
+                if(ParentsList == null)
+                    ParentsList = new ObservableCollection<Parent>();
+                ParentsList.AddRange(entity.Parents);
             }
         }
 
@@ -436,6 +448,60 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
+        #region [Parents]
+
+        public Parent SelectedParent
+        {
+            get { return Get(() => SelectedParent); }
+            set { Set(() => SelectedParent, value); }
+        }
+
+        public ICommand AddParentCommand { get; private set; }
+        public ICommand DeleteParentCommand { get; private set; }
+
+        private void AddParentExecute(object obj)
+        {
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer,new ARMLookupView());
+            viewModel.Initialize(eARMMetadata.Parent);
+            ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
+            var result = wnd.ShowDialog();
+            if (result.HasValue && result.Value && viewModel.SelectedItem != null)
+            {
+                try
+                {
+                    var parent = viewModel.SelectedItem as Parent;
+                    parent.StudentId = GetBusinessObject<Student>().Id;
+                    _unitOfWork.ParentReposotory.Update(parent);
+                    _unitOfWork.ParentReposotory.Save();
+                    ParentsList.Add(parent);
+                    OnPropertyChanged(() => ParentsList);
+                }
+                catch (Exception ex)
+                {
+                 ARMSystemFacade.Instance.Logger.LogError(ex.Message);   
+                }
+            }
+        }
+
+        private void DeleteParentExecute(object obj)
+        {
+            if(SelectedParent == null)
+                return;
+            try
+            {
+                SelectedParent.StudentId = null;
+                _unitOfWork.ParentReposotory.Update(SelectedParent);
+                _unitOfWork.ParentReposotory.Save();
+                ParentsList.Remove(SelectedParent);
+                OnPropertyChanged(() => ParentsList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
 
         #region [private]
         #endregion

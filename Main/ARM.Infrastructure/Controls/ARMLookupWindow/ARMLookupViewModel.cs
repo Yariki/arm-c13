@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
@@ -9,7 +8,7 @@ using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Controls.Interfaces;
 using Microsoft.Practices.Unity;
 
-namespace ARM.Infrastructure.Controls.ARMLookupControl
+namespace ARM.Infrastructure.Controls.ARMLookupWindow
 {
     public class ARMLookupViewModel : ARMViewModelBase,IARMLookupViewModel
     {

@@ -139,7 +139,42 @@
 
 
         <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Height="200" Visibility="{Binding VisibilityAdditional}">
-            <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}"></TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddParentCommand}">Add</Button>
+                        <Button Command="{Binding DeleteParentCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding ParentsList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedParent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding LastName}"
+                                                Header="{x:Static prop:Resources.Model_Person_LastName}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding FirstName}"
+                                                Header="{x:Static prop:Resources.Model_Person_FirstName}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PhoneMobile}"
+                                                Header="{x:Static prop:Resources.Model_Person_PhoneMobile}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PhoneHome}"
+                                                Header="{x:Static prop:Resources.Model_Person_PhoneHome}"
+                                                Width="150"></GridViewColumn>
+                                
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+                
+            </TabItem>
             <TabItem Header="{x:Static prop:Resources.Model_Student_Hobbies}">
                 <Grid>
                     <Grid.RowDefinitions>
