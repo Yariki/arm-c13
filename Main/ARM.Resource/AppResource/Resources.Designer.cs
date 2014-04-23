@@ -70,6 +70,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Art.
+        /// </summary>
+        public static string Enum_Art {
+            get {
+                return ResourceManager.GetString("Enum_Art", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bachelour.
         /// </summary>
         public static string Enum_Bachelour {
@@ -178,6 +187,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Enum_Other {
+            get {
+                return ResourceManager.GetString("Enum_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PaidUp.
         /// </summary>
         public static string Enum_PaidUp {
@@ -196,11 +214,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Science.
+        /// </summary>
+        public static string Enum_Science {
+            get {
+                return ResourceManager.GetString("Enum_Science", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specialist.
         /// </summary>
         public static string Enum_Specialist {
             get {
                 return ResourceManager.GetString("Enum_Specialist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sport.
+        /// </summary>
+        public static string Enum_Sport {
+            get {
+                return ResourceManager.GetString("Enum_Sport", resourceCulture);
             }
         }
         
@@ -394,6 +430,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Achivements.
+        /// </summary>
+        public static string Model_Achivement_Title {
+            get {
+                return ResourceManager.GetString("Model_Achivement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Achivement Type.
+        /// </summary>
+        public static string Model_Achivement_Type {
+            get {
+                return ResourceManager.GetString("Model_Achivement_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Model_Action_Add {
@@ -520,6 +574,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Achivement.
+        /// </summary>
+        public static string Model_Data_Achivement {
+            get {
+                return ResourceManager.GetString("Model_Data_Achivement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Address.
         /// </summary>
         public static string Model_Data_Address {
@@ -561,6 +624,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Group {
             get {
                 return ResourceManager.GetString("Model_Data_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Hobby.
+        /// </summary>
+        public static string Model_Data_Hobby {
+            get {
+                return ResourceManager.GetString("Model_Data_Hobby", resourceCulture);
             }
         }
         
@@ -700,11 +772,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hobby.
+        /// </summary>
+        public static string Model_Hobby_Title {
+            get {
+                return ResourceManager.GetString("Model_Hobby_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Model_Name {
             get {
                 return ResourceManager.GetString("Model_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Model_Note {
+            get {
+                return ResourceManager.GetString("Model_Note", resourceCulture);
             }
         }
         

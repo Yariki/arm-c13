@@ -30,7 +30,10 @@ namespace ARM.Data.Layer.Context
         {
             foreach (var entry in ChangeTracker.Entries<T>().Where(e => e.State == EntityState.Added))
             {
-                entry.Entity.Id = Guid.NewGuid();
+                if (entry.Entity.Id == Guid.Empty)
+                {
+                    entry.Entity.Id = Guid.NewGuid();    
+                }
             }
             SaveChanges();
         }
@@ -47,6 +50,7 @@ namespace ARM.Data.Layer.Context
                 {
                     var attachedEntry = base.Entry(attached);
                     attachedEntry.CurrentValues.SetValues(obj);
+                    UpdateChilds(attached, obj);
                 }
                 else
                 {
@@ -69,6 +73,11 @@ namespace ARM.Data.Layer.Context
                                       where entry.EntityKey != null
                                       select entry.Entity);
             context.Refresh(RefreshMode.StoreWins, refreshableObjects );
+        }
+
+        protected virtual void UpdateChilds(T attached, T current )
+        {
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

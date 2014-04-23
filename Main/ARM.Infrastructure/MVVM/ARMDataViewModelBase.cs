@@ -76,7 +76,7 @@ namespace ARM.Infrastructure.MVVM
             return false;
         }
 
-        protected TObj GetBusinessObject<TObj>()
+        public TObj GetBusinessObject<TObj>()
         {
             return (TObj)_dataObject;
         }

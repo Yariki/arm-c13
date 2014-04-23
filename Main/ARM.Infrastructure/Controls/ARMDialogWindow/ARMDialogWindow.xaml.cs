@@ -32,6 +32,8 @@ namespace ARM.Infrastructure.Controls.ARMDialogWindow
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!_viewModel.Validate())
+                return;
             DialogResult = true;
             Close();
         }

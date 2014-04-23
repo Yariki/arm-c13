@@ -24,5 +24,6 @@ namespace ARM.Data.Implementation.Student
             base.OnModelCreating(modelBuilder);
             //student
         }
+
     }
 }

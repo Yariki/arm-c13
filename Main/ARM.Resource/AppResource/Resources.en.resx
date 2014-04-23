@@ -480,4 +480,34 @@
   <data name="Enum_Studies" xml:space="preserve">
     <value>Studies</value>
   </data>
+  <data name="Model_Achivement_Title" xml:space="preserve">
+    <value>Achivements</value>
+  </data>
+  <data name="Model_Achivement_Type" xml:space="preserve">
+    <value>Achivement Type</value>
+  </data>
+  <data name="Model_Data_Achivement" xml:space="preserve">
+    <value>{0} Achivement</value>
+  </data>
+  <data name="Model_Note" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Enum_Art" xml:space="preserve">
+    <value>Art</value>
+  </data>
+  <data name="Enum_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Enum_Science" xml:space="preserve">
+    <value>Science</value>
+  </data>
+  <data name="Enum_Sport" xml:space="preserve">
+    <value>Sport</value>
+  </data>
+  <data name="Model_Data_Hobby" xml:space="preserve">
+    <value>{0} Hobby</value>
+  </data>
+  <data name="Model_Hobby_Title" xml:space="preserve">
+    <value>Hobby</value>
+  </data>
 </root>

@@ -66,7 +66,7 @@ namespace ARM.Core.MVVM
 
         protected virtual void Dispose(bool disposing)
         {
-                
+            Disposed = true;
         }
 
         public IARMView View
@@ -77,7 +77,8 @@ namespace ARM.Core.MVVM
 
         public void Dispose()
         {
-            Dispose(true);            
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }//end ARMViewModelBase
 }//end namespace MVVM

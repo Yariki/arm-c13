@@ -120,11 +120,13 @@
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMAchivementValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMAddressValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMClassValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMFacultyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMGroupValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMHobbyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMParentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSessionValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSettingsValidatableViewModel.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Interfaces\References\ViewModel\IARMStudentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUserValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\Password\IARMPasswordViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMAchivementView.cs" />
     <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
     <Compile Include="Interfaces\References\View\IARMClassView.cs" />
     <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
     <Compile Include="Interfaces\References\View\IARMFacultyView.cs" />
     <Compile Include="Interfaces\References\View\IARMGroupView.cs" />
+    <Compile Include="Interfaces\References\View\IARMHobbyView.cs" />
     <Compile Include="Interfaces\References\View\IARMLanguageView.cs" />
     <Compile Include="Interfaces\References\View\IARMParentView.cs" />
     <Compile Include="Interfaces\References\View\IARMSessionView.cs" />
@@ -173,11 +177,13 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMAchivementValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMAddressValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMClassValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMFacultyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMGroupValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMHobbyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMParentValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSessionValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSettingsValidatableViewModel.cs" />
@@ -203,6 +209,9 @@
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\References\ARMAchivementView.xaml.cs">
+      <DependentUpon>ARMAchivementView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\References\ARMAddressView.xaml.cs">
       <DependentUpon>ARMAddressView.xaml</DependentUpon>
     </Compile>
@@ -217,6 +226,9 @@
     </Compile>
     <Compile Include="View\References\ARMGroupView.xaml.cs">
       <DependentUpon>ARMGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMHobbyView.xaml.cs">
+      <DependentUpon>ARMHobbyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMLanguageView.xaml.cs">
       <DependentUpon>ARMLanguageView.xaml</DependentUpon>
@@ -291,6 +303,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\References\ARMAchivementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\References\ARMAddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,6 +324,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMHobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

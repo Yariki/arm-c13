@@ -18,6 +18,12 @@ namespace ARM.Data.Models
 
     public class Student : Person
     {
+
+        public Student()
+        {
+            Achivements = new List<Achivement>();
+        }
+
         [ARMRequired]
         public Guid AddressId { get; set; }
 
@@ -51,13 +57,13 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual IList<Hobby> Hobbies
+        public virtual List<Hobby> Hobbies
         {
             get;
             set;
         }
 
-        public virtual IList<Achivement> Achivements
+        public virtual List<Achivement> Achivements
         {
             get;
             set;
@@ -78,7 +84,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual IList<Language> Languages
+        public virtual List<Language> Languages
         {
             get;
             set;

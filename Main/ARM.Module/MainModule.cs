@@ -90,6 +90,12 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMStudentView, ARMStudentView>();
             UnityContainer.RegisterType<IARMStudentValidatableViewModel, ARMStudentValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMAchivementView, ARMAchivementView>();
+            UnityContainer.RegisterType<IARMAchivementValidatableViewModel, ARMAchivementValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMHobbyView, ARMHobbyView>();
+            UnityContainer.RegisterType<IARMHobbyValidatableViewModel, ARMHobbyValidatableViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

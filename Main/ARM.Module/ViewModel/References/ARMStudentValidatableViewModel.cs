@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Remoting.Messaging;
+using System.Windows;
+using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
+using ARM.Infrastructure.Controls.ARMDialogWindow;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using Microsoft.Practices.Prism;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using NSubstitute.Core;
 
 namespace ARM.Module.ViewModel.References
 {
@@ -20,6 +28,7 @@ namespace ARM.Module.ViewModel.References
         #region [needs]
 
         private IUnitOfWork _unitOfWork;
+
         #endregion
 
 
@@ -27,6 +36,13 @@ namespace ARM.Module.ViewModel.References
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             _unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
+
+            AddAchivementCommand = new ARMRelayCommand(AddAchivementExecute);
+            DeleteAchivementCommand = new ARMRelayCommand(DeleteAchivementExecute);
+
+            AddHobbyCommand = new ARMRelayCommand(AddHobbyExecute);
+            DeleteHobbyCommand = new ARMRelayCommand(DeleteHobbyExecute);
+
         }
 
         public override string Title
@@ -107,16 +123,16 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => GroupId, value); }
         }
 
-        public IList<Hobby> Hobbies
+        public ObservableCollection<Hobby> HobbiesList
         {
-            get { return Get(() => Hobbies); }
-            set { Set(() => Hobbies, value); }
+            get { return Get(() => HobbiesList); }
+            set { Set(() => HobbiesList, value); }
         }
 
-        public IList<Achivement> Achivements
+        public ObservableCollection<Achivement> AchivementsList
         {
-            get { return Get(() => Achivements); }
-            set { Set(() => Achivements, value); }
+            get { return Get(() => AchivementsList); }
+            set { Set(() => AchivementsList, value); }
         }
 
         public DateTime DateFirstEnter
@@ -211,6 +227,18 @@ namespace ARM.Module.ViewModel.References
                     entity.DateFirstEnter = DateTime.Now;
                     break;
             }
+            if (entity.Achivements != null && entity.Achivements.Count > 0)
+            {
+                if(AchivementsList == null)
+                    AchivementsList = new ObservableCollection<Achivement>();
+                AchivementsList.AddRange(entity.Achivements);
+            }
+            if (entity.Hobbies != null && entity.Hobbies.Count > 0)
+            {
+                if (HobbiesList == null)
+                    HobbiesList = new ObservableCollection<Hobby>();
+                HobbiesList.AddRange(entity.Hobbies); 
+            }
         }
 
         protected override void Dispose(bool disposing)
@@ -257,6 +285,157 @@ namespace ARM.Module.ViewModel.References
         }
 
         #endregion
+
+
+        public Visibility VisibilityAdditional 
+        {
+            get { return Mode == ViewMode.Add ? Visibility.Collapsed : Visibility.Visible; }
+        }
+
+        #region [Achivement]
+
+        public Achivement SelectedAchivement
+        {
+            get { return Get(() => SelectedAchivement); }
+            set { Set(() => SelectedAchivement, value); }
+        }
+
+        public ICommand AddAchivementCommand { get; private set; }
+
+        public ICommand DeleteAchivementCommand { get; private set; }
+
+
+        private void AddAchivementExecute(object arg)
+        {
+            try
+            {
+                IARMAchivementValidatableViewModel model = UnityContainer.Resolve<IARMAchivementValidatableViewModel>();
+                if (model == null)
+                {
+                    return;
+                }
+                model.SetBusinessObject(ViewMode.Add,eARMMetadata.Achivement,Guid.Empty,false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(model){Width = 350,Height = 450};
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    try
+                    {
+                        var entity = model.GetBusinessObject<Achivement>();
+                        entity.Id = Guid.NewGuid();
+                        entity.StudentId = GetBusinessObject<Student>().Id;
+                        _unitOfWork.AchivementRepository.Insert(entity);
+                        _unitOfWork.AchivementRepository.Save();
+                        AchivementsList.Add(entity);
+                        OnPropertyChanged(() => AchivementsList);
+                    }
+                    catch (Exception ex)
+                    {
+                        ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                    }
+                    finally
+                    {
+                        model.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        private void DeleteAchivementExecute(object arg)
+        {
+            if (SelectedAchivement == null)
+                return;
+            try
+            {
+                _unitOfWork.AchivementRepository.Delete(SelectedAchivement);
+                _unitOfWork.AchivementRepository.Save();
+                AchivementsList.Remove(SelectedAchivement);
+                OnPropertyChanged(() => AchivementsList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region [Hobby]
+
+        public Hobby SelectedHobby
+        {
+            get { return Get(() => SelectedHobby); }
+            set { Set(() => SelectedHobby, value); }
+        }
+
+        public ICommand AddHobbyCommand { get; private set; }
+
+        public ICommand DeleteHobbyCommand { get; private set; }
+
+
+        private void AddHobbyExecute(object arg)
+        {
+            try
+            {
+                IARMHobbyValidatableViewModel model = UnityContainer.Resolve<IARMHobbyValidatableViewModel>();
+                if (model == null)
+                {
+                    return;
+                }
+                model.SetBusinessObject(ViewMode.Add, eARMMetadata.Hobby, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(model) { Width = 350, Height = 450 };
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    try
+                    {
+                        var entity = model.GetBusinessObject<Hobby>();
+                        entity.Id = Guid.NewGuid();
+                        entity.StudentId = GetBusinessObject<Student>().Id;
+                        _unitOfWork.HobbyRepository.Insert(entity);
+                        _unitOfWork.HobbyRepository.Save();
+                        HobbiesList.Add(entity);
+                        OnPropertyChanged(() => HobbiesList);
+                    }
+                    catch (Exception ex)
+                    {
+                        ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                    }
+                    finally
+                    {
+                        model.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        private void DeleteHobbyExecute(object arg)
+        {
+            if (SelectedHobby == null)
+                return;
+            try
+            {
+                _unitOfWork.HobbyRepository.Delete(SelectedHobby);
+                _unitOfWork.HobbyRepository.Save();
+                HobbiesList.Remove(SelectedHobby);
+                OnPropertyChanged(() => HobbiesList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
 
         #region [private]
         #endregion
