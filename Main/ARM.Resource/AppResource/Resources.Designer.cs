@@ -574,6 +574,78 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Education Level.
+        /// </summary>
+        public static string Model_Contract_EducationLevel {
+            get {
+                return ResourceManager.GetString("Model_Contract_EducationLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Contract_Number {
+            get {
+                return ResourceManager.GetString("Model_Contract_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        public static string Model_Contract_Parent {
+            get {
+                return ResourceManager.GetString("Model_Contract_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Model_Contract_Price {
+            get {
+                return ResourceManager.GetString("Model_Contract_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speciality.
+        /// </summary>
+        public static string Model_Contract_Speciality {
+            get {
+                return ResourceManager.GetString("Model_Contract_Speciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Contract_Student {
+            get {
+                return ResourceManager.GetString("Model_Contract_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contracts.
+        /// </summary>
+        public static string Model_Contract_Title {
+            get {
+                return ResourceManager.GetString("Model_Contract_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performer.
+        /// </summary>
+        public static string Model_Contract_University {
+            get {
+                return ResourceManager.GetString("Model_Contract_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Achivement.
         /// </summary>
         public static string Model_Data_Achivement {
@@ -597,6 +669,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Class {
             get {
                 return ResourceManager.GetString("Model_Data_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Contract.
+        /// </summary>
+        public static string Model_Data_Contract {
+            get {
+                return ResourceManager.GetString("Model_Data_Contract", resourceCulture);
             }
         }
         

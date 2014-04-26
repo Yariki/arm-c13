@@ -42,9 +42,15 @@ namespace ARM.Data.Models
             set;
         }
 
+        public virtual string Display
+        {
+            get { return Id.ToString(); }
+        }
+
         public override string ToString()
         {
-            return Id.ToString();
+            return Display;
         }
+    
     }//end BaseModel
 }//end namespace Models

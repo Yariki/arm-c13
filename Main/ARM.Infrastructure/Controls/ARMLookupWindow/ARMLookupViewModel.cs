@@ -4,6 +4,7 @@ using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
+using ARM.Data.Models;
 using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Controls.Interfaces;
 using Microsoft.Practices.Unity;
@@ -24,7 +25,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         public eARMMetadata Metadata { get; private set; }
         public Type EntityType { get; private set; }
 
-        public object SelectedItem { get; set; }
+        public BaseModel SelectedItem { get; set; }
 
         public void Initialize(eARMMetadata metadata)
         {

@@ -72,5 +72,11 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+
+        public override string Display
+        {
+            get { return string.Format("{0} {1} {2}", LastName, MiddleName, FirstName); }
+        }
     }//end Person
 }//end namespace Models

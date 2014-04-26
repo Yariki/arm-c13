@@ -53,5 +53,10 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public override string Display
+        {
+            get { return Name; }
+        }
     }//end Group
 }//end namespace Models

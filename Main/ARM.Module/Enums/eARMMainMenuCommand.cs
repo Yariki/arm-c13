@@ -5,6 +5,7 @@
         None,
         Exit,
         About,
+        DocumentContract,
         DocumentInvoice,
         DocumentPayment,
         ReferenceUniversity,
@@ -20,6 +21,6 @@
         ReferenceParent,
         ReferenceSpeciality,
         ReferenceUser,
-        ReferenceStudent,
+        ReferenceStudent
     }
 }

@@ -8,6 +8,7 @@
 using System;
 using System.Collections.ObjectModel;
 using ARM.Core.MVVM;
+using ARM.Module.Commands.Menu.Documents;
 using ARM.Module.Commands.Menu.File;
 using ARM.Module.Commands.Menu.Reference;
 using ARM.Module.Enums;
@@ -71,6 +72,9 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuAddressCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuUserCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
+
+            Documents = new ObservableCollection<IARMMenuCommand>();
+            Documents.Add(new ARMMenuContractCommand(_actionMenu,_canFunc));
         }
 
         #endregion [private]

@@ -10,12 +10,16 @@ using ARM.Core.Module;
 using ARM.Infrastructure.Interfaces.Grid;
 using ARM.Infrastructure.Region;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.Documents.View;
+using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
+using ARM.Module.View.Documents;
 using ARM.Module.View.Grid;
 using ARM.Module.View.Main;
 using ARM.Module.View.References;
+using ARM.Module.ViewModel.Documents;
 using ARM.Module.ViewModel.Main;
 using ARM.Module.ViewModel.References;
 using Microsoft.Practices.Prism.Events;
@@ -95,6 +99,9 @@ namespace ARM.Module
 
             UnityContainer.RegisterType<IARMHobbyView, ARMHobbyView>();
             UnityContainer.RegisterType<IARMHobbyValidatableViewModel, ARMHobbyValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMContractView, ARMContractView>();
+            UnityContainer.RegisterType<IARMContractValidatableViewModel, ARMContractValidatableViewModel>();
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()

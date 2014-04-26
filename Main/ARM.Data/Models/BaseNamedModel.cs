@@ -21,9 +21,9 @@ namespace ARM.Data.Models
             set;
         }
 
-        public override string ToString()
+        public override string Display
         {
-            return Name;
+            get { return Name; }
         }
     }//end BaseNamedModel
 }//end namespace Models

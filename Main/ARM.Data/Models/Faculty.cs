@@ -46,9 +46,9 @@ namespace ARM.Data.Models
 
         public virtual IList<Group> Groups { get; set; }
 
-        public override string ToString()
+        public override string Display
         {
-            return Name;
+            get { return Name; }
         }
     }//end Faculty
 }//end namespace Models

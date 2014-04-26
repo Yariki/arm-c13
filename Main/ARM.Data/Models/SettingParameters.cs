@@ -67,5 +67,6 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
     }//end SettingParameters
 }//end namespace Models

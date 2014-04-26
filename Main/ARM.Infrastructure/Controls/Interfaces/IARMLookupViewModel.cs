@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Infrastructure.Controls.Interfaces
 {
@@ -13,7 +14,7 @@ namespace ARM.Infrastructure.Controls.Interfaces
 
         Type EntityType { get; }
 
-        object SelectedItem { get; set; }
+        BaseModel SelectedItem { get; set; }
 
         void Initialize(eARMMetadata metadata);
     }
