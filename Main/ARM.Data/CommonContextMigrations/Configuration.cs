@@ -16,7 +16,7 @@ namespace ARM.Data.CommonContextMigrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"CommonContextMigrations";
         }
 

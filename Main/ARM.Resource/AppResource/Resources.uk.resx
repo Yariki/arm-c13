@@ -412,7 +412,7 @@
     <value>{0} Студента</value>
   </data>
   <data name="Model_Student_Achivements" xml:space="preserve">
-    <value>Досігнення</value>
+    <value>Досягнення</value>
   </data>
   <data name="Model_Student_Address1" xml:space="preserve">
     <value>Адреса</value>

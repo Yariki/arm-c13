@@ -93,7 +93,6 @@ namespace ARM.Data.Layer
                 .HasRequired(s => s.LivingAddress)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-            //table per concrete class
             modelBuilder.Entity<Person>()
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
@@ -112,6 +111,34 @@ namespace ARM.Data.Layer
                 m.MapInheritedProperties();
                 m.ToTable("Student");
             });
+            // language
+            modelBuilder.Entity<Language>()
+                .HasMany(a => a.Students)
+                .WithMany(p => p.Languages)
+                .Map(m =>
+                {
+                    m.MapLeftKey("LanguageId");
+                    m.MapRightKey("StudentId");
+                    m.ToTable("StudentLanguages");
+                });
+            //hobbies 
+            modelBuilder.Entity<Hobby>()
+                .HasRequired<Student>(h => h.Student)
+                .WithMany(s => s.Hobbies)
+                .HasForeignKey(h =>h.StudentId)
+                .WillCascadeOnDelete(true);
+            // achivement
+            modelBuilder.Entity<Achivement>()
+                .HasRequired<Student>(h => h.Student)
+                .WithMany(s => s.Achivements)
+                .HasForeignKey(h => h.StudentId)
+                .WillCascadeOnDelete(true);
+            //parent
+            modelBuilder.Entity<Parent>()
+                .HasOptional<Student>(p => p.Child)
+                .WithMany(s =>s.Parents)
+                .HasForeignKey(p => p.StudentId)
+                .WillCascadeOnDelete(false);
 
         }
 

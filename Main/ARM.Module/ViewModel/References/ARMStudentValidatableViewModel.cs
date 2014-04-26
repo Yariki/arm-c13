@@ -17,6 +17,7 @@ using ARM.Infrastructure.MVVM;
 using ARM.Module.Commands.Menu.Reference;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Prism;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
@@ -49,6 +50,13 @@ namespace ARM.Module.ViewModel.References
             AddParentCommand = new ARMRelayCommand(AddParentExecute);
             DeleteParentCommand = new ARMRelayCommand(DeleteParentExecute);
 
+            AddLanguageCommand = new ARMRelayCommand(AddLanguageExecute);
+            DeleteLanguageCommand = new ARMRelayCommand(DeleteLanguageExecute);
+
+            AchivementsList = new ObservableCollection<Achivement>();
+            HobbiesList = new ObservableCollection<Hobby>();
+            ParentsList = new ObservableCollection<Parent>();
+            LanguagesList = new ObservableCollection<Language>();
         }
 
         public override string Title
@@ -153,10 +161,10 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => DateLeft, value); }
         }
 
-        public IList<Language> Languages
+        public ObservableCollection<Language> LanguagesList
         {
-            get { return Get(() => Languages); }
-            set { Set(() => Languages, value); }
+            get { return Get(() => LanguagesList); }
+            set { Set(() => LanguagesList, value); }
         }
 
         public Guid? FacultyId
@@ -235,21 +243,19 @@ namespace ARM.Module.ViewModel.References
             }
             if (entity.Achivements != null && entity.Achivements.Count > 0)
             {
-                if(AchivementsList == null)
-                    AchivementsList = new ObservableCollection<Achivement>();
                 AchivementsList.AddRange(entity.Achivements);
             }
             if (entity.Hobbies != null && entity.Hobbies.Count > 0)
             {
-                if (HobbiesList == null)
-                    HobbiesList = new ObservableCollection<Hobby>();
-                HobbiesList.AddRange(entity.Hobbies); 
+                HobbiesList.AddRange(entity.Hobbies);
             }
             if (entity.Parents != null && entity.Parents.Count > 0)
             {
-                if(ParentsList == null)
-                    ParentsList = new ObservableCollection<Parent>();
                 ParentsList.AddRange(entity.Parents);
+            }
+            if (entity.Languages != null && entity.Languages.Count > 0)
+            {
+                LanguagesList.AddRange(entity.Languages);
             }
         }
 
@@ -279,7 +285,10 @@ namespace ARM.Module.ViewModel.References
                         _unitOfWork.StudentRepository.Insert(GetBusinessObject<Student>());
                         break;
                     case ViewMode.Edit:
-                        _unitOfWork.StudentRepository.Update(GetBusinessObject<Student>());
+                        var entity = GetBusinessObject<Student>();
+                        entity.Languages.Clear();
+                        this.LanguagesList.ForEach( l => entity.Languages.Add(l));
+                        _unitOfWork.StudentRepository.Update(entity);
                         break;
                 }
                 _unitOfWork.StudentRepository.Save();
@@ -299,7 +308,7 @@ namespace ARM.Module.ViewModel.References
         #endregion
 
 
-        public Visibility VisibilityAdditional 
+        public Visibility VisibilityAdditional
         {
             get { return Mode == ViewMode.Add ? Visibility.Collapsed : Visibility.Visible; }
         }
@@ -326,8 +335,8 @@ namespace ARM.Module.ViewModel.References
                 {
                     return;
                 }
-                model.SetBusinessObject(ViewMode.Add,eARMMetadata.Achivement,Guid.Empty,false);
-                ARMDialogWindow dlgWnd = new ARMDialogWindow(model){Width = 350,Height = 450};
+                model.SetBusinessObject(ViewMode.Add, eARMMetadata.Achivement, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(model) { Width = 350, Height = 450 };
                 var result = dlgWnd.ShowDialog();
                 if (result.HasValue && result.Value)
                 {
@@ -461,7 +470,7 @@ namespace ARM.Module.ViewModel.References
 
         private void AddParentExecute(object obj)
         {
-            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer,new ARMLookupView());
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
             viewModel.Initialize(eARMMetadata.Parent);
             ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
             var result = wnd.ShowDialog();
@@ -478,14 +487,14 @@ namespace ARM.Module.ViewModel.References
                 }
                 catch (Exception ex)
                 {
-                 ARMSystemFacade.Instance.Logger.LogError(ex.Message);   
+                    ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 }
             }
         }
 
         private void DeleteParentExecute(object obj)
         {
-            if(SelectedParent == null)
+            if (SelectedParent == null)
                 return;
             try
             {
@@ -503,7 +512,49 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
+        #region [languages]
+
+        public Language SelectedLanguage
+        {
+            get
+            {
+                return Get(() => SelectedLanguage);
+            }
+            set
+            {
+                Set(() => SelectedLanguage, value);
+            }
+        }
+
+        public ICommand AddLanguageCommand { get; private set; }
+        public ICommand DeleteLanguageCommand { get; private set; }
+
+        public void AddLanguageExecute(object arg)
+        {
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            viewModel.Initialize(eARMMetadata.Language);
+            ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
+            var result = wnd.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                var language = viewModel.SelectedItem as Language;
+                this.LanguagesList.Add(language);
+                OnPropertyChanged(() => LanguagesList);
+            }
+        }
+
+        public void DeleteLanguageExecute(object arg)
+        {
+            if (SelectedLanguage == null)
+                return;
+            LanguagesList.Remove(SelectedLanguage);
+            OnPropertyChanged(() => LanguagesList);
+        }
+
+        #endregion
+
         #region [private]
+
         #endregion
 
     }

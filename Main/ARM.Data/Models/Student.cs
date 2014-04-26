@@ -22,6 +22,7 @@ namespace ARM.Data.Models
         public Student()
         {
             Achivements = new List<Achivement>();
+            Languages = new HashSet<Language>();
         }
 
         [ARMRequired]
@@ -84,7 +85,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual List<Language> Languages
+        public virtual ICollection<Language> Languages
         {
             get;
             set;

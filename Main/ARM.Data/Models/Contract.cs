@@ -24,14 +24,18 @@ namespace ARM.Data.Models
         [ARMRequired]
         public Guid? ParentId { get; set; }
 
+        [ARMRequired]
         public Guid UniversityId { get; set; }
+        
 
         public Guid? StudentId { get; set; }
-
+        
+        [ARMRequired]
         public Guid? SpecialityId { get; set; }
-
+        
+        [ARMRequired]
         public decimal Price { get; set; }
-
+        
         public virtual Parent Customer { get; set; }
 
         public virtual University University { get; set; }
@@ -39,10 +43,6 @@ namespace ARM.Data.Models
         public virtual Student Student { get; set; }
 
         public virtual Specialty Speciality { get; set; }
-
-        ~Contract()
-        {
-        }
 
         public virtual IList<Invoice> Invoices { get; set; }
     } //end Contract

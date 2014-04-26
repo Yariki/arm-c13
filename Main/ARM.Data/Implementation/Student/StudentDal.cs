@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
+using System.Linq;
+using System.Threading;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +18,19 @@ namespace ARM.Data.Implementation.Student
         public StudentDal(IContext<Models.Student> context)
             : base(context)
         {
+        }
+
+        protected override void DeleteAddInfo(Models.Student entity)
+        {
+            base.DeleteAddInfo(entity);
+            Context.Entry(entity).Collection(e => e.Languages).Load();
+            Context.Entry(entity).Collection(e => e.Hobbies).Load();
+            Context.Entry(entity).Collection(e => e.Achivements).Load();
+            var ctx = Context as StudentContext;
+            ctx.Hobbies.RemoveRange(entity.Hobbies);
+            ctx.Achivements.RemoveRange(entity.Achivements);
+
+            entity.Languages.Clear();
         }
     }//end StudentDal
 }//end namespace Student

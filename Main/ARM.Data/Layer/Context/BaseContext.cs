@@ -75,6 +75,16 @@ namespace ARM.Data.Layer.Context
             context.Refresh(RefreshMode.StoreWins, refreshableObjects );
         }
 
+        public DbEntityEntry<T> Entry(T e)
+        {
+            return base.Entry(e);
+        }
+
+        public new DbSet<TObj> Set<TObj>() where TObj : BaseModel
+        {
+            return Set<TObj>();
+        }
+
         protected virtual void UpdateChilds(T attached, T current )
         {
             

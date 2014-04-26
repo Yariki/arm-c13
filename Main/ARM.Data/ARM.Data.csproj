@@ -81,29 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201404072327106_Initial.cs" />
-    <Compile Include="CommonContextMigrations\201404072327106_Initial.Designer.cs">
-      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.cs" />
-    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.Designer.cs">
-      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404152240516_AddUser.cs" />
-    <Compile Include="CommonContextMigrations\201404152240516_AddUser.Designer.cs">
-      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.cs" />
-    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.Designer.cs">
-      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404191311570_Settings.cs" />
-    <Compile Include="CommonContextMigrations\201404191311570_Settings.Designer.cs">
-      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404211038206_Change_Student.cs" />
-    <Compile Include="CommonContextMigrations\201404211038206_Change_Student.Designer.cs">
-      <DependentUpon>201404211038206_Change_Student.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404261649255_Init.cs" />
+    <Compile Include="CommonContextMigrations\201404261649255_Init.Designer.cs">
+      <DependentUpon>201404261649255_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -288,23 +268,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201404072327106_Initial.resx">
-      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404081801017_Id_Gen.resx">
-      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404152240516_AddUser.resx">
-      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404152243349_AddUser_2.resx">
-      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404191311570_Settings.resx">
-      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404211038206_Change_Student.resx">
-      <DependentUpon>201404211038206_Change_Student.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404261649255_Init.resx">
+      <DependentUpon>201404261649255_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
