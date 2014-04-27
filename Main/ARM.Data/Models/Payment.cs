@@ -7,21 +7,30 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Net.Cache;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Payment)]
-
+    [ARMMetadata(Metadata = eARMMetadata.Payment)]
     public class Payment : BaseNamedModel
     {
         [ARMRequired]
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Payment_Number")]
+        public string Number { get; set; }
+
+        [ARMRequired]
         public Guid InvoiceId { get; set; }
 
+        [ARMRequired]
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Payment_Date")]
         public DateTime Date { get; set; }
 
+        [ARMMin(Min = 0)]
+        [ARMGrid(Order = 4)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Payment_Sum")]
         public decimal Sum { get; set; }
 
         public virtual Invoice Invoice { get; set; }

@@ -97,6 +97,8 @@
   <ItemGroup>
     <Compile Include="Commands\Menu\ARMBaseMainMenuCommand.cs" />
     <Compile Include="Commands\Menu\Documents\ARMMenuContractCommand.cs" />
+    <Compile Include="Commands\Menu\Documents\ARMMenuInvoiceCommand.cs" />
+    <Compile Include="Commands\Menu\Documents\ARMMenuPaymentCommand.cs" />
     <Compile Include="Commands\Menu\File\ARMMenuExitCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuAddressCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuClassCommand.cs" />
@@ -116,7 +118,11 @@
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
     <Compile Include="Interfaces\Documents\ViewModel\IARMContractValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Documents\ViewModel\IARMInvoiceValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Documents\ViewModel\IARMPaymentValidatableViewModel.cs" />
     <Compile Include="Interfaces\Documents\View\IARMContractView.cs" />
+    <Compile Include="Interfaces\Documents\View\IARMInvoiceView.cs" />
+    <Compile Include="Interfaces\Documents\View\IARMPaymentView.cs" />
     <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
@@ -164,12 +170,15 @@
     <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Documents\ARMContractValidatableViewModel.cs" />
+    <Compile Include="ViewModel\Documents\ARMInvoiceValidatableViewModel.cs" />
+    <Compile Include="ViewModel\Documents\ARMPaymentValidatableViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMAddressGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMClassGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMContractGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMCountryGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMFacultyGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMGroupGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMInvoiceGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMLanguageGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMParentGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMSessionGridViewModel.cs" />
@@ -201,6 +210,13 @@
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="View\Documents\ARMContractView.xaml.cs">
       <DependentUpon>ARMContractView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Documents\ARMInvoiceView.xaml.cs">
+      <DependentUpon>ARMInvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Grid\ARMPaymentGridViewModel.cs" />
+    <Compile Include="View\Documents\ARMPaymentView.xaml.cs">
+      <DependentUpon>ARMPaymentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
@@ -292,6 +308,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\Documents\ARMContractView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents\ARMInvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents\ARMPaymentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

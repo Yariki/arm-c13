@@ -194,6 +194,12 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.DocumentContract:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Contract>>();
                     break;
+                case eARMMainMenuCommand.DocumentInvoice:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Invoice>>();
+                    break;
+                case eARMMainMenuCommand.DocumentPayment:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Payment>>();
+                    break;
 
 
             }
@@ -332,6 +338,20 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Contract, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Invoice:
+                    viewModel = _unityContainer.Resolve<IARMInvoiceValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Invoice, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Payment:
+                    viewModel = _unityContainer.Resolve<IARMPaymentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Payment, obj.Id);
                     }
                     break;
             }

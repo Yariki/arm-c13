@@ -85,6 +85,14 @@
     <Compile Include="CommonContextMigrations\201404261649255_Init.Designer.cs">
       <DependentUpon>201404261649255_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.cs" />
+    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.Designer.cs">
+      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.cs" />
+    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.Designer.cs">
+      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -270,6 +278,12 @@
   <ItemGroup>
     <EmbeddedResource Include="CommonContextMigrations\201404261649255_Init.resx">
       <DependentUpon>201404261649255_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404271235370_NumberForInvoice.resx">
+      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404271348243_NumberForPayment.resx">
+      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

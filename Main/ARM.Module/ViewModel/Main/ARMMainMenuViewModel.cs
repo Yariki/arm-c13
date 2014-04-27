@@ -75,6 +75,8 @@ namespace ARM.Module.ViewModel.Main
 
             Documents = new ObservableCollection<IARMMenuCommand>();
             Documents.Add(new ARMMenuContractCommand(_actionMenu,_canFunc));
+            Documents.Add(new ARMMenuInvoiceCommand(_actionMenu,_canFunc));
+            Documents.Add(new ARMMenuPaymentCommand(_actionMenu, _canFunc));
         }
 
         #endregion [private]

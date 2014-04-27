@@ -718,6 +718,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Invoice.
+        /// </summary>
+        public static string Model_Data_Invoice {
+            get {
+                return ResourceManager.GetString("Model_Data_Invoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Language.
         /// </summary>
         public static string Model_Data_Language {
@@ -732,6 +741,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Parent {
             get {
                 return ResourceManager.GetString("Model_Data_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Payment.
+        /// </summary>
+        public static string Model_Data_Payment {
+            get {
+                return ResourceManager.GetString("Model_Data_Payment", resourceCulture);
             }
         }
         
@@ -862,6 +880,69 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contract.
+        /// </summary>
+        public static string Model_Invoice_Contract {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Contract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date due.
+        /// </summary>
+        public static string Model_Invoice_DateDue {
+            get {
+                return ResourceManager.GetString("Model_Invoice_DateDue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Invoice_Number {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum.
+        /// </summary>
+        public static string Model_Invoice_Price {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string Model_Invoice_Session {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice status.
+        /// </summary>
+        public static string Model_Invoice_Status {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoices.
+        /// </summary>
+        public static string Model_Invoice_Title {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Model_Name {
@@ -903,6 +984,51 @@ namespace ARM.Resource.AppResource {
         public static string Model_Parent_Title {
             get {
                 return ResourceManager.GetString("Model_Parent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Model_Payment_Date {
+            get {
+                return ResourceManager.GetString("Model_Payment_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice.
+        /// </summary>
+        public static string Model_Payment_Invoice {
+            get {
+                return ResourceManager.GetString("Model_Payment_Invoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Payment_Number {
+            get {
+                return ResourceManager.GetString("Model_Payment_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum.
+        /// </summary>
+        public static string Model_Payment_Sum {
+            get {
+                return ResourceManager.GetString("Model_Payment_Sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payments.
+        /// </summary>
+        public static string Model_Payment_Title {
+            get {
+                return ResourceManager.GetString("Model_Payment_Title", resourceCulture);
             }
         }
         

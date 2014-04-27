@@ -103,6 +103,12 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMContractView, ARMContractView>();
             UnityContainer.RegisterType<IARMContractValidatableViewModel, ARMContractValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMInvoiceView, ARMInvoiceView>();
+            UnityContainer.RegisterType<IARMInvoiceValidatableViewModel, ARMInvoiceValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMPaymentView, ARMPaymentView>();
+            UnityContainer.RegisterType<IARMPaymentValidatableViewModel, ARMPaymentValidatableViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())
