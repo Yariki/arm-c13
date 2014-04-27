@@ -93,6 +93,10 @@
     <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.Designer.cs">
       <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201404272152555_Prefix.cs" />
+    <Compile Include="CommonContextMigrations\201404272152555_Prefix.Designer.cs">
+      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201404271348243_NumberForPayment.resx">
       <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201404272152555_Prefix.resx">
+      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

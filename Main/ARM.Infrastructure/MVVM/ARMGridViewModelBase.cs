@@ -78,6 +78,11 @@ namespace ARM.Infrastructure.MVVM
             }
         }
 
+        protected virtual void UpdateRelatedSource()
+        {
+            
+        }
+
         #endregion [protected]
 
         #region [toolbox commands]
@@ -138,6 +143,7 @@ namespace ARM.Infrastructure.MVVM
             _bll.Refresh();
             DataSource = _bll.GetAll().ToList();
             OnPropertyChanged(() => DataSource);
+            UpdateRelatedSource();
         }
 
         private void DeleteEntity(T entity)

@@ -6,13 +6,12 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Settings)]
+    [ARMMetadata(Metadata = eARMMetadata.Settings)]
 
     public class SettingParameters : BaseModel
     {
@@ -22,7 +21,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
         [ARMRequired]
         public Guid DefCountry
         {
@@ -35,13 +34,13 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
         public InvoiceStatus DefInvoiceStatus
         {
             get;
             set;
         }
-        
+
         [ARMMin(Min = 0)]
         public decimal DefBaseStipend
         {
@@ -55,7 +54,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        [ARMRange(Min = 0,Max = 6)]
+        [ARMRange(Min = 0, Max = 6)]
         public double DefStipendMark
         {
             get;
@@ -67,6 +66,22 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        [ARMRequired]
+        public string ContractPrefix { get; set; }
+
+        [ARMRequired]
+        public string InvoicePrefix { get; set; }
+
+        [ARMRequired]
+        public string PaymentPrefix { get; set; }
+
+        public long ContractNumber { get; set; }
+
+        public long InvoiceNumber { get; set; }
+
+        public long PaymentNumber { get; set; }
+
 
     }//end SettingParameters
 }//end namespace Models

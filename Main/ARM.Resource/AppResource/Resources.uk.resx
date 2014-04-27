@@ -579,4 +579,13 @@
   <data name="Model_Payment_Title" xml:space="preserve">
     <value>Платіжки</value>
   </data>
+  <data name="Model_Settings_ContractPrefix" xml:space="preserve">
+    <value>Префікс контракта</value>
+  </data>
+  <data name="Model_Settings_InvoicePrefix" xml:space="preserve">
+    <value>Префікс разунку-фактури</value>
+  </data>
+  <data name="Model_Settings_PaymentPrefix" xml:space="preserve">
+    <value>Префікс платіжки</value>
+  </data>
 </root>

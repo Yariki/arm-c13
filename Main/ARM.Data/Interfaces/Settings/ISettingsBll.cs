@@ -17,6 +17,15 @@ namespace ARM.Data.Interfaces.Settings
         Guid GetDefaultCountry();
         EducationLevel GetDefaultEducationLevel();
         InvoiceStatus GetDefaultInvoiceStatus();
+        
+        string GetContractPrefix();
+        long GetNextContractNumber();
+
+        string GetInvoicePrefix();
+        long GetNextInvoiceNumber();
+
+        string GetPaymentPrefix();
+        long GetNextPaymentNumber();
 
     }//end ISettingsBll
 }//end namespace Settings

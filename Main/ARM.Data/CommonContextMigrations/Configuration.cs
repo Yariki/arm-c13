@@ -52,7 +52,13 @@ namespace ARM.Data.CommonContextMigrations
                 DefBaseStipend = 900,
                 DefIncreaseStipend = 1200,
                 DefStipendMark = 3,
-                DefStipenHighMark = 5
+                DefStipenHighMark = 5,
+                ContractPrefix = "КС",
+                InvoicePrefix = "РФС",
+                PaymentPrefix =  "ПС",
+                ContractNumber = 0,
+                InvoiceNumber = 0,
+                PaymentNumber = 0
             });
 
         }

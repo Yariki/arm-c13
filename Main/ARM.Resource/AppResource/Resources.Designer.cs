@@ -1132,6 +1132,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contract Prefix.
+        /// </summary>
+        public static string Model_Settings_ContractPrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_ContractPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default Base stipend.
         /// </summary>
         public static string Model_Settings_DefBaseStipend {
@@ -1200,6 +1209,24 @@ namespace ARM.Resource.AppResource {
         public static string Model_Settings_DefUniversity {
             get {
                 return ResourceManager.GetString("Model_Settings_DefUniversity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Prefix.
+        /// </summary>
+        public static string Model_Settings_InvoicePrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_InvoicePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Prefix.
+        /// </summary>
+        public static string Model_Settings_PaymentPrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_PaymentPrefix", resourceCulture);
             }
         }
         

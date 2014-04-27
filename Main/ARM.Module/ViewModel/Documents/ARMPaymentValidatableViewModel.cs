@@ -85,6 +85,8 @@ namespace ARM.Module.ViewModel.Documents
             {
                 case ViewMode.Add:
                     entity.Date = DateTime.Now.Date;
+                    entity.Number = string.Format("{0}-{1:D10}", _unitOfWork.SettingsRepository.GetPaymentPrefix(),
+                        _unitOfWork.SettingsRepository.GetNextPaymentNumber());
                     break;
             }
         }

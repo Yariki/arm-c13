@@ -22,6 +22,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -83,5 +85,15 @@
         <xceed:DoubleUpDown
             Value="{Binding DefStipenHighMark,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"
             Grid.Column="5" Grid.Row="3" />
+        
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="{x:Static prop:Resources.Model_Settings_ContractPrefix }"></TextBlock>
+        <TextBox Grid.Column="2" Grid.Row="4" Text="{Binding ContractPrefix,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <TextBlock Grid.Column="4" Grid.Row="4" Text="{x:Static prop:Resources.Model_Settings_InvoicePrefix }"></TextBlock>
+        <TextBox Grid.Column="5" Grid.Row="4" Text="{Binding InvoicePrefix,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="{x:Static prop:Resources.Model_Settings_PaymentPrefix }"></TextBlock>
+        <TextBox Grid.Column="2" Grid.Row="5" Text="{Binding PaymentPrefix,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        
     </Grid>
 </UserControl>

@@ -76,6 +76,24 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => DefStipenHighMark, value); }
         }
 
+        public string ContractPrefix
+        {
+            get { return Get(() => ContractPrefix); }
+            set { Set(() => ContractPrefix, value); }
+        }
+
+        public string InvoicePrefix
+        {
+            get { return Get(() => InvoicePrefix); }
+            set { Set(() => InvoicePrefix, value); }
+        }
+
+        public string PaymentPrefix
+        {
+            get { return Get(() => PaymentPrefix); }
+            set { Set(() => PaymentPrefix, value); }
+        }
+
         #endregion [properties]
 
         #region [emun resource]

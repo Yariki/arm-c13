@@ -94,6 +94,8 @@ namespace ARM.Module.ViewModel.Documents
                 case ViewMode.Add:
                     entity.Status = _unitOfWork.SettingsRepository.GetDefaultInvoiceStatus();
                     entity.DateDue = DateTime.Now.Date.AddDays(30); //30 - could be in settings
+                    entity.Number = string.Format("{0}-{1:D10}", _unitOfWork.SettingsRepository.GetInvoicePrefix(),
+                        _unitOfWork.SettingsRepository.GetNextInvoiceNumber());
                     break;
             }
         }

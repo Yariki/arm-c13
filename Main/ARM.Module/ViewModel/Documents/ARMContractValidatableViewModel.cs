@@ -121,6 +121,8 @@ namespace ARM.Module.ViewModel.Documents
                 case ViewMode.Add:
                     entity.UniversityId = _unitOfWork.SettingsRepository.GetDefaultUniversity();
                     entity.Level = _unitOfWork.SettingsRepository.GetDefaultEducationLevel();
+                    entity.Number = string.Format("{0}-{1:D10}", _unitOfWork.SettingsRepository.GetContractPrefix(),
+                        _unitOfWork.SettingsRepository.GetNextContractNumber());
                     break;
             }
         }
