@@ -4,6 +4,7 @@ using ARM.Data.Interfaces.Address;
 using ARM.Data.Interfaces.Class;
 using ARM.Data.Interfaces.Contract;
 using ARM.Data.Interfaces.Country;
+using ARM.Data.Interfaces.Employer;
 using ARM.Data.Interfaces.Faculty;
 using ARM.Data.Interfaces.Group;
 using ARM.Data.Interfaces.Hobby;
@@ -19,6 +20,7 @@ using ARM.Data.Interfaces.Staff;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Interfaces.University;
 using ARM.Data.Interfaces.User;
+using ARM.Data.Interfaces.Visa;
 using ARM.Data.UnitOfWork.Implementation;
 using Microsoft.Practices.Unity;
 
@@ -48,6 +50,9 @@ namespace ARM.Data.UnitOfWork.Interfaces
         private IStudentBll _studentRepository;
         private IUniversityBll _universityRepository;
         private IUserBll _userRepositotry;
+        private IEmployerBll _employerRepository;
+        private IVisaBll _visaRepository;
+
 
         private bool _disposed = false;
         private readonly IUnityContainer _unityContainer;
@@ -81,46 +86,50 @@ namespace ARM.Data.UnitOfWork.Interfaces
 
         private void DisposeAllAlive()
         {
-            if(_achivementRepository !=  null)
+            if (_achivementRepository != null)
                 _achivementRepository.Dispose();
-            if(_addressRepository != null)
+            if (_addressRepository != null)
                 _addressRepository.Dispose();
-            if(_classRepository != null)
+            if (_classRepository != null)
                 _classRepository.Dispose();
-            if(_contractRepository != null)
+            if (_contractRepository != null)
                 _contractRepository.Dispose();
-            if(_countryRepository != null)
+            if (_countryRepository != null)
                 _countryRepository.Dispose();
-            if(_facultyRepository != null)
+            if (_facultyRepository != null)
                 _facultyRepository.Dispose();
-            if(_groupRepository != null)
+            if (_groupRepository != null)
                 _groupRepository.Dispose();
-            if(_hobbyRepository  !=null)
+            if (_hobbyRepository != null)
                 _hobbyRepository.Dispose();
-            if(_invoiseRepository != null)
+            if (_invoiseRepository != null)
                 _invoiseRepository.Dispose();
-            if(_languageRepository != null)
+            if (_languageRepository != null)
                 _languageRepository.Dispose();
-            if(_markrepository != null )
+            if (_markrepository != null)
                 _markrepository.Dispose();
-            if(_parentReposotory != null)
+            if (_parentReposotory != null)
                 _parentReposotory.Dispose();
-            if(_paymentrepository  != null)
+            if (_paymentrepository != null)
                 _paymentrepository.Dispose();
-            if(_sessionRepository !=  null)
+            if (_sessionRepository != null)
                 _sessionRepository.Dispose();
-            if(_settingsRepository != null)
+            if (_settingsRepository != null)
                 _settingsRepository.Dispose();
-            if(_speciltyRepository != null)
+            if (_speciltyRepository != null)
                 _speciltyRepository.Dispose();
-            if(_staffRepository  != null)
+            if (_staffRepository != null)
                 _staffRepository.Dispose();
-            if(_studentRepository != null)
+            if (_studentRepository != null)
                 _studentRepository.Dispose();
-            if(_universityRepository != null)
+            if (_universityRepository != null)
                 _universityRepository.Dispose();
-            if(_userRepositotry  != null)
+            if (_userRepositotry != null)
                 _userRepositotry.Dispose();
+            if (_employerRepository != null)
+                _employerRepository.Dispose();
+            if (_visaRepository != null)
+                _visaRepository.Dispose();
         }
 
         #endregion
@@ -222,9 +231,19 @@ namespace ARM.Data.UnitOfWork.Interfaces
             get { return _universityRepository ?? (_universityRepository = _unityContainer.Resolve<IUniversityBll>()); }
         }
 
-        public IUserBll UserRepository 
+        public IUserBll UserRepository
         {
             get { return _userRepositotry ?? (_userRepositotry = _unityContainer.Resolve<IUserBll>()); }
+        }
+
+        public IEmployerBll EmployerRepository
+        {
+            get { return _employerRepository ?? (_employerRepository = _unityContainer.Resolve<IEmployerBll>()); }
+        }
+
+        public IVisaBll VisaRepository 
+        {
+            get { return _visaRepository ?? (_visaRepository = _unityContainer.Resolve<IVisaBll>()); }
         }
 
         #endregion

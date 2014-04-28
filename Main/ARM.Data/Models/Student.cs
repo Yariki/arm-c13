@@ -70,6 +70,13 @@ namespace ARM.Data.Models
             set;
         }
 
+        public virtual List<Visa> Visas
+        {
+            get;
+            set;
+        }
+
+            
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_DateEnter")]
         [ARMGrid(Order = 9)]
@@ -155,6 +162,10 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public Guid? EmployerId { get; set; }
+
+        public virtual Employer Employer { get; set; }
 
         public virtual IList<Mark> Marks { get; set; }
 

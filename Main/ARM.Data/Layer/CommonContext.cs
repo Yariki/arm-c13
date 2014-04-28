@@ -58,6 +58,8 @@ namespace ARM.Data.Layer
         public DbSet<Student> Students { get; set; }
         public DbSet<University> Universities { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<Visa> Visas { get; set; }
 
         #endregion
 
@@ -139,6 +141,12 @@ namespace ARM.Data.Layer
                 .WithMany(s =>s.Parents)
                 .HasForeignKey(p => p.StudentId)
                 .WillCascadeOnDelete(false);
+            //visas 
+            modelBuilder.Entity<Visa>()
+                .HasRequired<Student>(h => h.Student)
+                .WithMany(s => s.Visas)
+                .HasForeignKey(h => h.StudentId)
+                .WillCascadeOnDelete(true);
 
         }
 

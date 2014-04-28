@@ -4,6 +4,7 @@ using ARM.Data.Interfaces.Address;
 using ARM.Data.Interfaces.Class;
 using ARM.Data.Interfaces.Contract;
 using ARM.Data.Interfaces.Country;
+using ARM.Data.Interfaces.Employer;
 using ARM.Data.Interfaces.Faculty;
 using ARM.Data.Interfaces.Group;
 using ARM.Data.Interfaces.Hobby;
@@ -19,6 +20,7 @@ using ARM.Data.Interfaces.Staff;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Interfaces.University;
 using ARM.Data.Interfaces.User;
+using ARM.Data.Interfaces.Visa;
 
 namespace ARM.Data.UnitOfWork.Implementation
 {
@@ -44,5 +46,7 @@ namespace ARM.Data.UnitOfWork.Implementation
         IStudentBll StudentRepository { get; }
         IUniversityBll UniversityRepository { get; }
         IUserBll UserRepository { get; }
+        IEmployerBll EmployerRepository { get; }
+        IVisaBll VisaRepository { get; }
     }
 }

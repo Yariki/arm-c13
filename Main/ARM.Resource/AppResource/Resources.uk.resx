@@ -588,4 +588,46 @@
   <data name="Model_Settings_PaymentPrefix" xml:space="preserve">
     <value>Префікс платіжки</value>
   </data>
+  <data name="Model_Data_Employer" xml:space="preserve">
+    <value>{0} Роботодавця</value>
+  </data>
+  <data name="Model_Data_Visa" xml:space="preserve">
+    <value>{0} Візу</value>
+  </data>
+  <data name="Model_Employer_Contact" xml:space="preserve">
+    <value>Контакт</value>
+  </data>
+  <data name="Model_Employer_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Model_Employer_Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Model_Employer_Title" xml:space="preserve">
+    <value>Роботодавці</value>
+  </data>
+  <data name="Model_Employer_Url" xml:space="preserve">
+    <value>Лінк</value>
+  </data>
+  <data name="Model_Visa_Number" xml:space="preserve">
+    <value>Номер візи</value>
+  </data>
+  <data name="Model_Visa_PassportNumber" xml:space="preserve">
+    <value>Номер паспорта</value>
+  </data>
+  <data name="Model_Visa_PlaceOfIssue" xml:space="preserve">
+    <value>Місце видачі</value>
+  </data>
+  <data name="Model_Visa_Title" xml:space="preserve">
+    <value>Візи</value>
+  </data>
+  <data name="Model_Visa_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Model_Visa_ValidFrom" xml:space="preserve">
+    <value>Дійсна з</value>
+  </data>
+  <data name="Model_Visa_ValidUntil" xml:space="preserve">
+    <value>Дійсна до</value>
+  </data>
 </root>

@@ -691,6 +691,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Employer.
+        /// </summary>
+        public static string Model_Data_Employer {
+            get {
+                return ResourceManager.GetString("Model_Data_Employer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Faculty.
         /// </summary>
         public static string Model_Data_Faculty {
@@ -808,11 +817,65 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Visa.
+        /// </summary>
+        public static string Model_Data_Visa {
+            get {
+                return ResourceManager.GetString("Model_Data_Visa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Modified.
         /// </summary>
         public static string Model_DateModified {
             get {
                 return ResourceManager.GetString("Model_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact person.
+        /// </summary>
+        public static string Model_Employer_Contact {
+            get {
+                return ResourceManager.GetString("Model_Employer_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Model_Employer_Email {
+            get {
+                return ResourceManager.GetString("Model_Employer_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Model_Employer_Phone {
+            get {
+                return ResourceManager.GetString("Model_Employer_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employers.
+        /// </summary>
+        public static string Model_Employer_Title {
+            get {
+                return ResourceManager.GetString("Model_Employer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url.
+        /// </summary>
+        public static string Model_Employer_Url {
+            get {
+                return ResourceManager.GetString("Model_Employer_Url", resourceCulture);
             }
         }
         
@@ -1470,6 +1533,69 @@ namespace ARM.Resource.AppResource {
         public static string Model_User_Title {
             get {
                 return ResourceManager.GetString("Model_User_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Visa_Number {
+            get {
+                return ResourceManager.GetString("Model_Visa_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passport number.
+        /// </summary>
+        public static string Model_Visa_PassportNumber {
+            get {
+                return ResourceManager.GetString("Model_Visa_PassportNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place of Issue.
+        /// </summary>
+        public static string Model_Visa_PlaceOfIssue {
+            get {
+                return ResourceManager.GetString("Model_Visa_PlaceOfIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visas.
+        /// </summary>
+        public static string Model_Visa_Title {
+            get {
+                return ResourceManager.GetString("Model_Visa_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Model_Visa_Type {
+            get {
+                return ResourceManager.GetString("Model_Visa_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid from.
+        /// </summary>
+        public static string Model_Visa_ValidFrom {
+            get {
+                return ResourceManager.GetString("Model_Visa_ValidFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid until.
+        /// </summary>
+        public static string Model_Visa_ValidUntil {
+            get {
+                return ResourceManager.GetString("Model_Visa_ValidUntil", resourceCulture);
             }
         }
     }
