@@ -29,6 +29,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
            
         </Grid.RowDefinitions>
@@ -115,6 +116,15 @@
                   SelectedValuePath="Key"
                   SelectedValue="{Binding StudyMode,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
+        <TextBlock Text="{x:Static prop:Resources.Model_Student_Employer}" Grid.Column="1" Grid.Row="9"></TextBlock>
+        <armLookupControl:ARMLookupControl Metadata="Employer"
+                                           UnityContainer="{Binding DiContainer}"
+                                           Value="{Binding EmployerId,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+                                           Grid.Column="2" Grid.Row="9" />
+
+
+
+
 
         <TextBlock Text="{x:Static prop:Resources.Model_Student_GradeBookNumber}" Grid.Column="4" Grid.Row="5"></TextBlock>
         <TextBox Text="{Binding GradeBookNumber,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"
@@ -138,7 +148,7 @@
                   SelectedValue="{Binding Status,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Height="200" Visibility="{Binding VisibilityAdditional}">
+        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="10" Height="200" Visibility="{Binding VisibilityAdditional}">
             <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}">
                 <Grid>
                     <Grid.RowDefinitions>

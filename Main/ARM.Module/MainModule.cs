@@ -109,6 +109,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMPaymentView, ARMPaymentView>();
             UnityContainer.RegisterType<IARMPaymentValidatableViewModel, ARMPaymentValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMEmployerView, ARMEmployerView>();
+            UnityContainer.RegisterType<IARMEmployerValidatableViewModel, ARMEmployerValidatableViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

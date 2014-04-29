@@ -17,6 +17,7 @@ using ARM.Core.MVVM;
 using ARM.Core.Service;
 using ARM.Core.Extensions;
 using ARM.Data.Sevice.Resolver;
+using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.Facade;
@@ -33,6 +34,8 @@ namespace ARM.Infrastructure.MVVM
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
         private List<IARMModelPropertyInfo> _listProperty;
 
+        protected IUnitOfWork UnitOfWork = null;
+
         /// 
         ///  <param name="businessObject"></param>
         ///  <param name="view"></param>
@@ -43,6 +46,7 @@ namespace ARM.Infrastructure.MVVM
             SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
             CancelCommand = new ARMRelayCommand(CancelExecute,CanCancelExecute);
             HasChanges = false;
+            UnitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
         ///
@@ -228,6 +232,11 @@ namespace ARM.Infrastructure.MVVM
                 if (_values != null)
                 {
                     _values.Clear();
+                }
+                if (UnitOfWork != null)
+                {
+                    UnitOfWork.Dispose();
+                    UnitOfWork = null;
                 }
             }
             base.Dispose(disposing);

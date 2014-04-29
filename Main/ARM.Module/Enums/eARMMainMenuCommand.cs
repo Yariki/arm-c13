@@ -21,6 +21,7 @@
         ReferenceParent,
         ReferenceSpeciality,
         ReferenceUser,
-        ReferenceStudent
+        ReferenceStudent,
+        ReferenceEmployer,
     }
 }

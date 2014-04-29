@@ -103,6 +103,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuAddressCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuClassCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuCountryCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuEmployerCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuFacultyCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuGroupCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuLanguageCommand.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Interfaces\References\ViewModel\IARMAddressValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMClassValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMEmployerValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMFacultyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMGroupValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMHobbyValidatableViewModel.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Interfaces\References\ViewModel\IARMLanguageValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStaffValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMEmployerView.cs" />
     <Compile Include="Interfaces\References\View\IARMFacultyView.cs" />
     <Compile Include="Interfaces\References\View\IARMGroupView.cs" />
     <Compile Include="Interfaces\References\View\IARMHobbyView.cs" />
@@ -176,6 +179,7 @@
     <Compile Include="ViewModel\Grid\ARMClassGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMContractGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMCountryGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMEmployerGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMFacultyGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMGroupGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMInvoiceGridViewModel.cs" />
@@ -195,6 +199,7 @@
     <Compile Include="ViewModel\References\ARMAddressValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMClassValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMEmployerValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMFacultyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMGroupValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMHobbyValidatableViewModel.cs" />
@@ -244,6 +249,9 @@
     </Compile>
     <Compile Include="View\References\ARMCountryView.xaml.cs">
       <DependentUpon>ARMCountryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMEmployerView.xaml.cs">
+      <DependentUpon>ARMEmployerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMFacultyView.xaml.cs">
       <DependentUpon>ARMFacultyView.xaml</DependentUpon>
@@ -354,6 +362,10 @@
     <Page Include="View\References\ARMCountryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMEmployerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\References\ARMFacultyView.xaml">
       <SubType>Designer</SubType>

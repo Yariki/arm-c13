@@ -203,6 +203,12 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => Status, value); }
         }
 
+        public Guid? EmployerId
+        {
+            get { return Get(() => EmployerId); }
+            set { Set(() => EmployerId, value); }
+        }
+
         #endregion
 
         #region [enum source]

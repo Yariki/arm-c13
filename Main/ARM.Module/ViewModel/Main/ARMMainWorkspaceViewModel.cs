@@ -200,7 +200,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.DocumentPayment:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Payment>>();
                     break;
-
+                case eARMMainMenuCommand.ReferenceEmployer:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Employer>>();
+                    break;
 
             }
             if (workspaceViewModel != null)
@@ -352,6 +354,13 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Payment, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Employer:
+                    viewModel = _unityContainer.Resolve<IARMEmployerValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Employer, obj.Id);
                     }
                     break;
             }

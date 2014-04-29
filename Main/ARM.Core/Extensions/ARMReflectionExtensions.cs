@@ -6,6 +6,7 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Security.Permissions;
 using ARM.Core.Attributes;
 
 namespace ARM.Core.Extensions
@@ -58,7 +59,16 @@ namespace ARM.Core.Extensions
         {
             Contract.Requires(pi  != null);
             Contract.Requires(context  != null);
-            pi.SetValue(context,value,null);
+
+            if (pi.IsNullable())
+            {
+                if (pi.PropertyType == typeof (Guid?) && (value as Guid?).Value == Guid.Empty)
+                {
+                    pi.SetValue(context, null, null);
+                }
+            }
+            else
+                pi.SetValue(context,value,null);
         }
 
         public static bool HasAttribute<T>(this PropertyInfo pi)
@@ -74,6 +84,11 @@ namespace ARM.Core.Extensions
             Contract.Requires(pi != null);
             var arr = pi.GetCustomAttributes(typeof (T), true);
             return (T)arr[0];
+        }
+
+        public static bool IsNullable(this PropertyInfo pi)
+        {
+            return Nullable.GetUnderlyingType(pi.PropertyType) != null;
         }
 
         #endregion

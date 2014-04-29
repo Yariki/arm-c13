@@ -1384,6 +1384,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employer.
+        /// </summary>
+        public static string Model_Student_Employer {
+            get {
+                return ResourceManager.GetString("Model_Student_Employer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Faculty.
         /// </summary>
         public static string Model_Student_Faculty {

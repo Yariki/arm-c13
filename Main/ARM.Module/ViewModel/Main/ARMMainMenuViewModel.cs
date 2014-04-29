@@ -71,6 +71,7 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuParentCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuAddressCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuUserCommand(_actionMenu, _canFunc));
+            References.Add(new ARMMenuEmployerCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
 
             Documents = new ObservableCollection<IARMMenuCommand>();

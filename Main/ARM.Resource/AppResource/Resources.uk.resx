@@ -630,4 +630,7 @@
   <data name="Model_Visa_ValidUntil" xml:space="preserve">
     <value>Дійсна до</value>
   </data>
+  <data name="Model_Student_Employer" xml:space="preserve">
+    <value>Роботодавець</value>
+  </data>
 </root>
