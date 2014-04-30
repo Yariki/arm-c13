@@ -7,17 +7,19 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata =  eARMMetadata.Visa)]
     public class Visa : BaseNamedModel
     {
-
+        [ARMRequired]
         public string Number { get; set; }
 
+        [ARMRequired]
         public string PlaceOfIssue { get; set; }
 
+        [ARMRequired]
         public VisaType VisaType { get; set; }
-
+        [ARMRequired]
         public string PassportNumber { get; set; }
-
+        [ARMRequired]
         public DateTime ValidFrom { get; set; }
-
+        [ARMRequired]
         public DateTime ValidUntil { get; set; }
 
         public Guid StudentId { get; set; }

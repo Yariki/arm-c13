@@ -11,6 +11,7 @@ namespace ARM.Data.Implementation.Student
         public DbSet<Models.Language> Languages { get; set; }
         public DbSet<Models.Hobby> Hobbies { get; set; }
         public DbSet<Models.Achivement> Achivements { get; set; }
+        public DbSet<Models.Visa> Visas { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

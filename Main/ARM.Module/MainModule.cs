@@ -112,6 +112,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMEmployerView, ARMEmployerView>();
             UnityContainer.RegisterType<IARMEmployerValidatableViewModel, ARMEmployerValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMVisaView, ARMVisaView>();
+            UnityContainer.RegisterType<IARMVisaValidatableViewModel, ARMVisaValidatableViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

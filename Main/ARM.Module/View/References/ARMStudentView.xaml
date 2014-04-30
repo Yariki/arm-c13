@@ -271,6 +271,48 @@
 
                 </Grid>
             </TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Visa_Title}" Visibility="{Binding IsForeignStudent}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddVisaCommand}">Add</Button>
+                        <Button Command="{Binding DeleteVisaCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding VisaList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedVisa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="{x:Static prop:Resources.Model_Name}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Number}"
+                                                Header="{x:Static prop:Resources.Model_Visa_Number}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PassportNumber}"
+                                                Header="{x:Static prop:Resources.Model_Visa_PassportNumber}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding ValidFrom}"
+                                                Header="{x:Static prop:Resources.Model_Visa_ValidFrom}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding ValidUntil}"
+                                                Header="{x:Static prop:Resources.Model_Visa_ValidUntil}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding VisaType}"
+                                                Header="{x:Static prop:Resources.Model_Visa_Type}"
+                                                Width="250"></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+            
         </TabControl>
 
 

@@ -62,9 +62,9 @@ namespace ARM.Core.Extensions
 
             if (pi.IsNullable())
             {
-                if (pi.PropertyType == typeof (Guid?) && (value as Guid?).Value == Guid.Empty)
+                if (pi.PropertyType == typeof (Guid?))
                 {
-                    pi.SetValue(context, null, null);
+                    pi.SetValue(context, (value as Guid?).Value == Guid.Empty ? (object) null : (value as Guid?).Value, null);
                 }
             }
             else

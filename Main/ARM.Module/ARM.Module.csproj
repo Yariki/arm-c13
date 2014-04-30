@@ -144,6 +144,7 @@
     <Compile Include="Interfaces\References\ViewModel\IARMSpecialityValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStudentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUserValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMVisaValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\Password\IARMPasswordViewModel.cs" />
     <Compile Include="Interfaces\References\View\IARMAchivementView.cs" />
     <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Interfaces\References\View\IARMStudentView.cs" />
     <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
     <Compile Include="Interfaces\References\View\IARMUserView.cs" />
+    <Compile Include="Interfaces\References\View\IARMVisaView.cs" />
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="ViewModel\References\ARMLanguageValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="View\Documents\ARMContractView.xaml.cs">
       <DependentUpon>ARMContractView.xaml</DependentUpon>
@@ -288,6 +291,9 @@
     </Compile>
     <Compile Include="View\References\ARMUserView.xaml.cs">
       <DependentUpon>ARMUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMVisaView.xaml.cs">
+      <DependentUpon>ARMVisaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
       <DependentUpon>ARMPasswordView.xaml</DependentUpon>
@@ -412,6 +418,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMVisaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

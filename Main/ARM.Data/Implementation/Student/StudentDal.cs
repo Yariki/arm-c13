@@ -26,10 +26,11 @@ namespace ARM.Data.Implementation.Student
             Context.Entry(entity).Collection(e => e.Languages).Load();
             Context.Entry(entity).Collection(e => e.Hobbies).Load();
             Context.Entry(entity).Collection(e => e.Achivements).Load();
+            Context.Entry(entity).Collection(e => e.Visas).Load();
             var ctx = Context as StudentContext;
             ctx.Hobbies.RemoveRange(entity.Hobbies);
             ctx.Achivements.RemoveRange(entity.Achivements);
-
+            ctx.Visas.RemoveRange(entity.Visas);
             entity.Languages.Clear();
         }
     }//end StudentDal

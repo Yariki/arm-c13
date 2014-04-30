@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Windows;
 using System.Windows.Input;
 using ARM.Core.Enums;
+using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
@@ -53,10 +54,15 @@ namespace ARM.Module.ViewModel.References
             AddLanguageCommand = new ARMRelayCommand(AddLanguageExecute);
             DeleteLanguageCommand = new ARMRelayCommand(DeleteLanguageExecute);
 
+            AddVisaCommand = new ARMRelayCommand(AddVisaExecute);
+            DeleteVisaCommand = new ARMRelayCommand(DeleteVisaExecute);
+
+
             AchivementsList = new ObservableCollection<Achivement>();
             HobbiesList = new ObservableCollection<Hobby>();
             ParentsList = new ObservableCollection<Parent>();
             LanguagesList = new ObservableCollection<Language>();
+            VisaList = new ObservableCollection<Visa>();
         }
 
         public override string Title
@@ -188,7 +194,7 @@ namespace ARM.Module.ViewModel.References
         public bool IsForeign
         {
             get { return Get(() => IsForeign); }
-            set { Set(() => IsForeign, value); }
+            set { Set(() => IsForeign, value); OnPropertyChanged(() => IsForeignStudent); }
         }
 
         public Guid? SpecialityId
@@ -207,6 +213,17 @@ namespace ARM.Module.ViewModel.References
         {
             get { return Get(() => EmployerId); }
             set { Set(() => EmployerId, value); }
+        }
+
+        public ObservableCollection<Visa> VisaList
+        {
+            get { return Get(() => VisaList); }
+            set { Set(() => VisaList, value); }
+        }
+
+        public Visibility IsForeignStudent 
+        {
+            get { return (Mode == ViewMode.Edit && IsForeign).ToVisibility(); }
         }
 
         #endregion
@@ -262,6 +279,10 @@ namespace ARM.Module.ViewModel.References
             if (entity.Languages != null && entity.Languages.Count > 0)
             {
                 LanguagesList.AddRange(entity.Languages);
+            }
+            if (entity.Visas != null && entity.Visas.Count > 0)
+            {
+                VisaList.AddRange(entity.Visas);
             }
         }
 
@@ -535,7 +556,7 @@ namespace ARM.Module.ViewModel.References
         public ICommand AddLanguageCommand { get; private set; }
         public ICommand DeleteLanguageCommand { get; private set; }
 
-        public void AddLanguageExecute(object arg)
+        private void AddLanguageExecute(object arg)
         {
             IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
             viewModel.Initialize(eARMMetadata.Language);
@@ -549,12 +570,75 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
-        public void DeleteLanguageExecute(object arg)
+        private void DeleteLanguageExecute(object arg)
         {
             if (SelectedLanguage == null)
                 return;
             LanguagesList.Remove(SelectedLanguage);
             OnPropertyChanged(() => LanguagesList);
+        }
+
+        #endregion
+
+        #region [visa]
+
+        public Visa SelectedVisa 
+        {
+            get { return Get(() => SelectedVisa); }
+            set {Set(() => SelectedVisa,value); }
+        }
+
+        public ICommand AddVisaCommand { get; private set; }
+        public ICommand DeleteVisaCommand { get; private set; }
+
+        private void AddVisaExecute(object arg)
+        {
+            IARMVisaValidatableViewModel viewModel = UnityContainer.Resolve<IARMVisaValidatableViewModel>();
+            try
+            {
+                if (viewModel == null)
+                    return;
+                viewModel.SetBusinessObject(ViewMode.Add, eARMMetadata.Visa, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(viewModel) {Width = 350, Height = 450};
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    var entity = viewModel.GetBusinessObject<Visa>();
+                    entity.Id = Guid.NewGuid();
+                    entity.StudentId = GetBusinessObject<Student>().Id;
+                    UnitOfWork.VisaRepository.Insert(entity);
+                    UnitOfWork.VisaRepository.Save();
+                    VisaList.Add(entity);
+                    OnPropertyChanged(() => VisaList);
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+            finally
+            {
+                if(viewModel != null)
+                    viewModel.Dispose();
+            }
+        }
+
+
+        private void DeleteVisaExecute(object arg)
+        {
+            if (SelectedVisa == null)
+                return;
+            try
+            {
+                UnitOfWork.VisaRepository.Delete(SelectedVisa);
+                UnitOfWork.VisaRepository.Save();
+                VisaList.Remove(SelectedVisa);
+                OnPropertyChanged(() => VisaList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
         }
 
         #endregion
