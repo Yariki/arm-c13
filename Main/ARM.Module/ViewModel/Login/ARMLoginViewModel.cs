@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
@@ -10,11 +12,25 @@ using ARM.Module.Interfaces.Login.ViewModel;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ARM.Module.ViewModel.Login
 {
     public class ARMLoginViewModel : ARMValidatableViewModelBase,IARMLoginViewModel
     {
+        #region [login info]
+
+        class LoginInfo
+        {
+            public string Name { get; set; }
+            public string Password { get; set; }
+            public bool IsSave { get; set; }
+        }
+
+        #endregion
+
+        private const string SavedloginInfoFile = "info.json";
         private User _user;
 
         public ARMLoginViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMLoginView view) 
@@ -76,6 +92,13 @@ namespace ARM.Module.ViewModel.Login
         {
             base.SetBusinessObject(mode,metadata,data);
             IsValid = false;
+            var savedLoginInfo = GetSavedLoginInfo();
+            if (savedLoginInfo != null)
+            {
+                Name = savedLoginInfo.Name;
+                Password = savedLoginInfo.Password;
+                IsSaveInfo = savedLoginInfo.IsSave;
+            }
         }
 
         protected override void CancelExecute(object arg)
@@ -96,6 +119,10 @@ namespace ARM.Module.ViewModel.Login
                 IsUserValid = true;
                 Language = validUser.Language;
                 _user = validUser;
+                if (IsSaveInfo)
+                {
+                    SaveLoginInfo(loginInfo.Name,loginInfo.Password,IsSaveInfo);
+                }
                 CloseDialog(true);
             }
             else
@@ -117,6 +144,43 @@ namespace ARM.Module.ViewModel.Login
                 CloseAction(result);
             }
         }
+
+        #endregion
+
+        #region [settings]
+
+        private void SaveLoginInfo(string name, string password, bool isSave)
+        {
+            IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
+            using (IsolatedStorageFileStream fileStream = new IsolatedStorageFileStream(SavedloginInfoFile,FileMode.Create, isoStore))
+            {
+                var info = new LoginInfo() {Name = name, Password = password,IsSave = isSave};
+                string line = JsonConvert.SerializeObject(info, Formatting.Indented);
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.WriteLine(line);
+                }
+            }
+        }
+
+        private LoginInfo GetSavedLoginInfo()
+        {
+            IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
+            if (isoStore.FileExists(SavedloginInfoFile))
+            {
+                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(SavedloginInfoFile, FileMode.Open, isoStore))
+                {
+                    using (StreamReader reader = new StreamReader(isoStream))
+                    {
+                        string line = reader.ReadToEnd();
+                        var loginInfo = JsonConvert.DeserializeObject<LoginInfo>(line);
+                        return loginInfo;
+                    }
+                }               
+            }
+            return null;
+        }
+
 
         #endregion
 
