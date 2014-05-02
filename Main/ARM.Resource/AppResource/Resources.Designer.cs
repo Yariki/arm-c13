@@ -1006,6 +1006,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modified By.
+        /// </summary>
+        public static string Model_ModifiedBy {
+            get {
+                return ResourceManager.GetString("Model_ModifiedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Model_Name {

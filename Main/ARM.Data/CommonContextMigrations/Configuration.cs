@@ -60,6 +60,15 @@ namespace ARM.Data.CommonContextMigrations
                 InvoiceNumber = 0,
                 PaymentNumber = 0
             });
+            context.Users.AddOrUpdate(u => u.Id, new User()
+            {
+                Id = Guid.Parse(GuidDefault),
+                Name = "admin",
+                Email = "admin@admin.com",
+                Password = "21232f297a57a5a743894a0e4a801fc3",
+                IsActive = true,
+                Language = eARMSystemLanguage.Ukrainian
+            });
 
         }
     }

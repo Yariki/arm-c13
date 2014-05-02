@@ -633,4 +633,7 @@
   <data name="Model_Student_Employer" xml:space="preserve">
     <value>Роботодавець</value>
   </data>
+  <data name="Model_ModifiedBy" xml:space="preserve">
+    <value>Змінено</value>
+  </data>
 </root>

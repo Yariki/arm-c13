@@ -42,7 +42,8 @@ namespace ARM.Client
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            _model.OnClosing(e);
+            if (_model != null)
+                _model.OnClosing(e);
         }
 
         private void ModelOnClose(object sender, EventArgs eventArgs)

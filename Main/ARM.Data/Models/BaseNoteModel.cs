@@ -12,7 +12,7 @@ namespace ARM.Data.Models
 {
     public abstract class BaseNoteModel : BaseNamedModel
     {
-        [ARMGrid(Order = int.MaxValue - 1)]
+        [ARMGrid(Order = int.MaxValue - 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Note")]
         public string Note
         {

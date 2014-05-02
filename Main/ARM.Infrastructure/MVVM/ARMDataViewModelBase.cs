@@ -16,6 +16,7 @@ using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Core.Service;
 using ARM.Core.Extensions;
+using ARM.Data.Models;
 using ARM.Data.Sevice.Resolver;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Events;
@@ -59,6 +60,23 @@ namespace ARM.Infrastructure.MVVM
             if (dataModelReoslver != null)
             {
                 _dataObject = dataModelReoslver.GetDataModel(metadata, id, isIdEmpty);
+                if (Mode == ViewMode.Edit)
+                {
+                    (_dataObject as BaseModel).ModifiedBy = ARMSystemFacade.Instance.CurrentUser.Name;
+                }
+            }
+            _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
+
+        }
+
+        public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, object data)
+        {
+            Mode = mode;
+            Metadata = metadata;
+            _dataObject = data;
+            if (Mode == ViewMode.Edit)
+            {
+                (_dataObject as BaseModel).ModifiedBy = ARMSystemFacade.Instance.CurrentUser.Name;
             }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
         }

@@ -130,6 +130,9 @@
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\Login\ViewModel\IARMLoginViewModel.cs" />
+    <Compile Include="Interfaces\Login\View\IARMLoginDialogView.cs" />
+    <Compile Include="Interfaces\Login\View\IARMLoginView.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMAchivementValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMAddressValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMClassValidatableViewModel.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="ViewModel\Grid\ARMStudentGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUniversityGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUserGridViewModel.cs" />
+    <Compile Include="ViewModel\Login\ARMLoginViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainMenuViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
@@ -225,6 +229,12 @@
     <Compile Include="ViewModel\Grid\ARMPaymentGridViewModel.cs" />
     <Compile Include="View\Documents\ARMPaymentView.xaml.cs">
       <DependentUpon>ARMPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\Dialog\ARMLoginDialogView.xaml.cs">
+      <DependentUpon>ARMLoginDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\View\ARMLoginView.xaml.cs">
+      <DependentUpon>ARMLoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
@@ -330,6 +340,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Documents\ARMPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login\Dialog\ARMLoginDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login\View\ARMLoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

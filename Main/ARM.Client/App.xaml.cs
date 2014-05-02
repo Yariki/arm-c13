@@ -14,7 +14,6 @@ namespace ARM.Client
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk");
             var bootStrap = new ARMBootStraper();
             bootStrap.Run();
         }

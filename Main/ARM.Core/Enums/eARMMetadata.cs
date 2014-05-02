@@ -24,6 +24,7 @@
         University,
         User,
         Employer,
-        Visa
+        Visa,
+        Login
     }
 }

@@ -264,6 +264,7 @@
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceStatus.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Mark.cs" />
     <Compile Include="Models\MarkType.cs" />
     <Compile Include="Models\Parent.cs" />

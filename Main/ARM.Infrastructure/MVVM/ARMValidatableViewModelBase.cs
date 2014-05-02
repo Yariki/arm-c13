@@ -41,6 +41,14 @@ namespace ARM.Infrastructure.MVVM
             IsValid = true;
         }
 
+        public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, object data)
+        {
+            base.SetBusinessObject(mode, metadata, data);
+            _validationAdaptor.SetValidationObject(GetBusinessObject<object>(), GetAllArmPropertyInfo());
+            _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
+            IsValid = true;
+        }
+
         private void ValidationAdaptorOnValidationCompleted(object sender, ValidationEventArgs validationEventArgs)
         {
             if (!validationEventArgs.Result.IsValid)
