@@ -14,13 +14,6 @@ namespace ARM.Data.Models
   [ARMMetadata(Metadata = eARMMetadata.Hobby)]
     public class Hobby : BaseNoteModel
     {
-        public Hobby()
-        {
-        }
-
-        ~Hobby()
-        {
-        }
 
         public Guid StudentId
         {

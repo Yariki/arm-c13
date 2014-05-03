@@ -17,5 +17,6 @@ namespace ARM.Data.Implementation.Student
             : base(dal)
         {
         }
+
     }//end StudentBll
 }//end namespace Student

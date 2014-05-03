@@ -7,5 +7,6 @@ namespace ARM.Infrastructure.Controls.Interfaces
     {
         ICommand OkCommand { get; }
         ICommand CancelCommand { get; }
+        bool Validate();
     }
 }

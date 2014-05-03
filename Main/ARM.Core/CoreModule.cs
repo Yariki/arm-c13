@@ -36,7 +36,8 @@ namespace ARM.Core
         protected override void InternalInitialize()
         {
             base.InternalInitialize();
-            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => ARMModelsPropertyCache.Instance.Initialize()));
+            //Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => ARMModelsPropertyCache.Instance.Initialize()));
+            ARMModelsPropertyCache.Instance.Initialize();
         }
     }//end CoreModule
 }//end namespace ARM.Core

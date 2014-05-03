@@ -85,6 +85,10 @@ namespace ARM.Module.ViewModel.References.Password
         }
 
         public ICommand OkCommand { get; private set; }
+        public bool Validate()
+        {
+            return !_hasErrors;
+        }
 
         private bool OnCanExecute(object o)
         {

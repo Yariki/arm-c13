@@ -16,7 +16,7 @@ namespace ARM.Data.CommonContextMigrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"CommonContextMigrations";
         }
 
@@ -52,7 +52,22 @@ namespace ARM.Data.CommonContextMigrations
                 DefBaseStipend = 900,
                 DefIncreaseStipend = 1200,
                 DefStipendMark = 3,
-                DefStipenHighMark = 5
+                DefStipenHighMark = 5,
+                ContractPrefix = "КС",
+                InvoicePrefix = "РФС",
+                PaymentPrefix =  "ПС",
+                ContractNumber = 0,
+                InvoiceNumber = 0,
+                PaymentNumber = 0
+            });
+            context.Users.AddOrUpdate(u => u.Id, new User()
+            {
+                Id = Guid.Parse(GuidDefault),
+                Name = "admin",
+                Email = "admin@admin.com",
+                Password = "21232f297a57a5a743894a0e4a801fc3",
+                IsActive = true,
+                Language = eARMSystemLanguage.Ukrainian
             });
 
         }

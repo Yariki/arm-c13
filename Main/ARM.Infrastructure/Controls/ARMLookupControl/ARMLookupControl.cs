@@ -8,6 +8,7 @@ using ARM.Core.Interfaces.Data;
 using ARM.Core.Module;
 using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Annotations;
+using ARM.Infrastructure.Controls.ARMLookupWindow;
 using ARM.Infrastructure.Controls.Interfaces;
 using Microsoft.Practices.Unity;
 

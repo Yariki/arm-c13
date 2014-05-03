@@ -35,7 +35,7 @@ namespace ARM.Infrastructure.Helpers
             Dictionary<T,string> dic = new Dictionary<T, string>();
             foreach (var value in Enum.GetValues(typeof(T)))
             {
-                var localName =  Resources.ResourceManager.GetString(EnumPrefix + value.ToString());
+                var localName =  Resources.ResourceManager.GetString(EnumPrefix + value.ToString()) ?? value.ToString();
                 dic.Add((T)value,localName);
             }
             return dic;

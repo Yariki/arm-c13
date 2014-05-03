@@ -45,10 +45,56 @@ namespace ARM.Data.Implementation.Settings
             return entity != null ? entity.DefInvoiceStatus : InvoiceStatus.None;
         }
 
+        public string GetContractPrefix()
+        {
+            var entity = GetDefaultParameters();
+            return entity.ContractPrefix;
+        }
+
+        public long GetNextContractNumber()
+        {
+            var entity = GetDefaultParameters();
+            long num = ++entity.ContractNumber;
+            Update(entity);
+            Save();
+            return num;
+        }
+
+        public string GetInvoicePrefix()
+        {
+            var entity = GetDefaultParameters();
+            return entity.InvoicePrefix;
+        }
+
+        public long GetNextInvoiceNumber()
+        {
+            var entity = GetDefaultParameters();
+            long num = ++entity.InvoiceNumber;
+            Update(entity);
+            Save();
+            return num;
+        }
+
+        public string GetPaymentPrefix()
+        {
+            var entity = GetDefaultParameters();
+            return entity.PaymentPrefix;
+        }
+
+        public long GetNextPaymentNumber()
+        {
+            var entity = GetDefaultParameters();
+            long num = ++entity.PaymentNumber;
+            Update(entity);
+            Save();
+            return num;
+        }
+
         private SettingParameters GetDefaultParameters()
         {
             return GetById(GlobalConst.IdDefault);
         }
+
 
     }//end SettingsBll
 }//end namespace Settings

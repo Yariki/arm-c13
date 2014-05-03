@@ -20,6 +20,7 @@ using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
@@ -190,6 +191,18 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceStudent:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Student>>();
                     break;
+                case eARMMainMenuCommand.DocumentContract:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Contract>>();
+                    break;
+                case eARMMainMenuCommand.DocumentInvoice:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Invoice>>();
+                    break;
+                case eARMMainMenuCommand.DocumentPayment:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Payment>>();
+                    break;
+                case eARMMainMenuCommand.ReferenceEmployer:
+                    workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Employer>>();
+                    break;
 
             }
             if (workspaceViewModel != null)
@@ -320,6 +333,34 @@ namespace ARM.Module.ViewModel.Main
                     if (viewModel != null)
                     {
                         (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Student, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Contract:
+                    viewModel = _unityContainer.Resolve<IARMContractValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Contract, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Invoice:
+                    viewModel = _unityContainer.Resolve<IARMInvoiceValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Invoice, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Payment:
+                    viewModel = _unityContainer.Resolve<IARMPaymentValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Payment, obj.Id);
+                    }
+                    break;
+                case eARMMetadata.Employer:
+                    viewModel = _unityContainer.Resolve<IARMEmployerValidatableViewModel>();
+                    if (viewModel != null)
+                    {
+                        (viewModel as ARMDataViewModelBase).SetBusinessObject(obj.Mode, eARMMetadata.Employer, obj.Id);
                     }
                     break;
             }

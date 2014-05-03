@@ -13,16 +13,14 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Invoice)]
+    [ARMMetadata(Metadata = eARMMetadata.Invoice)]
     public class Invoice : BaseNamedModel
     {
-        public Invoice()
-        {
-        }
+        [ARMRequired]
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Invoice_Number")]
+        public string Number { get; set; }
 
-        ~Invoice()
-        {
-        }
         [ARMRequired]
         public Guid ContractId
         {
@@ -30,24 +28,34 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMRequired]
         public Guid? SessionId
         {
             get;
             set;
         }
-        [ARMRequired]
+
+        [ARMMin(Min = 0)]
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Price")]
         public decimal Price
         {
             get;
             set;
         }
 
+        [ARMRequired]
+        [ARMGrid(Order = 4)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_DateDue")]
         public DateTime DateDue
         {
             get;
             set;
         }
 
+        [ARMRequired]
+        [ARMGrid(Order = 5)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Status")]
         public InvoiceStatus Status
         {
             get;

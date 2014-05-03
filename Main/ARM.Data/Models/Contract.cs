@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
@@ -17,21 +18,30 @@ namespace ARM.Data.Models
     public class Contract : BaseNoteModel
     {
         [ARMRequired]
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Contract_Number")]
         public string Number { get; set; }
 
+        [ARMRequired]
         public EducationLevel Level { get; set; }
 
         [ARMRequired]
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Contract_Parent")]
         public Guid? ParentId { get; set; }
 
+        [ARMRequired]
         public Guid UniversityId { get; set; }
-
+        
+        [ARMRequired]
         public Guid? StudentId { get; set; }
-
+        
+        [ARMRequired]
         public Guid? SpecialityId { get; set; }
-
+        
+        [ARMRequired]
         public decimal Price { get; set; }
-
+        
         public virtual Parent Customer { get; set; }
 
         public virtual University University { get; set; }
@@ -39,10 +49,6 @@ namespace ARM.Data.Models
         public virtual Student Student { get; set; }
 
         public virtual Specialty Speciality { get; set; }
-
-        ~Contract()
-        {
-        }
 
         public virtual IList<Invoice> Invoices { get; set; }
     } //end Contract

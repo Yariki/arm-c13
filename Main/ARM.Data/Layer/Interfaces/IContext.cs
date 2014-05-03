@@ -7,6 +7,8 @@
 
 using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Interfaces
 {
@@ -20,5 +22,8 @@ namespace ARM.Data.Layer.Interfaces
 
         void Refresh();
 
+        DbEntityEntry<T> Entry(T e);
+
+        DbSet<TObj> Set<TObj>() where TObj : BaseModel;
     }//end IContext
 }//end namespace Interfaces

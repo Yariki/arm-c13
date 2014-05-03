@@ -412,7 +412,7 @@
     <value>{0} Студента</value>
   </data>
   <data name="Model_Student_Achivements" xml:space="preserve">
-    <value>Досігнення</value>
+    <value>Досягнення</value>
   </data>
   <data name="Model_Student_Address1" xml:space="preserve">
     <value>Адреса</value>
@@ -479,5 +479,161 @@
   </data>
   <data name="Enum_Studies" xml:space="preserve">
     <value>Навчається</value>
+  </data>
+  <data name="Model_Achivement_Title" xml:space="preserve">
+    <value>Досягнення</value>
+  </data>
+  <data name="Model_Achivement_Type" xml:space="preserve">
+    <value>Тип досягнення</value>
+  </data>
+  <data name="Model_Data_Achivement" xml:space="preserve">
+    <value>{0} Досягнення</value>
+  </data>
+  <data name="Model_Note" xml:space="preserve">
+    <value>Нотатки</value>
+  </data>
+  <data name="Enum_Art" xml:space="preserve">
+    <value>Мистецтво (гуманітарій)</value>
+  </data>
+  <data name="Enum_Other" xml:space="preserve">
+    <value>Інше</value>
+  </data>
+  <data name="Enum_Science" xml:space="preserve">
+    <value>Наука</value>
+  </data>
+  <data name="Enum_Sport" xml:space="preserve">
+    <value>Спорт</value>
+  </data>
+  <data name="Model_Data_Hobby" xml:space="preserve">
+    <value>{0} Хоббі</value>
+  </data>
+  <data name="Model_Hobby_Title" xml:space="preserve">
+    <value>Хоббі</value>
+  </data>
+  <data name="Model_Contract_Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="Model_Contract_EducationLevel" xml:space="preserve">
+    <value>Рівень</value>
+  </data>
+  <data name="Model_Contract_Number" xml:space="preserve">
+    <value>Номер №</value>
+  </data>
+  <data name="Model_Contract_Parent" xml:space="preserve">
+    <value>Замовник</value>
+  </data>
+  <data name="Model_Contract_Speciality" xml:space="preserve">
+    <value>Спеціальність</value>
+  </data>
+  <data name="Model_Contract_Student" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+  <data name="Model_Contract_University" xml:space="preserve">
+    <value>Виконавець</value>
+  </data>
+  <data name="Model_Contract_Title" xml:space="preserve">
+    <value>Контракти</value>
+  </data>
+  <data name="Model_Data_Contract" xml:space="preserve">
+    <value>{0} Контракт</value>
+  </data>
+  <data name="Model_Data_Invoice" xml:space="preserve">
+    <value>{0} Рахунок-фактуру</value>
+  </data>
+  <data name="Model_Invoice_Contract" xml:space="preserve">
+    <value>Контракт</value>
+  </data>
+  <data name="Model_Invoice_DateDue" xml:space="preserve">
+    <value>Дата очікування</value>
+  </data>
+  <data name="Model_Invoice_Number" xml:space="preserve">
+    <value>Номер №</value>
+  </data>
+  <data name="Model_Invoice_Price" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="Model_Invoice_Session" xml:space="preserve">
+    <value>Сесія</value>
+  </data>
+  <data name="Model_Invoice_Title" xml:space="preserve">
+    <value>Рахунок-фактури</value>
+  </data>
+  <data name="Model_Invoice_Status" xml:space="preserve">
+    <value>Статус рахунок-фактури</value>
+  </data>
+  <data name="Model_Data_Payment" xml:space="preserve">
+    <value>{0}  Платіжку</value>
+  </data>
+  <data name="Model_Payment_Date" xml:space="preserve">
+    <value>Дата оплати</value>
+  </data>
+  <data name="Model_Payment_Invoice" xml:space="preserve">
+    <value>Рахунок-фактура</value>
+  </data>
+  <data name="Model_Payment_Number" xml:space="preserve">
+    <value>Номер №</value>
+  </data>
+  <data name="Model_Payment_Sum" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="Model_Payment_Title" xml:space="preserve">
+    <value>Платіжки</value>
+  </data>
+  <data name="Model_Settings_ContractPrefix" xml:space="preserve">
+    <value>Префікс контракта</value>
+  </data>
+  <data name="Model_Settings_InvoicePrefix" xml:space="preserve">
+    <value>Префікс разунку-фактури</value>
+  </data>
+  <data name="Model_Settings_PaymentPrefix" xml:space="preserve">
+    <value>Префікс платіжки</value>
+  </data>
+  <data name="Model_Data_Employer" xml:space="preserve">
+    <value>{0} Роботодавця</value>
+  </data>
+  <data name="Model_Data_Visa" xml:space="preserve">
+    <value>{0} Візу</value>
+  </data>
+  <data name="Model_Employer_Contact" xml:space="preserve">
+    <value>Контакт</value>
+  </data>
+  <data name="Model_Employer_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Model_Employer_Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Model_Employer_Title" xml:space="preserve">
+    <value>Роботодавці</value>
+  </data>
+  <data name="Model_Employer_Url" xml:space="preserve">
+    <value>Лінк</value>
+  </data>
+  <data name="Model_Visa_Number" xml:space="preserve">
+    <value>Номер візи</value>
+  </data>
+  <data name="Model_Visa_PassportNumber" xml:space="preserve">
+    <value>Номер паспорта</value>
+  </data>
+  <data name="Model_Visa_PlaceOfIssue" xml:space="preserve">
+    <value>Місце видачі</value>
+  </data>
+  <data name="Model_Visa_Title" xml:space="preserve">
+    <value>Візи</value>
+  </data>
+  <data name="Model_Visa_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Model_Visa_ValidFrom" xml:space="preserve">
+    <value>Дійсна з</value>
+  </data>
+  <data name="Model_Visa_ValidUntil" xml:space="preserve">
+    <value>Дійсна до</value>
+  </data>
+  <data name="Model_Student_Employer" xml:space="preserve">
+    <value>Роботодавець</value>
+  </data>
+  <data name="Model_ModifiedBy" xml:space="preserve">
+    <value>Змінено</value>
   </data>
 </root>

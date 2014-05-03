@@ -9,6 +9,11 @@ namespace ARM.Data.Implementation.Parent
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Models.Parent>()
+               .HasOptional<Models.Student>(p => p.Child)
+               .WithMany(s => s.Parents)
+               .HasForeignKey(p => p.StudentId)
+               .WillCascadeOnDelete(false);
             modelBuilder.Entity<Models.Parent>().Map(m =>
             {
                 m.MapInheritedProperties();

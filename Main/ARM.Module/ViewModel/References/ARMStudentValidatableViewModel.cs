@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Remoting.Messaging;
+using System.Windows;
+using System.Windows.Input;
 using ARM.Core.Enums;
+using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
+using ARM.Infrastructure.Controls.ARMDialogWindow;
+using ARM.Infrastructure.Controls.ARMLookupWindow;
+using ARM.Infrastructure.Controls.Interfaces;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
+using ARM.Module.Commands.Menu.Reference;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
+using Microsoft.Practices.ObjectBuilder2;
+using Microsoft.Practices.Prism;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using NSubstitute.Core;
 
 namespace ARM.Module.ViewModel.References
 {
@@ -20,6 +33,7 @@ namespace ARM.Module.ViewModel.References
         #region [needs]
 
         private IUnitOfWork _unitOfWork;
+
         #endregion
 
 
@@ -27,6 +41,28 @@ namespace ARM.Module.ViewModel.References
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             _unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
+
+            AddAchivementCommand = new ARMRelayCommand(AddAchivementExecute);
+            DeleteAchivementCommand = new ARMRelayCommand(DeleteAchivementExecute);
+
+            AddHobbyCommand = new ARMRelayCommand(AddHobbyExecute);
+            DeleteHobbyCommand = new ARMRelayCommand(DeleteHobbyExecute);
+
+            AddParentCommand = new ARMRelayCommand(AddParentExecute);
+            DeleteParentCommand = new ARMRelayCommand(DeleteParentExecute);
+
+            AddLanguageCommand = new ARMRelayCommand(AddLanguageExecute);
+            DeleteLanguageCommand = new ARMRelayCommand(DeleteLanguageExecute);
+
+            AddVisaCommand = new ARMRelayCommand(AddVisaExecute);
+            DeleteVisaCommand = new ARMRelayCommand(DeleteVisaExecute);
+
+
+            AchivementsList = new ObservableCollection<Achivement>();
+            HobbiesList = new ObservableCollection<Hobby>();
+            ParentsList = new ObservableCollection<Parent>();
+            LanguagesList = new ObservableCollection<Language>();
+            VisaList = new ObservableCollection<Visa>();
         }
 
         public override string Title
@@ -95,10 +131,10 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => LivingAddressId, value); }
         }
 
-        public IList<Parent> Parents
+        public ObservableCollection<Parent> ParentsList
         {
-            get { return Get(() => Parents); }
-            set { Set(() => Parents, value); }
+            get { return Get(() => ParentsList); }
+            set { Set(() => ParentsList, value); }
         }
 
         public Guid? GroupId
@@ -107,16 +143,16 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => GroupId, value); }
         }
 
-        public IList<Hobby> Hobbies
+        public ObservableCollection<Hobby> HobbiesList
         {
-            get { return Get(() => Hobbies); }
-            set { Set(() => Hobbies, value); }
+            get { return Get(() => HobbiesList); }
+            set { Set(() => HobbiesList, value); }
         }
 
-        public IList<Achivement> Achivements
+        public ObservableCollection<Achivement> AchivementsList
         {
-            get { return Get(() => Achivements); }
-            set { Set(() => Achivements, value); }
+            get { return Get(() => AchivementsList); }
+            set { Set(() => AchivementsList, value); }
         }
 
         public DateTime DateFirstEnter
@@ -131,10 +167,10 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => DateLeft, value); }
         }
 
-        public IList<Language> Languages
+        public ObservableCollection<Language> LanguagesList
         {
-            get { return Get(() => Languages); }
-            set { Set(() => Languages, value); }
+            get { return Get(() => LanguagesList); }
+            set { Set(() => LanguagesList, value); }
         }
 
         public Guid? FacultyId
@@ -158,7 +194,7 @@ namespace ARM.Module.ViewModel.References
         public bool IsForeign
         {
             get { return Get(() => IsForeign); }
-            set { Set(() => IsForeign, value); }
+            set { Set(() => IsForeign, value); OnPropertyChanged(() => IsForeignStudent); }
         }
 
         public Guid? SpecialityId
@@ -171,6 +207,23 @@ namespace ARM.Module.ViewModel.References
         {
             get { return Get(() => Status); }
             set { Set(() => Status, value); }
+        }
+
+        public Guid? EmployerId
+        {
+            get { return Get(() => EmployerId); }
+            set { Set(() => EmployerId, value); }
+        }
+
+        public ObservableCollection<Visa> VisaList
+        {
+            get { return Get(() => VisaList); }
+            set { Set(() => VisaList, value); }
+        }
+
+        public Visibility IsForeignStudent 
+        {
+            get { return (Mode == ViewMode.Edit && IsForeign).ToVisibility(); }
         }
 
         #endregion
@@ -211,6 +264,26 @@ namespace ARM.Module.ViewModel.References
                     entity.DateFirstEnter = DateTime.Now;
                     break;
             }
+            if (entity.Achivements != null && entity.Achivements.Count > 0)
+            {
+                AchivementsList.AddRange(entity.Achivements);
+            }
+            if (entity.Hobbies != null && entity.Hobbies.Count > 0)
+            {
+                HobbiesList.AddRange(entity.Hobbies);
+            }
+            if (entity.Parents != null && entity.Parents.Count > 0)
+            {
+                ParentsList.AddRange(entity.Parents);
+            }
+            if (entity.Languages != null && entity.Languages.Count > 0)
+            {
+                LanguagesList.AddRange(entity.Languages);
+            }
+            if (entity.Visas != null && entity.Visas.Count > 0)
+            {
+                VisaList.AddRange(entity.Visas);
+            }
         }
 
         protected override void Dispose(bool disposing)
@@ -239,7 +312,10 @@ namespace ARM.Module.ViewModel.References
                         _unitOfWork.StudentRepository.Insert(GetBusinessObject<Student>());
                         break;
                     case ViewMode.Edit:
-                        _unitOfWork.StudentRepository.Update(GetBusinessObject<Student>());
+                        var entity = GetBusinessObject<Student>();
+                        entity.Languages.Clear();
+                        this.LanguagesList.ForEach( l => entity.Languages.Add(l));
+                        _unitOfWork.StudentRepository.Update(entity);
                         break;
                 }
                 _unitOfWork.StudentRepository.Save();
@@ -258,7 +334,317 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
+
+        public Visibility VisibilityAdditional
+        {
+            get { return Mode == ViewMode.Add ? Visibility.Collapsed : Visibility.Visible; }
+        }
+
+        #region [Achivement]
+
+        public Achivement SelectedAchivement
+        {
+            get { return Get(() => SelectedAchivement); }
+            set { Set(() => SelectedAchivement, value); }
+        }
+
+        public ICommand AddAchivementCommand { get; private set; }
+
+        public ICommand DeleteAchivementCommand { get; private set; }
+
+
+        private void AddAchivementExecute(object arg)
+        {
+            try
+            {
+                IARMAchivementValidatableViewModel model = UnityContainer.Resolve<IARMAchivementValidatableViewModel>();
+                if (model == null)
+                {
+                    return;
+                }
+                model.SetBusinessObject(ViewMode.Add, eARMMetadata.Achivement, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(model) { Width = 350, Height = 450 };
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    try
+                    {
+                        var entity = model.GetBusinessObject<Achivement>();
+                        entity.Id = Guid.NewGuid();
+                        entity.StudentId = GetBusinessObject<Student>().Id;
+                        _unitOfWork.AchivementRepository.Insert(entity);
+                        _unitOfWork.AchivementRepository.Save();
+                        AchivementsList.Add(entity);
+                        OnPropertyChanged(() => AchivementsList);
+                    }
+                    catch (Exception ex)
+                    {
+                        ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                    }
+                    finally
+                    {
+                        model.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        private void DeleteAchivementExecute(object arg)
+        {
+            if (SelectedAchivement == null)
+                return;
+            try
+            {
+                _unitOfWork.AchivementRepository.Delete(SelectedAchivement);
+                _unitOfWork.AchivementRepository.Save();
+                AchivementsList.Remove(SelectedAchivement);
+                OnPropertyChanged(() => AchivementsList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region [Hobby]
+
+        public Hobby SelectedHobby
+        {
+            get { return Get(() => SelectedHobby); }
+            set { Set(() => SelectedHobby, value); }
+        }
+
+        public ICommand AddHobbyCommand { get; private set; }
+
+        public ICommand DeleteHobbyCommand { get; private set; }
+
+
+        private void AddHobbyExecute(object arg)
+        {
+            try
+            {
+                IARMHobbyValidatableViewModel model = UnityContainer.Resolve<IARMHobbyValidatableViewModel>();
+                if (model == null)
+                {
+                    return;
+                }
+                model.SetBusinessObject(ViewMode.Add, eARMMetadata.Hobby, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(model) { Width = 350, Height = 450 };
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    try
+                    {
+                        var entity = model.GetBusinessObject<Hobby>();
+                        entity.Id = Guid.NewGuid();
+                        entity.StudentId = GetBusinessObject<Student>().Id;
+                        _unitOfWork.HobbyRepository.Insert(entity);
+                        _unitOfWork.HobbyRepository.Save();
+                        HobbiesList.Add(entity);
+                        OnPropertyChanged(() => HobbiesList);
+                    }
+                    catch (Exception ex)
+                    {
+                        ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                    }
+                    finally
+                    {
+                        model.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        private void DeleteHobbyExecute(object arg)
+        {
+            if (SelectedHobby == null)
+                return;
+            try
+            {
+                _unitOfWork.HobbyRepository.Delete(SelectedHobby);
+                _unitOfWork.HobbyRepository.Save();
+                HobbiesList.Remove(SelectedHobby);
+                OnPropertyChanged(() => HobbiesList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region [Parents]
+
+        public Parent SelectedParent
+        {
+            get { return Get(() => SelectedParent); }
+            set { Set(() => SelectedParent, value); }
+        }
+
+        public ICommand AddParentCommand { get; private set; }
+        public ICommand DeleteParentCommand { get; private set; }
+
+        private void AddParentExecute(object obj)
+        {
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            viewModel.Initialize(eARMMetadata.Parent);
+            ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
+            var result = wnd.ShowDialog();
+            if (result.HasValue && result.Value && viewModel.SelectedItem != null)
+            {
+                try
+                {
+                    var parent = viewModel.SelectedItem as Parent;
+                    parent.StudentId = GetBusinessObject<Student>().Id;
+                    _unitOfWork.ParentReposotory.Update(parent);
+                    _unitOfWork.ParentReposotory.Save();
+                    ParentsList.Add(parent);
+                    OnPropertyChanged(() => ParentsList);
+                }
+                catch (Exception ex)
+                {
+                    ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                }
+            }
+        }
+
+        private void DeleteParentExecute(object obj)
+        {
+            if (SelectedParent == null)
+                return;
+            try
+            {
+                SelectedParent.StudentId = null;
+                _unitOfWork.ParentReposotory.Update(SelectedParent);
+                _unitOfWork.ParentReposotory.Save();
+                ParentsList.Remove(SelectedParent);
+                OnPropertyChanged(() => ParentsList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region [languages]
+
+        public Language SelectedLanguage
+        {
+            get
+            {
+                return Get(() => SelectedLanguage);
+            }
+            set
+            {
+                Set(() => SelectedLanguage, value);
+            }
+        }
+
+        public ICommand AddLanguageCommand { get; private set; }
+        public ICommand DeleteLanguageCommand { get; private set; }
+
+        private void AddLanguageExecute(object arg)
+        {
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            viewModel.Initialize(eARMMetadata.Language);
+            ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
+            var result = wnd.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                var language = viewModel.SelectedItem as Language;
+                this.LanguagesList.Add(language);
+                OnPropertyChanged(() => LanguagesList);
+            }
+        }
+
+        private void DeleteLanguageExecute(object arg)
+        {
+            if (SelectedLanguage == null)
+                return;
+            LanguagesList.Remove(SelectedLanguage);
+            OnPropertyChanged(() => LanguagesList);
+        }
+
+        #endregion
+
+        #region [visa]
+
+        public Visa SelectedVisa 
+        {
+            get { return Get(() => SelectedVisa); }
+            set {Set(() => SelectedVisa,value); }
+        }
+
+        public ICommand AddVisaCommand { get; private set; }
+        public ICommand DeleteVisaCommand { get; private set; }
+
+        private void AddVisaExecute(object arg)
+        {
+            IARMVisaValidatableViewModel viewModel = UnityContainer.Resolve<IARMVisaValidatableViewModel>();
+            try
+            {
+                if (viewModel == null)
+                    return;
+                viewModel.SetBusinessObject(ViewMode.Add, eARMMetadata.Visa, Guid.Empty, false);
+                ARMDialogWindow dlgWnd = new ARMDialogWindow(viewModel) {Width = 350, Height = 450};
+                var result = dlgWnd.ShowDialog();
+                if (result.HasValue && result.Value)
+                {
+                    var entity = viewModel.GetBusinessObject<Visa>();
+                    entity.Id = Guid.NewGuid();
+                    entity.StudentId = GetBusinessObject<Student>().Id;
+                    UnitOfWork.VisaRepository.Insert(entity);
+                    UnitOfWork.VisaRepository.Save();
+                    VisaList.Add(entity);
+                    OnPropertyChanged(() => VisaList);
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+            finally
+            {
+                if(viewModel != null)
+                    viewModel.Dispose();
+            }
+        }
+
+
+        private void DeleteVisaExecute(object arg)
+        {
+            if (SelectedVisa == null)
+                return;
+            try
+            {
+                UnitOfWork.VisaRepository.Delete(SelectedVisa);
+                UnitOfWork.VisaRepository.Save();
+                VisaList.Remove(SelectedVisa);
+                OnPropertyChanged(() => VisaList);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+            }
+        }
+
+        #endregion
+
         #region [private]
+
         #endregion
 
     }

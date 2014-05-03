@@ -99,6 +99,7 @@
     <Compile Include="Enums\ToolbarCommand.cs" />
     <Compile Include="Enums\ViewMode.cs" />
     <Compile Include="EventArguments\ValidationEventArgs.cs" />
+    <Compile Include="Extensions\ARMCommonExtensions.cs" />
     <Compile Include="Extensions\ARMReflectionExtensions.cs" />
     <Compile Include="Interfaces\Data\IARMModel.cs" />
     <Compile Include="Interfaces\IARMDataViewModel.cs" />

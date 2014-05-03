@@ -52,6 +52,10 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NSubstitute">
       <HintPath>..\..\packages\NSubstitute.1.7.2.0\lib\NET40\NSubstitute.dll</HintPath>
     </Reference>
@@ -96,10 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Menu\ARMBaseMainMenuCommand.cs" />
+    <Compile Include="Commands\Menu\Documents\ARMMenuContractCommand.cs" />
+    <Compile Include="Commands\Menu\Documents\ARMMenuInvoiceCommand.cs" />
+    <Compile Include="Commands\Menu\Documents\ARMMenuPaymentCommand.cs" />
     <Compile Include="Commands\Menu\File\ARMMenuExitCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuAddressCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuClassCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuCountryCommand.cs" />
+    <Compile Include="Commands\Menu\Reference\ARMMenuEmployerCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuFacultyCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuGroupCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuLanguageCommand.cs" />
@@ -114,32 +122,48 @@
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
+    <Compile Include="Interfaces\Documents\ViewModel\IARMContractValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Documents\ViewModel\IARMInvoiceValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Documents\ViewModel\IARMPaymentValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Documents\View\IARMContractView.cs" />
+    <Compile Include="Interfaces\Documents\View\IARMInvoiceView.cs" />
+    <Compile Include="Interfaces\Documents\View\IARMPaymentView.cs" />
     <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
     <Compile Include="Interfaces\IARMMainWorkspaceViewModel.cs" />
     <Compile Include="Interfaces\IARMMenuCommand.cs" />
+    <Compile Include="Interfaces\Login\ViewModel\IARMLoginViewModel.cs" />
+    <Compile Include="Interfaces\Login\View\IARMLoginDialogView.cs" />
+    <Compile Include="Interfaces\Login\View\IARMLoginView.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMAchivementValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMAddressValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMClassValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMCountryValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMEmployerValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMFacultyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMGroupValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMHobbyValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMParentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSessionValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSettingsValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMSpecialityValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStudentValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUserValidatableViewModel.cs" />
+    <Compile Include="Interfaces\References\ViewModel\IARMVisaValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\Password\IARMPasswordViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMAchivementView.cs" />
     <Compile Include="Interfaces\References\View\IARMAddressView.cs" />
     <Compile Include="Interfaces\References\View\IARMClassView.cs" />
     <Compile Include="Interfaces\References\View\IARMCountryView.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMLanguageValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMStaffValidatableViewModel.cs" />
     <Compile Include="Interfaces\References\ViewModel\IARMUniversityDataViewModel.cs" />
+    <Compile Include="Interfaces\References\View\IARMEmployerView.cs" />
     <Compile Include="Interfaces\References\View\IARMFacultyView.cs" />
     <Compile Include="Interfaces\References\View\IARMGroupView.cs" />
+    <Compile Include="Interfaces\References\View\IARMHobbyView.cs" />
     <Compile Include="Interfaces\References\View\IARMLanguageView.cs" />
     <Compile Include="Interfaces\References\View\IARMParentView.cs" />
     <Compile Include="Interfaces\References\View\IARMSessionView.cs" />
@@ -149,6 +173,7 @@
     <Compile Include="Interfaces\References\View\IARMStudentView.cs" />
     <Compile Include="Interfaces\References\View\IARMUniversityView.cs" />
     <Compile Include="Interfaces\References\View\IARMUserView.cs" />
+    <Compile Include="Interfaces\References\View\IARMVisaView.cs" />
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
@@ -156,11 +181,17 @@
     <Compile Include="Interfaces\View\IARMMainWorkspaceView.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Documents\ARMContractValidatableViewModel.cs" />
+    <Compile Include="ViewModel\Documents\ARMInvoiceValidatableViewModel.cs" />
+    <Compile Include="ViewModel\Documents\ARMPaymentValidatableViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMAddressGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMClassGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMContractGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMCountryGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMEmployerGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMFacultyGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMGroupGridViewModel.cs" />
+    <Compile Include="ViewModel\Grid\ARMInvoiceGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMLanguageGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMParentGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMSessionGridViewModel.cs" />
@@ -169,15 +200,19 @@
     <Compile Include="ViewModel\Grid\ARMStudentGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUniversityGridViewModel.cs" />
     <Compile Include="ViewModel\Grid\ARMUserGridViewModel.cs" />
+    <Compile Include="ViewModel\Login\ARMLoginViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainMenuViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMAchivementValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMAddressValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMClassValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMCountryValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMEmployerValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMFacultyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMGroupValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMHobbyValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMParentValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSessionValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMSettingsValidatableViewModel.cs" />
@@ -187,7 +222,24 @@
     <Compile Include="ViewModel\References\ARMUniversityDataViewModel.cs" />
     <Compile Include="ViewModel\References\ARMLanguageValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
+    <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
+    <Compile Include="View\Documents\ARMContractView.xaml.cs">
+      <DependentUpon>ARMContractView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Documents\ARMInvoiceView.xaml.cs">
+      <DependentUpon>ARMInvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Grid\ARMPaymentGridViewModel.cs" />
+    <Compile Include="View\Documents\ARMPaymentView.xaml.cs">
+      <DependentUpon>ARMPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\Dialog\ARMLoginDialogView.xaml.cs">
+      <DependentUpon>ARMLoginDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\View\ARMLoginView.xaml.cs">
+      <DependentUpon>ARMLoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Main\ARMMainWorkspaceView.xaml.cs">
       <DependentUpon>ARMMainWorkspaceView.xaml</DependentUpon>
     </Compile>
@@ -203,6 +255,9 @@
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\References\ARMAchivementView.xaml.cs">
+      <DependentUpon>ARMAchivementView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\References\ARMAddressView.xaml.cs">
       <DependentUpon>ARMAddressView.xaml</DependentUpon>
     </Compile>
@@ -212,11 +267,17 @@
     <Compile Include="View\References\ARMCountryView.xaml.cs">
       <DependentUpon>ARMCountryView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\References\ARMEmployerView.xaml.cs">
+      <DependentUpon>ARMEmployerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\References\ARMFacultyView.xaml.cs">
       <DependentUpon>ARMFacultyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMGroupView.xaml.cs">
       <DependentUpon>ARMGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\References\ARMHobbyView.xaml.cs">
+      <DependentUpon>ARMHobbyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\References\ARMLanguageView.xaml.cs">
       <DependentUpon>ARMLanguageView.xaml</DependentUpon>
@@ -245,6 +306,9 @@
     <Compile Include="View\References\ARMUserView.xaml.cs">
       <DependentUpon>ARMUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\References\ARMVisaView.xaml.cs">
+      <DependentUpon>ARMVisaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
       <DependentUpon>ARMPasswordView.xaml</DependentUpon>
     </Compile>
@@ -271,6 +335,26 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Documents\ARMContractView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents\ARMInvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents\ARMPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login\Dialog\ARMLoginDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login\View\ARMLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Main\ARMMainWorkspaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,6 +375,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\References\ARMAchivementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\References\ARMAddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,11 +391,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\References\ARMEmployerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\References\ARMFacultyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMHobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\ARMUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\References\ARMVisaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

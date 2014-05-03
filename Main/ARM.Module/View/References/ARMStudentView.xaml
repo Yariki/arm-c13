@@ -14,11 +14,13 @@
                 <ResourceDictionary
                     Source="pack://application:,,,/ARM.Infrastructure;component/Styles/CommomStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -114,6 +116,15 @@
                   SelectedValuePath="Key"
                   SelectedValue="{Binding StudyMode,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
+        <TextBlock Text="{x:Static prop:Resources.Model_Student_Employer}" Grid.Column="1" Grid.Row="9"></TextBlock>
+        <armLookupControl:ARMLookupControl Metadata="Employer"
+                                           UnityContainer="{Binding DiContainer}"
+                                           Value="{Binding EmployerId,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
+                                           Grid.Column="2" Grid.Row="9" />
+
+
+
+
 
         <TextBlock Text="{x:Static prop:Resources.Model_Student_GradeBookNumber}" Grid.Column="4" Grid.Row="5"></TextBlock>
         <TextBox Text="{Binding GradeBookNumber,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"
@@ -137,10 +148,171 @@
                   SelectedValue="{Binding Status,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9">
-            <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}"></TabItem>
-            <TabItem Header="{x:Static prop:Resources.Model_Student_Hobbies}"></TabItem>
-            <TabItem Header="{x:Static prop:Resources.Model_Student_Achivements}"></TabItem>
+        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="10" Height="200" Visibility="{Binding VisibilityAdditional}">
+            <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddParentCommand}">Add</Button>
+                        <Button Command="{Binding DeleteParentCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding ParentsList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedParent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding LastName}"
+                                                Header="{x:Static prop:Resources.Model_Person_LastName}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding FirstName}"
+                                                Header="{x:Static prop:Resources.Model_Person_FirstName}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PhoneMobile}"
+                                                Header="{x:Static prop:Resources.Model_Person_PhoneMobile}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PhoneHome}"
+                                                Header="{x:Static prop:Resources.Model_Person_PhoneHome}"
+                                                Width="150"></GridViewColumn>
+                                
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+                
+            </TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Student_Hobbies}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddHobbyCommand}">Add</Button>
+                        <Button Command="{Binding DeleteHobbyCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding HobbiesList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedHobby,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="{x:Static prop:Resources.Model_Name}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Note}"
+                                                Header="{x:Static prop:Resources.Model_Note}"
+                                                Width="200"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Student_Achivements}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal" Grid.Row="0"> 
+                        <Button Command="{Binding AddAchivementCommand}">Add</Button>
+                        <Button Command="{Binding DeleteAchivementCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding AchivementsList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedAchivement,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="{x:Static prop:Resources.Model_Name}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Note}"
+                                                Header="{x:Static prop:Resources.Model_Note}"
+                                                Width="150"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Type}"
+                                                Header="{x:Static prop:Resources.Model_Achivement_Type}"
+                                                Width="150"></GridViewColumn>
+                                
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Student_Languages}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddLanguageCommand}">Add</Button>
+                        <Button Command="{Binding DeleteLanguageCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding LanguagesList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedLanguage,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="{x:Static prop:Resources.Model_Name}"
+                                                Width="250"></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="{x:Static prop:Resources.Model_Visa_Title}" Visibility="{Binding IsForeignStudent}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddVisaCommand}">Add</Button>
+                        <Button Command="{Binding DeleteVisaCommand}">Del</Button>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding VisaList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
+                              SelectedItem="{Binding SelectedVisa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="{x:Static prop:Resources.Model_Name}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Number}"
+                                                Header="{x:Static prop:Resources.Model_Visa_Number}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding PassportNumber}"
+                                                Header="{x:Static prop:Resources.Model_Visa_PassportNumber}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding ValidFrom}"
+                                                Header="{x:Static prop:Resources.Model_Visa_ValidFrom}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding ValidUntil}"
+                                                Header="{x:Static prop:Resources.Model_Visa_ValidUntil}"
+                                                Width="250"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding VisaType}"
+                                                Header="{x:Static prop:Resources.Model_Visa_Type}"
+                                                Width="250"></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+            
         </TabControl>
 
 

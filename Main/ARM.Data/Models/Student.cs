@@ -18,6 +18,13 @@ namespace ARM.Data.Models
 
     public class Student : Person
     {
+
+        public Student()
+        {
+            Achivements = new List<Achivement>();
+            Languages = new HashSet<Language>();
+        }
+
         [ARMRequired]
         public Guid AddressId { get; set; }
 
@@ -51,18 +58,25 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual IList<Hobby> Hobbies
+        public virtual List<Hobby> Hobbies
         {
             get;
             set;
         }
 
-        public virtual IList<Achivement> Achivements
+        public virtual List<Achivement> Achivements
         {
             get;
             set;
         }
 
+        public virtual List<Visa> Visas
+        {
+            get;
+            set;
+        }
+
+            
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_DateEnter")]
         [ARMGrid(Order = 9)]
@@ -78,7 +92,7 @@ namespace ARM.Data.Models
             set;
         }
 
-        public virtual IList<Language> Languages
+        public virtual ICollection<Language> Languages
         {
             get;
             set;
@@ -148,6 +162,10 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
+        public Guid? EmployerId { get; set; }
+
+        public virtual Employer Employer { get; set; }
 
         public virtual IList<Mark> Marks { get; set; }
 

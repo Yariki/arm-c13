@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using ARM.Core.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Infrastructure.Interfaces
 {
@@ -20,5 +21,7 @@ namespace ARM.Infrastructure.Interfaces
         {
             get;
         }
+
+        User CurrentUser { get; set; }
     }//end IARMFacade
 }//end namespace Interfaces

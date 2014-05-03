@@ -30,9 +30,5 @@ namespace ARM.Data.Models
 
         public virtual IList<Class> Classes { get; set; }
 
-        public override string ToString()
-        {
-            return string.Format("{0} {1}", this.FirstName, this.LastName);
-        }
     }//end Staff
 }//end namespace Models

@@ -98,10 +98,10 @@
       <DependentUpon>ARMDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ARMLookupControl\ARMLookupControl.cs" />
-    <Compile Include="Controls\ARMLookupControl\ARMLookupView.xaml.cs">
+    <Compile Include="Controls\ARMLookupWindow\ARMLookupView.xaml.cs">
       <DependentUpon>ARMLookupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ARMLookupControl\ARMLookupViewModel.cs" />
+    <Compile Include="Controls\ARMLookupWindow\ARMLookupViewModel.cs" />
     <Compile Include="Controls\ARMLookupWindow\ARMLookupWindow.xaml.cs">
       <DependentUpon>ARMLookupWindow.xaml</DependentUpon>
     </Compile>
@@ -158,7 +158,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\ARMLookupControl\ARMLookupView.xaml">
+    <Page Include="Controls\ARMLookupWindow\ARMLookupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

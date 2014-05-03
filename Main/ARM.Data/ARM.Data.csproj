@@ -81,29 +81,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201404072327106_Initial.cs" />
-    <Compile Include="CommonContextMigrations\201404072327106_Initial.Designer.cs">
-      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404261649255_Init.cs" />
+    <Compile Include="CommonContextMigrations\201404261649255_Init.Designer.cs">
+      <DependentUpon>201404261649255_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.cs" />
-    <Compile Include="CommonContextMigrations\201404081801017_Id_Gen.Designer.cs">
-      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.cs" />
+    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.Designer.cs">
+      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonContextMigrations\201404152240516_AddUser.cs" />
-    <Compile Include="CommonContextMigrations\201404152240516_AddUser.Designer.cs">
-      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.cs" />
+    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.Designer.cs">
+      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.cs" />
-    <Compile Include="CommonContextMigrations\201404152243349_AddUser_2.Designer.cs">
-      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404272152555_Prefix.cs" />
+    <Compile Include="CommonContextMigrations\201404272152555_Prefix.Designer.cs">
+      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonContextMigrations\201404191311570_Settings.cs" />
-    <Compile Include="CommonContextMigrations\201404191311570_Settings.Designer.cs">
-      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404282201160_EmployersAdd.cs" />
+    <Compile Include="CommonContextMigrations\201404282201160_EmployersAdd.Designer.cs">
+      <DependentUpon>201404282201160_EmployersAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonContextMigrations\201404211038206_Change_Student.cs" />
-    <Compile Include="CommonContextMigrations\201404211038206_Change_Student.Designer.cs">
-      <DependentUpon>201404211038206_Change_Student.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201404282229054_VisaAdd.cs" />
+    <Compile Include="CommonContextMigrations\201404282229054_VisaAdd.Designer.cs">
+      <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -121,6 +121,9 @@
     <Compile Include="Implementation\Country\CountryBll.cs" />
     <Compile Include="Implementation\Country\CountryContext.cs" />
     <Compile Include="Implementation\Country\CountryDal.cs" />
+    <Compile Include="Implementation\Employer\EmployerBll.cs" />
+    <Compile Include="Implementation\Employer\EmployerContext.cs" />
+    <Compile Include="Implementation\Employer\EmployerDal.cs" />
     <Compile Include="Implementation\Faculty\FacultyBll.cs" />
     <Compile Include="Implementation\Faculty\FacultyContext.cs" />
     <Compile Include="Implementation\Faculty\FacultyDal.cs" />
@@ -166,6 +169,9 @@
     <Compile Include="Implementation\User\UserBll.cs" />
     <Compile Include="Implementation\User\UserContext.cs" />
     <Compile Include="Implementation\User\UserDal.cs" />
+    <Compile Include="Implementation\Visa\VisaBll.cs" />
+    <Compile Include="Implementation\Visa\VisaContext.cs" />
+    <Compile Include="Implementation\Visa\VisaDal.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementBll.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementContext.cs" />
     <Compile Include="Interfaces\Achivement\IAchivementDal.cs" />
@@ -181,6 +187,9 @@
     <Compile Include="Interfaces\Country\ICountryBll.cs" />
     <Compile Include="Interfaces\Country\ICountryContext.cs" />
     <Compile Include="Interfaces\Country\ICountryDal.cs" />
+    <Compile Include="Interfaces\Employer\IEmployerBll.cs" />
+    <Compile Include="Interfaces\Employer\IEmployerContext.cs" />
+    <Compile Include="Interfaces\Employer\IEmployerDal.cs" />
     <Compile Include="Interfaces\Faculty\IFacultyBll.cs" />
     <Compile Include="Interfaces\Faculty\IFacultyContext.cs" />
     <Compile Include="Interfaces\Faculty\IFacultyDal.cs" />
@@ -226,6 +235,9 @@
     <Compile Include="Interfaces\User\IUserBll.cs" />
     <Compile Include="Interfaces\User\IUserContext.cs" />
     <Compile Include="Interfaces\User\IUserDal.cs" />
+    <Compile Include="Interfaces\Visa\IVisaBll.cs" />
+    <Compile Include="Interfaces\Visa\IVisaContext.cs" />
+    <Compile Include="Interfaces\Visa\IVisaDal.cs" />
     <Compile Include="Layer\CommonContext.cs" />
     <Compile Include="Layer\Context\BaseBll.cs" />
     <Compile Include="Layer\Context\BaseContext.cs" />
@@ -245,12 +257,14 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\eARMSystemLanguage.cs" />
     <Compile Include="Models\EducationLevel.cs" />
+    <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\Faculty.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Hobby.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\InvoiceStatus.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Mark.cs" />
     <Compile Include="Models\MarkType.cs" />
     <Compile Include="Models\Parent.cs" />
@@ -267,6 +281,8 @@
     <Compile Include="Models\StudyMode.cs" />
     <Compile Include="Models\University.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Visa.cs" />
+    <Compile Include="Models\VisaType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Resolver\ARMDataModelResolveHelper.cs" />
     <Compile Include="Service\Resolver\IARMDataModelResolver.cs" />
@@ -290,23 +306,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201404072327106_Initial.resx">
-      <DependentUpon>201404072327106_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404261649255_Init.resx">
+      <DependentUpon>201404261649255_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404081801017_Id_Gen.resx">
-      <DependentUpon>201404081801017_Id_Gen.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404271235370_NumberForInvoice.resx">
+      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404152240516_AddUser.resx">
-      <DependentUpon>201404152240516_AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404271348243_NumberForPayment.resx">
+      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404152243349_AddUser_2.resx">
-      <DependentUpon>201404152243349_AddUser_2.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404272152555_Prefix.resx">
+      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404191311570_Settings.resx">
-      <DependentUpon>201404191311570_Settings.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404282201160_EmployersAdd.resx">
+      <DependentUpon>201404282201160_EmployersAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404211038206_Change_Student.resx">
-      <DependentUpon>201404211038206_Change_Student.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201404282229054_VisaAdd.resx">
+      <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

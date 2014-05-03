@@ -36,15 +36,23 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMGrid(Order =  int.MaxValue - 1)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_ModifiedBy")]
         public string ModifiedBy
         {
             get;
             set;
         }
 
+        public virtual string Display
+        {
+            get { return Id.ToString(); }
+        }
+
         public override string ToString()
         {
-            return Id.ToString();
+            return Display;
         }
+    
     }//end BaseModel
 }//end namespace Models

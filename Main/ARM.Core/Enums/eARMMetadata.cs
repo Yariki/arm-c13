@@ -22,6 +22,9 @@
         Staff,
         Student,
         University,
-        User
+        User,
+        Employer,
+        Visa,
+        Login
     }
 }

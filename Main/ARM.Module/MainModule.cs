@@ -10,12 +10,20 @@ using ARM.Core.Module;
 using ARM.Infrastructure.Interfaces.Grid;
 using ARM.Infrastructure.Region;
 using ARM.Module.Interfaces;
+using ARM.Module.Interfaces.Documents.View;
+using ARM.Module.Interfaces.Documents.ViewModel;
+using ARM.Module.Interfaces.Login.View;
+using ARM.Module.Interfaces.Login.ViewModel;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.View;
+using ARM.Module.View.Documents;
 using ARM.Module.View.Grid;
+using ARM.Module.View.Login.View;
 using ARM.Module.View.Main;
 using ARM.Module.View.References;
+using ARM.Module.ViewModel.Documents;
+using ARM.Module.ViewModel.Login;
 using ARM.Module.ViewModel.Main;
 using ARM.Module.ViewModel.References;
 using Microsoft.Practices.Prism.Events;
@@ -90,6 +98,30 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMStudentView, ARMStudentView>();
             UnityContainer.RegisterType<IARMStudentValidatableViewModel, ARMStudentValidatableViewModel>();
 
+            UnityContainer.RegisterType<IARMAchivementView, ARMAchivementView>();
+            UnityContainer.RegisterType<IARMAchivementValidatableViewModel, ARMAchivementValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMHobbyView, ARMHobbyView>();
+            UnityContainer.RegisterType<IARMHobbyValidatableViewModel, ARMHobbyValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMContractView, ARMContractView>();
+            UnityContainer.RegisterType<IARMContractValidatableViewModel, ARMContractValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMInvoiceView, ARMInvoiceView>();
+            UnityContainer.RegisterType<IARMInvoiceValidatableViewModel, ARMInvoiceValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMPaymentView, ARMPaymentView>();
+            UnityContainer.RegisterType<IARMPaymentValidatableViewModel, ARMPaymentValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMEmployerView, ARMEmployerView>();
+            UnityContainer.RegisterType<IARMEmployerValidatableViewModel, ARMEmployerValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMVisaView, ARMVisaView>();
+            UnityContainer.RegisterType<IARMVisaValidatableViewModel, ARMVisaValidatableViewModel>();
+
+            UnityContainer.RegisterType<IARMLoginView, ARMLoginView>();
+            UnityContainer.RegisterType<IARMLoginViewModel, ARMLoginViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())
@@ -97,18 +129,5 @@ namespace ARM.Module
                     .ApplyAutoRegistration();
         }
 
-        protected override void InjectViews()
-        {
-            base.InjectViews();
-            IARMMainWorkspaceViewModel mainViewModel = UnityContainer.Resolve<IARMMainWorkspaceViewModel>();
-            IRegion region = RegionManager.Regions[ARMMainRegionNames.WORKSPACE_REGION];
-            region.Add(mainViewModel.View);
-            region = RegionManager.Regions[ARMMainRegionNames.MENU_REGION];
-            region.Add(mainViewModel.MenuView);
-            region = RegionManager.Regions[ARMMainRegionNames.STATUSBAR_REGION];
-            region.Add(mainViewModel.StatusBarView);
-            region = RegionManager.Regions[ARMMainRegionNames.TOOLBOX_REGION];
-            region.Add(mainViewModel.ToolboxView);
-        }
     }//end MainModule
 }//end namespace ARM.Module

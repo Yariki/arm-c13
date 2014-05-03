@@ -70,6 +70,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Art.
+        /// </summary>
+        public static string Enum_Art {
+            get {
+                return ResourceManager.GetString("Enum_Art", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bachelour.
         /// </summary>
         public static string Enum_Bachelour {
@@ -178,6 +187,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Enum_Other {
+            get {
+                return ResourceManager.GetString("Enum_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PaidUp.
         /// </summary>
         public static string Enum_PaidUp {
@@ -196,11 +214,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Science.
+        /// </summary>
+        public static string Enum_Science {
+            get {
+                return ResourceManager.GetString("Enum_Science", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specialist.
         /// </summary>
         public static string Enum_Specialist {
             get {
                 return ResourceManager.GetString("Enum_Specialist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sport.
+        /// </summary>
+        public static string Enum_Sport {
+            get {
+                return ResourceManager.GetString("Enum_Sport", resourceCulture);
             }
         }
         
@@ -394,6 +430,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Achivements.
+        /// </summary>
+        public static string Model_Achivement_Title {
+            get {
+                return ResourceManager.GetString("Model_Achivement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Achivement Type.
+        /// </summary>
+        public static string Model_Achivement_Type {
+            get {
+                return ResourceManager.GetString("Model_Achivement_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Model_Action_Add {
@@ -520,6 +574,87 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Education Level.
+        /// </summary>
+        public static string Model_Contract_EducationLevel {
+            get {
+                return ResourceManager.GetString("Model_Contract_EducationLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Contract_Number {
+            get {
+                return ResourceManager.GetString("Model_Contract_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        public static string Model_Contract_Parent {
+            get {
+                return ResourceManager.GetString("Model_Contract_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Model_Contract_Price {
+            get {
+                return ResourceManager.GetString("Model_Contract_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speciality.
+        /// </summary>
+        public static string Model_Contract_Speciality {
+            get {
+                return ResourceManager.GetString("Model_Contract_Speciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Contract_Student {
+            get {
+                return ResourceManager.GetString("Model_Contract_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contracts.
+        /// </summary>
+        public static string Model_Contract_Title {
+            get {
+                return ResourceManager.GetString("Model_Contract_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performer.
+        /// </summary>
+        public static string Model_Contract_University {
+            get {
+                return ResourceManager.GetString("Model_Contract_University", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Achivement.
+        /// </summary>
+        public static string Model_Data_Achivement {
+            get {
+                return ResourceManager.GetString("Model_Data_Achivement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Address.
         /// </summary>
         public static string Model_Data_Address {
@@ -538,11 +673,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Contract.
+        /// </summary>
+        public static string Model_Data_Contract {
+            get {
+                return ResourceManager.GetString("Model_Data_Contract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Country.
         /// </summary>
         public static string Model_Data_Country {
             get {
                 return ResourceManager.GetString("Model_Data_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Employer.
+        /// </summary>
+        public static string Model_Data_Employer {
+            get {
+                return ResourceManager.GetString("Model_Data_Employer", resourceCulture);
             }
         }
         
@@ -565,6 +718,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Hobby.
+        /// </summary>
+        public static string Model_Data_Hobby {
+            get {
+                return ResourceManager.GetString("Model_Data_Hobby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Invoice.
+        /// </summary>
+        public static string Model_Data_Invoice {
+            get {
+                return ResourceManager.GetString("Model_Data_Invoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Language.
         /// </summary>
         public static string Model_Data_Language {
@@ -579,6 +750,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Parent {
             get {
                 return ResourceManager.GetString("Model_Data_Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Payment.
+        /// </summary>
+        public static string Model_Data_Payment {
+            get {
+                return ResourceManager.GetString("Model_Data_Payment", resourceCulture);
             }
         }
         
@@ -637,11 +817,65 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Visa.
+        /// </summary>
+        public static string Model_Data_Visa {
+            get {
+                return ResourceManager.GetString("Model_Data_Visa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Modified.
         /// </summary>
         public static string Model_DateModified {
             get {
                 return ResourceManager.GetString("Model_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact person.
+        /// </summary>
+        public static string Model_Employer_Contact {
+            get {
+                return ResourceManager.GetString("Model_Employer_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Model_Employer_Email {
+            get {
+                return ResourceManager.GetString("Model_Employer_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Model_Employer_Phone {
+            get {
+                return ResourceManager.GetString("Model_Employer_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employers.
+        /// </summary>
+        public static string Model_Employer_Title {
+            get {
+                return ResourceManager.GetString("Model_Employer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url.
+        /// </summary>
+        public static string Model_Employer_Url {
+            get {
+                return ResourceManager.GetString("Model_Employer_Url", resourceCulture);
             }
         }
         
@@ -700,11 +934,101 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hobby.
+        /// </summary>
+        public static string Model_Hobby_Title {
+            get {
+                return ResourceManager.GetString("Model_Hobby_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract.
+        /// </summary>
+        public static string Model_Invoice_Contract {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Contract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date due.
+        /// </summary>
+        public static string Model_Invoice_DateDue {
+            get {
+                return ResourceManager.GetString("Model_Invoice_DateDue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Invoice_Number {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum.
+        /// </summary>
+        public static string Model_Invoice_Price {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string Model_Invoice_Session {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice status.
+        /// </summary>
+        public static string Model_Invoice_Status {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoices.
+        /// </summary>
+        public static string Model_Invoice_Title {
+            get {
+                return ResourceManager.GetString("Model_Invoice_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified By.
+        /// </summary>
+        public static string Model_ModifiedBy {
+            get {
+                return ResourceManager.GetString("Model_ModifiedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Model_Name {
             get {
                 return ResourceManager.GetString("Model_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Model_Note {
+            get {
+                return ResourceManager.GetString("Model_Note", resourceCulture);
             }
         }
         
@@ -732,6 +1056,51 @@ namespace ARM.Resource.AppResource {
         public static string Model_Parent_Title {
             get {
                 return ResourceManager.GetString("Model_Parent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Model_Payment_Date {
+            get {
+                return ResourceManager.GetString("Model_Payment_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice.
+        /// </summary>
+        public static string Model_Payment_Invoice {
+            get {
+                return ResourceManager.GetString("Model_Payment_Invoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Payment_Number {
+            get {
+                return ResourceManager.GetString("Model_Payment_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum.
+        /// </summary>
+        public static string Model_Payment_Sum {
+            get {
+                return ResourceManager.GetString("Model_Payment_Sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payments.
+        /// </summary>
+        public static string Model_Payment_Title {
+            get {
+                return ResourceManager.GetString("Model_Payment_Title", resourceCulture);
             }
         }
         
@@ -835,6 +1204,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contract Prefix.
+        /// </summary>
+        public static string Model_Settings_ContractPrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_ContractPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default Base stipend.
         /// </summary>
         public static string Model_Settings_DefBaseStipend {
@@ -903,6 +1281,24 @@ namespace ARM.Resource.AppResource {
         public static string Model_Settings_DefUniversity {
             get {
                 return ResourceManager.GetString("Model_Settings_DefUniversity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Prefix.
+        /// </summary>
+        public static string Model_Settings_InvoicePrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_InvoicePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Prefix.
+        /// </summary>
+        public static string Model_Settings_PaymentPrefix {
+            get {
+                return ResourceManager.GetString("Model_Settings_PaymentPrefix", resourceCulture);
             }
         }
         
@@ -993,6 +1389,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Student_DateLeft {
             get {
                 return ResourceManager.GetString("Model_Student_DateLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer.
+        /// </summary>
+        public static string Model_Student_Employer {
+            get {
+                return ResourceManager.GetString("Model_Student_Employer", resourceCulture);
             }
         }
         
@@ -1146,6 +1551,69 @@ namespace ARM.Resource.AppResource {
         public static string Model_User_Title {
             get {
                 return ResourceManager.GetString("Model_User_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Model_Visa_Number {
+            get {
+                return ResourceManager.GetString("Model_Visa_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passport number.
+        /// </summary>
+        public static string Model_Visa_PassportNumber {
+            get {
+                return ResourceManager.GetString("Model_Visa_PassportNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place of Issue.
+        /// </summary>
+        public static string Model_Visa_PlaceOfIssue {
+            get {
+                return ResourceManager.GetString("Model_Visa_PlaceOfIssue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visas.
+        /// </summary>
+        public static string Model_Visa_Title {
+            get {
+                return ResourceManager.GetString("Model_Visa_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Model_Visa_Type {
+            get {
+                return ResourceManager.GetString("Model_Visa_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid from.
+        /// </summary>
+        public static string Model_Visa_ValidFrom {
+            get {
+                return ResourceManager.GetString("Model_Visa_ValidFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid until.
+        /// </summary>
+        public static string Model_Visa_ValidUntil {
+            get {
+                return ResourceManager.GetString("Model_Visa_ValidUntil", resourceCulture);
             }
         }
     }

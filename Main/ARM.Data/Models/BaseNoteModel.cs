@@ -5,13 +5,15 @@
 //  Created on:      29-Mar-2014 5:16:38 PM
 ///////////////////////////////////////////////////////////
 
+using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 
 namespace ARM.Data.Models
 {
     public abstract class BaseNoteModel : BaseNamedModel
     {
-        [ARMGrid(Order = int.MaxValue - 1)]
+        [ARMGrid(Order = int.MaxValue - 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Note")]
         public string Note
         {
             get;

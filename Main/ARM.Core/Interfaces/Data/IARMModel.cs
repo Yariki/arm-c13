@@ -12,6 +12,6 @@ namespace ARM.Core.Interfaces.Data
     public interface IARMModel
     {
         Guid Id { get; set; }
-        string ToString();
+        string Display { get; }
     }//end IARMModel
 }//end namespace Data

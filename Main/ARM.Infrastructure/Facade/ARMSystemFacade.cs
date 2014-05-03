@@ -1,6 +1,7 @@
 ﻿using System;
 using ARM.Core.Interfaces;
 using ARM.Core.Logging;
+using ARM.Data.Models;
 using ARM.Infrastructure.Interfaces;
 using ARM.Infrastructure.Utils;
 
@@ -39,6 +40,8 @@ namespace ARM.Infrastructure.Facade
         {
             get { return _messageBoxFacade; }
         }
+
+        public User CurrentUser { get; set; }
 
         #endregion
 

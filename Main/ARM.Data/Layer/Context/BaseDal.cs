@@ -54,6 +54,7 @@ namespace ARM.Data.Layer.Context
             if(obj == null)
                 return;
             var entry = Context.GetItems().Find(obj.Id);
+            DeleteAddInfo(entry);
             Context.GetItems().Remove(entry);
         }
 
@@ -92,5 +93,11 @@ namespace ARM.Data.Layer.Context
             if(Context != null)
                 Context.Dispose();
         }
+
+        protected virtual void DeleteAddInfo(T entity)
+        {
+            
+        }
+
     }//end BaseDal
 }//end namespace Context

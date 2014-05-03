@@ -21,6 +21,11 @@ namespace ARM.Data.Layer.Context
             _dal = dal;
         }
 
+        protected IDal<T> Dal
+        {
+            get { return _dal; }
+        }
+
         ///
         /// <param name="obj"></param>
         public void Insert(T obj)

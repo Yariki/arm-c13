@@ -14,14 +14,14 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Specialty)]
+    [ARMMetadata(Metadata = eARMMetadata.Specialty)]
 
     public class Specialty : BaseNamedModel
     {
         [ARMRequired]
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Speciality_Faculty")]
-        public Guid? FacultyId  
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Speciality_Faculty")]
+        public Guid? FacultyId
         {
             get;
             set;
@@ -32,6 +32,10 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
+        public override string Display
+        {
+            get { return Name; }
+        }
     }//end Specialty
 }//end namespace Models

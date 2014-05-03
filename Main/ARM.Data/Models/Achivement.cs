@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
@@ -14,7 +15,9 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Achivement)]
     public class Achivement : BaseNoteModel
     {
-
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Achivement_Type")]
+        [ARMGrid(Order = 2)]
         public AchivementType Type
         {
             get;
