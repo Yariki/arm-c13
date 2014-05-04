@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace ARM.Data.Layer.Interfaces
 {
@@ -37,5 +38,8 @@ namespace ARM.Data.Layer.Interfaces
         void Refresh();
 
         IEnumerable<T> GetAllWithRelated();
+
+        IEnumerable<T> GetAll(Func<T, bool> filter);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
     }//end IDal
 }//end namespace Interfaces

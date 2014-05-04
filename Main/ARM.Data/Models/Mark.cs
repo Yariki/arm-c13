@@ -13,8 +13,7 @@ using ARM.Core.Enums;
 namespace ARM.Data.Models
 {
     [ARMMetadata(Metadata = eARMMetadata.Mark)]
-
-    public class Mark : BaseModel
+    public class Mark : BaseNamedModel
     {
         [ARMRequired]
         public Guid? StudentId
@@ -30,28 +29,41 @@ namespace ARM.Data.Models
             set;
         }
 
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Mark_Student")]
         public virtual Student Student
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Class")]
         public virtual Class Class
         {
             get;
             set;
         }
         [ARMRequired]
+        [ARMGrid(Order = 6)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Date")]
         public DateTime? Date
         {
             get;
             set;
         }
 
+        [ARMGrid(Order = 4)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Type")]
         public MarkType Type
         {
             get;
             set;
         }
+        [ARMRange(Min = 0,Max = 101)]
+        [ARMGrid(Order = 5)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_MarkRate")]
+        public decimal MarkRate { get; set; }
+
     }//end Mark
 }//end namespace Models

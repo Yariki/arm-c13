@@ -41,5 +41,15 @@ namespace ARM.Data.Models
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Session")]
         public virtual Session Session { get; set; }
 
+        [ARMGrid(Order = 4)]
+        [ARMRequired]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Summary")]
+        public eARMClassSummary Summary { get; set; }
+
+        [ARMGrid(Order = 5)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_CourseWork")]
+        public bool CourseWorkPresent { get; set; }
+
+
     }//end Class
 }//end namespace Models

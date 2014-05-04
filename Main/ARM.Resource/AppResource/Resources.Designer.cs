@@ -70,6 +70,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional Rate.
+        /// </summary>
+        public static string Enum_AdditionalRate {
+            get {
+                return ResourceManager.GetString("Enum_AdditionalRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Art.
         /// </summary>
         public static string Enum_Art {
@@ -88,6 +97,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Coursework.
+        /// </summary>
+        public static string Enum_Coursework {
+            get {
+                return ResourceManager.GetString("Enum_Coursework", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Differential Test.
+        /// </summary>
+        public static string Enum_DifferentialTest {
+            get {
+                return ResourceManager.GetString("Enum_DifferentialTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Distance.
         /// </summary>
         public static string Enum_Distance {
@@ -102,6 +129,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_English {
             get {
                 return ResourceManager.GetString("Enum_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam.
+        /// </summary>
+        public static string Enum_Exam {
+            get {
+                return ResourceManager.GetString("Enum_Exam", resourceCulture);
             }
         }
         
@@ -142,6 +178,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Laboratory.
+        /// </summary>
+        public static string Enum_Laboratory {
+            get {
+                return ResourceManager.GetString("Enum_Laboratory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lecture.
         /// </summary>
         public static string Enum_Lecture {
@@ -165,6 +210,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_Master {
             get {
                 return ResourceManager.GetString("Enum_Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MKR.
+        /// </summary>
+        public static string Enum_MKR {
+            get {
+                return ResourceManager.GetString("Enum_MKR", resourceCulture);
             }
         }
         
@@ -255,6 +309,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_Technician {
             get {
                 return ResourceManager.GetString("Enum_Technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string Enum_Test {
+            get {
+                return ResourceManager.GetString("Enum_Test", resourceCulture);
             }
         }
         
@@ -547,6 +610,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is coursework needed.
+        /// </summary>
+        public static string Model_Class_CourseWork {
+            get {
+                return ResourceManager.GetString("Model_Class_CourseWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Session.
         /// </summary>
         public static string Model_Class_Session {
@@ -561,6 +633,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Class_Staff {
             get {
                 return ResourceManager.GetString("Model_Class_Staff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string Model_Class_Summary {
+            get {
+                return ResourceManager.GetString("Model_Class_Summary", resourceCulture);
             }
         }
         
@@ -741,6 +822,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Language {
             get {
                 return ResourceManager.GetString("Model_Data_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Mark.
+        /// </summary>
+        public static string Model_Data_Mark {
+            get {
+                return ResourceManager.GetString("Model_Data_Mark", resourceCulture);
             }
         }
         
@@ -1002,6 +1092,51 @@ namespace ARM.Resource.AppResource {
         public static string Model_Invoice_Title {
             get {
                 return ResourceManager.GetString("Model_Invoice_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        public static string Model_Mark_Class {
+            get {
+                return ResourceManager.GetString("Model_Mark_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Model_Mark_Date {
+            get {
+                return ResourceManager.GetString("Model_Mark_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark.
+        /// </summary>
+        public static string Model_Mark_MarkRate {
+            get {
+                return ResourceManager.GetString("Model_Mark_MarkRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Mark_Student {
+            get {
+                return ResourceManager.GetString("Model_Mark_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Model_Mark_Type {
+            get {
+                return ResourceManager.GetString("Model_Mark_Type", resourceCulture);
             }
         }
         
@@ -1614,6 +1749,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Visa_ValidUntil {
             get {
                 return ResourceManager.GetString("Model_Visa_ValidUntil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation.
+        /// </summary>
+        public static string Service_Evaluation_Title {
+            get {
+                return ResourceManager.GetString("Service_Evaluation_Title", resourceCulture);
             }
         }
     }

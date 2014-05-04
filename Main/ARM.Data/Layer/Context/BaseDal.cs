@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 using ARM.Data.Layer.Interfaces;
 using ARM.Data.Models;
 
@@ -60,7 +61,7 @@ namespace ARM.Data.Layer.Context
 
         public IEnumerable<T> GetAll()
         {
-            return Context.GetItems();
+            return Context.GetItems().AsEnumerable();
         }
 
         ///
@@ -85,7 +86,21 @@ namespace ARM.Data.Layer.Context
 
         public virtual IEnumerable<T> GetAllWithRelated()
         {
-            return Context.GetItems();
+            return Context.GetItems().AsEnumerable();
+        }
+
+        public IEnumerable<T> GetAll(Func<T, bool> filter)
+        {
+            if (filter == null)
+                return Context.GetItems().AsEnumerable();
+            return Context.GetItems().Where(filter).AsEnumerable();
+        }
+
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            if (filter == null)
+                return Context.GetItems().AsEnumerable();
+            return Context.GetItems().Where(filter).AsEnumerable();
         }
 
         public void Dispose()

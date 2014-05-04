@@ -10,9 +10,12 @@ namespace ARM.Data.Models
     public enum MarkType : int
     {
         None,
-        Certification,
-        Session,
+        Test,
         Laboratory,
-        Seminar
+        MKR,
+        AdditionalRate,
+        Exam,
+        DifferentialTest,
+        Coursework
     }//end MarkType
 }//end namespace Models

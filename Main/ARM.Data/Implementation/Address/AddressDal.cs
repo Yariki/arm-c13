@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using ARM.Data.Interfaces.Address;
 using ARM.Data.Layer.Context;
@@ -24,7 +25,7 @@ namespace ARM.Data.Implementation.Address
 
         public override IEnumerable<Models.Address> GetAllWithRelated()
         {
-            return Context.GetItems().Include(a => a.Country);
+            return Context.GetItems().Include(a => a.Country).AsEnumerable();
         }
     }//end AddressDal
 }//end namespace Address

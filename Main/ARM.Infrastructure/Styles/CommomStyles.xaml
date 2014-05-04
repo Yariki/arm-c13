@@ -171,4 +171,7 @@
         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultErrorTemplateNumericUpDown}"></Setter>
     </Style>
 
+    <Style TargetType="{x:Type CheckBox}" >
+        <Setter Property="Margin" Value="3 5 3 3"></Setter>
+    </Style>
 </ResourceDictionary>

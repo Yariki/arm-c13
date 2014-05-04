@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using ARM.Data.Layer.Interfaces;
 using ARM.Data.Models;
 
@@ -79,6 +80,16 @@ namespace ARM.Data.Layer.Context
         public IEnumerable<T> GetAllWithRelated()
         {
             return _dal.GetAllWithRelated();
+        }
+
+        public IEnumerable<T> GetAll(Func<T, bool> filter)
+        {
+            return _dal.GetAll(filter);
+        }
+
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            return _dal.GetAll(filter);
         }
 
         public void Dispose()

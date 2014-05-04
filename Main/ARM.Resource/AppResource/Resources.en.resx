@@ -636,4 +636,52 @@
   <data name="Model_ModifiedBy" xml:space="preserve">
     <value>Modified By</value>
   </data>
+  <data name="Enum_AdditionalRate" xml:space="preserve">
+    <value>Additional Rate</value>
+  </data>
+  <data name="Enum_Coursework" xml:space="preserve">
+    <value>Coursework</value>
+  </data>
+  <data name="Enum_DifferentialTest" xml:space="preserve">
+    <value>Differential Test</value>
+  </data>
+  <data name="Enum_Exam" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="Enum_Laboratory" xml:space="preserve">
+    <value>Laboratory</value>
+  </data>
+  <data name="Enum_MKR" xml:space="preserve">
+    <value>MKR</value>
+  </data>
+  <data name="Enum_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Model_Class_CourseWork" xml:space="preserve">
+    <value>Is coursework needed</value>
+  </data>
+  <data name="Model_Class_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Model_Data_Mark" xml:space="preserve">
+    <value>{0} Mark</value>
+  </data>
+  <data name="Model_Mark_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Model_Mark_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Model_Mark_MarkRate" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="Model_Mark_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Model_Mark_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Service_Evaluation_Title" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
 </root>

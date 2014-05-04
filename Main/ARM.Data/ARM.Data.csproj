@@ -105,6 +105,14 @@
     <Compile Include="CommonContextMigrations\201404282229054_VisaAdd.Designer.cs">
       <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405041254105_ClassAddFields.cs" />
+    <Compile Include="CommonContextMigrations\201405041254105_ClassAddFields.Designer.cs">
+      <DependentUpon>201405041254105_ClassAddFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonContextMigrations\201405042113469_NamedMark.cs" />
+    <Compile Include="CommonContextMigrations\201405042113469_NamedMark.Designer.cs">
+      <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -255,6 +263,7 @@
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\eARMClassSummary.cs" />
     <Compile Include="Models\eARMSystemLanguage.cs" />
     <Compile Include="Models\EducationLevel.cs" />
     <Compile Include="Models\Employer.cs" />
@@ -321,6 +330,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201404282229054_VisaAdd.resx">
       <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405041254105_ClassAddFields.resx">
+      <DependentUpon>201405041254105_ClassAddFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405042113469_NamedMark.resx">
+      <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,5 +23,6 @@
         ReferenceUser,
         ReferenceStudent,
         ReferenceEmployer,
+        ServiceEvaluation
     }
 }

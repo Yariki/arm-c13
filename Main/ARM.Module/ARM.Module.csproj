@@ -119,6 +119,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuStudentCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
+    <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
@@ -175,6 +176,10 @@
     <Compile Include="Interfaces\References\View\IARMUserView.cs" />
     <Compile Include="Interfaces\References\View\IARMVisaView.cs" />
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
+    <Compile Include="Interfaces\Services\Evaluation\ViewModel\IARMEvaluationViewModel.cs" />
+    <Compile Include="Interfaces\Services\Evaluation\View\IARMEvaluationView.cs" />
+    <Compile Include="Interfaces\Services\Mark\ViewModel\IARMMarkValidatableViewModel.cs" />
+    <Compile Include="Interfaces\Services\Mark\View\IARMMarkView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuView.cs" />
     <Compile Include="Interfaces\View\IARMMainStatusBarView.cs" />
     <Compile Include="Interfaces\View\IARMMainToolboxView.cs" />
@@ -224,6 +229,8 @@
     <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
+    <Compile Include="ViewModel\Services\Evaluation\ARMEvaluationViewModel.cs" />
+    <Compile Include="ViewModel\Services\Mark\ARMMarkValidatableViewModel.cs" />
     <Compile Include="View\Documents\ARMContractView.xaml.cs">
       <DependentUpon>ARMContractView.xaml</DependentUpon>
     </Compile>
@@ -311,6 +318,12 @@
     </Compile>
     <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
       <DependentUpon>ARMPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Services\Evaluation\ARMEvaluationView.xaml.cs">
+      <DependentUpon>ARMEvaluationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Services\Mark\ARMMarkView.xaml.cs">
+      <DependentUpon>ARMMarkView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +461,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\Password\ARMPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Services\Evaluation\ARMEvaluationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Services\Mark\ARMMarkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
