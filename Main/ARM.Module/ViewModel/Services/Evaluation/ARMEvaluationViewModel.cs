@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Windows.Documents;
 using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
@@ -154,6 +157,7 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             StudentList.Clear();
             StudentList.AddRange(SelectedGroup.Students);
             OnPropertyChanged(() => StudentList);
+            UpdateMarks(false);
         }
 
         private void SessionChanged()
@@ -163,6 +167,7 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             ClassList.Clear();
             ClassList.AddRange(SelectedSession.Classes);
             OnPropertyChanged(() => ClassList);
+            UpdateMarks(false);
         }
 
         private void StudentChanged()
@@ -177,7 +182,7 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         // m => m.StudentId == StudenyId && m.ClassId == ClassId
         // m => m.
-        private Expression<Func<Models.Mark, bool>> BuildFilterFunction()
+        private Expression<Func<Models.Mark, bool>> BuildFilterFunctionStudentClass()
         {
             ParameterExpression pe = Expression.Parameter(typeof(Models.Mark), "m");
             //m.StudentId == StudenyId
@@ -204,12 +209,46 @@ namespace ARM.Module.ViewModel.Services.Evaluation
                     : null;
         }
 
-        private void UpdateMarks()
+        private Expression<Func<Models.Mark, bool>> BuildFilterFunctionGroupSession()
+        {
+            ParameterExpression pe = Expression.Parameter(typeof(Models.Mark), "m");
+
+            // m => listStudents.Contains(m.StudentId)
+            Expression ex1 = null;
+            MethodCallExpression mEx1 = null;
+            if (SelectedGroup != null)
+            {
+                var listID = SelectedGroup.Students.Select(s => s.Id).ToList();
+                ConstantExpression keys = Expression.Constant(listID, typeof (List<Guid>));
+                Expression prop = Expression.Property(pe, "StudentId");
+                Expression convertExpression = Expression.Convert(prop, typeof(Guid));
+                mEx1 = Expression.Call(keys, "Contains", new Type[] { }, convertExpression);
+                ex1 = Expression.Lambda<Func<Models.Mark, bool>>(mEx1, pe);
+            }
+            Expression ex2 = null;
+            MethodCallExpression mEx2 = null;
+            if (SelectedSession != null)
+            {
+                var listID = SelectedSession.Classes.Select(s => s.Id).ToList();
+                ConstantExpression keys = Expression.Constant(listID, typeof(List<Guid>));
+                Expression prop = Expression.Property(pe, "ClassId");
+                Expression convertExpression = Expression.Convert(prop, typeof(Guid));
+                mEx2 = Expression.Call(keys, "Contains", new Type[] { }, convertExpression);
+                ex2 = Expression.Lambda<Func<Models.Mark, bool>>(mEx2, pe);
+            }
+            return (Expression<Func<Models.Mark, bool>>)(mEx1 != null && mEx2 != null
+                ? Expression.Lambda<Func<Models.Mark, bool>>(Expression.And(mEx1,mEx2), pe)
+                : ex1 != null
+                    ? ex1
+                    : ex2 != null ? ex2 : null);
+        }
+
+        private void UpdateMarks(bool isOld = true)
         {
             if (_initialize)
                 return;
             MarkList.Clear();
-            var exp = BuildFilterFunction();
+            var exp = isOld ? BuildFilterFunctionStudentClass() : BuildFilterFunctionGroupSession();
             var listMarks = UnitOfWork.MarkRepository.GetAll(exp);
             MarkList.AddRange(listMarks);
             OnPropertyChanged(() => MarkList);
