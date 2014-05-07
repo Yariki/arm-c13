@@ -121,7 +121,9 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
+    <Compile Include="Helpers\Converters\ARMMarkTypeSertificationToVisibilityConverter.cs" />
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
+    <Compile Include="Helpers\Selectors\ARMMarkStyleContainerSelector.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
     <Compile Include="Interfaces\Documents\ViewModel\IARMContractValidatableViewModel.cs" />
     <Compile Include="Interfaces\Documents\ViewModel\IARMInvoiceValidatableViewModel.cs" />

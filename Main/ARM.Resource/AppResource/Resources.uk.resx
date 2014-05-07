@@ -684,4 +684,10 @@
   <data name="Service_Evaluation_Title" xml:space="preserve">
     <value>Оцінування</value>
   </data>
+  <data name="Enum_Certification" xml:space="preserve">
+    <value>Атестація</value>
+  </data>
+  <data name="Model_Mark_IsCertification" xml:space="preserve">
+    <value>Атестовано</value>
+  </data>
 </root>

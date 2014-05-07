@@ -17,7 +17,7 @@
         <DataTemplate x:Key="DataModelDataTemplate">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <ContentControl Content="{Binding View}" Grid.Row="0" />

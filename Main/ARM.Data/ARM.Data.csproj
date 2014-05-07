@@ -113,6 +113,10 @@
     <Compile Include="CommonContextMigrations\201405042113469_NamedMark.Designer.cs">
       <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405062315461_MarkAddCertification.cs" />
+    <Compile Include="CommonContextMigrations\201405062315461_MarkAddCertification.Designer.cs">
+      <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -336,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201405042113469_NamedMark.resx">
       <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405062315461_MarkAddCertification.resx">
+      <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

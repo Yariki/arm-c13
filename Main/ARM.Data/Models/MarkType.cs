@@ -16,6 +16,7 @@ namespace ARM.Data.Models
         AdditionalRate,
         Exam,
         DifferentialTest,
-        Coursework
+        Coursework,
+        Certification
     }//end MarkType
 }//end namespace Models

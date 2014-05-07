@@ -55,6 +55,10 @@ namespace ARM.Infrastructure.MVVM
 
         public abstract string Title { get; }
 
+        public virtual void Initialize()
+        {
+        }
+
         public event EventHandler RequestClose;
 
         public virtual bool Closing()

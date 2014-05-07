@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
          WindowState="Normal" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
-             MinHeight="400" MinWidth="550" ShowInTaskbar="False"  Title="{Binding Title}">
+             MinHeight="100" MinWidth="100" ShowInTaskbar="False"  Title="{Binding Title}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

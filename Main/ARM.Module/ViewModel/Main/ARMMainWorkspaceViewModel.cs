@@ -22,6 +22,7 @@ using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
@@ -203,10 +204,14 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceEmployer:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Employer>>();
                     break;
+                case eARMMainMenuCommand.ServiceEvaluation:
+                    workspaceViewModel = _unityContainer.Resolve<IARMEvaluationViewModel>();
+                    break;
 
             }
             if (workspaceViewModel != null)
             {
+                workspaceViewModel.Initialize();
                 Items.Add(workspaceViewModel);
                 CurrentWorkspace = workspaceViewModel;
             }

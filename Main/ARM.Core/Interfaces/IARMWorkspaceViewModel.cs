@@ -17,5 +17,8 @@ namespace ARM.Core.Interfaces
         event EventHandler RequestClose;
 
         string Title { get; }
+
+        void Initialize();
+
     }//end IARMWorkspaceViewModel
 }//end namespace Interfaces

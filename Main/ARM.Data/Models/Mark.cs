@@ -45,7 +45,7 @@ namespace ARM.Data.Models
             set;
         }
         [ARMRequired]
-        [ARMGrid(Order = 6)]
+        [ARMGrid(Order = 7)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Date")]
         public DateTime? Date
         {
@@ -60,10 +60,13 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        [ARMRange(Min = 0,Max = 101)]
+        
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_MarkRate")]
         public decimal MarkRate { get; set; }
 
+        [ARMGrid(Order = 6)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_IsCertification")]
+        public bool IsCertification { get; set; }
     }//end Mark
 }//end namespace Models

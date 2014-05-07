@@ -7,6 +7,7 @@
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
              xmlns:Control="clr-namespace:ARM.Infrastructure.Controls;assembly=ARM.Infrastructure"
+             xmlns:selector="clr-namespace:ARM.Module.Helpers.Selectors"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -16,6 +17,19 @@
                     Source="pack://application:,,,/ARM.Infrastructure;component/Styles/CommomStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            
+            <Style x:Key="NormalStyle" TargetType="Control">
+                <Setter Property="Background" Value="Transparent"></Setter>
+            </Style>
+            
+            <Style x:Key="CertificationStyle" TargetType="Control">
+                <!--<Setter Property="Background" Value="OrangeRed"></Setter>-->
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+            </Style>
+            
+            <selector:ARMMarkStyleContainerSelector x:Key="ArmMarkStyleContainerSelector" Normal="{StaticResource NormalStyle}" Certification="{StaticResource CertificationStyle}"></selector:ARMMarkStyleContainerSelector>
+            
+            
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
@@ -56,12 +70,18 @@
         <ListBox Grid.Column="5" Grid.Row="1" Height="200" ItemsSource="{Binding ClassList}" 
                  SelectedItem="{Binding SelectedClass,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ListBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" MinHeight="22"></StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" MinHeight="22">
+            <Button Command="{Binding AddMarkCommand}">Add</Button>
+            <Button Command="{Binding EditMarkCommand}">Edit</Button>
+            <Button Command="{Binding DeleteMarkCommand}">Delete</Button>
+        </StackPanel>
 
         <Control:ARMDataGridControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3"
                                     ItemsSource="{Binding MarkList,UpdateSourceTrigger=PropertyChanged}"
                                     TypeOfEntity="{Binding TypeMark}"
-                                    SelectedItem="{Binding SelectedMark,Mode=TwoWay}"></Control:ARMDataGridControl>
+                                    SelectedItem="{Binding SelectedMark,Mode=TwoWay}"
+                                    ItemContainerStyleSelector="{StaticResource ArmMarkStyleContainerSelector}"
+                                    ></Control:ARMDataGridControl>
         
         
 

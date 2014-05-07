@@ -97,6 +97,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Certification.
+        /// </summary>
+        public static string Enum_Certification {
+            get {
+                return ResourceManager.GetString("Enum_Certification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coursework.
         /// </summary>
         public static string Enum_Coursework {
@@ -1110,6 +1119,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Mark_Date {
             get {
                 return ResourceManager.GetString("Model_Mark_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificated.
+        /// </summary>
+        public static string Model_Mark_IsCertification {
+            get {
+                return ResourceManager.GetString("Model_Mark_IsCertification", resourceCulture);
             }
         }
         
