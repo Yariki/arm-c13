@@ -13,6 +13,7 @@ using ARM.Data.Interfaces.Language;
 using ARM.Data.Interfaces.Mark;
 using ARM.Data.Interfaces.Parent;
 using ARM.Data.Interfaces.Payment;
+using ARM.Data.Interfaces.Rate;
 using ARM.Data.Interfaces.Session;
 using ARM.Data.Interfaces.Settings;
 using ARM.Data.Interfaces.Specialty;
@@ -48,5 +49,6 @@ namespace ARM.Data.UnitOfWork.Implementation
         IUserBll UserRepository { get; }
         IEmployerBll EmployerRepository { get; }
         IVisaBll VisaRepository { get; }
+        IRateBll RateRepositary { get; }
     }
 }

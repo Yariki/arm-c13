@@ -60,6 +60,7 @@ namespace ARM.Data.Layer
         public DbSet<User> Users { get; set; }
         public DbSet<Employer> Employers { get; set; }
         public DbSet<Visa> Visas { get; set; }
+        public DbSet<Rate> Rates { get; set; }
 
         #endregion
 

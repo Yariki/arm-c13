@@ -117,6 +117,14 @@
     <Compile Include="CommonContextMigrations\201405062315461_MarkAddCertification.Designer.cs">
       <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405082232584_AddRate.cs" />
+    <Compile Include="CommonContextMigrations\201405082232584_AddRate.Designer.cs">
+      <DependentUpon>201405082232584_AddRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonContextMigrations\201405082245518_AddRate2.cs" />
+    <Compile Include="CommonContextMigrations\201405082245518_AddRate2.Designer.cs">
+      <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -160,6 +168,9 @@
     <Compile Include="Implementation\Payment\PaymentBll.cs" />
     <Compile Include="Implementation\Payment\PaymentContext.cs" />
     <Compile Include="Implementation\Payment\PaymentDal.cs" />
+    <Compile Include="Implementation\Rate\RateBll.cs" />
+    <Compile Include="Implementation\Rate\RateContext.cs" />
+    <Compile Include="Implementation\Rate\RateDal.cs" />
     <Compile Include="Implementation\Session\SessionBll.cs" />
     <Compile Include="Implementation\Session\SessionContext.cs" />
     <Compile Include="Implementation\Session\SessionDal.cs" />
@@ -226,6 +237,9 @@
     <Compile Include="Interfaces\Payment\IPaymentBll.cs" />
     <Compile Include="Interfaces\Payment\IPaymentContext.cs" />
     <Compile Include="Interfaces\Payment\IPaymentDal.cs" />
+    <Compile Include="Interfaces\Rate\IRateBll.cs" />
+    <Compile Include="Interfaces\Rate\IRateContext.cs" />
+    <Compile Include="Interfaces\Rate\IRateDal.cs" />
     <Compile Include="Interfaces\Session\ISessionBll.cs" />
     <Compile Include="Interfaces\Session\ISessionContext.cs" />
     <Compile Include="Interfaces\Session\ISessionDal.cs" />
@@ -283,6 +297,7 @@
     <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\SettingParameters.cs" />
     <Compile Include="Models\SexType.cs" />
@@ -343,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201405062315461_MarkAddCertification.resx">
       <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405082232584_AddRate.resx">
+      <DependentUpon>201405082232584_AddRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405082245518_AddRate2.resx">
+      <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

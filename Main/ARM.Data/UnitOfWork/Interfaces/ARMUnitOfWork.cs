@@ -13,6 +13,7 @@ using ARM.Data.Interfaces.Language;
 using ARM.Data.Interfaces.Mark;
 using ARM.Data.Interfaces.Parent;
 using ARM.Data.Interfaces.Payment;
+using ARM.Data.Interfaces.Rate;
 using ARM.Data.Interfaces.Session;
 using ARM.Data.Interfaces.Settings;
 using ARM.Data.Interfaces.Specialty;
@@ -52,6 +53,7 @@ namespace ARM.Data.UnitOfWork.Interfaces
         private IUserBll _userRepositotry;
         private IEmployerBll _employerRepository;
         private IVisaBll _visaRepository;
+        private IRateBll _rateRepository;
 
 
         private bool _disposed = false;
@@ -130,6 +132,8 @@ namespace ARM.Data.UnitOfWork.Interfaces
                 _employerRepository.Dispose();
             if (_visaRepository != null)
                 _visaRepository.Dispose();
+            if(_rateRepository != null)
+                _rateRepository.Dispose();
         }
 
         #endregion
@@ -244,6 +248,11 @@ namespace ARM.Data.UnitOfWork.Interfaces
         public IVisaBll VisaRepository 
         {
             get { return _visaRepository ?? (_visaRepository = _unityContainer.Resolve<IVisaBll>()); }
+        }
+
+        public IRateBll RateRepositary
+        {
+            get { return _rateRepository ?? (_rateRepository = _unityContainer.Resolve<IRateBll>()); }
         }
 
         #endregion
