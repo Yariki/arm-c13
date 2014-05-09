@@ -11,6 +11,7 @@ using ARM.Core.MVVM;
 using ARM.Module.Commands.Menu.Documents;
 using ARM.Module.Commands.Menu.File;
 using ARM.Module.Commands.Menu.Reference;
+using ARM.Module.Commands.Menu.Report;
 using ARM.Module.Commands.Menu.Services;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
@@ -46,6 +47,13 @@ namespace ARM.Module.ViewModel.Main
             InitDocument();
             InitReference();
             InitService();
+            InitReport();
+        }
+
+        private void InitReport()
+        {
+            Reports = new ObservableCollection<IARMMenuCommand>();
+            Reports.Add(new ARmMenuContractGroupCommand(_actionMenu, _canFunc));
         }
 
         public void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate)

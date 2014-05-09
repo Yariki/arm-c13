@@ -167,6 +167,9 @@ namespace ARM.Data.Models
 
         public virtual Employer Employer { get; set; }
 
+        [ARMRequired]
+        public eARMStudyType StudyType { get; set; }
+
         public virtual IList<Mark> Marks { get; set; }
 
     }//end Student

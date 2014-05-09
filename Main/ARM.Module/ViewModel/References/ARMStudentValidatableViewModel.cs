@@ -215,6 +215,12 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => EmployerId, value); }
         }
 
+        public eARMStudyType StudyType
+        {
+            get { return Get(() => StudyType); }
+            set { Set(() => StudyType, value); }
+        }
+
         public ObservableCollection<Visa> VisaList
         {
             get { return Get(() => VisaList); }
@@ -246,6 +252,12 @@ namespace ARM.Module.ViewModel.References
         public Dictionary<StudentStatus, string> SourceStudentStatus
         {
             get { return _sourceStudentStatus ?? (_sourceStudentStatus = EnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
+        }
+
+        private Dictionary<eARMStudyType, string> _sourceStudyType;
+        public Dictionary<eARMStudyType, string> SourceStudyType
+        {
+            get { return _sourceStudyType ?? (_sourceStudyType = EnumHelper.Instance.GetLocalsForEnum<eARMStudyType>()); }
         }
 
         #endregion

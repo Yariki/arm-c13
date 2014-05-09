@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using ARM.Data.Interfaces.Contract;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +19,11 @@ namespace ARM.Data.Implementation.Contract
         public ContractDal(IContext<Models.Contract> context)
             : base(context)
         {
+        }
+
+        public override IEnumerable<Models.Contract> GetAllWithRelated()
+        {
+            return Context.GetItems().Include(c => c.Customer).Include(c => c.Student).AsEnumerable();
         }
     }//end ContractDal
 }//end namespace Contract

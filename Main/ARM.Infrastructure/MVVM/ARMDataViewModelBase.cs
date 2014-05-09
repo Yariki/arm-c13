@@ -32,10 +32,7 @@ namespace ARM.Infrastructure.MVVM
     public abstract class ARMDataViewModelBase : ARMWorkspaceViewModelBase, IARMDataViewModel
     {
         private object _dataObject;
-        private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
         private List<IARMModelPropertyInfo> _listProperty;
-
-        protected IUnitOfWork UnitOfWork = null;
 
         /// 
         ///  <param name="businessObject"></param>
@@ -45,9 +42,7 @@ namespace ARM.Infrastructure.MVVM
             : base(regionManager,unityContainer,eventAggregator,view)
         {
             SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
-            CancelCommand = new ARMRelayCommand(CancelExecute,CanCancelExecute);
             HasChanges = false;
-            UnitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
         ///
@@ -60,10 +55,7 @@ namespace ARM.Infrastructure.MVVM
             if (dataModelReoslver != null)
             {
                 _dataObject = dataModelReoslver.GetDataModel(metadata, id, isIdEmpty);
-                if (Mode == ViewMode.Edit)
-                {
-                    (_dataObject as BaseModel).ModifiedBy = ARMSystemFacade.Instance.CurrentUser.Name;
-                }
+                (_dataObject as BaseModel).ModifiedBy = ARMSystemFacade.Instance.CurrentUser.Name;
             }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
 
@@ -98,16 +90,45 @@ namespace ARM.Infrastructure.MVVM
             return false;
         }
 
+
+        protected override T Get<T>(string name, T defaultValue)
+        {
+            if (_dataObject != null && HasProperty(name))
+            {
+                IARMModelPropertyInfo pi = GetPropertyInfo(name);
+                var val = pi != null ? pi.Property.GetPropertyValue<T>(_dataObject) : defaultValue;
+                return val;
+            }
+            else
+                return base.Get<T>(name, defaultValue);
+        }
+
+        protected override void Set<T>(string name, T val)
+        {
+            if (_dataObject != null && HasProperty(name))
+            {
+                IARMModelPropertyInfo pi = GetPropertyInfo(name);
+                if (pi != null)
+                {
+                    pi.Property.SetPropertyValue(_dataObject, val);
+                    HasChanges = true;
+                }
+                OnPropertyChanged(name);
+                OnSetValue(name);
+            }
+            else
+             base.Set(name, val);
+        }
+
         public TObj GetBusinessObject<TObj>()
         {
             return (TObj)_dataObject;
         }
-
         protected bool HasProperty(string name)
         {
-            if (!_listProperty.Any())
+            if (!Enumerable.Any<IARMModelPropertyInfo>(_listProperty))
                 return false;
-            return _listProperty.Any(i => i.Property.Name == name);
+            return Enumerable.Any<IARMModelPropertyInfo>(_listProperty, i => i.Property.Name == name);
         }
 
         protected IARMModelPropertyInfo GetPropertyInfo(string name)
@@ -122,84 +143,6 @@ namespace ARM.Infrastructure.MVVM
             return _listProperty;
         }
 
-        ///
-        /// <param name="expression"></param>
-        protected T Get<T>(Expression<Func<T>> expression)
-        {
-            return Get<T>(this.GetPropertyName(expression), default(T));
-        }
-
-        ///
-        /// <param name="expression"></param>
-        /// <param name="defaultValue"></param>
-        protected T Get<T>(Expression<Func<T>> expression, T defaultValue)
-        {
-            return Get<T>(this.GetPropertyName(expression),defaultValue);
-        }
-
-        ///
-        /// <param name="name"></param>
-        protected T Get<T>(string name)
-        {
-            return Get<T>(name,default(T));
-        }
-
-        ///
-        /// <param name="name"></param>
-        /// <param name="defaultValue"></param>
-        protected T Get<T>(string name, T defaultValue)
-        {
-            if (_dataObject != null && HasProperty(name))
-            {
-                IARMModelPropertyInfo pi = GetPropertyInfo(name);
-                var val =  pi != null ? pi.Property.GetPropertyValue<T>(_dataObject) : defaultValue;
-                return val;
-            }
-            if (_values.ContainsKey(name))
-            {
-                return (T)_values[name];
-            }
-            return defaultValue;
-        }
-
-        ///
-        /// <param name="expression"></param>
-        /// <param name="val"></param>
-        protected void Set<T>(Expression<Func<T>> expression, T val)
-        {
-            var name = GetPropertyName(expression);
-            Set<T>(name,val);
-        }
-
-        ///
-        /// <param name="name"></param>
-        /// <param name="val"></param>
-        protected void Set<T>(string name, T val)
-        {
-            if (_dataObject != null && HasProperty(name))
-            {
-                IARMModelPropertyInfo pi = GetPropertyInfo(name);
-                if (pi != null)
-                {
-                    pi.Property.SetPropertyValue(_dataObject, val);
-                    HasChanges = true;
-                }
-            }
-            else 
-            {
-                _values[name] = val;
-            }
-            OnPropertyChanged(name);
-            OnSetValue(name);
-            
-        }
-
-        ///
-        /// <param name="name"></param>
-        protected virtual void OnSetValue(string name)
-        {
-        }
-
         protected virtual bool CanSaveExecte(object arg)
         {
             return true;
@@ -212,16 +155,6 @@ namespace ARM.Infrastructure.MVVM
             Close();
         }
 
-        protected virtual bool CanCancelExecute(object arg)
-        {
-            return true;
-        }
-
-        protected virtual void CancelExecute(object arg)
-        {
-            Close();
-        }
-
         public object DataObject
         {
             get { return _dataObject; }
@@ -230,10 +163,8 @@ namespace ARM.Infrastructure.MVVM
 		#region [commands]
 		
 		public ICommand SaveCommand {get;private set;}
-		
-		public ICommand CancelCommand {get;private set;}
-			
-		#endregion
+
+        #endregion
 
         #region [dispose]
 
@@ -247,15 +178,6 @@ namespace ARM.Infrastructure.MVVM
                     _listProperty.Clear();
                     _listProperty = null;
                 }
-                if (_values != null)
-                {
-                    _values.Clear();
-                }
-                if (UnitOfWork != null)
-                {
-                    UnitOfWork.Dispose();
-                    UnitOfWork = null;
-                }
             }
             base.Dispose(disposing);
         }
@@ -264,11 +186,6 @@ namespace ARM.Infrastructure.MVVM
 
 
         #region [private]
-
-        private void Close()
-        {
-            EventAggregator.GetEvent<ARMCloseEvent>().Publish(new ARMCloseEventPayload(this));
-        }
 
         #endregion
 

@@ -97,11 +97,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Budget.
+        /// </summary>
+        public static string Enum_Budget {
+            get {
+                return ResourceManager.GetString("Enum_Budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Certification.
         /// </summary>
         public static string Enum_Certification {
             get {
                 return ResourceManager.GetString("Enum_Certification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract.
+        /// </summary>
+        public static string Enum_Contract {
+            get {
+                return ResourceManager.GetString("Enum_Contract", resourceCulture);
             }
         }
         
@@ -1654,6 +1672,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type of Study.
+        /// </summary>
+        public static string Model_Student_StudyType {
+            get {
+                return ResourceManager.GetString("Model_Student_StudyType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Studetns.
         /// </summary>
         public static string Model_Student_Title {
@@ -1767,6 +1794,69 @@ namespace ARM.Resource.AppResource {
         public static string Model_Visa_ValidUntil {
             get {
                 return ResourceManager.GetString("Model_Visa_ValidUntil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Report_ContractGroup_Group {
+            get {
+                return ResourceManager.GetString("Report_ContractGroup_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accounting for group contracts.
+        /// </summary>
+        public static string Report_ContractGroup_Title {
+            get {
+                return ResourceManager.GetString("Report_ContractGroup_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You should choose valid path.
+        /// </summary>
+        public static string Report_EmptyPath {
+            get {
+                return ResourceManager.GetString("Report_EmptyPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Report.
+        /// </summary>
+        public static string Report_SaveReport {
+            get {
+                return ResourceManager.GetString("Report_SaveReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Report_Status_Error {
+            get {
+                return ResourceManager.GetString("Report_Status_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        public static string Report_Status_Finish {
+            get {
+                return ResourceManager.GetString("Report_Status_Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        public static string Report_Status_Start {
+            get {
+                return ResourceManager.GetString("Report_Status_Start", resourceCulture);
             }
         }
         

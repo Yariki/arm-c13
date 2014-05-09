@@ -6,9 +6,16 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Input;
+using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
+using ARM.Data.UnitOfWork.Implementation;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -24,7 +31,10 @@ namespace ARM.Infrastructure.MVVM
         protected readonly IRegionManager RegionManager;
         protected readonly IUnityContainer UnityContainer;
         protected readonly IEventAggregator EventAggregator;
-#endregion
+        protected readonly Dictionary<string, object> _values = new Dictionary<string, object>();
+        protected IUnitOfWork UnitOfWork = null;
+
+        #endregion
 
 
         public class CloseAbort
@@ -38,6 +48,8 @@ namespace ARM.Infrastructure.MVVM
             RegionManager = regionManager;
             UnityContainer = unityContainer;
             EventAggregator = eventAggregator;
+            CancelCommand = new ARMRelayCommand(CancelExecute, CanCancelExecute);
+            UnitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
         
@@ -54,6 +66,7 @@ namespace ARM.Infrastructure.MVVM
         }
 
         public abstract string Title { get; }
+        public ICommand CancelCommand {get;private set;}
 
         public virtual void Initialize()
         {
@@ -82,6 +95,103 @@ namespace ARM.Infrastructure.MVVM
                 temp(this, EventArgs.Empty);
             Closed();
         }
+
+        
+
+        ///
+        /// <param name="expression"></param>
+        protected T Get<T>(Expression<Func<T>> expression)
+        {
+            return Get<T>(this.GetPropertyName(expression), default(T));
+        }
+
+        ///
+        /// <param name="expression"></param>
+        /// <param name="defaultValue"></param>
+        protected T Get<T>(Expression<Func<T>> expression, T defaultValue)
+        {
+            return Get<T>(this.GetPropertyName(expression),defaultValue);
+        }
+
+        ///
+        /// <param name="name"></param>
+        protected T Get<T>(string name)
+        {
+            return Get<T>(name,default(T));
+        }
+
+        ///
+        /// <param name="name"></param>
+        /// <param name="defaultValue"></param>
+        protected virtual T Get<T>(string name, T defaultValue)
+        {
+            if (_values.ContainsKey(name))
+            {
+                return (T)_values[name];
+            }
+            return defaultValue;
+        }
+
+        ///
+        /// <param name="expression"></param>
+        /// <param name="val"></param>
+        protected void Set<T>(Expression<Func<T>> expression, T val)
+        {
+            var name = GetPropertyName(expression);
+            Set<T>(name,val);
+        }
+
+        ///
+        /// <param name="name"></param>
+        /// <param name="val"></param>
+        protected virtual void Set<T>(string name, T val)
+        {
+            _values[name] = val;
+            OnPropertyChanged(name);
+            OnSetValue(name);
+        }
+
+        ///
+        /// <param name="name"></param>
+        protected virtual void OnSetValue(string name)
+        {
+        }
+
+        protected virtual bool CanCancelExecute(object arg)
+        {
+            return true;
+        }
+
+        protected virtual void CancelExecute(object arg)
+        {
+            Close();
+        }
+
+        protected void Close()
+        {
+            EventAggregator.GetEvent<ARMCloseEvent>().Publish(new ARMCloseEventPayload(this));
+        }
+
+        #region [dispose]
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!Disposed && disposing)
+            {
+                if (_values != null)
+                {
+                    _values.Clear();
+                }
+                if (UnitOfWork != null)
+                {
+                    UnitOfWork.Dispose();
+                    UnitOfWork = null;
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        #endregion
 
     }//end ARMWorkspaceViewModelBase
 }//end namespace MVVM

@@ -28,8 +28,36 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="ReportModelDataTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ContentControl Content="{Binding View}" Grid.Row="0" />
+                
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{Binding Progress,UpdateSourceTrigger=PropertyChanged}" Margin="5"></ProgressBar>
+                    
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="{Binding Status,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    </StackPanel>                    
+                    
+                    <Button Grid.Column="2" Command="{Binding ExportCommand}" Width="70" Margin="5">Export</Button>
+                    <Button Grid.Column="3" Command="{Binding CancelCommand}" Width="70" Margin="5">Cancel</Button>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        
         <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}"
-                                 DataViewModel="{StaticResource DataModelDataTemplate}" />
+                                 DataViewModel="{StaticResource DataModelDataTemplate}" ReportViewModel="{StaticResource ReportModelDataTemplate}" />
     </UserControl.Resources>
     <Grid>
         <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}"

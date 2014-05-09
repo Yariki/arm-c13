@@ -23,6 +23,7 @@
         ReferenceUser,
         ReferenceStudent,
         ReferenceEmployer,
-        ServiceEvaluation
+        ServiceEvaluation,
+        ReportContractGroup
     }
 }

@@ -34,6 +34,11 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\packages\Microsoft\Office 2003\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -58,6 +63,11 @@
     </Reference>
     <Reference Include="NSubstitute">
       <HintPath>..\..\packages\NSubstitute.1.7.2.0\lib\NET40\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\packages\Microsoft\Office 2003\Office.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -119,6 +129,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuStudentCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARmMenuContractGroupCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
     <Compile Include="Helpers\Converters\ARMMarkTypeSertificationToVisibilityConverter.cs" />
@@ -178,6 +189,8 @@
     <Compile Include="Interfaces\References\View\IARMUserView.cs" />
     <Compile Include="Interfaces\References\View\IARMVisaView.cs" />
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMContractGroupViewModel.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMContractGroupView.cs" />
     <Compile Include="Interfaces\Services\Evaluation\ViewModel\IARMEvaluationViewModel.cs" />
     <Compile Include="Interfaces\Services\Evaluation\View\IARMEvaluationView.cs" />
     <Compile Include="Interfaces\Services\Mark\ViewModel\IARMMarkValidatableViewModel.cs" />
@@ -231,6 +244,7 @@
     <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
+    <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
     <Compile Include="ViewModel\Services\Evaluation\ARMEvaluationViewModel.cs" />
     <Compile Include="ViewModel\Services\Mark\ARMMarkValidatableViewModel.cs" />
     <Compile Include="View\Documents\ARMContractView.xaml.cs">
@@ -321,6 +335,9 @@
     <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
       <DependentUpon>ARMPasswordView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Reports\ARMContractGroupView.xaml.cs">
+      <DependentUpon>ARMContractGroupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Services\Evaluation\ARMEvaluationView.xaml.cs">
       <DependentUpon>ARMEvaluationView.xaml</DependentUpon>
     </Compile>
@@ -344,6 +361,10 @@
     <ProjectReference Include="..\ARM.Resource\ARM.Resource.csproj">
       <Project>{a4b7f6b2-3d63-44b2-9f54-627ef12beaa6}</Project>
       <Name>ARM.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagedExcel\ManagedExcel.csproj">
+      <Project>{771DD911-3752-4053-B216-C2EBECFC1D50}</Project>
+      <Name>ManagedExcel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -463,6 +484,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\Password\ARMPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMContractGroupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,6 +12,8 @@ namespace ARM.Module.Helpers.WorkspaceSelector
 
         public DataTemplate DataViewModel { get; set; }
 
+        public DataTemplate ReportViewModel { get; set; }
+
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             if (item.GetType().Name.Contains(GridSuffix))
@@ -21,6 +23,10 @@ namespace ARM.Module.Helpers.WorkspaceSelector
             if (item is ARMDataViewModelBase)
             {
                 return DataViewModel;
+            }
+            if (item is ARMReportViewModelBase)
+            {
+                return ReportViewModel;
             }
             return null;
         }

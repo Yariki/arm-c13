@@ -34,6 +34,11 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\packages\Microsoft\Office 2003\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -124,6 +129,7 @@
     <Compile Include="Interfaces\IARMMessageBoxFacade.cs" />
     <Compile Include="MVVM\ARMDataViewModelBase.cs" />
     <Compile Include="MVVM\ARMGridViewModelBase.cs" />
+    <Compile Include="MVVM\ARMReportViewModelBase.cs" />
     <Compile Include="MVVM\ARMValidatableViewModelBase.cs" />
     <Compile Include="MVVM\ARMWorkspaceViewModelBase.cs" />
     <Compile Include="MVVM\ARMRelayCommand.cs" />
@@ -148,6 +154,10 @@
     <ProjectReference Include="..\ARM.Resource\ARM.Resource.csproj">
       <Project>{A4B7F6B2-3D63-44B2-9F54-627EF12BEAA6}</Project>
       <Name>ARM.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagedExcel\ManagedExcel.csproj">
+      <Project>{771DD911-3752-4053-B216-C2EBECFC1D50}</Project>
+      <Name>ManagedExcel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

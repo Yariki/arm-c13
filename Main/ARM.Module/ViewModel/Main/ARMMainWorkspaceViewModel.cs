@@ -22,6 +22,7 @@ using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Module.Interfaces.Reports.ViewModel;
 using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
@@ -206,6 +207,9 @@ namespace ARM.Module.ViewModel.Main
                     break;
                 case eARMMainMenuCommand.ServiceEvaluation:
                     workspaceViewModel = _unityContainer.Resolve<IARMEvaluationViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportContractGroup:
+                    workspaceViewModel = _unityContainer.Resolve<IARMContractGroupViewModel>();
                     break;
 
             }

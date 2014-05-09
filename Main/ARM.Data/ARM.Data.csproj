@@ -125,6 +125,14 @@
     <Compile Include="CommonContextMigrations\201405082245518_AddRate2.Designer.cs">
       <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405091330029_AddStudyType.cs" />
+    <Compile Include="CommonContextMigrations\201405091330029_AddStudyType.Designer.cs">
+      <DependentUpon>201405091330029_AddStudyType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonContextMigrations\201405091349050_ChangeStudyType.cs" />
+    <Compile Include="CommonContextMigrations\201405091349050_ChangeStudyType.Designer.cs">
+      <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -282,6 +290,7 @@
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\eARMClassSummary.cs" />
+    <Compile Include="Models\eARMStudyType.cs" />
     <Compile Include="Models\eARMSystemLanguage.cs" />
     <Compile Include="Models\EducationLevel.cs" />
     <Compile Include="Models\Employer.cs" />
@@ -364,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201405082245518_AddRate2.resx">
       <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405091330029_AddStudyType.resx">
+      <DependentUpon>201405091330029_AddStudyType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405091349050_ChangeStudyType.resx">
+      <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

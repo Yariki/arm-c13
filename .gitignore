@@ -78,3 +78,5 @@
 /arm_c13_import.log
 /Main/ARM.Resource/bin
 /Main/ARM.Resource/obj
+/Main/ManagedExcel/bin
+/Main/ManagedExcel/obj
