@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using ARM.Module.Helpers.AttachedProperty;
 
 namespace ARM.Module.Helpers.Selectors
 {
@@ -10,11 +12,20 @@ namespace ARM.Module.Helpers.Selectors
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            //if (item is string)
+            ContentPresenter presenter = container as ContentPresenter;
+            DataGridCell cell = presenter.Parent as DataGridCell;
+            var col = cell.Column;
+            if (col is DataGridTemplateColumn)
             {
-                return StringTemplate;
+                var bindProperty =
+                    (col as DataGridTemplateColumn).GetValue(ARMDataGridTemplateColumnBinding.ColumnBindingProperty) as
+                        string;
+                var binding = new Binding(bindProperty);
+                binding.Source = cell.DataContext;
+                BindingOperations.SetBinding(container, ContentPresenter.ContentProperty, binding);
+                return DetailsTemplate;
             }
-            //return DetailsTemplate;
+            return StringTemplate;
         }
     }
 }

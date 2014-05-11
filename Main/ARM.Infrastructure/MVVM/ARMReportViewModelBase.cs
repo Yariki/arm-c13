@@ -44,6 +44,12 @@ namespace ARM.Infrastructure.MVVM
             set { Set(() => Status, value); }
         }
 
+        public bool IsBusy
+        {
+            get { return Get(() => IsBusy); }
+            set { Set(() => IsBusy, value); }
+        }
+
         #endregion
 
 
@@ -99,6 +105,7 @@ namespace ARM.Infrastructure.MVVM
             }
             ClearProgress();
             Status = Resource.AppResource.Resources.Report_Status_Start;
+            IsBusy = true;
             Task.Factory.StartNew(new Action(() => InternalExport(filename)));
         }
 
@@ -128,11 +135,13 @@ namespace ARM.Infrastructure.MVVM
                     exelApp.Quit();
                 }
                 Status = Resource.AppResource.Resources.Report_Status_Finish;
+                IsBusy = false;
             }
             catch (Exception ex)
             {
                 ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 Status = Resource.AppResource.Resources.Report_Status_Error;
+                IsBusy = false;
             }
         }
 

@@ -22,27 +22,37 @@
             <DataTemplate x:Key="StringDataTemplate">
                 <TextBlock Text="{Binding}"></TextBlock>
             </DataTemplate>
-            
-            
+
+
             <DataTemplate x:Key="DetailsDataTemplate">
                 <ItemsControl ItemsSource="{Binding}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
-                                <CheckBox Grid.Column="1" IsChecked="{Binding IsCertificated}"></CheckBox>
-                                <TextBlock Grid.Column="2" Text="{Binding Date}"></TextBlock>
-                            </Grid>
+                            <Border>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="LightGreen"></Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsCertificated}" Value="False">
+                                                <Setter Property="Background" Value="Pink"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding IsCertificated}" Width="16" IsHitTestVisible="False" Focusable="False"></CheckBox>
+                                    <TextBlock Grid.Column="1" Text="{Binding Date,StringFormat={}{0:d}}"></TextBlock>
+                                </Grid>
+                            </Border>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>                
+                    </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </DataTemplate>
-            
+
             <selector:ARMCertificationCellTemplateSelector x:Key="CertificationCellTemplateSelector" StringTemplate="{StaticResource StringDataTemplate}" DetailsTemplate="{StaticResource DetailsDataTemplate}"></selector:ARMCertificationCellTemplateSelector>
 
             <Style TargetType="{x:Type grid:GroupByControl}">
@@ -84,25 +94,17 @@
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1">
             <Button Content="{x:Static prop:Resources.UI_Run}" Command="{Binding RunCommand}" Margin="5" Width="100"></Button>
         </StackPanel>
-        
-        <ListView Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2"
+
+        <DataGrid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2"  
+                  GridLinesVisibility="Horizontal"
+                  SelectionMode="Single"
                   ItemsSource="{Binding DataSource,UpdateSourceTrigger=PropertyChanged}"
-                  
-            >
-            <ListView.View>
-                <GridView attach:ARMGridViewColumnSource.ColumnsSource="{Binding Columns,UpdateSourceTrigger=PropertyChanged}" 
-                          attach:ARMGridViewColumnSource.CertificationCellTemplateSelector="{StaticResource CertificationCellTemplateSelector}"
-                    >
-                </GridView>
-            </ListView.View>
-            
-        </ListView>
-        <!--<grid:DataGridControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2"
-                              ItemsSource="{Binding DataSource,UpdateSourceTrigger=PropertyChanged}"
-                              attach:ARMGridViewColumnSource.ColumnsSource="{Binding Columns,UpdateSourceTrigger=PropertyChanged}" 
-                          attach:ARMGridViewColumnSource.CertificationCellTemplateSelector="{StaticResource CertificationCellTemplateSelector}">
-            
-        </grid:DataGridControl>-->
+                  AutoGenerateColumns="False"
+                  attach:ARMGridViewColumnSource.ColumnsSource="{Binding Columns,UpdateSourceTrigger=PropertyChanged}" 
+                  attach:ARMGridViewColumnSource.CertificationCellTemplateSelector="{StaticResource CertificationCellTemplateSelector}"
+                   >
+
+        </DataGrid>
 
     </Grid>
 </UserControl>

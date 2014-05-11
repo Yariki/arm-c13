@@ -34,7 +34,10 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <ContentControl Content="{Binding View}" Grid.Row="0" />
+
+                <xctk:BusyIndicator IsBusy="{Binding IsBusy,UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl Content="{Binding View}" Grid.Row="0" />
+                </xctk:BusyIndicator>
                 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>

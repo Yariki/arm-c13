@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ARM.Data.Models;
-using Xceed.Wpf.DataGrid.Converters;
 
 namespace ARM.Module.ViewModel.Reports.Certification
 {
@@ -12,7 +11,7 @@ namespace ARM.Module.ViewModel.Reports.Certification
 
         public object this[string key]
         {
-            get { return _dictvalues[key]; }
+            get { return _dictvalues.ContainsKey(key) ? _dictvalues[key] : null; }
             set
             {
                 if (!_dictvalues.ContainsKey(key))
