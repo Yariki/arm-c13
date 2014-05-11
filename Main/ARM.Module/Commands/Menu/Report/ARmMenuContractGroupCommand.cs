@@ -3,9 +3,9 @@ using ARM.Module.Enums;
 
 namespace ARM.Module.Commands.Menu.Report
 {
-    public class ARmMenuContractGroupCommand : ARMBaseMainMenuCommand
+    public class ARMMenuContractGroupCommand : ARMBaseMainMenuCommand
     {
-        public ARmMenuContractGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuContractGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportContractGroup;

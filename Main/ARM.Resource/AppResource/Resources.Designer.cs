@@ -1798,6 +1798,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Certification.
+        /// </summary>
+        public static string Report_Certification_Title {
+            get {
+                return ResourceManager.GetString("Report_Certification_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group.
         /// </summary>
         public static string Report_ContractGroup_Group {
@@ -1866,6 +1875,51 @@ namespace ARM.Resource.AppResource {
         public static string Service_Evaluation_Title {
             get {
                 return ResourceManager.GetString("Service_Evaluation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        public static string UI_Class {
+            get {
+                return ResourceManager.GetString("UI_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string UI_Group {
+            get {
+                return ResourceManager.GetString("UI_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string UI_Run {
+            get {
+                return ResourceManager.GetString("UI_Run", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string UI_Session {
+            get {
+                return ResourceManager.GetString("UI_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string UI_Student {
+            get {
+                return ResourceManager.GetString("UI_Student", resourceCulture);
             }
         }
     }

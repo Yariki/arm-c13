@@ -211,7 +211,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportContractGroup:
                     workspaceViewModel = _unityContainer.Resolve<IARMContractGroupViewModel>();
                     break;
-
+                case eARMMainMenuCommand.ReportCertification:
+                    workspaceViewModel = _unityContainer.Resolve<IARMCertificationViewModel>();
+                    break;
             }
             if (workspaceViewModel != null)
             {

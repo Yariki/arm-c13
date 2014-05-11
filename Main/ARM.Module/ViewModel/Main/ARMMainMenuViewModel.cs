@@ -53,7 +53,8 @@ namespace ARM.Module.ViewModel.Main
         private void InitReport()
         {
             Reports = new ObservableCollection<IARMMenuCommand>();
-            Reports.Add(new ARmMenuContractGroupCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuContractGroupCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuCertificationCommand(_actionMenu, _canFunc));
         }
 
         public void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate)

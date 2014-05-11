@@ -68,6 +68,11 @@ namespace ARM.Infrastructure.MVVM
             return 1;
         }
 
+        protected virtual string ValidateReportParameter(string name)
+        {
+            return string.Empty;
+        }
+
         protected void ClearProgress()
         {
             Progress = 0;
@@ -148,5 +153,14 @@ namespace ARM.Infrastructure.MVVM
 
         #endregion
 
+        public string this[string columnName]
+        {
+            get { return ValidateReportParameter(columnName); }
+        }
+
+        public virtual string Error 
+        {
+            get { return string.Empty; }
+        }
     }
 }

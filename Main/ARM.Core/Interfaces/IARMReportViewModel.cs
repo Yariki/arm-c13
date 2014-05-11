@@ -1,8 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMReportViewModel : IARMWorkspaceViewModel
+    public interface IARMReportViewModel : IARMWorkspaceViewModel, IDataErrorInfo
     {
         ICommand ExportCommand { get; }
     }

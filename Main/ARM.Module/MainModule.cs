@@ -143,6 +143,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMContractGroupView, ARMContractGroupView>();
             UnityContainer.RegisterType<IARMContractGroupViewModel, ARMContractGroupViewModel>();
 
+            UnityContainer.RegisterType<IARMCertificationView, ARMCertificationView>();
+            UnityContainer.RegisterType<IARMCertificationViewModel, ARMCertificationViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())
