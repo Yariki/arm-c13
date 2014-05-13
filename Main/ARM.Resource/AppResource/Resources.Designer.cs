@@ -1663,6 +1663,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stipend.
+        /// </summary>
+        public static string Model_Student_Stipend {
+            get {
+                return ResourceManager.GetString("Model_Student_Stipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Study Mode.
         /// </summary>
         public static string Model_Student_StudyMode {
@@ -1870,11 +1879,65 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_CurrentStipend {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_CurrentStipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string Service_CalculationStipend_Rate {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculated Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_Stipend {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Stipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_Title {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evaluation.
         /// </summary>
         public static string Service_Evaluation_Title {
             get {
                 return ResourceManager.GetString("Service_Evaluation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string UI_Apply {
+            get {
+                return ResourceManager.GetString("UI_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation.
+        /// </summary>
+        public static string UI_Calculation {
+            get {
+                return ResourceManager.GetString("UI_Calculation", resourceCulture);
             }
         }
         

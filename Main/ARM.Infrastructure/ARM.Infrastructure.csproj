@@ -130,6 +130,7 @@
     <Compile Include="MVVM\ARMDataViewModelBase.cs" />
     <Compile Include="MVVM\ARMGridViewModelBase.cs" />
     <Compile Include="MVVM\ARMReportViewModelBase.cs" />
+    <Compile Include="MVVM\ARMServiceViewModelBase.cs" />
     <Compile Include="MVVM\ARMValidatableViewModelBase.cs" />
     <Compile Include="MVVM\ARMWorkspaceViewModelBase.cs" />
     <Compile Include="MVVM\ARMRelayCommand.cs" />

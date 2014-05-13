@@ -24,6 +24,7 @@
         ReferenceStudent,
         ReferenceEmployer,
         ServiceEvaluation,
+        ServiceCalculationStipend, 
         ReportContractGroup,
         ReportCertification
     }

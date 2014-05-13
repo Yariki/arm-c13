@@ -50,12 +50,7 @@ namespace ARM.Module.ViewModel.Main
             InitReport();
         }
 
-        private void InitReport()
-        {
-            Reports = new ObservableCollection<IARMMenuCommand>();
-            Reports.Add(new ARMMenuContractGroupCommand(_actionMenu, _canFunc));
-            Reports.Add(new ARMMenuCertificationCommand(_actionMenu, _canFunc));
-        }
+
 
         public void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate)
         {
@@ -64,6 +59,14 @@ namespace ARM.Module.ViewModel.Main
         }
 
         #region [private]
+
+
+        private void InitReport()
+        {
+            Reports = new ObservableCollection<IARMMenuCommand>();
+            Reports.Add(new ARMMenuContractGroupCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuCertificationCommand(_actionMenu, _canFunc));
+        }
 
         private void InitFile()
         {
@@ -98,13 +101,14 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuUserCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuEmployerCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
-            
+
         }
 
         private void InitService()
         {
             Services = new ObservableCollection<IARMMenuCommand>();
             Services.Add(new ARMMenuEvaluationCommand(_actionMenu, _canFunc));
+            Services.Add(new ARMMenuCalculationStipendCommand(_actionMenu, _canFunc));
         }
 
         #endregion [private]

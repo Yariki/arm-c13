@@ -65,6 +65,13 @@ namespace ARM.Infrastructure.MVVM
             }
         }
 
+
+        public bool IsBusy
+        {
+            get { return Get(() => IsBusy); }
+            set { Set(() => IsBusy, value); }
+        }
+
         public abstract string Title { get; }
         public ICommand CancelCommand {get;private set;}
 

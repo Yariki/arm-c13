@@ -170,6 +170,8 @@ namespace ARM.Data.Models
         [ARMRequired]
         public eARMStudyType StudyType { get; set; }
 
+        public decimal Stipend { get; set; }
+
         public virtual IList<Mark> Marks { get; set; }
 
     }//end Student

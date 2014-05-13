@@ -107,6 +107,7 @@
     <Compile Include="Interfaces\IARMLoggerFacade.cs" />
     <Compile Include="Interfaces\IARMModelPropertyInfo.cs" />
     <Compile Include="Interfaces\IARMReportViewModel.cs" />
+    <Compile Include="Interfaces\IARMServiceViewModel.cs" />
     <Compile Include="Interfaces\IARMToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMToolboxView.cs" />
     <Compile Include="Interfaces\IARMToolboxViewModel.cs" />

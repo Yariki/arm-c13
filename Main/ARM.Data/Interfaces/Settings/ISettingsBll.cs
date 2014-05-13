@@ -27,5 +27,11 @@ namespace ARM.Data.Interfaces.Settings
         string GetPaymentPrefix();
         long GetNextPaymentNumber();
 
+        decimal GetCommomStipend();
+        decimal GetIncreasedStipend();
+
+        decimal GetCommonMark();
+        decimal GetIncreasedMark();
+
     }//end ISettingsBll
 }//end namespace Settings

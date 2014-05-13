@@ -44,11 +44,6 @@ namespace ARM.Infrastructure.MVVM
             set { Set(() => Status, value); }
         }
 
-        public bool IsBusy
-        {
-            get { return Get(() => IsBusy); }
-            set { Set(() => IsBusy, value); }
-        }
 
         #endregion
 

@@ -23,6 +23,7 @@ using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.Reports.ViewModel;
+using ARM.Module.Interfaces.Services.CalculationStipend.ViewModel;
 using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
@@ -213,6 +214,9 @@ namespace ARM.Module.ViewModel.Main
                     break;
                 case eARMMainMenuCommand.ReportCertification:
                     workspaceViewModel = _unityContainer.Resolve<IARMCertificationViewModel>();
+                    break;
+                case eARMMainMenuCommand.ServiceCalculationStipend:
+                    workspaceViewModel = _unityContainer.Resolve<IARMCalculationStipendViewModel>();
                     break;
             }
             if (workspaceViewModel != null)

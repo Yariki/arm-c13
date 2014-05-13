@@ -90,6 +90,26 @@ namespace ARM.Data.Implementation.Settings
             return num;
         }
 
+        public decimal GetCommomStipend()
+        {
+            return GetDefaultParameters().DefBaseStipend;
+        }
+
+        public decimal GetIncreasedStipend()
+        {
+            return GetDefaultParameters().DefIncreaseStipend;
+        }
+
+        public decimal GetCommonMark()
+        {
+            return (decimal)GetDefaultParameters().DefStipendMark;
+        }
+
+        public decimal GetIncreasedMark()
+        {
+            return (decimal) GetDefaultParameters().DefStipenHighMark;
+        }
+
         private SettingParameters GetDefaultParameters()
         {
             return GetById(GlobalConst.IdDefault);

@@ -133,6 +133,10 @@
     <Compile Include="CommonContextMigrations\201405091349050_ChangeStudyType.Designer.cs">
       <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405132213063_StudentStipend.cs" />
+    <Compile Include="CommonContextMigrations\201405132213063_StudentStipend.Designer.cs">
+      <DependentUpon>201405132213063_StudentStipend.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -379,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonContextMigrations\201405091349050_ChangeStudyType.resx">
       <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405132213063_StudentStipend.resx">
+      <DependentUpon>201405132213063_StudentStipend.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

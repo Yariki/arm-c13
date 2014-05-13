@@ -738,4 +738,25 @@
   <data name="UI_Run" xml:space="preserve">
     <value>Run</value>
   </data>
+  <data name="Service_CalculationStipend_Title" xml:space="preserve">
+    <value>Calculation Stipend</value>
+  </data>
+  <data name="Service_CalculationStipend_Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Service_CalculationStipend_Stipend" xml:space="preserve">
+    <value>Calculated Stipend</value>
+  </data>
+  <data name="UI_Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="UI_Calculation" xml:space="preserve">
+    <value>Calculation</value>
+  </data>
+  <data name="Service_CalculationStipend_CurrentStipend" xml:space="preserve">
+    <value>Current Stipend</value>
+  </data>
+  <data name="Model_Student_Stipend" xml:space="preserve">
+    <value>Stipend</value>
+  </data>
 </root>

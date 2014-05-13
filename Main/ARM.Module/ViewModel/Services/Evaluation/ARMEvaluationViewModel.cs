@@ -23,7 +23,7 @@ using Xceed.Wpf.DataGrid.FilterCriteria;
 using Models = ARM.Data.Models;
 namespace ARM.Module.ViewModel.Services.Evaluation
 {
-    public class ARMEvaluationViewModel : ARMDataViewModelBase, IARMEvaluationViewModel
+    public class ARMEvaluationViewModel : ARMServiceViewModelBase, IARMEvaluationViewModel
     {
         #region [needs]
 

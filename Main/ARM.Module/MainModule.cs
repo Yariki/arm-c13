@@ -18,6 +18,8 @@ using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
 using ARM.Module.Interfaces.Reports.View;
 using ARM.Module.Interfaces.Reports.ViewModel;
+using ARM.Module.Interfaces.Services.CalculationStipend.View;
+using ARM.Module.Interfaces.Services.CalculationStipend.ViewModel;
 using ARM.Module.Interfaces.Services.Evaluation.View;
 using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.Services.Mark.View;
@@ -29,6 +31,7 @@ using ARM.Module.View.Login.View;
 using ARM.Module.View.Main;
 using ARM.Module.View.References;
 using ARM.Module.View.Reports;
+using ARM.Module.View.Services.CalculaltionStipend;
 using ARM.Module.View.Services.Evaluation;
 using ARM.Module.View.Services.Mark;
 using ARM.Module.ViewModel.Documents;
@@ -36,6 +39,7 @@ using ARM.Module.ViewModel.Login;
 using ARM.Module.ViewModel.Main;
 using ARM.Module.ViewModel.References;
 using ARM.Module.ViewModel.Reports;
+using ARM.Module.ViewModel.Services.CalculationStipend;
 using ARM.Module.ViewModel.Services.Evaluation;
 using ARM.Module.ViewModel.Services.Mark;
 using Microsoft.Practices.Prism.Events;
@@ -145,6 +149,9 @@ namespace ARM.Module
 
             UnityContainer.RegisterType<IARMCertificationView, ARMCertificationView>();
             UnityContainer.RegisterType<IARMCertificationViewModel, ARMCertificationViewModel>();
+
+            UnityContainer.RegisterType<IARMCalculationStipendView, ARMCalculationStipendView>();
+            UnityContainer.RegisterType<IARMCalculationStipendViewModel, ARMCalculationStipendViewModel>();
 
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()

@@ -13,7 +13,7 @@ namespace ARM.Data.Implementation.Rate
 
         public Models.Rate GetApproprialRate(decimal rate)
         {
-            var Rate = Dal.GetAll().FirstOrDefault(r => r.RateMin >= rate && rate <= r.RateMax);
+            var Rate = Dal.GetAll().FirstOrDefault(r => r.RateMin <= rate && rate <= r.RateMax);
             return Rate;
         }
     }

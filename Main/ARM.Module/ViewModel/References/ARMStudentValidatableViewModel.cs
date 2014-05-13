@@ -232,6 +232,12 @@ namespace ARM.Module.ViewModel.References
             get { return (Mode == ViewMode.Edit && IsForeign).ToVisibility(); }
         }
 
+        public decimal Stipend
+        {
+            get { return Get(() => Stipend); }
+            set { Set(() => Stipend, value); }
+        }
+
         #endregion
 
         #region [enum source]

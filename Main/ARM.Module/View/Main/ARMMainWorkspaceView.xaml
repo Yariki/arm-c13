@@ -28,6 +28,19 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="ServiceModelDataTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <xctk:BusyIndicator IsBusy="{Binding IsBusy,UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl Content="{Binding View}" Grid.Row="0" />
+                </xctk:BusyIndicator>
+            </Grid>
+        </DataTemplate>
+        
+        
         <DataTemplate x:Key="ReportModelDataTemplate">
             <Grid>
                 <Grid.RowDefinitions>
@@ -59,8 +72,11 @@
             </Grid>
         </DataTemplate>
         
-        <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" GridViewModel="{StaticResource GridModelDataTemplate}"
-                                 DataViewModel="{StaticResource DataModelDataTemplate}" ReportViewModel="{StaticResource ReportModelDataTemplate}" />
+        <ws:ARMWorkspaceSelector x:Key="ArmWorkspaceSelector" 
+                                 GridViewModel="{StaticResource GridModelDataTemplate}"
+                                 DataViewModel="{StaticResource DataModelDataTemplate}" 
+                                 ReportViewModel="{StaticResource ReportModelDataTemplate}" 
+                                 ServiceViewModel="{StaticResource ServiceModelDataTemplate}"/>
     </UserControl.Resources>
     <Grid>
         <xcad:DockingManager DocumentsSource="{Binding Items,UpdateSourceTrigger=PropertyChanged}"

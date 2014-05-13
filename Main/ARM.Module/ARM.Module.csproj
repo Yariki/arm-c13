@@ -132,6 +132,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
+    <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
     <Compile Include="Helpers\AttachedProperty\ARMDataGridTemplateColumnBinding.cs" />
@@ -198,6 +199,8 @@
     <Compile Include="Interfaces\Reports\ViewModel\IARMContractGroupViewModel.cs" />
     <Compile Include="Interfaces\Reports\View\IARMCertificationView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMContractGroupView.cs" />
+    <Compile Include="Interfaces\Services\CalculationStipend\ViewModel\IARMCalculationStipendViewModel.cs" />
+    <Compile Include="Interfaces\Services\CalculationStipend\View\IARMCalculationStipendView.cs" />
     <Compile Include="Interfaces\Services\Evaluation\ViewModel\IARMEvaluationViewModel.cs" />
     <Compile Include="Interfaces\Services\Evaluation\View\IARMEvaluationView.cs" />
     <Compile Include="Interfaces\Services\Mark\ViewModel\IARMMarkValidatableViewModel.cs" />
@@ -255,6 +258,9 @@
     <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMCertificationDetailsData.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMStudentCertificationData.cs" />
+    <Compile Include="ViewModel\Services\CalculationStipend\ARMCalculationStipendViewModel.cs" />
+    <Compile Include="ViewModel\Services\CalculationStipend\Stipend\ARMStudentMarksData.cs" />
+    <Compile Include="ViewModel\Services\CalculationStipend\Stipend\ARMStudentStipendViewModel.cs" />
     <Compile Include="ViewModel\Services\Evaluation\ARMEvaluationViewModel.cs" />
     <Compile Include="ViewModel\Services\Mark\ARMMarkValidatableViewModel.cs" />
     <Compile Include="View\Documents\ARMContractView.xaml.cs">
@@ -350,6 +356,9 @@
     </Compile>
     <Compile Include="View\Reports\ARMContractGroupView.xaml.cs">
       <DependentUpon>ARMContractGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Services\CalculaltionStipend\ARMCalculationStipendView.xaml.cs">
+      <DependentUpon>ARMCalculationStipendView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Services\Evaluation\ARMEvaluationView.xaml.cs">
       <DependentUpon>ARMEvaluationView.xaml</DependentUpon>
@@ -505,6 +514,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\ARMContractGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Services\CalculaltionStipend\ARMCalculationStipendView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
