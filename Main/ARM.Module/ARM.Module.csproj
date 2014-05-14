@@ -132,14 +132,16 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMMenuSessionMarksCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
     <Compile Include="Enums\eARMMainMenuCommand.cs" />
     <Compile Include="Helpers\AttachedProperty\ARMDataGridTemplateColumnBinding.cs" />
     <Compile Include="Helpers\AttachedProperty\ARMGridViewColumnSource.cs" />
+    <Compile Include="Helpers\Converters\ARMMarkToBrushConverter.cs" />
     <Compile Include="Helpers\Converters\ARMMarkTypeSertificationToVisibilityConverter.cs" />
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
-    <Compile Include="Helpers\Selectors\ARMCertificationCellTemplateSelector.cs" />
+    <Compile Include="Helpers\Selectors\ARMDataGridCellTemplateSelector.cs" />
     <Compile Include="Helpers\Selectors\ARMMarkStyleContainerSelector.cs" />
     <Compile Include="Helpers\WorkspaceSelector\ARMWorkspaceSelector.cs" />
     <Compile Include="Interfaces\Documents\ViewModel\IARMContractValidatableViewModel.cs" />
@@ -197,8 +199,10 @@
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMCertificationViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMContractGroupViewModel.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMSessionMarksViewModel.cs" />
     <Compile Include="Interfaces\Reports\View\IARMCertificationView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMContractGroupView.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMSessionMarksView.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\ViewModel\IARMCalculationStipendViewModel.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\View\IARMCalculationStipendView.cs" />
     <Compile Include="Interfaces\Services\Evaluation\ViewModel\IARMEvaluationViewModel.cs" />
@@ -256,8 +260,13 @@
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMCertificationViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
+    <Compile Include="ViewModel\Reports\ARMReportGroupSessionViewModelBase.cs" />
+    <Compile Include="ViewModel\Reports\ARMSessionMarksViewModel.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMCertificationDetailsData.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMStudentCertificationData.cs" />
+    <Compile Include="ViewModel\Reports\Data\ARMStudentClassData.cs" />
+    <Compile Include="ViewModel\Reports\SessionMarks\ARMSessionMarkDetails.cs" />
+    <Compile Include="ViewModel\Reports\SessionMarks\ARMStudentSessionMarksData.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\ARMCalculationStipendViewModel.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\Stipend\ARMStudentMarksData.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\Stipend\ARMStudentStipendViewModel.cs" />
@@ -356,6 +365,9 @@
     </Compile>
     <Compile Include="View\Reports\ARMContractGroupView.xaml.cs">
       <DependentUpon>ARMContractGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\ARMSessionMarksView.xaml.cs">
+      <DependentUpon>ARMSessionMarksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Services\CalculaltionStipend\ARMCalculationStipendView.xaml.cs">
       <DependentUpon>ARMCalculationStipendView.xaml</DependentUpon>
@@ -514,6 +526,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\ARMContractGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMSessionMarksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Threading;
-using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Helpers.AttachedProperty;
@@ -22,11 +16,10 @@ using ManagedExcel;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
-using DataGrid = Xceed.Wpf.DataGrid;
 
 namespace ARM.Module.ViewModel.Reports
 {
-    public class ARMCertificationViewModel : ARMReportViewModelBase, IARMCertificationViewModel
+    public class ARMCertificationViewModel : ARMReportGroupSessionViewModelBase, IARMCertificationViewModel
     {
         public ARMCertificationViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMCertificationView view)
             : base(regionManager, unityContainer, eventAggregator, view)
@@ -40,56 +33,22 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [properties]
 
-        public ObservableCollection<Group> Groups
-        {
-            get { return Get(() => Groups); }
-            set { Set(() => Groups, value); }
-        }
-
-        public ObservableCollection<Session> Sessions
-        {
-            get { return Get(() => Sessions); }
-            set { Set(() => Sessions, value); }
-        }
-
-        public Group SelectedGroup
-        {
-            get { return Get(() => SelectedGroup); }
-            set { Set(() => SelectedGroup, value); }
-        }
-
-        public Session SelectedSession
-        {
-            get { return Get(() => SelectedSession); }
-            set { Set(() => SelectedSession, value); }
-        }
-
         public ObservableCollection<ARMStudentCertificationData> DataSource
         {
             get { return Get(() => DataSource); }
             set { Set(() => DataSource, value); }
         }
 
-        public ObservableCollection<DataGridColumn> Columns
-        {
-            get { return Get(() => Columns); }
-            set { Set(() => Columns, value); }
-        }
-
-
         public ICommand RunCommand { get; private set; }
 
-        #endregion
+        #endregion [properties]
 
         #region [overrides]
 
         public override void Initialize()
         {
             base.Initialize();
-            Groups = new ObservableCollection<Group>(UnitOfWork.GroupRepository.GetAll());
-            Sessions = new ObservableCollection<Session>(UnitOfWork.SessionRepository.GetAll());
-            SelectedGroup = null;
-            SelectedSession = null;
+
             RunCommand = new ARMRelayCommand(RunExecute, CanRunExecute);
             Columns = new ObservableCollection<DataGridColumn>();
         }
@@ -147,7 +106,7 @@ namespace ARM.Module.ViewModel.Reports
             return DataSource != null && DataSource.Count > 0;
         }
 
-        #endregion
+        #endregion [overrides]
 
         #region [private]
 
@@ -197,7 +156,7 @@ namespace ARM.Module.ViewModel.Reports
                 GenerateColumns();
                 DataSource =
                     new ObservableCollection<ARMStudentCertificationData>(data.OrderBy(d => d.Student.Display).AsEnumerable());
-                IsBusy = false;    
+                IsBusy = false;
             }));
         }
 
@@ -215,7 +174,6 @@ namespace ARM.Module.ViewModel.Reports
 
         private void GenerateColumns()
         {
-            
             var col = new ObservableCollection<DataGridColumn>();
             var name = new DataGridTextColumn() { Width = 200, Header = Resource.AppResource.Resources.Model_Student_Title };
             name.Binding = new Binding("Student.Display") { Mode = BindingMode.OneTime };
@@ -235,6 +193,6 @@ namespace ARM.Module.ViewModel.Reports
             return SelectedGroup != null && SelectedSession != null;
         }
 
-        #endregion
+        #endregion [private]
     }
 }

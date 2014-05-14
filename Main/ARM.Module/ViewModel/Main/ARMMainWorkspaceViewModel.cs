@@ -218,6 +218,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ServiceCalculationStipend:
                     workspaceViewModel = _unityContainer.Resolve<IARMCalculationStipendViewModel>();
                     break;
+                case eARMMainMenuCommand.ReportSessionMarks:
+                    workspaceViewModel = _unityContainer.Resolve<IARMSessionMarksViewModel>();
+                    break;
             }
             if (workspaceViewModel != null)
             {

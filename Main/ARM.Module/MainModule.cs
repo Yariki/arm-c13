@@ -153,6 +153,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMCalculationStipendView, ARMCalculationStipendView>();
             UnityContainer.RegisterType<IARMCalculationStipendViewModel, ARMCalculationStipendViewModel>();
 
+            UnityContainer.RegisterType<IARMSessionMarksView, ARMSessionMarksView>();
+            UnityContainer.RegisterType<IARMSessionMarksViewModel, ARMSessionMarksViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

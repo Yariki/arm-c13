@@ -137,7 +137,7 @@ namespace ARM.Module.ViewModel.Services.CalculationStipend
                 StudentStipendsSource = result;
                 IsBusy = false;
             }));
-        }
+        } 
 
         private bool CanCalculateExecute(object arg)
         {

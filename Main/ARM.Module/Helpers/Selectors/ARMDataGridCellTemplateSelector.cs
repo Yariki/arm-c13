@@ -5,7 +5,7 @@ using ARM.Module.Helpers.AttachedProperty;
 
 namespace ARM.Module.Helpers.Selectors
 {
-    public class ARMCertificationCellTemplateSelector : DataTemplateSelector
+    public class ARMDataGridCellTemplateSelector : DataTemplateSelector
     {
         public DataTemplate StringTemplate { get; set; }
         public DataTemplate DetailsTemplate { get; set; }

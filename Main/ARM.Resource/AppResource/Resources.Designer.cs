@@ -1852,6 +1852,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Session Marks.
+        /// </summary>
+        public static string Report_SessionMark_Title {
+            get {
+                return ResourceManager.GetString("Report_SessionMark_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Report_Status_Error {
