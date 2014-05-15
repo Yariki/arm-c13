@@ -7,6 +7,10 @@
 
 namespace ARM.Core.Enums
 {
+	/// <summary>
+	/// тип режиму роботи користувацього інтерфейсу.
+	/// У відповідності до цього типу змінюється логіка роботи програми.
+	/// </summary>
     public enum ViewMode : int
     {
         None,

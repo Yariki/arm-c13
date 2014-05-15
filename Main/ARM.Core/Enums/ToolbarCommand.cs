@@ -7,6 +7,9 @@
 
 namespace ARM.Core.Enums
 {
+	/// <summary>
+	/// типи команд панелі управління
+	/// </summary>
     public enum ToolbarCommand : int
     {
         None,

@@ -7,6 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
+	/// <summary>
+	/// атрибут, що вказує на валідація властивості по мінімальному значенню
+	/// </summary>
     public class ARMMinAttribute : ARMNumericAttribute
     {
         public ARMMinAttribute()
