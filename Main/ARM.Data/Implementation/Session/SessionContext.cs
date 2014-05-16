@@ -3,8 +3,7 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Session
 {
-    public class SessionContext : BaseContext<Models.Session>,ISessionContext
+    public class SessionContext : BaseContext<Models.Session>, ISessionContext
     {
-         
     }
 }

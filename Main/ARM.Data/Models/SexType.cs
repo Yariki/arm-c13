@@ -7,9 +7,9 @@
 
 namespace ARM.Data.Models
 {
-    public enum SexType : int
+    public enum SexType
     {
         Male,
         Female
-    }//end SexType
-}//end namespace Models
+    } //end SexType
+} //end namespace Models

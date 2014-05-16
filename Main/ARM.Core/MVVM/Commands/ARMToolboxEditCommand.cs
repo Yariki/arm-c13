@@ -13,17 +13,16 @@ namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxEditCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxEditCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Edit;
             Title = "Edit";
         }
 
-        public ARMToolboxEditCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
-
         }
     }//end ARMToolboxEditCommand
 }//end namespace Commands

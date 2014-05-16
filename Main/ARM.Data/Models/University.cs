@@ -8,17 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.University)]
-
+    [ARMMetadata(Metadata = eARMMetadata.University)]
     public class University : BaseNamedModel
     {
-
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public Guid? StaffId
         {
@@ -30,7 +27,7 @@ namespace ARM.Data.Models
 
         public string Email { get; set; }
 
-        [ARMGrid (Order = 2)]
+        [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public virtual Staff Rector
         {
@@ -39,6 +36,5 @@ namespace ARM.Data.Models
         }
 
         public virtual IList<Faculty> Faculties { get; set; }
-
     }//end University
 }//end namespace Models

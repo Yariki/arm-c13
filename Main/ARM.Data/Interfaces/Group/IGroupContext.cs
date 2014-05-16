@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Group
 {
     public interface IGroupContext : IContext<Models.Group>
     {
-    }//end IGroupContext
-}//end namespace Group
+    } //end IGroupContext
+} //end namespace Group

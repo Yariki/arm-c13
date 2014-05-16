@@ -11,14 +11,14 @@ using System.Reflection;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс-контейнер інформації про тип PropertyInfo всіх властивостей певного типу
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс-контейнер інформації про тип PropertyInfo всіх властивостей певного типу
+    /// </summary>
     public interface IARMModelPropertyInfo
     {
-      /// <summary>
-      /// Повертає властивість
-      /// </summary>
+        /// <summary>
+        /// Повертає властивість
+        /// </summary>
         PropertyInfo Property
         {
             get;
@@ -71,6 +71,5 @@ namespace ARM.Core.Interfaces
         /// Атрибут для локалізації. За допомогою цього атрибуту можна вибрати локалізовані дані
         /// </summary>
         DisplayAttribute Display { get; }
-
     }//end IARMModelPropertyInfo
 }//end namespace Interfaces

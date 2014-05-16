@@ -7,9 +7,9 @@
 
 namespace ARM.Data.Models
 {
-    public enum StudyMode : int
+    public enum StudyMode
     {
         FullTime,
         Distance
-    }//end StudyMode
-}//end namespace Models
+    } //end StudyMode
+} //end namespace Models

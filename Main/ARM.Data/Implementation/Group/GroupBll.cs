@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Group
             : base(dal)
         {
         }
-    }//end GroupBll
-}//end namespace Group
+    } //end GroupBll
+} //end namespace Group

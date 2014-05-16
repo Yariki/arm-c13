@@ -7,15 +7,15 @@
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс для сервісу логування
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс для сервісу логування
+    /// </summary>
     public interface IARMLoggerFacade
     {
-      /// <summary>
-      /// Метод для логування помилок
-      /// </summary>
-      /// <param name="message">Повідомлення</param>
+        /// <summary>
+        /// Метод для логування помилок
+        /// </summary>
+        /// <param name="message">Повідомлення</param>
         void LogError(string message);
 
         /// <summary>

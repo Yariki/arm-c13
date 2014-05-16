@@ -5,6 +5,5 @@ namespace ARM.Infrastructure.Events
 {
     public class ARMCloseEvent : CompositePresentationEvent<ARMCloseEventPayload>
     {
-         
     }
 }

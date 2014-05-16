@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace ARM.Core.Interfaces
 {
-    public interface IARMViewModel : INotifyPropertyChanged,IDisposable
+    public interface IARMViewModel : INotifyPropertyChanged, IDisposable
     {
         IARMView View
         {

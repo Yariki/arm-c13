@@ -7,6 +7,5 @@
         public decimal RateMax { get; set; }
 
         public decimal Mark { get; set; }
-
     }
 }

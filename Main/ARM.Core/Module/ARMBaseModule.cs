@@ -7,14 +7,13 @@ namespace ARM.Core.Module
 {
     public abstract class ARMBaseModule : IModule
     {
-
         #region [needs]
 
         protected readonly IRegionManager RegionManager;
         protected readonly IUnityContainer UnityContainer;
         protected readonly IEventAggregator EventAggregator;
 
-        #endregion
+        #endregion [needs]
 
         protected ARMBaseModule(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator)
@@ -29,23 +28,18 @@ namespace ARM.Core.Module
             RegistreInterfaces();
             InjectViews();
             InternalInitialize();
-
         }
 
         protected virtual void RegistreInterfaces()
         {
-            
         }
 
         protected virtual void InjectViews()
         {
-            
         }
 
         protected virtual void InternalInitialize()
         {
-            
         }
-
     }
 }

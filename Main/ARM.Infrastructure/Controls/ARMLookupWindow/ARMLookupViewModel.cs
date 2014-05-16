@@ -11,11 +11,12 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.Controls.ARMLookupWindow
 {
-    public class ARMLookupViewModel : ARMViewModelBase,IARMLookupViewModel
+    public class ARMLookupViewModel : ARMViewModelBase, IARMLookupViewModel
     {
         private IUnityContainer _unityContainer;
 
-        public ARMLookupViewModel(IUnityContainer unityContainer, IARMView view) : base(view)
+        public ARMLookupViewModel(IUnityContainer unityContainer, IARMView view)
+            : base(view)
         {
             _unityContainer = unityContainer;
         }
@@ -23,6 +24,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         public IEnumerable<object> Source { get; private set; }
 
         public eARMMetadata Metadata { get; private set; }
+
         public Type EntityType { get; private set; }
 
         public BaseModel SelectedItem { get; set; }
@@ -30,7 +32,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         public void Initialize(eARMMetadata metadata)
         {
             var resolver = _unityContainer.Resolve<IARMDataModelResolver>();
-            if(resolver == null)
+            if (resolver == null)
                 return;
             Metadata = metadata;
             EntityType = ARMModelsPropertyCache.Instance.GetTypeByMetadata(Metadata);

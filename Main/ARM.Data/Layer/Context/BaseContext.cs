@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
@@ -7,13 +6,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using ARM.Data.Layer.Interfaces;
 using ARM.Data.Models;
-using NSubstitute;
 
 namespace ARM.Data.Layer.Context
 {
     public abstract class BaseContext<T> : DbContext, IContext<T> where T : BaseModel
     {
-
         protected BaseContext()
             : base("ARMDatabase")
         {
@@ -32,7 +29,7 @@ namespace ARM.Data.Layer.Context
             {
                 if (entry.Entity.Id == Guid.Empty)
                 {
-                    entry.Entity.Id = Guid.NewGuid();    
+                    entry.Entity.Id = Guid.NewGuid();
                 }
             }
             SaveChanges();
@@ -40,7 +37,7 @@ namespace ARM.Data.Layer.Context
 
         public void Update(T obj)
         {
-            if(obj == null)
+            if (obj == null)
                 return;
             var entry = base.Entry<T>(obj);
             if (entry.State == EntityState.Detached)
@@ -62,17 +59,17 @@ namespace ARM.Data.Layer.Context
         public void Refresh()
         {
             IObjectContextAdapter oca = this as IObjectContextAdapter;
-            if(oca == null)
+            if (oca == null)
                 return;
             ObjectContext context = oca.ObjectContext;
             var refreshableObjects = (from entry in context.ObjectStateManager.GetObjectStateEntries(
-                                                EntityState.Added 
-                                               | EntityState.Deleted 
-                                               | EntityState.Modified 
+                                                EntityState.Added
+                                               | EntityState.Deleted
+                                               | EntityState.Modified
                                                | EntityState.Unchanged)
                                       where entry.EntityKey != null
                                       select entry.Entity);
-            context.Refresh(RefreshMode.StoreWins, refreshableObjects );
+            context.Refresh(RefreshMode.StoreWins, refreshableObjects);
         }
 
         public DbEntityEntry<T> Entry(T e)
@@ -85,9 +82,8 @@ namespace ARM.Data.Layer.Context
             return Set<TObj>();
         }
 
-        protected virtual void UpdateChilds(T attached, T current )
+        protected virtual void UpdateChilds(T attached, T current)
         {
-            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

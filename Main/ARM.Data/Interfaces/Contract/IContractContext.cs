@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Contract
 {
     public interface IContractContext : IContext<Models.Contract>
     {
-    }//end IContractContext
-}//end namespace Contract
+    } //end IContractContext
+} //end namespace Contract

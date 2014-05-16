@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Specialty
             : base(dal)
         {
         }
-    }//end SpecialtyBll
-}//end namespace Specialty
+    } //end SpecialtyBll
+} //end namespace Specialty

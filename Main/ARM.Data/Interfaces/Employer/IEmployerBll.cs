@@ -4,6 +4,5 @@ namespace ARM.Data.Interfaces.Employer
 {
     public interface IEmployerBll : IBll<Models.Employer>
     {
-         
     }
 }

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Data.Entity;
+using System.Linq;
 
 namespace ARMConsoleTest
 {
     public class BaseObject
     {
         public bool Deleted { get; set; }
+
         public DateTime Created { get; set; }
+
         public DateTime Edited { get; set; }
     }
 
@@ -19,7 +19,9 @@ namespace ARMConsoleTest
     {
         [Key]
         public int BlogId { get; set; }
+
         public string Name { get; set; }
+
         public string Url { get; set; }
 
         public virtual List<Post> Posts { get; set; }
@@ -29,10 +31,13 @@ namespace ARMConsoleTest
     {
         [Key]
         public int PostId { get; set; }
+
         public string Title { get; set; }
+
         public string Content { get; set; }
 
         public int BlogId { get; set; }
+
         public virtual Blog Blog { get; set; }
     }
 
@@ -41,29 +46,29 @@ namespace ARMConsoleTest
         public BloggingContext()
             : base("MainDatabase")
         {
-
         }
 
         public DbSet<Blog> Blogs { get; set; }
+
         public DbSet<Post> Posts { get; set; }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             using (var db = new BloggingContext())
             {
                 Console.WriteLine("Enter a name for Blog:");
-                var name = Console.ReadLine();
-                var blog = new Blog() { Name = name };
+                string name = Console.ReadLine();
+                var blog = new Blog {Name = name};
                 db.Blogs.Add(blog);
                 db.SaveChanges();
-                var query = from b in db.Blogs
-                            orderby b.Name
-                            select b;
+                IOrderedQueryable<Blog> query = from b in db.Blogs
+                    orderby b.Name
+                    select b;
                 Console.WriteLine("All blogs:");
-                foreach (var item in query)
+                foreach (Blog item in query)
                 {
                     Console.WriteLine(item.Name);
                 }
@@ -93,7 +98,6 @@ namespace ARMConsoleTest
             //        connection.Close();
             //}
             //Console.ReadKey();
-
         }
     }
 }

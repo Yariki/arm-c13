@@ -13,23 +13,19 @@ namespace ARM.Data.Layer.Interfaces
 {
     public interface IDal<T> : IDisposable
     {
-        ///
         /// <param name="obj"></param>
         void Insert(T obj);
 
         void InsertAll(IEnumerable<T> list);
 
-        ///
         /// <param name="obj"></param>
         void Update(T obj);
 
-        ///
         /// <param name="obj"></param>
         void Delete(T obj);
 
         IEnumerable<T> GetAll();
 
-        ///
         /// <param name="id"></param>
         T GetById(Guid id);
 
@@ -40,6 +36,7 @@ namespace ARM.Data.Layer.Interfaces
         IEnumerable<T> GetAllWithRelated();
 
         IEnumerable<T> GetAll(Func<T, bool> filter);
+
         IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
-    }//end IDal
-}//end namespace Interfaces
+    } //end IDal
+} //end namespace Interfaces

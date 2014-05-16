@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Report
 {
     public class ARMMenuContractGroupCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuContractGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuContractGroupCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportContractGroup;

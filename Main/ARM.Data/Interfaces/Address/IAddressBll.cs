@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Address
 {
     public interface IAddressBll : IBll<Models.Address>
     {
-    }//end IAddressBll
-}//end namespace Address
+    } //end IAddressBll
+} //end namespace Address

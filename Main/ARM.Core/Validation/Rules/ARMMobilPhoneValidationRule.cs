@@ -5,21 +5,19 @@
 //  Created on:      29-Mar-2014 4:59:43 PM
 ///////////////////////////////////////////////////////////
 
+using ARM.Core.Interfaces;
+
 namespace ARM.Core.Validation.Rules
 {
     public class ARMMobilPhoneValidationRule : ARMStringValidationRule
     {
-        public ARMMobilPhoneValidationRule()
-        {
-        }
-
         ~ARMMobilPhoneValidationRule()
         {
         }
 
-        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
+        protected override IARMValidationResult InternalEvalute(object val)
         {
             return null;
         }
-    }//end ARMMobilPhoneValidationRule
-}//end namespace Rules
+    } //end ARMMobilPhoneValidationRule
+} //end namespace Rules

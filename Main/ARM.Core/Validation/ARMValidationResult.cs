@@ -15,6 +15,7 @@ namespace ARM.Core.Validation
     {
         private readonly IList<string> _listMessage = new List<string>();
 
+        #region IARMValidationResult Members
 
         public void AddMessage(string mes)
         {
@@ -26,15 +27,13 @@ namespace ARM.Core.Validation
             _listMessage.Clear();
         }
 
-        public bool IsValid
-        {
-            get;
-            set;
-        }
+        public bool IsValid { get; set; }
 
         public IEnumerable<string> GetErrors()
         {
             return _listMessage.AsEnumerable();
         }
-    }//end ARMValidationResult
-}//end namespace Validation
+
+        #endregion IARMValidationResult Members
+    } //end ARMValidationResult
+} //end namespace Validation

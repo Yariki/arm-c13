@@ -7,9 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
-	/// <summary>
-	/// атрибут, який вказує на валідацію властивості, як URL посилання
-	/// </summary>
+    /// <summary>
+    /// атрибут, який вказує на валідацію властивості, як URL посилання
+    /// </summary>
     public class ARMUrlAttribute : ARMStringAttribute
     {
         public ARMUrlAttribute()

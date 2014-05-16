@@ -8,18 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Messaging;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Core.Interfaces.Data;
 using ARM.Core.Reflection;
-using Microsoft.Practices.ObjectBuilder2;
 
 namespace ARM.Core.Service
 {
@@ -28,7 +24,6 @@ namespace ARM.Core.Service
         private Dictionary<Type, List<IARMModelPropertyInfo>> _dictCache = null;
         private Dictionary<eARMMetadata, Type> _dictMetadata = null;
         private const string AssemblyPrefix = "ARM";
-
 
         private ARMModelsPropertyCache()
         {
@@ -45,7 +40,7 @@ namespace ARM.Core.Service
             get { return _instance.Value; }
         }
 
-        #endregion
+        #endregion [static]
 
         private void InitCache()
         {
@@ -81,7 +76,7 @@ namespace ARM.Core.Service
                 {
                     disAttr = propertyInfo.GetAttribute<DisplayAttribute>();
                 }
-                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr, visiblbeInGrid,orderinGrid, disAttr));
+                listArmPi.Add(new ARMModelPropertyInfo(propertyInfo, isRequired, validAttr, visiblbeInGrid, orderinGrid, disAttr));
             }
             _dictCache[type] = listArmPi;
 
@@ -136,6 +131,5 @@ namespace ARM.Core.Service
             }
             return t;
         }
-
     }//end ARMModelsPeopertyCache
 }//end namespace Service

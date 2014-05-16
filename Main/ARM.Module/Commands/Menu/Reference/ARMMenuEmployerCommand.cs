@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Reference
 {
     public class ARMMenuEmployerCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuEmployerCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuEmployerCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceEmployer;

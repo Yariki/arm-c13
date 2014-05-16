@@ -9,9 +9,9 @@ using System;
 
 namespace ARM.Core.Attributes
 {
-  /// <summary>
-  /// Базовий класс для атрибутів.
-  /// </summary>
+    /// <summary>
+    /// Базовий класс для атрибутів.
+    /// </summary>
     public abstract class ARMBaseAttribute : Attribute
     {
         public ARMBaseAttribute()

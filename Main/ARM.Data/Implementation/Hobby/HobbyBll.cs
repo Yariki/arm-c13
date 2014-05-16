@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Hobby
             : base(dal)
         {
         }
-    }//end HobbyBll
-}//end namespace Hobby
+    } //end HobbyBll
+} //end namespace Hobby

@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.University
 {
     public interface IUniversityDal : IDal<Models.University>
     {
-    }//end IUniversityDal
-}//end namespace University
+    } //end IUniversityDal
+} //end namespace University

@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Contract
 {
     public interface IContractBll : IBll<Models.Contract>
     {
-    }//end IContractBll
-}//end namespace Contract
+    } //end IContractBll
+} //end namespace Contract

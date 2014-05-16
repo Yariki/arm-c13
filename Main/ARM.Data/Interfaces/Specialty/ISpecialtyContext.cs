@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Specialty
 {
     public interface ISpecialtyContext : IContext<Models.Specialty>
     {
-    }//end ISpecialtyContext
-}//end namespace Specialty
+    } //end ISpecialtyContext
+} //end namespace Specialty

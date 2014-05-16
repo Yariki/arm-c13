@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Report
 {
     public class ARMMenuCertificationCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuCertificationCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuCertificationCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportCertification;

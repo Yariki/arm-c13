@@ -10,9 +10,9 @@ using ARM.Core.Interfaces;
 
 namespace ARM.Core.EventArguments
 {
-	/// <summary>
-	/// класс аргументів повідомллення. Містить назву властивості, що підлягала валідації і результат валідації
-	/// </summary>
+    /// <summary>
+    /// класс аргументів повідомллення. Містить назву властивості, що підлягала валідації і результат валідації
+    /// </summary>
     public class ValidationEventArgs : EventArgs
     {
         public ValidationEventArgs()
@@ -23,14 +23,14 @@ namespace ARM.Core.EventArguments
         {
         }
 
-		/// <summary>
-		/// назва властивості, що валідувалась
-		/// </summary>
+        /// <summary>
+        /// назва властивості, що валідувалась
+        /// </summary>
         public string PropertyName { get; set; }
 
-		/// <summary>
-		/// результат валідації
-		/// </summary>
+        /// <summary>
+        /// результат валідації
+        /// </summary>
         public IARMValidationResult Result
         {
             get;

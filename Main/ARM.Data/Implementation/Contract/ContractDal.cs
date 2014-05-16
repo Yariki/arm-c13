@@ -21,9 +21,13 @@ namespace ARM.Data.Implementation.Contract
         {
         }
 
+        #region IContractDal Members
+
         public override IEnumerable<Models.Contract> GetAllWithRelated()
         {
             return Context.GetItems().Include(c => c.Customer).Include(c => c.Student).AsEnumerable();
         }
-    }//end ContractDal
-}//end namespace Contract
+
+        #endregion IContractDal Members
+    } //end ContractDal
+} //end namespace Contract

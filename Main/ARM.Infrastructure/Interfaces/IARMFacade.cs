@@ -12,16 +12,10 @@ namespace ARM.Infrastructure.Interfaces
 {
     public interface IARMFacade
     {
-        IARMLoggerFacade Logger
-        {
-            get;
-        }
+        IARMLoggerFacade Logger { get; }
 
-        IARMMessageBoxFacade MessageBox
-        {
-            get;
-        }
+        IARMMessageBoxFacade MessageBox { get; }
 
         User CurrentUser { get; set; }
-    }//end IARMFacade
-}//end namespace Interfaces
+    } //end IARMFacade
+} //end namespace Interfaces

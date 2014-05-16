@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Session
             : base(context)
         {
         }
-    }//end SessionDal
-}//end namespace Session
+    } //end SessionDal
+} //end namespace Session

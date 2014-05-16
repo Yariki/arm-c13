@@ -4,6 +4,5 @@ namespace ARM.Infrastructure.Interfaces.Grid
 {
     public interface IARMGridView : IARMView
     {
-         
     }
 }

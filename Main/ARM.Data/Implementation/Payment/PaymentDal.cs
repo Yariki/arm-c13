@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Payment
             : base(context)
         {
         }
-    }//end PaymentDal
-}//end namespace Payment
+    } //end PaymentDal
+} //end namespace Payment

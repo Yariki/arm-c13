@@ -15,5 +15,5 @@ namespace ARM.Data.Models
     public class Country : BaseNamedModel
     {
         public virtual IList<Address> Addresses { get; set; }
-    }//end Country
-}//end namespace Models
+    } //end Country
+} //end namespace Models

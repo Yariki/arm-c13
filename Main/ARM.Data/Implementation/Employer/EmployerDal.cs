@@ -4,9 +4,10 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Employer
 {
-    public class EmployerDal : BaseDal<Models.Employer>,IEmployerDal
+    public class EmployerDal : BaseDal<Models.Employer>, IEmployerDal
     {
-        public EmployerDal(IContext<Models.Employer> context) : base(context)
+        public EmployerDal(IContext<Models.Employer> context)
+            : base(context)
         {
         }
     }

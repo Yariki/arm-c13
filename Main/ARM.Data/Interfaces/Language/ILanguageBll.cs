@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Language
 {
     public interface ILanguageBll : IBll<Models.Language>
     {
-    }//end ILanguageBll
-}//end namespace Language
+    } //end ILanguageBll
+} //end namespace Language

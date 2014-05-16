@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Mark
             : base(context)
         {
         }
-    }//end MarkDal
-}//end namespace Mark
+    } //end MarkDal
+} //end namespace Mark

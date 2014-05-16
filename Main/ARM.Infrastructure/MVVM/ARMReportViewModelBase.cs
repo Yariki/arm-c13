@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Threading;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Infrastructure.Facade;
+using ManagedExcel;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
-using ManagedExcel;
 using Microsoft.Win32;
 using Worksheet = ManagedExcel.Worksheet;
 using XlSaveAsAccessMode = ManagedExcel.XlSaveAsAccessMode;
@@ -44,10 +41,7 @@ namespace ARM.Infrastructure.MVVM
             set { Set(() => Status, value); }
         }
 
-
-        #endregion
-
-
+        #endregion [properties]
 
         private void ExportExecute(object arg)
         {
@@ -61,7 +55,6 @@ namespace ARM.Infrastructure.MVVM
 
         protected virtual void FillSheet(Worksheet sheet, int rowStart)
         {
-
         }
 
         protected virtual int GenerateHeaders(Worksheet sheet)
@@ -148,21 +141,21 @@ namespace ARM.Infrastructure.MVVM
                 case eARMSystemLanguage.None:
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
                     break;
+
                 case eARMSystemLanguage.Ukrainian:
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk");
                     break;
             }
         }
 
-
-        #endregion
+        #endregion [private]
 
         public string this[string columnName]
         {
             get { return ValidateReportParameter(columnName); }
         }
 
-        public virtual string Error 
+        public virtual string Error
         {
             get { return string.Empty; }
         }

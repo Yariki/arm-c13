@@ -28,27 +28,49 @@ namespace ARM.Data.UnitOfWork.Implementation
     public interface IUnitOfWork : IDisposable
     {
         IAchivementBll AchivementRepository { get; }
+
         IAddressBll AddressRepository { get; }
+
         IClassBll ClassRepository { get; }
+
         IContractBll ContractRepository { get; }
+
         ICountryBll CountryRepository { get; }
+
         IFacultyBll FacultyRepository { get; }
+
         IGroupBll GroupRepository { get; }
+
         IHobbyBll HobbyRepository { get; }
+
         IInvoiceBll InvoiseRepository { get; }
+
         ILanguageBll LanguageRepository { get; }
+
         IMarkBll MarkRepository { get; }
+
         IParentBll ParentReposotory { get; }
+
         IPaymentBll PaymentRepository { get; }
+
         ISessionBll SessionRepository { get; }
+
         ISettingsBll SettingsRepository { get; }
+
         ISpecialtyBll SpeciltyRepository { get; }
+
         IStaffBll StaffRepository { get; }
+
         IStudentBll StudentRepository { get; }
+
         IUniversityBll UniversityRepository { get; }
+
         IUserBll UserRepository { get; }
+
         IEmployerBll EmployerRepository { get; }
+
         IVisaBll VisaRepository { get; }
+
         IRateBll RateRepositary { get; }
     }
 }

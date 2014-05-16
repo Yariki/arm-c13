@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Parent
             : base(context)
         {
         }
-    }//end ParentDal
-}//end namespace Parent
+    } //end ParentDal
+} //end namespace Parent

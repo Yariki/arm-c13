@@ -1,5 +1,6 @@
 ﻿using System;
 using ARM.Module.Enums;
+using ARM.Resource.AppResource;
 
 namespace ARM.Module.Commands.Menu.Reference
 {
@@ -9,7 +10,7 @@ namespace ARM.Module.Commands.Menu.Reference
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceAddress;
-            Title = Resource.AppResource.Resources.Model_Address_Title;
+            Title = Resources.Model_Address_Title;
         }
     }
 }

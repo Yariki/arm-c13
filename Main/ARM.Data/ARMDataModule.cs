@@ -9,15 +9,13 @@ using Unity.AutoRegistration;
 
 namespace ARM.Data
 {
-    public class ARMDataModule : ARMBaseModule 
+    public class ARMDataModule : ARMBaseModule
     {
-
         public ARMDataModule(IRegionManager regionManager, IUnityContainer unityContainer,
-            IEventAggregator eventAggregator) 
-            : base(regionManager,unityContainer,eventAggregator)
+            IEventAggregator eventAggregator)
+            : base(regionManager, unityContainer, eventAggregator)
         {
-
-		}
+        }
 
         protected override void RegistreInterfaces()
         {
@@ -25,10 +23,10 @@ namespace ARM.Data
             UnityContainer
                 .ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
-                .Include(If.Implements<IUnitOfWork>,Then.Register().UsingPerCallMode())
-                .Include(type => type.ImplementsOpenGeneric(typeof(IContext<>)),Then.Register().UsingPerCallMode())
+                .Include(If.Implements<IUnitOfWork>, Then.Register().UsingPerCallMode())
+                .Include(type => type.ImplementsOpenGeneric(typeof(IContext<>)), Then.Register().UsingPerCallMode())
                 .Include(type => type.ImplementsOpenGeneric(typeof(IDal<>)), Then.Register().UsingPerCallMode())
-                .Include(type => type.ImplementsOpenGeneric(typeof(IBll<>)),Then.Register().UsingPerCallMode())
+                .Include(type => type.ImplementsOpenGeneric(typeof(IBll<>)), Then.Register().UsingPerCallMode())
                 .ApplyAutoRegistration();
             UnityContainer.RegisterType<IARMDataModelResolver, ARMDataModelResolveHelper>(new ContainerControlledLifetimeManager());
         }

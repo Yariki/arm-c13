@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Specialty
 {
     public interface ISpecialtyDal : IDal<Models.Specialty>
     {
-    }//end ISpecialtyDal
-}//end namespace Specialty
+    } //end ISpecialtyDal
+} //end namespace Specialty

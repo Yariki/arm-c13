@@ -24,7 +24,7 @@ namespace ARM.Data.Sevice.Resolver
                 return Activator.CreateInstance(type);
             }
             var typeData = ARMModelsPropertyCache.Instance.GetTypeByMetadata(metadata);
-            var typeBll = typeof (IBll<>);
+            var typeBll = typeof(IBll<>);
             var bllForData = typeBll.MakeGenericType(typeData);
             dynamic readyBll = _unityContainer.Resolve(bllForData);
             if (readyBll != null)
@@ -39,7 +39,7 @@ namespace ARM.Data.Sevice.Resolver
             var typeData = ARMModelsPropertyCache.Instance.GetTypeByMetadata(metadata);
             if (typeData == null)
                 return default(IEnumerable<object>);
-            var typeBll = typeof (IBll<>);
+            var typeBll = typeof(IBll<>);
             var typeBllModel = typeBll.MakeGenericType(typeData);
             using (dynamic readyBll = _unityContainer.Resolve(typeBllModel))
             {
@@ -51,10 +51,9 @@ namespace ARM.Data.Sevice.Resolver
                         result.Add(item);
                     }
                     return result;
-                }    
+                }
             }
             return default(IEnumerable<object>);
-
         }
     }
 }

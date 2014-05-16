@@ -7,9 +7,9 @@
 
 namespace ARM.Infrastructure.Enums
 {
-	/// <summary>
-	/// тип для позначення обєкту логування 
-	/// </summary>
+    /// <summary>
+    /// тип для позначення обєкту логування
+    /// </summary>
     public enum eARMLogLevel : int
     {
         None,

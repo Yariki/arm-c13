@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Staff
             : base(context)
         {
         }
-    }//end StaffDal
-}//end namespace Staff
+    } //end StaffDal
+} //end namespace Staff

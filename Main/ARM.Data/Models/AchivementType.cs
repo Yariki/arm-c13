@@ -7,12 +7,12 @@
 
 namespace ARM.Data.Models
 {
-    public enum AchivementType : int
+    public enum AchivementType
     {
         None,
         Art,
         Science,
         Sport,
         Other
-    }//end AchivementType
-}//end namespace Models
+    } //end AchivementType
+} //end namespace Models

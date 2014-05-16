@@ -6,7 +6,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
     /// <summary>
     /// Interaction logic for ARMLookupView.xaml
     /// </summary>
-    public partial class ARMLookupView : UserControl,IARMLookupView
+    public partial class ARMLookupView : UserControl, IARMLookupView
     {
         public ARMLookupView()
         {

@@ -13,11 +13,6 @@ namespace ARM.Core.Validation.Rules
         {
         }
 
-        ~ARMNumericValidationRule()
-        {
-        }
-
-        ///
         /// <param name="min"></param>
         /// <param name="max"></param>
         protected ARMNumericValidationRule(double min, double max)
@@ -26,16 +21,12 @@ namespace ARM.Core.Validation.Rules
             Max = max;
         }
 
-        protected double Max
-        {
-            get;
-            set;
-        }
+        protected double Max { get; set; }
 
-        protected double Min
+        protected double Min { get; set; }
+
+        ~ARMNumericValidationRule()
         {
-            get;
-            set;
         }
-    }//end ARMNumericValidationRule
-}//end namespace Rules
+    } //end ARMNumericValidationRule
+} //end namespace Rules

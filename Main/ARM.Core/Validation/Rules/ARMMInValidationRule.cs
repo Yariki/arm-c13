@@ -38,7 +38,7 @@ namespace ARM.Core.Validation.Rules
         /// <param name="min"></param>
         /// <param name="max"></param>
         public ARMMinValidationRule(double min, double max)
-            :base(min,max)
+            : base(min, max)
         {
         }
     }//end ARMMInValidationRule

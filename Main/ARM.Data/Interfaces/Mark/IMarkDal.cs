@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Mark
 {
     public interface IMarkDal : IDal<Models.Mark>
     {
-    }//end IMarkDal
-}//end namespace Mark
+    } //end IMarkDal
+} //end namespace Mark

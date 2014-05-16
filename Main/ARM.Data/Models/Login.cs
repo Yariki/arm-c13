@@ -8,8 +8,8 @@ namespace ARM.Data.Models
     {
         [ARMRequired]
         public string Name { get; set; }
+
         [ARMRequired]
         public string Password { get; set; }
-
     }
 }

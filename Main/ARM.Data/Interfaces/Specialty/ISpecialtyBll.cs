@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Specialty
 {
     public interface ISpecialtyBll : IBll<Models.Specialty>
     {
-    }//end ISpecialtyBll
-}//end namespace Specialty
+    } //end ISpecialtyBll
+} //end namespace Specialty

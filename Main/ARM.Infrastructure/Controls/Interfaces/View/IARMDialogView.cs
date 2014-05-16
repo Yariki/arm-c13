@@ -1,11 +1,8 @@
-﻿using System.Windows.Input;
-using ARM.Core.Interfaces;
-using NSubstitute.Core;
+﻿using ARM.Core.Interfaces;
 
 namespace ARM.Infrastructure.Controls.Interfaces.View
 {
     public interface IARMDialogView : IARMView
     {
-        
     }
 }

@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Payment
 {
     public interface IPaymentContext : IContext<Models.Payment>
     {
-    }//end IPaymentContext
-}//end namespace Payment
+    } //end IPaymentContext
+} //end namespace Payment

@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Session
 {
     public interface ISessionBll : IBll<Models.Session>
     {
-    }//end ISessionBll
-}//end namespace Session
+    } //end ISessionBll
+} //end namespace Session

@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Class
             : base(dal)
         {
         }
-    }//end ClassBll
-}//end namespace Class
+    } //end ClassBll
+} //end namespace Class

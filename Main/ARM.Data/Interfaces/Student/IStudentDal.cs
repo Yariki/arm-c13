@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Student
 {
     public interface IStudentDal : IDal<Models.Student>
     {
-    }//end IStudentDal
-}//end namespace Student
+    } //end IStudentDal
+} //end namespace Student

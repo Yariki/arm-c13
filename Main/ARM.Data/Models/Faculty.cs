@@ -7,7 +7,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
 
@@ -16,7 +15,7 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Faculty)]
     public class Faculty : BaseNamedModel
     {
-        [ARMRequired]    
+        [ARMRequired]
         public Guid? StaffId
         {
             get;

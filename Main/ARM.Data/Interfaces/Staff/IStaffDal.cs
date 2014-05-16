@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Staff
 {
     public interface IStaffDal : IDal<Models.Staff>
     {
-    }//end IStaffDal
-}//end namespace Staff
+    } //end IStaffDal
+} //end namespace Staff

@@ -6,17 +6,16 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using ARM.Core.Attributes;
 
 namespace ARM.Core.Validation.Rules
 {
     public class ARMRangeValidationRule : ARMNumericValidationRule
     {
-
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public ARMRangeValidationRule(double min, double max) : base(min,max)
+        public ARMRangeValidationRule(double min, double max)
+            : base(min, max)
         {
         }
 
@@ -25,12 +24,11 @@ namespace ARM.Core.Validation.Rules
             var result = new ARMValidationResult() { IsValid = true };
             if (val != null)
             {
-
                 double v = Convert.ToDouble(val);
-                result.IsValid = Min < v &&  v < Max;
+                result.IsValid = Min < v && v < Max;
                 if (!result.IsValid)
                 {
-                    result.AddMessage(string.Format("Value shouldn't be beetwen {0} - {1}.",Min,Max));
+                    result.AddMessage(string.Format("Value shouldn't be beetwen {0} - {1}.", Min, Max));
                 }
             }
             return result;

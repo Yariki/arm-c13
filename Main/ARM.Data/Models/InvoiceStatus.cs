@@ -7,10 +7,10 @@
 
 namespace ARM.Data.Models
 {
-    public enum InvoiceStatus : int
+    public enum InvoiceStatus
     {
         None,
         New,
         PaidUp
-    }//end InvoiceStatus
-}//end namespace Models
+    } //end InvoiceStatus
+} //end namespace Models

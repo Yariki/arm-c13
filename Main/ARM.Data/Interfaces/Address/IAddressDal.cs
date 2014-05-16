@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Address
 {
     public interface IAddressDal : IDal<Models.Address>
     {
-    }//end IAddressDal
-}//end namespace Address
+    } //end IAddressDal
+} //end namespace Address

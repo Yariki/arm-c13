@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.University
             : base(dal)
         {
         }
-    }//end UniversityBll
-}//end namespace University
+    } //end UniversityBll
+} //end namespace University

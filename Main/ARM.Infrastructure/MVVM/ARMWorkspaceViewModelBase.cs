@@ -7,10 +7,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Input;
-using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
 using ARM.Data.UnitOfWork.Implementation;
@@ -23,10 +21,10 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
-    public abstract class ARMWorkspaceViewModelBase : ARMViewModelBase,IARMWorkspaceViewModel
+    public abstract class ARMWorkspaceViewModelBase : ARMViewModelBase, IARMWorkspaceViewModel
     {
+        #region [needs]
 
-#region [needs]
         private ICommand _closeCommand;
         protected readonly IRegionManager RegionManager;
         protected readonly IUnityContainer UnityContainer;
@@ -34,15 +32,14 @@ namespace ARM.Infrastructure.MVVM
         protected readonly Dictionary<string, object> _values = new Dictionary<string, object>();
         protected IUnitOfWork UnitOfWork = null;
 
-        #endregion
-
+        #endregion [needs]
 
         public class CloseAbort
         {
             public bool Handled { get; set; }
         }
 
-        public ARMWorkspaceViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator, IARMView view)
+        public ARMWorkspaceViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
             : base(view)
         {
             RegionManager = regionManager;
@@ -52,7 +49,6 @@ namespace ARM.Infrastructure.MVVM
             UnitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
-        
         public ICommand CloseCommand
         {
             get
@@ -65,7 +61,6 @@ namespace ARM.Infrastructure.MVVM
             }
         }
 
-
         public bool IsBusy
         {
             get { return Get(() => IsBusy); }
@@ -73,7 +68,8 @@ namespace ARM.Infrastructure.MVVM
         }
 
         public abstract string Title { get; }
-        public ICommand CancelCommand {get;private set;}
+
+        public ICommand CancelCommand { get; private set; }
 
         public virtual void Initialize()
         {
@@ -87,14 +83,16 @@ namespace ARM.Infrastructure.MVVM
         }
 
         protected virtual void Closing(CloseAbort args)
-        {   
+        {
         }
 
-        protected virtual void Closed(){}
+        protected virtual void Closed()
+        {
+        }
 
         private void OnClose()
         {
-            var args = new CloseAbort() {Handled = false};
+            var args = new CloseAbort() { Handled = false };
             Closing(args);
 
             EventHandler temp = RequestClose;
@@ -102,8 +100,6 @@ namespace ARM.Infrastructure.MVVM
                 temp(this, EventArgs.Empty);
             Closed();
         }
-
-        
 
         ///
         /// <param name="expression"></param>
@@ -117,14 +113,14 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="defaultValue"></param>
         protected T Get<T>(Expression<Func<T>> expression, T defaultValue)
         {
-            return Get<T>(this.GetPropertyName(expression),defaultValue);
+            return Get<T>(this.GetPropertyName(expression), defaultValue);
         }
 
         ///
         /// <param name="name"></param>
         protected T Get<T>(string name)
         {
-            return Get<T>(name,default(T));
+            return Get<T>(name, default(T));
         }
 
         ///
@@ -145,7 +141,7 @@ namespace ARM.Infrastructure.MVVM
         protected void Set<T>(Expression<Func<T>> expression, T val)
         {
             var name = GetPropertyName(expression);
-            Set<T>(name,val);
+            Set<T>(name, val);
         }
 
         ///
@@ -198,7 +194,6 @@ namespace ARM.Infrastructure.MVVM
             base.Dispose(disposing);
         }
 
-        #endregion
-
+        #endregion [dispose]
     }//end ARMWorkspaceViewModelBase
 }//end namespace MVVM

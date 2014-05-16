@@ -13,17 +13,18 @@ using ARM.Core.EventArguments;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс, який забеспечує базову функціональність валідації
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс, який забеспечує базову функціональність валідації
+    /// </summary>
     public interface IARMValidationAdaptor : IDataErrorInfo
     {
-      /// <summary>
-      /// Установка обєкта валідації
-      /// </summary>
-      /// <param name="obj">Обєкт.</param>
-      /// <param name="listPi">Список властивостей.</param>
+        /// <summary>
+        /// Установка обєкта валідації
+        /// </summary>
+        /// <param name="obj">Обєкт.</param>
+        /// <param name="listPi">Список властивостей.</param>
         void SetValidationObject(object obj, IList<IARMModelPropertyInfo> listPi);
+
         /// <summary>
         /// Додати правило валідації.
         /// </summary>
@@ -37,6 +38,7 @@ namespace ARM.Core.Interfaces
         /// </summary>
         /// <param name="name">Назва властивості.</param>
         void Validate(string name);
+
         /// <summary>
         /// Зовнішній виклик валідації.
         /// </summary>
@@ -72,6 +74,6 @@ namespace ARM.Core.Interfaces
         ///Повернути всі результати.
         /// </summary>
         /// <returns></returns>
-        Dictionary<string,string> GetResultForAll();
+        Dictionary<string, string> GetResultForAll();
     }//end IARMValidationAdaptor
 }//end namespace Interfaces

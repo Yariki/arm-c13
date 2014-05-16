@@ -1,5 +1,6 @@
 ﻿using System;
 using ARM.Module.Enums;
+using ARM.Resource.AppResource;
 
 namespace ARM.Module.Commands.Menu.File
 {
@@ -9,7 +10,7 @@ namespace ARM.Module.Commands.Menu.File
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.Exit;
-            Title = Tooltip = Resource.AppResource.Resources.Menu_Exit;
+            Title = Tooltip = Resources.Menu_Exit;
         }
     }
 }

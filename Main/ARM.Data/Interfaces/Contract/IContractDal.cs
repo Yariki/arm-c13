@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Contract
 {
     public interface IContractDal : IDal<Models.Contract>
     {
-    }//end IContractDal
-}//end namespace Contract
+    } //end IContractDal
+} //end namespace Contract

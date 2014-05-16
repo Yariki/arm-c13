@@ -11,7 +11,6 @@ using System.Linq;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.Interfaces.Data;
-using ARM.Core.Module;
 using ARM.Core.Service;
 using ARM.Data.Layer.Interfaces;
 using ARM.Infrastructure.Events;
@@ -36,8 +35,8 @@ namespace ARM.Infrastructure.MVVM
             Init();
         }
 
-        public IEnumerable<T> DataSource 
-        { 
+        public IEnumerable<T> DataSource
+        {
             get;
             private set;
         }
@@ -80,7 +79,6 @@ namespace ARM.Infrastructure.MVVM
 
         protected virtual void UpdateRelatedSource()
         {
-            
         }
 
         #endregion [protected]
@@ -93,15 +91,17 @@ namespace ARM.Infrastructure.MVVM
             switch (cmd)
             {
                 case ToolbarCommand.Add:
-                    processEvent.Publish(new ARMProcessEntityEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T)),ViewMode.Add,Guid.Empty));
+                    processEvent.Publish(new ARMProcessEntityEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T)), ViewMode.Add, Guid.Empty));
                     break;
+
                 case ToolbarCommand.Edit:
-                    if(SelectedEntity != null)
+                    if (SelectedEntity != null)
                         processEvent.Publish(new ARMProcessEntityEventPayload(ARMModelsPropertyCache.Instance.GetMetadataByType(typeof(T)), ViewMode.Edit, SelectedEntity.Id));
                     break;
+
                 case ToolbarCommand.Delete:
                     if (SelectedEntity != null)
-                        DeleteEntity(SelectedEntity);    
+                        DeleteEntity(SelectedEntity);
                     break;
             }
         }
@@ -138,7 +138,6 @@ namespace ARM.Infrastructure.MVVM
 
         private void UpdateSource()
         {
-
             DataSource = null;
             _bll.Refresh();
             DataSource = _bll.GetAll().ToList();

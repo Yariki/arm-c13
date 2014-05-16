@@ -5,7 +5,6 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
-using System.Collections;
 using System.Collections.Generic;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
@@ -15,13 +14,11 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Language)]
     public class Language : BaseNamedModel
     {
-
         public Language()
         {
             Students = new HashSet<Student>();
         }
 
         public virtual ICollection<Student> Students { get; set; }
-        
-    }//end Language
-}//end namespace Models
+    } //end Language
+} //end namespace Models

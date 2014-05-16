@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Hobby
 {
     public interface IHobbyContext : IContext<Models.Hobby>
     {
-    }//end IHobbyContext
-}//end namespace Hobby
+    } //end IHobbyContext
+} //end namespace Hobby

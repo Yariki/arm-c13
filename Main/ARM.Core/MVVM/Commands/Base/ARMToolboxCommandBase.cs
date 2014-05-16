@@ -14,7 +14,7 @@ namespace ARM.Core.MVVM.Commands.Base
     public class ARMToolboxCommandBase : IARMToolboxCommand
     {
         private Action<ToolbarCommand> _action;
-        private Func<ToolbarCommand,bool> _predicate;
+        private Func<ToolbarCommand, bool> _predicate;
 
         ///
         /// <param name="action"></param>
@@ -28,9 +28,8 @@ namespace ARM.Core.MVVM.Commands.Base
         ///
         /// <param name="action"></param>
         public ARMToolboxCommandBase(Action<ToolbarCommand> action)
-            :this(action,null)
+            : this(action, null)
         {
-
         }
 
         protected virtual string GetImagePath()
@@ -60,7 +59,7 @@ namespace ARM.Core.MVVM.Commands.Base
 
         public void Execute(object parameter)
         {
-            if(_action == null)
+            if (_action == null)
                 return;
             _action(Type);
         }
@@ -73,6 +72,7 @@ namespace ARM.Core.MVVM.Commands.Base
         public event EventHandler CanExecuteChanged;
 
         public string Title { get; protected set; }
+
         public string Image { get { return GetImagePath(); } }
 
         public string ResourceName { get { return GetResourceName(); } }

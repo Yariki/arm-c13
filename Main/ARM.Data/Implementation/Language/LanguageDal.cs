@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Language
             : base(context)
         {
         }
-    }//end LanguageDal
-}//end namespace Language
+    } //end LanguageDal
+} //end namespace Language

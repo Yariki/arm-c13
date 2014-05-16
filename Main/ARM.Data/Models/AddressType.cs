@@ -7,10 +7,10 @@
 
 namespace ARM.Data.Models
 {
-    public enum AddressType : int
+    public enum AddressType
     {
         None,
         Registration,
         Residence
-    }//end AddressType
-}//end namespace Models
+    } //end AddressType
+} //end namespace Models

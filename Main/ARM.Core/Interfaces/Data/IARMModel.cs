@@ -9,15 +9,16 @@ using System;
 
 namespace ARM.Core.Interfaces.Data
 {
-	/// <summary>
-	/// базовий інтерфейс для моделей даних
-	/// </summary>
+    /// <summary>
+    /// базовий інтерфейс для моделей даних
+    /// </summary>
     public interface IARMModel
     {
-    	/// <summary>
-    	/// ідентифікатор моделі в БД
-    	/// </summary>
+        /// <summary>
+        /// ідентифікатор моделі в БД
+        /// </summary>
         Guid Id { get; set; }
+
         /// <summary>
         /// зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі
         /// </summary>

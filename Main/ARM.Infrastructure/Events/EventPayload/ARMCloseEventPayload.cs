@@ -6,7 +6,8 @@ namespace ARM.Infrastructure.Events.EventPayload
 {
     public class ARMCloseEventPayload : ARMBasePayload
     {
-        public ARMCloseEventPayload(IARMWorkspaceViewModel model) : base(ViewMode.None, Guid.Empty)
+        public ARMCloseEventPayload(IARMWorkspaceViewModel model)
+            : base(ViewMode.None, Guid.Empty)
         {
             Model = model;
         }

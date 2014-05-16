@@ -3,8 +3,7 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Faculty
 {
-    public class FacultyContext :BaseContext<Models.Faculty>,IFacultyContext
+    public class FacultyContext : BaseContext<Models.Faculty>, IFacultyContext
     {
-         
     }
 }

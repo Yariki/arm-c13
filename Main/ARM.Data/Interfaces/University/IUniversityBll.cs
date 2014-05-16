@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.University
 {
     public interface IUniversityBll : IBll<Models.University>
     {
-    }//end IUniversityBll
-}//end namespace University
+    } //end IUniversityBll
+} //end namespace University

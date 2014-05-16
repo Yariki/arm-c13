@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using Unity.AutoRegistration;
 
 namespace ARMAutoReg
 {
-
-    interface IObject
+    internal interface IObject
     {
         void toString();
     }
 
-    interface IFirstObject : IObject
+    internal interface IFirstObject : IObject
     {
     }
 
-    interface ISecondObject : IObject
+    internal interface ISecondObject : IObject
     {
     }
 
-    abstract class MyObject : IObject
+    internal abstract class MyObject : IObject
     {
         public virtual void toString()
-        {   
+        {
         }
     }
 
-    class First : MyObject, IFirstObject
+    internal class First : MyObject, IFirstObject
     {
         public override string ToString()
         {
@@ -37,7 +33,7 @@ namespace ARMAutoReg
         }
     }
 
-    class Second : MyObject, ISecondObject
+    internal class Second : MyObject, ISecondObject
     {
         public override string ToString()
         {
@@ -45,17 +41,16 @@ namespace ARMAutoReg
         }
     }
 
-    interface IContext<T>
+    internal interface IContext<T>
     {
-        IList<T> Set { get; } 
+        IList<T> Set { get; }
     }
 
-    interface IIntContext : IContext<int>
+    internal interface IIntContext : IContext<int>
     {
-         
     }
 
-    class IntContext : IIntContext
+    internal class IntContext : IIntContext
     {
         private IList<int> _set;
 
@@ -65,18 +60,16 @@ namespace ARMAutoReg
         }
     }
 
-
-
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             IUnityContainer container = new UnityContainer();
             container
                 .ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
-                .Include(If.Implements<IObject>,Then.Register().UsingPerCallMode())
-                .Include(type => type.ImplementsOpenGeneric(typeof(IContext<>)),Then.Register().UsingPerCallMode())
+                .Include(If.Implements<IObject>, Then.Register().UsingPerCallMode())
+                .Include(type => type.ImplementsOpenGeneric(typeof(IContext<>)), Then.Register().UsingPerCallMode())
                 .ApplyAutoRegistration();
 
             var f = container.Resolve<IFirstObject>();

@@ -13,15 +13,15 @@ namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxAddCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxAddCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Add;
             Title = "Add";
         }
 
-        public ARMToolboxAddCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
         }
 
@@ -29,6 +29,5 @@ namespace ARM.Core.MVVM.Commands
         {
             return 0;
         }
-
     }//end ARMToolboxAddCommand
 }//end namespace Commands

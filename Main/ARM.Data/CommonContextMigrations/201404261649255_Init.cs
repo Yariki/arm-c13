@@ -1,8 +1,7 @@
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Init : DbMigration
     {
         public override void Up()
@@ -22,7 +21,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Student", t => t.StudentId)
                 .Index(t => t.StudentId);
-            
+
             CreateTable(
                 "dbo.Address",
                 c => new
@@ -40,7 +39,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Country", t => t.CountryId, cascadeDelete: true)
                 .Index(t => t.CountryId);
-            
+
             CreateTable(
                 "dbo.Country",
                 c => new
@@ -51,7 +50,7 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Contract",
                 c => new
@@ -78,7 +77,7 @@ namespace ARM.Data.CommonContextMigrations
                 .Index(t => t.UniversityId)
                 .Index(t => t.StudentId)
                 .Index(t => t.SpecialityId);
-            
+
             CreateTable(
                 "dbo.Invoice",
                 c => new
@@ -98,7 +97,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Session", t => t.SessionId)
                 .Index(t => t.ContractId)
                 .Index(t => t.SessionId);
-            
+
             CreateTable(
                 "dbo.Payment",
                 c => new
@@ -114,7 +113,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Invoice", t => t.InvoiceId, cascadeDelete: true)
                 .Index(t => t.InvoiceId);
-            
+
             CreateTable(
                 "dbo.Session",
                 c => new
@@ -127,7 +126,7 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Class",
                 c => new
@@ -144,7 +143,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Session", t => t.SessionId, cascadeDelete: true)
                 .Index(t => t.StaffId)
                 .Index(t => t.SessionId);
-            
+
             CreateTable(
                 "dbo.Specialty",
                 c => new
@@ -158,7 +157,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Faculty", t => t.FacultyId)
                 .Index(t => t.FacultyId);
-            
+
             CreateTable(
                 "dbo.Faculty",
                 c => new
@@ -176,7 +175,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.University", t => t.UniversityId, cascadeDelete: true)
                 .Index(t => t.StaffId)
                 .Index(t => t.UniversityId);
-            
+
             CreateTable(
                 "dbo.Group",
                 c => new
@@ -193,7 +192,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Faculty", t => t.FacultyId, cascadeDelete: true)
                 .Index(t => t.FacultyId)
                 .Index(t => t.StaffId);
-            
+
             CreateTable(
                 "dbo.University",
                 c => new
@@ -209,7 +208,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Staff", t => t.StaffId)
                 .Index(t => t.StaffId);
-            
+
             CreateTable(
                 "dbo.Hobby",
                 c => new
@@ -224,7 +223,7 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Student", t => t.StudentId)
                 .Index(t => t.StudentId);
-            
+
             CreateTable(
                 "dbo.Language",
                 c => new
@@ -235,7 +234,7 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Mark",
                 c => new
@@ -253,7 +252,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Student", t => t.StudentId)
                 .Index(t => t.StudentId)
                 .Index(t => t.ClassId);
-            
+
             CreateTable(
                 "dbo.SettingParameters",
                 c => new
@@ -271,7 +270,7 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.User",
                 c => new
@@ -286,7 +285,7 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.StudentLanguages",
                 c => new
@@ -299,7 +298,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Student", t => t.StudentId, cascadeDelete: true)
                 .Index(t => t.LanguageId)
                 .Index(t => t.StudentId);
-            
+
             CreateTable(
                 "dbo.Parent",
                 c => new
@@ -322,7 +321,7 @@ namespace ARM.Data.CommonContextMigrations
                 .ForeignKey("dbo.Address", t => t.AddressId, cascadeDelete: true)
                 .Index(t => t.StudentId)
                 .Index(t => t.AddressId);
-            
+
             CreateTable(
                 "dbo.Staff",
                 c => new
@@ -340,7 +339,7 @@ namespace ARM.Data.CommonContextMigrations
                         StaffType = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Student",
                 c => new
@@ -378,9 +377,8 @@ namespace ARM.Data.CommonContextMigrations
                 .Index(t => t.GroupId)
                 .Index(t => t.FacultyId)
                 .Index(t => t.SpecialityId);
-            
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Student", "SpecialityId", "dbo.Specialty");

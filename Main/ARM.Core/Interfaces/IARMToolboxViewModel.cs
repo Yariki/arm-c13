@@ -11,14 +11,14 @@ using ARM.Core.Enums;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс моделі представлення панелі управління.
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс моделі представлення панелі управління.
+    /// </summary>
     public interface IARMToolboxViewModel : IARMViewModel
     {
-      /// <summary>
-      /// Список команд панелі управління.
-      /// </summary>
+        /// <summary>
+        /// Список команд панелі управління.
+        /// </summary>
         IEnumerable<IARMToolboxCommand> Commands
         {
             get;
@@ -41,6 +41,5 @@ namespace ARM.Core.Interfaces
         /// <param name="action">Метод.</param>
         /// <param name="predicate">Предикат.</param>
         void SetActions(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate);
-
     }//end IARMToolboxViewModel
 }//end namespace Interfaces

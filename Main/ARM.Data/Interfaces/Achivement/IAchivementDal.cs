@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Achivement
 {
     public interface IAchivementDal : IDal<Models.Achivement>
     {
-    }//end IAchivementDal
-}//end namespace Achivement
+    } //end IAchivementDal
+} //end namespace Achivement

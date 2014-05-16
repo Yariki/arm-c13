@@ -9,24 +9,22 @@ using System;
 using System.Collections.Generic;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces.Data;
-using ARM.Core.Module;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс для моделі, яка представляє дані у вигляді сітки
-  /// </summary>
-  /// <typeparam name="T">Тип даних,  які відображаються</typeparam>
+    /// <summary>
+    /// Інтерфейс для моделі, яка представляє дані у вигляді сітки
+    /// </summary>
+    /// <typeparam name="T">Тип даних,  які відображаються</typeparam>
     public interface IARMGridViewModel<T> : IARMWorkspaceViewModel where T : IARMModel
     {
-      /// <summary>
-      /// Колекція даних
-      /// </summary>
+        /// <summary>
+        /// Колекція даних
+        /// </summary>
         IEnumerable<T> DataSource
         {
             get;
         }
-
 
         /// <summary>
         /// Метод, який оброблює натискання кнопок на панелі управління
@@ -54,6 +52,5 @@ namespace ARM.Core.Interfaces
         /// Встановлює або повертає вибрану модель в сітці
         /// </summary>
         T SelectedEntity { get; set; }
-
     }//end IARMGridViewModel
 }//end namespace Interfaces

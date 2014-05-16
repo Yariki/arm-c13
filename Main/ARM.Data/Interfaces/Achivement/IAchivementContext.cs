@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Achivement
 {
     public interface IAchivementContext : IContext<Models.Achivement>
     {
-    }//end IAchivementContext
-}//end namespace Achivement
+    } //end IAchivementContext
+} //end namespace Achivement

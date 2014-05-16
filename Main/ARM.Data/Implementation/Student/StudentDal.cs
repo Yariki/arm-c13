@@ -5,8 +5,6 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
-using System.Linq;
-using System.Threading;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -33,5 +31,5 @@ namespace ARM.Data.Implementation.Student
             ctx.Visas.RemoveRange(entity.Visas);
             entity.Languages.Clear();
         }
-    }//end StudentDal
-}//end namespace Student
+    } //end StudentDal
+} //end namespace Student

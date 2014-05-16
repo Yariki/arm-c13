@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Mark
 {
     public interface IMarkBll : IBll<Models.Mark>
     {
-    }//end IMarkBll
-}//end namespace Mark
+    } //end IMarkBll
+} //end namespace Mark

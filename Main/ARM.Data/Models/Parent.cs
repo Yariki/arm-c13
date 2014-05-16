@@ -7,7 +7,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
@@ -17,7 +16,6 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Parent)]
     public class Parent : Person
     {
-        
         public Guid? StudentId
         {
             get;
@@ -37,8 +35,6 @@ namespace ARM.Data.Models
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }
 
-
         public virtual IList<Contract> Contracts { get; set; }
-
     }//end Parent
 }//end namespace Models

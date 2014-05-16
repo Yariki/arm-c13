@@ -4,7 +4,7 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Group
 {
-    public class GroupContext : BaseContext<Models.Group>,IGroupContext
+    public class GroupContext : BaseContext<Models.Group>, IGroupContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -16,7 +16,6 @@ namespace ARM.Data.Implementation.Group
                 .HasRequired(s => s.LivingAddress)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-
 
             modelBuilder.Entity<Models.Student>().Map(m =>
             {

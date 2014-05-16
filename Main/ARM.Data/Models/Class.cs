@@ -6,11 +6,11 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
+using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
@@ -18,38 +18,27 @@ namespace ARM.Data.Models
     public class Class : BaseNamedModel
     {
         [ARMRequired]
-        public Guid StaffId
-        {
-            get;
-            set;
-        }
+        public Guid StaffId { get; set; }
 
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Staff")]
+        [Display(ResourceType = typeof (Resources), Name = "Model_Class_Staff")]
         [ForeignKey("StaffId")]
-        public virtual Staff Lecturer
-        {
-            get;
-            set;
-        }
-
+        public virtual Staff Lecturer { get; set; }
 
         [ARMRequired]
         public Guid SessionId { get; set; }
 
         [ARMGrid(Order = 3)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Session")]
+        [Display(ResourceType = typeof (Resources), Name = "Model_Class_Session")]
         public virtual Session Session { get; set; }
 
         [ARMGrid(Order = 4)]
         [ARMRequired]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_Summary")]
+        [Display(ResourceType = typeof (Resources), Name = "Model_Class_Summary")]
         public eARMClassSummary Summary { get; set; }
 
         [ARMGrid(Order = 5)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Class_CourseWork")]
+        [Display(ResourceType = typeof (Resources), Name = "Model_Class_CourseWork")]
         public bool CourseWorkPresent { get; set; }
-
-
-    }//end Class
-}//end namespace Models
+    } //end Class
+} //end namespace Models

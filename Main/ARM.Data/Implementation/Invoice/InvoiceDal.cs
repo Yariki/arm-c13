@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Invoice
             : base(context)
         {
         }
-    }//end InvoiceDal
-}//end namespace Invoice
+    } //end InvoiceDal
+} //end namespace Invoice

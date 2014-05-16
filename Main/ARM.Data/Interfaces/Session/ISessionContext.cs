@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Session
 {
     public interface ISessionContext : IContext<Models.Session>
     {
-    }//end ISessionContext
-}//end namespace Session
+    } //end ISessionContext
+} //end namespace Session

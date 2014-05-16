@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Country
 {
     public interface ICountryContext : IContext<Models.Country>
     {
-    }//end ICountryContext
-}//end namespace Country
+    } //end ICountryContext
+} //end namespace Country

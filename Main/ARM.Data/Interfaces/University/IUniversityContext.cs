@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.University
 {
     public interface IUniversityContext : IContext<Models.University>
     {
-    }//end IUniversityContext
-}//end namespace University
+    } //end IUniversityContext
+} //end namespace University

@@ -7,7 +7,7 @@
 
 namespace ARM.Data.Models
 {
-    public enum MarkType : int
+    public enum MarkType
     {
         None,
         Test,
@@ -18,5 +18,5 @@ namespace ARM.Data.Models
         DifferentialTest,
         Coursework,
         Certification
-    }//end MarkType
-}//end namespace Models
+    } //end MarkType
+} //end namespace Models

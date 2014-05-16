@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Class
 {
     public interface IClassDal : IDal<Models.Class>
     {
-    }//end IClassDal
-}//end namespace Class
+    } //end IClassDal
+} //end namespace Class

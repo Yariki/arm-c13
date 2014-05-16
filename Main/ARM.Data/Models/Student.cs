@@ -15,10 +15,8 @@ using ARM.Core.Enums;
 namespace ARM.Data.Models
 {
     [ARMMetadata(Metadata = eARMMetadata.Student)]
-
     public class Student : Person
     {
-
         public Student()
         {
             Achivements = new List<Achivement>();
@@ -44,7 +42,7 @@ namespace ARM.Data.Models
         }
 
         [ARMRequired]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Student_Group")]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Group")]
         [ARMGrid(Order = 8)]
         public Guid? GroupId
         {
@@ -76,7 +74,6 @@ namespace ARM.Data.Models
             set;
         }
 
-            
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_DateEnter")]
         [ARMGrid(Order = 9)]
@@ -173,6 +170,5 @@ namespace ARM.Data.Models
         public decimal Stipend { get; set; }
 
         public virtual IList<Mark> Marks { get; set; }
-
     }//end Student
 }//end namespace Models

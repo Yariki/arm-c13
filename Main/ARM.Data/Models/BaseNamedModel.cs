@@ -7,23 +7,20 @@
 
 using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
+using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
     public abstract class BaseNamedModel : BaseModel
     {
         [ARMGrid(Order = 1)]
-        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Name")]
+        [Display(ResourceType = typeof (Resources), Name = "Model_Name")]
         [ARMRequired]
-        public string Name
-        {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
         public override string Display
         {
             get { return Name; }
         }
-    }//end BaseNamedModel
-}//end namespace Models
+    } //end BaseNamedModel
+} //end namespace Models

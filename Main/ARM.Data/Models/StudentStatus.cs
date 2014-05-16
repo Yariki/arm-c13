@@ -7,10 +7,10 @@
 
 namespace ARM.Data.Models
 {
-    public enum StudentStatus : int
+    public enum StudentStatus
     {
         Studies,
         Graduated,
         Expelled,
-    }//end StudentStatus
-}//end namespace Models
+    } //end StudentStatus
+} //end namespace Models

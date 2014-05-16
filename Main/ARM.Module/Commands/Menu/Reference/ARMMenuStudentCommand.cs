@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Reference
 {
     public class ARMMenuStudentCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuStudentCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuStudentCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceStudent;

@@ -11,10 +11,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
-  [ARMMetadata(Metadata = eARMMetadata.Hobby)]
+    [ARMMetadata(Metadata = eARMMetadata.Hobby)]
     public class Hobby : BaseNoteModel
     {
-
         public Guid StudentId
         {
             get;
@@ -26,6 +25,5 @@ namespace ARM.Data.Models
             get;
             set;
         }
-
     }//end Hobby
 }//end namespace Models

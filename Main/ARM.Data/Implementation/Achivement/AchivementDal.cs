@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Achivement
             : base(context)
         {
         }
-    }//end AchivementDal
-}//end namespace Achivement
+    } //end AchivementDal
+} //end namespace Achivement

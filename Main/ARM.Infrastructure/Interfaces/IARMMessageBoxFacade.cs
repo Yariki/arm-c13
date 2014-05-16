@@ -12,9 +12,11 @@ namespace ARM.Infrastructure.Interfaces
     public interface IARMMessageBoxFacade
     {
         MessageBoxResult Show(string message);
-        MessageBoxResult ShowWarning(string message);
-        MessageBoxResult ShowQuestion(string message);
-        MessageBoxResult ShowError(string message);
 
-    }//end IARMMessageBoxFacade
-}//end namespace Interfaces
+        MessageBoxResult ShowWarning(string message);
+
+        MessageBoxResult ShowQuestion(string message);
+
+        MessageBoxResult ShowError(string message);
+    } //end IARMMessageBoxFacade
+} //end namespace Interfaces

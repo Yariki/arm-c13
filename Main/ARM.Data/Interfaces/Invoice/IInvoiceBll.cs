@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Invoice
 {
     public interface IInvoiceBll : IBll<Models.Invoice>
     {
-    }//end IInvoiceBll
-}//end namespace Invoice
+    } //end IInvoiceBll
+} //end namespace Invoice

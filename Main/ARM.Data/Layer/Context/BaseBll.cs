@@ -94,7 +94,7 @@ namespace ARM.Data.Layer.Context
 
         public void Dispose()
         {
-            if(_dal != null)
+            if (_dal != null)
                 _dal.Dispose();
         }
     }//end BaseBll

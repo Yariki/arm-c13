@@ -5,8 +5,6 @@
 //  Created on:      31-Mar-2014 11:49:54 PM
 ///////////////////////////////////////////////////////////
 
-using System;
-using System.Windows.Threading;
 using ARM.Core.Interfaces;
 using ARM.Core.Module;
 using ARM.Core.MVVM;
@@ -39,5 +37,5 @@ namespace ARM.Core
             //Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => ARMModelsPropertyCache.Instance.Initialize()));
             ARMModelsPropertyCache.Instance.Initialize();
         }
-    }//end CoreModule
-}//end namespace ARM.Core
+    } //end CoreModule
+} //end namespace ARM.Core

@@ -7,11 +7,11 @@
 
 namespace ARM.Data.Models
 {
-    public enum StaffType : int
+    public enum StaffType
     {
         None,
         Phd,
         Lecture,
         Technician
-    }//end StaffType
-}//end namespace Models
+    } //end StaffType
+} //end namespace Models

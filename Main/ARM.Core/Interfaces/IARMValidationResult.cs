@@ -9,17 +9,17 @@ using System.Collections.Generic;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс для результату валідації
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс для результату валідації
+    /// </summary>
     public interface IARMValidationResult
     {
-      /// <summary>
-      /// Встановити або повернути стан валідації
-      /// </summary>
-      /// <value>
-      ///   <c>true</c> якщо валідно; інакше, <c>false</c>.
-      /// </value>
+        /// <summary>
+        /// Встановити або повернути стан валідації
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> якщо валідно; інакше, <c>false</c>.
+        /// </value>
         bool IsValid
         {
             get;
@@ -31,11 +31,13 @@ namespace ARM.Core.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<string> GetErrors();
+
         /// <summary>
         /// Додати повідомлення валідації
         /// </summary>
         /// <param name="mes">Повідомлення.</param>
         void AddMessage(string mes);
+
         /// <summary>
         /// Очистати список повідомлень
         /// </summary>

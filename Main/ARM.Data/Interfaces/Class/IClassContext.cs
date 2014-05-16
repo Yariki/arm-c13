@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Class
 {
     public interface IClassContext : IContext<Models.Class>
     {
-    }//end IClassContext
-}//end namespace Class
+    } //end IClassContext
+} //end namespace Class

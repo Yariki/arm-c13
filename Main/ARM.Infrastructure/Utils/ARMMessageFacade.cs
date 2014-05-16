@@ -18,10 +18,9 @@ namespace ARM.Infrastructure.Utils
             InformationMessage = Resource.AppResource.Resources.Message_InformationCaption;
         }
 
-
         public MessageBoxResult Show(string message)
         {
-            return MessageBox.Show(message, InformationMessage, MessageBoxButton.OK,MessageBoxImage.Information);
+            return MessageBox.Show(message, InformationMessage, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public MessageBoxResult ShowWarning(string message)

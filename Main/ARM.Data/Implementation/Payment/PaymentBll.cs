@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Payment
             : base(dal)
         {
         }
-    }//end PaymentBll
-}//end namespace Payment
+    } //end PaymentBll
+} //end namespace Payment

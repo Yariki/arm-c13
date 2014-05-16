@@ -4,27 +4,26 @@ using System.Windows.Input;
 
 namespace ARM.Infrastructure.MVVM
 {
-
     /// <summary>
-    /// A command whose sole purpose is to
-    /// relay its functionality to other
-    /// objects by invoking delegates. The
-    /// default return value for the CanExecute
-    /// method is 'true'.
+    ///     A command whose sole purpose is to
+    ///     relay its functionality to other
+    ///     objects by invoking delegates. The
+    ///     default return value for the CanExecute
+    ///     method is 'true'.
     /// </summary>
     public class ARMRelayCommand : ICommand
     {
         #region Fields
 
-        private readonly Action<object> _execute;
         private readonly Predicate<object> _canExecute;
+        private readonly Action<object> _execute;
 
         #endregion Fields
 
         #region Constructors
 
         /// <summary>
-        /// Creates a new command that can always execute.
+        ///     Creates a new command that can always execute.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         public ARMRelayCommand(Action<object> execute)
@@ -33,7 +32,7 @@ namespace ARM.Infrastructure.MVVM
         }
 
         /// <summary>
-        /// Creates a new command.
+        ///     Creates a new command.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         /// <param name="canExecute">The execution status logic.</param>

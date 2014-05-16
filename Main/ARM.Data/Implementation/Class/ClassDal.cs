@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Class
             : base(context)
         {
         }
-    }//end ClassDal
-}//end namespace Class
+    } //end ClassDal
+} //end namespace Class

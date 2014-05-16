@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Student
 {
     public interface IStudentBll : IBll<Models.Student>
     {
-    }//end IStudentBll
-}//end namespace Student
+    } //end IStudentBll
+} //end namespace Student

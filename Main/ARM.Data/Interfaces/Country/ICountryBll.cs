@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Country
 {
     public interface ICountryBll : IBll<Models.Country>
     {
-    }//end ICountryBll
-}//end namespace Country
+    } //end ICountryBll
+} //end namespace Country

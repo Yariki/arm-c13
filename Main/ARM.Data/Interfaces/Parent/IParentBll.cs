@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Parent
 {
     public interface IParentBll : IBll<Models.Parent>
     {
-    }//end IParentBll
-}//end namespace Parent
+    } //end IParentBll
+} //end namespace Parent

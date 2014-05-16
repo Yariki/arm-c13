@@ -30,7 +30,7 @@ namespace ARM.Data.Models
         }
 
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_Mark_Student")]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Student")]
         public virtual Student Student
         {
             get;
@@ -44,6 +44,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
+
         [ARMRequired]
         [ARMGrid(Order = 7)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Date")]
@@ -60,7 +61,7 @@ namespace ARM.Data.Models
             get;
             set;
         }
-        
+
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_MarkRate")]
         public decimal MarkRate { get; set; }

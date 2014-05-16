@@ -8,21 +8,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Input;
 using ARM.Core.Enums;
-using ARM.Core.Interfaces;
-using ARM.Core.MVVM;
-using ARM.Core.Service;
 using ARM.Core.Extensions;
+using ARM.Core.Interfaces;
+using ARM.Core.Service;
 using ARM.Data.Models;
 using ARM.Data.Sevice.Resolver;
-using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.Facade;
-using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -34,14 +30,14 @@ namespace ARM.Infrastructure.MVVM
         private object _dataObject;
         private List<IARMModelPropertyInfo> _listProperty;
 
-        /// 
+        ///
         ///  <param name="businessObject"></param>
         ///  <param name="view"></param>
         /// <param name="regionManager"></param>
-        protected ARMDataViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,  IARMView view) 
-            : base(regionManager,unityContainer,eventAggregator,view)
+        protected ARMDataViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
+            : base(regionManager, unityContainer, eventAggregator, view)
         {
-            SaveCommand = new  ARMRelayCommand(SaveExecute, CanSaveExecte);
+            SaveCommand = new ARMRelayCommand(SaveExecute, CanSaveExecte);
             HasChanges = false;
         }
 
@@ -58,7 +54,6 @@ namespace ARM.Infrastructure.MVVM
                 (_dataObject as BaseModel).ModifiedBy = ARMSystemFacade.Instance.CurrentUser.Name;
             }
             _listProperty = ARMModelsPropertyCache.Instance.GetPropertyInfos(_dataObject.GetType()).ToList();
-
         }
 
         public virtual void SetBusinessObject(ViewMode mode, eARMMetadata metadata, object data)
@@ -74,7 +69,9 @@ namespace ARM.Infrastructure.MVVM
         }
 
         public ViewMode Mode { get; private set; }
+
         public eARMMetadata Metadata { get; private set; }
+
         public bool HasChanges { get; set; }
 
         public override bool Closing()
@@ -89,7 +86,6 @@ namespace ARM.Infrastructure.MVVM
             }
             return false;
         }
-
 
         protected override T Get<T>(string name, T defaultValue)
         {
@@ -117,13 +113,14 @@ namespace ARM.Infrastructure.MVVM
                 OnSetValue(name);
             }
             else
-             base.Set(name, val);
+                base.Set(name, val);
         }
 
         public TObj GetBusinessObject<TObj>()
         {
             return (TObj)_dataObject;
         }
+
         protected bool HasProperty(string name)
         {
             if (!Enumerable.Any<IARMModelPropertyInfo>(_listProperty))
@@ -159,12 +156,12 @@ namespace ARM.Infrastructure.MVVM
         {
             get { return _dataObject; }
         }
-		
-		#region [commands]
-		
-		public ICommand SaveCommand {get;private set;}
 
-        #endregion
+        #region [commands]
+
+        public ICommand SaveCommand { get; private set; }
+
+        #endregion [commands]
 
         #region [dispose]
 
@@ -182,14 +179,11 @@ namespace ARM.Infrastructure.MVVM
             base.Dispose(disposing);
         }
 
-        #endregion
-
+        #endregion [dispose]
 
         #region [private]
 
-        #endregion
-
-
+        #endregion [private]
 
     }//end ARMDataViewModelBase
 }//end namespace MVVM

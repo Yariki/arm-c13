@@ -10,14 +10,14 @@ using ARM.Core.Enums;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Інтерфейс команди панелі управління
-  /// </summary>
+    /// <summary>
+    /// Інтерфейс команди панелі управління
+    /// </summary>
     public interface IARMToolboxCommand : ICommand
     {
-      /// <summary>
-      /// Заголовок команди
-      /// </summary>
+        /// <summary>
+        /// Заголовок команди
+        /// </summary>
         string Title { get; }
 
         /// <summary>
@@ -31,14 +31,14 @@ namespace ARM.Core.Interfaces
         /// <summary>
         /// Імя ресурсу
         /// </summary>
-		string ResourceName
-		{
-			get;
-		}
+        string ResourceName
+        {
+            get;
+        }
 
-    /// <summary>
-    /// Підказка команди
-    /// </summary>
+        /// <summary>
+        /// Підказка команди
+        /// </summary>
         string Tooltip
         {
             get;
@@ -63,6 +63,6 @@ namespace ARM.Core.Interfaces
         /// <summary>
         /// Порядок відображення.
         /// </summary>
-		int Order{get;}
+        int Order { get; }
     }//end IARMToolboxCommand
 }//end namespace Interfaces

@@ -4,6 +4,5 @@ namespace ARM.Infrastructure.Controls.Interfaces.View
 {
     public interface IARMLookupView : IARMView
     {
-         
     }
 }

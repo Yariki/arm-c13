@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.University
             : base(context)
         {
         }
-    }//end UniversityDal
-}//end namespace University
+    } //end UniversityDal
+} //end namespace University

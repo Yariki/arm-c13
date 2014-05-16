@@ -18,20 +18,21 @@ namespace ARM.Core.Validation.Rules
         ///
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public ARMMaxValidationRule(double min, double max) : base(min,max)
+        public ARMMaxValidationRule(double min, double max)
+            : base(min, max)
         {
         }
 
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
-            var result = new ARMValidationResult() {IsValid = true};
+            var result = new ARMValidationResult() { IsValid = true };
             if (val != null)
             {
                 double v = Convert.ToDouble(val);
                 result.IsValid = v < Max;
                 if (!result.IsValid)
                 {
-                    result.AddMessage(string.Format("Value shouldn't be greater {0}.",Max));
+                    result.AddMessage(string.Format("Value shouldn't be greater {0}.", Max));
                 }
             }
             return result;

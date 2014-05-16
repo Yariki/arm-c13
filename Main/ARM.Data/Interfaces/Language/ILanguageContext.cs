@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Language
 {
     public interface ILanguageContext : IContext<Models.Language>
     {
-    }//end ILanguageContext
-}//end namespace Language
+    } //end ILanguageContext
+} //end namespace Language

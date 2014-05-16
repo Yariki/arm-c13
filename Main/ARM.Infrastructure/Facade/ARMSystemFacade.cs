@@ -9,14 +9,12 @@ namespace ARM.Infrastructure.Facade
 {
     public class ARMSystemFacade : IARMFacade
     {
-
         private IARMMessageBoxFacade _messageBoxFacade;
 
         private ARMSystemFacade()
         {
             _messageBoxFacade = new ARMMessageFacade();
         }
-
 
         #region [static]
 
@@ -27,8 +25,8 @@ namespace ARM.Infrastructure.Facade
             get { return _instance.Value; }
         }
 
-        #endregion
-         
+        #endregion [static]
+
         #region [systems]
 
         public IARMLoggerFacade Logger
@@ -43,7 +41,6 @@ namespace ARM.Infrastructure.Facade
 
         public User CurrentUser { get; set; }
 
-        #endregion
-
+        #endregion [systems]
     }
 }

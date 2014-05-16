@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Payment
 {
     public interface IPaymentDal : IDal<Models.Payment>
     {
-    }//end IPaymentDal
-}//end namespace Payment
+    } //end IPaymentDal
+} //end namespace Payment

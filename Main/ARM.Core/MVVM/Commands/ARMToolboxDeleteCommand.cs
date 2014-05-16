@@ -13,16 +13,15 @@ namespace ARM.Core.MVVM.Commands
 {
     public class ARMToolboxDeleteCommand : ARMToolboxCommandBase
     {
-        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Delete;
             Title = "Delete";
         }
 
-
-        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
         }
 

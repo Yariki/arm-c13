@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Faculty
 {
     public interface IFacultyContext : IContext<Models.Faculty>
     {
-    }//end IFacultyContext
-}//end namespace Faculty
+    } //end IFacultyContext
+} //end namespace Faculty

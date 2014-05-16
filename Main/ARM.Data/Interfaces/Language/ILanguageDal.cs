@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Language
 {
     public interface ILanguageDal : IDal<Models.Language>
     {
-    }//end ILanguageDal
-}//end namespace Language
+    } //end ILanguageDal
+} //end namespace Language

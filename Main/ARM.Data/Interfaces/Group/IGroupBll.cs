@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Group
 {
     public interface IGroupBll : IBll<Models.Group>
     {
-    }//end IGroupBll
-}//end namespace Group
+    } //end IGroupBll
+} //end namespace Group

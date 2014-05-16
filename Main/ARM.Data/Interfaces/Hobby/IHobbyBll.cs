@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Hobby
 {
     public interface IHobbyBll : IBll<Models.Hobby>
     {
-    }//end IHobbyBll
-}//end namespace Hobby
+    } //end IHobbyBll
+} //end namespace Hobby

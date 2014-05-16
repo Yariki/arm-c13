@@ -7,9 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
-  /// <summary>
-  /// атрибут, який вказує, що дана властивість повинна валідуватись на коректність введеного Email.
-  /// </summary>
+    /// <summary>
+    /// атрибут, який вказує, що дана властивість повинна валідуватись на коректність введеного Email.
+    /// </summary>
     public class ARMEmailAttribute : ARMStringAttribute
     {
         public ARMEmailAttribute()

@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Payment
 {
     public interface IPaymentBll : IBll<Models.Payment>
     {
-    }//end IPaymentBll
-}//end namespace Payment
+    } //end IPaymentBll
+} //end namespace Payment

@@ -9,19 +9,14 @@ namespace ARM.Core.Validation.Rules
 {
     public class ARMStringValidationRule : ARMValidationRule
     {
-
-        ~ARMStringValidationRule()
-        {
-        }
-
         protected ARMStringValidationRule()
         {
         }
 
-        protected string Pattern
+        protected string Pattern { get; set; }
+
+        ~ARMStringValidationRule()
         {
-            get;
-            set;
         }
-    }//end ARMStringValidationRule
-}//end namespace Rules
+    } //end ARMStringValidationRule
+} //end namespace Rules

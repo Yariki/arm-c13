@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Faculty
 {
     public interface IFacultyDal : IDal<Models.Faculty>
     {
-    }//end IFacultyDal
-}//end namespace Faculty
+    } //end IFacultyDal
+} //end namespace Faculty

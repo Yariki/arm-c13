@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Staff
 {
     public interface IStaffContext : IContext<Models.Staff>
     {
-    }//end IStaffContext
-}//end namespace Staff
+    } //end IStaffContext
+} //end namespace Staff

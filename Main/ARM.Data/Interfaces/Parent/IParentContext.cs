@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Parent
 {
     public interface IParentContext : IContext<Models.Parent>
     {
-    }//end IParentContext
-}//end namespace Parent
+    } //end IParentContext
+} //end namespace Parent

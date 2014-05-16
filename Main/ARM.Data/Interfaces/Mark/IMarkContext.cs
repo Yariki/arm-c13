@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Mark
 {
     public interface IMarkContext : IContext<Models.Mark>
     {
-    }//end IMarkContext
-}//end namespace Mark
+    } //end IMarkContext
+} //end namespace Mark

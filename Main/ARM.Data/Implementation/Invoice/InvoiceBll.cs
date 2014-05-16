@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Invoice
             : base(dal)
         {
         }
-    }//end InvoiceBll
-}//end namespace Invoice
+    } //end InvoiceBll
+} //end namespace Invoice

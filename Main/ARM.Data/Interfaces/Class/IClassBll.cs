@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Class
 {
     public interface IClassBll : IBll<Models.Class>
     {
-    }//end IClassBll
-}//end namespace Class
+    } //end IClassBll
+} //end namespace Class

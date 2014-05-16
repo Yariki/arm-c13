@@ -18,7 +18,7 @@ namespace ARM.Data.Models
     {
         [ARMRequired]
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Invoice_Number")]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Number")]
         public string Number { get; set; }
 
         [ARMRequired]

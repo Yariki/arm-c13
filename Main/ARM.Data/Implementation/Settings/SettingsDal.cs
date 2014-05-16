@@ -12,11 +12,11 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Implementation.Settings
 {
-    public class SettingsDal : BaseDal<Models.SettingParameters>, ISettingsDal
+    public class SettingsDal : BaseDal<SettingParameters>, ISettingsDal
     {
         public SettingsDal(IContext<SettingParameters> context)
             : base(context)
         {
         }
-    }//end SettingsDal
-}//end namespace Settings
+    } //end SettingsDal
+} //end namespace Settings

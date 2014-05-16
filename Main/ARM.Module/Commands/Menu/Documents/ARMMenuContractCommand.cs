@@ -5,10 +5,10 @@ namespace ARM.Module.Commands.Menu.Documents
 {
     public class ARMMenuContractCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuContractCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuContractCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
-            MenuCommand =   eARMMainMenuCommand.DocumentContract;
+            MenuCommand = eARMMainMenuCommand.DocumentContract;
             Title = Resource.AppResource.Resources.Model_Contract_Title;
         }
     }

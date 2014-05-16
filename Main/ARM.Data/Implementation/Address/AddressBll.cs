@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Address
             : base(dal)
         {
         }
-    }//end AddressBll
-}//end namespace Address
+    } //end AddressBll
+} //end namespace Address

@@ -10,16 +10,15 @@ using ARM.Core.Enums;
 
 namespace ARM.Core.Interfaces
 {
-	/// <summary>
-	/// базовий інтерфейс для моделей представлення 
-	/// </summary>
+    /// <summary>
+    /// базовий інтерфейс для моделей представлення
+    /// </summary>
     public interface IARMDataViewModel : IARMWorkspaceViewModel
     {
-    	/// <summary>
-    	/// модель даних.
-    	/// </summary>
+        /// <summary>
+        /// модель даних.
+        /// </summary>
         object DataObject { get; }
-
 
         /// <summary>
         /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
@@ -28,7 +27,7 @@ namespace ARM.Core.Interfaces
         /// <param name="metadata">Метадата.</param>
         /// <param name="id">Ідентифікатор.</param>
         /// <param name="isIdEmpty">Флаг, чи може фдентифікатор бути пустим.</param>
-        void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id, bool isIdEmpty);
+        void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty);
 
         /// <summary>
         /// втсановлення режиму роботи та моделі даних

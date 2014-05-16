@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Session
 {
     public interface ISessionDal : IDal<Models.Session>
     {
-    }//end ISessionDal
-}//end namespace Session
+    } //end ISessionDal
+} //end namespace Session

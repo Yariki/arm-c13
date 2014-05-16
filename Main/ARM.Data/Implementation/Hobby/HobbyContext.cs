@@ -4,7 +4,7 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Hobby
 {
-    public class HobbyContext : BaseContext<Models.Hobby>,IHobbyContext
+    public class HobbyContext : BaseContext<Models.Hobby>, IHobbyContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

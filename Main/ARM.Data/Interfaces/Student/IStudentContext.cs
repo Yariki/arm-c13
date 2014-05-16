@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Student
 {
     public interface IStudentContext : IContext<Models.Student>
     {
-    }//end IStudentContext
-}//end namespace Student
+    } //end IStudentContext
+} //end namespace Student

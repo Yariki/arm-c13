@@ -55,11 +55,10 @@ namespace ARM.Data.UnitOfWork.Interfaces
         private IVisaBll _visaRepository;
         private IRateBll _rateRepository;
 
-
         private bool _disposed = false;
         private readonly IUnityContainer _unityContainer;
 
-        #endregion
+        #endregion [needs]
 
         public ARMUnitOfWork(IUnityContainer unityContainer)
         {
@@ -132,11 +131,11 @@ namespace ARM.Data.UnitOfWork.Interfaces
                 _employerRepository.Dispose();
             if (_visaRepository != null)
                 _visaRepository.Dispose();
-            if(_rateRepository != null)
+            if (_rateRepository != null)
                 _rateRepository.Dispose();
         }
 
-        #endregion
+        #endregion [disposable]
 
         #region [repositories]
 
@@ -245,7 +244,7 @@ namespace ARM.Data.UnitOfWork.Interfaces
             get { return _employerRepository ?? (_employerRepository = _unityContainer.Resolve<IEmployerBll>()); }
         }
 
-        public IVisaBll VisaRepository 
+        public IVisaBll VisaRepository
         {
             get { return _visaRepository ?? (_visaRepository = _unityContainer.Resolve<IVisaBll>()); }
         }
@@ -255,6 +254,6 @@ namespace ARM.Data.UnitOfWork.Interfaces
             get { return _rateRepository ?? (_rateRepository = _unityContainer.Resolve<IRateBll>()); }
         }
 
-        #endregion
+        #endregion [repositories]
     }
 }

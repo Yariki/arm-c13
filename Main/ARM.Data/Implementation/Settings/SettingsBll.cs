@@ -107,14 +107,12 @@ namespace ARM.Data.Implementation.Settings
 
         public decimal GetIncreasedMark()
         {
-            return (decimal) GetDefaultParameters().DefStipenHighMark;
+            return (decimal)GetDefaultParameters().DefStipenHighMark;
         }
 
         private SettingParameters GetDefaultParameters()
         {
             return GetById(GlobalConst.IdDefault);
         }
-
-
     }//end SettingsBll
 }//end namespace Settings

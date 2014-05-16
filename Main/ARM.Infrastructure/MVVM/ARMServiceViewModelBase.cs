@@ -7,7 +7,7 @@ namespace ARM.Infrastructure.MVVM
 {
     public abstract class ARMServiceViewModelBase : ARMWorkspaceViewModelBase
     {
-        protected ARMServiceViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view) 
+        protected ARMServiceViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }

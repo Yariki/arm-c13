@@ -1,8 +1,7 @@
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddRate2 : DbMigration
     {
         public override void Up()
@@ -20,9 +19,8 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
         }
-        
+
         public override void Down()
         {
             DropTable("dbo.Rate");

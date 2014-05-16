@@ -1,8 +1,8 @@
 ﻿namespace ARM.Core.Enums
 {
-	/// <summary>
-	/// набір метадати
-	/// </summary>
+    /// <summary>
+    /// набір метадати
+    /// </summary>
     public enum eARMMetadata
     {
         None,

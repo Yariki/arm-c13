@@ -6,7 +6,6 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using System.Diagnostics.SymbolStore;
 using System.Windows;
 using ARM.Core.Enums;
 using ARM.Core.EventArguments;
@@ -21,21 +20,19 @@ namespace ARM.Infrastructure.MVVM
     public abstract class ARMValidatableViewModelBase : ARMDataViewModelBase, IARMValidatableViewModel
     {
         private ARM.Core.Interfaces.IARMValidationAdaptor _validationAdaptor;
-        
 
         ///
         /// <param name="businessObject"></param>
         /// <param name="view"></param>
-        protected ARMValidatableViewModelBase(IRegionManager regionManager,IUnityContainer unityContainer,IEventAggregator eventAggregator,IARMView view) 
-            : base(regionManager,unityContainer,eventAggregator,view)
+        protected ARMValidatableViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
+            : base(regionManager, unityContainer, eventAggregator, view)
         {
             _validationAdaptor = UnityContainer.Resolve<IARMValidationAdaptor>();
         }
 
-
-        public override void SetBusinessObject(ViewMode mode,eARMMetadata metadata, Guid id, bool isIdEmpty = false)
+        public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
-            base.SetBusinessObject(mode,metadata,id,isIdEmpty);
+            base.SetBusinessObject(mode, metadata, id, isIdEmpty);
             _validationAdaptor.SetValidationObject(GetBusinessObject<object>(), GetAllArmPropertyInfo());
             _validationAdaptor.ValidationCompleted += ValidationAdaptorOnValidationCompleted;
             IsValid = true;
@@ -60,7 +57,7 @@ namespace ARM.Infrastructure.MVVM
 
         protected bool ValidateBeforeSave()
         {
-            if(_validationAdaptor == null)
+            if (_validationAdaptor == null)
                 return false;
             _validationAdaptor.ValidateAll();
             var res = _validationAdaptor.GetResultForAll();
@@ -91,7 +88,7 @@ namespace ARM.Infrastructure.MVVM
             get { return _validationAdaptor[columnName]; }
         }
 
-        public string Error 
+        public string Error
         {
             get { return _validationAdaptor.Error; }
         }
@@ -108,13 +105,13 @@ namespace ARM.Infrastructure.MVVM
 
         private void Validate(string name)
         {
-            _validationAdaptor.Validate(name);    
+            _validationAdaptor.Validate(name);
         }
 
         public bool IsValid
         {
             get { return Get(() => IsValid); }
-            set { Set(() => IsValid,value); }
+            set { Set(() => IsValid, value); }
         }
 
         public override bool Closing()

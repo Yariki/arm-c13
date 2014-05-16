@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Group
 {
     public interface IGroupDal : IDal<Models.Group>
     {
-    }//end IGroupDal
-}//end namespace Group
+    } //end IGroupDal
+} //end namespace Group

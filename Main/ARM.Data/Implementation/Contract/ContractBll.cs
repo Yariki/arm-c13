@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Contract
             : base(dal)
         {
         }
-    }//end ContractBll
-}//end namespace Contract
+    } //end ContractBll
+} //end namespace Contract

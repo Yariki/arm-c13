@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Group
             : base(context)
         {
         }
-    }//end GroupDal
-}//end namespace Group
+    } //end GroupDal
+} //end namespace Group

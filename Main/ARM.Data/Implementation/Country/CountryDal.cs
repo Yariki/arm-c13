@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Country
             : base(context)
         {
         }
-    }//end CountryDal
-}//end namespace Country
+    } //end CountryDal
+} //end namespace Country

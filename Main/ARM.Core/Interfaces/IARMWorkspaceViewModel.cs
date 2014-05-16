@@ -14,11 +14,10 @@ namespace ARM.Core.Interfaces
     {
         ICommand CloseCommand { get; }
 
-        event EventHandler RequestClose;
-
         string Title { get; }
 
-        void Initialize();
+        event EventHandler RequestClose;
 
-    }//end IARMWorkspaceViewModel
-}//end namespace Interfaces
+        void Initialize();
+    } //end IARMWorkspaceViewModel
+} //end namespace Interfaces

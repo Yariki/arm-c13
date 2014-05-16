@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Achivement
 {
     public interface IAchivementBll : IBll<Models.Achivement>
     {
-    }//end IAchivementBll
-}//end namespace Achivement
+    } //end IAchivementBll
+} //end namespace Achivement

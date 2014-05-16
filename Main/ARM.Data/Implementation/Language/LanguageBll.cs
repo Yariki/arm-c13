@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Language
             : base(dal)
         {
         }
-    }//end LanguageBll
-}//end namespace Language
+    } //end LanguageBll
+} //end namespace Language

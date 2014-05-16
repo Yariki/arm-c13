@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Parent
             : base(dal)
         {
         }
-    }//end ParentBll
-}//end namespace Parent
+    } //end ParentBll
+} //end namespace Parent

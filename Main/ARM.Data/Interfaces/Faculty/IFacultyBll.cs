@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Faculty
 {
     public interface IFacultyBll : IBll<Models.Faculty>
     {
-    }//end IFacultyBll
-}//end namespace Faculty
+    } //end IFacultyBll
+} //end namespace Faculty

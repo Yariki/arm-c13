@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Address
 {
     public interface IAddressContext : IContext<Models.Address>
     {
-    }//end IAddressContext
-}//end namespace Address
+    } //end IAddressContext
+} //end namespace Address

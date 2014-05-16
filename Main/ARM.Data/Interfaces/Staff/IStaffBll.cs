@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Staff
 {
     public interface IStaffBll : IBll<Models.Staff>
     {
-    }//end IStaffBll
-}//end namespace Staff
+    } //end IStaffBll
+} //end namespace Staff

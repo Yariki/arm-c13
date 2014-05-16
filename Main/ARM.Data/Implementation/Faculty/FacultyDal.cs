@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Faculty
             : base(context)
         {
         }
-    }//end FacultyDal
-}//end namespace Faculty
+    } //end FacultyDal
+} //end namespace Faculty

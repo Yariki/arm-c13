@@ -1,37 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
-using ARM.Core.MVVM;
 using ARM.Core.MVVM.Commands;
 
 namespace ARM.Core.MVVM
 {
     /// <summary>
-    /// базовий класс для панелей управління
+    ///     базовий класс для панелей управління
     /// </summary>
     public class ARMToolboxBase : ARMViewModelBase, IARMToolboxViewModel
     {
         /// <summary>
-        /// внутрішній список команд
+        ///     внутрішній список команд
         /// </summary>
-        protected readonly ObservableCollection<IARMToolboxCommand> CmdList = new ObservableCollection<IARMToolboxCommand>();
+        protected readonly ObservableCollection<IARMToolboxCommand> CmdList =
+            new ObservableCollection<IARMToolboxCommand>();
 
         /// <summary>
-        /// внутрішня команда, котра викликається при натисканні на кнопку
+        ///     внутрішня команда, котра викликається при натисканні на кнопку
         /// </summary>
         protected Action<ToolbarCommand> InternalAction;
+
         /// <summary>
-        /// внутрішній предикат команди. Відповідає до доступність кнопки
+        ///     внутрішній предикат команди. Відповідає до доступність кнопки
         /// </summary>
         protected Func<ToolbarCommand, bool> InternalPredicate;
 
-
         /// <summary>
-        /// створює екземпляр класу
+        ///     створює екземпляр класу
         /// </summary>
         /// <param name="view">модель користувацього інтерфейсу</param>
         public ARMToolboxBase(IARMToolboxView view)
@@ -39,13 +38,18 @@ namespace ARM.Core.MVVM
         {
         }
 
+        #region IARMToolboxViewModel Members
+
         /// <summary>
-        /// відсортований списко команд
+        ///     відсортований списко команд
         /// </summary>
         /// <value>
-        /// The commands.
+        ///     The commands.
         /// </value>
-        public IEnumerable<IARMToolboxCommand> Commands { get { return CmdList.OrderBy(c => c.Order).AsEnumerable(); } }
+        public IEnumerable<IARMToolboxCommand> Commands
+        {
+            get { return CmdList.OrderBy(c => c.Order).AsEnumerable(); }
+        }
 
         public void InitializeCommands()
         {
@@ -53,17 +57,7 @@ namespace ARM.Core.MVVM
         }
 
         /// <summary>
-        /// метод ініціалізації панелі
-        /// </summary>
-        protected virtual void InternalInitialize()
-        {
-            CmdList.Add(new ARMToolboxAddCommand(InternalAction, InternalPredicate));
-            CmdList.Add(new ARMToolboxEditCommand(InternalAction, InternalPredicate));
-            CmdList.Add(new ARMToolboxDeleteCommand(InternalAction, InternalPredicate));
-        }
-
-        /// <summary>
-        /// додати команду
+        ///     додати команду
         /// </summary>
         /// <param name="cmd">Команда.</param>
         public void AddCommand(IARMToolboxCommand cmd)
@@ -73,7 +67,7 @@ namespace ARM.Core.MVVM
         }
 
         /// <summary>
-        /// Встановити обробники натиску кнопок і предикат
+        ///     Встановити обробники натиску кнопок і предикат
         /// </summary>
         /// <param name="action">Метод</param>
         /// <param name="predicate">Предикат</param>
@@ -83,5 +77,16 @@ namespace ARM.Core.MVVM
             InternalPredicate = predicate;
         }
 
+        #endregion IARMToolboxViewModel Members
+
+        /// <summary>
+        ///     метод ініціалізації панелі
+        /// </summary>
+        protected virtual void InternalInitialize()
+        {
+            CmdList.Add(new ARMToolboxAddCommand(InternalAction, InternalPredicate));
+            CmdList.Add(new ARMToolboxEditCommand(InternalAction, InternalPredicate));
+            CmdList.Add(new ARMToolboxDeleteCommand(InternalAction, InternalPredicate));
+        }
     }
 }

@@ -6,10 +6,11 @@
 ///////////////////////////////////////////////////////////
 
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Data.Interfaces.Settings
 {
-    public interface ISettingsContext : IContext<Models.SettingParameters>
+    public interface ISettingsContext : IContext<SettingParameters>
     {
-    }//end ISettingsContext
-}//end namespace Settings
+    } //end ISettingsContext
+} //end namespace Settings

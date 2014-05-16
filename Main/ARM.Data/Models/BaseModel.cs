@@ -7,11 +7,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using ARM.Core.Attributes;
 using ARM.Core.Interfaces.Data;
-using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
@@ -29,14 +26,14 @@ namespace ARM.Data.Models
         }
 
         [ARMGrid(Order = int.MaxValue)]
-        [Display(ResourceType =   typeof(ARM.Resource.AppResource.Resources),Name = "Model_DateModified")]
+        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_DateModified")]
         public DateTime DateModified
         {
             get;
             set;
         }
 
-        [ARMGrid(Order =  int.MaxValue - 1)]
+        [ARMGrid(Order = int.MaxValue - 1)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_ModifiedBy")]
         public string ModifiedBy
         {
@@ -53,6 +50,5 @@ namespace ARM.Data.Models
         {
             return Display;
         }
-    
     }//end BaseModel
 }//end namespace Models

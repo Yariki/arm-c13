@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Country
 {
     public interface ICountryDal : IDal<Models.Country>
     {
-    }//end ICountryDal
-}//end namespace Country
+    } //end ICountryDal
+} //end namespace Country

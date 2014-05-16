@@ -17,5 +17,5 @@ namespace ARM.Data.Implementation.Mark
             : base(dal)
         {
         }
-    }//end MarkBll
-}//end namespace Mark
+    } //end MarkBll
+} //end namespace Mark

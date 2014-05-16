@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Invoice
 {
     public interface IInvoiceDal : IDal<Models.Invoice>
     {
-    }//end IInvoiceDal
-}//end namespace Invoice
+    } //end IInvoiceDal
+} //end namespace Invoice

@@ -8,7 +8,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using ARM.Data.Interfaces.Address;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -20,7 +19,6 @@ namespace ARM.Data.Implementation.Address
         public AddressDal(IContext<Models.Address> context)
             : base(context)
         {
-           
         }
 
         public override IEnumerable<Models.Address> GetAllWithRelated()

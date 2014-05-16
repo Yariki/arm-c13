@@ -5,7 +5,7 @@ namespace ARM.Module.Commands.Menu.Documents
 {
     public class ARMMenuInvoiceCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuInvoiceCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        public ARMMenuInvoiceCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.DocumentInvoice;

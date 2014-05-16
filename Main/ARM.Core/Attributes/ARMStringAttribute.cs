@@ -7,9 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
-	/// <summary>
-	/// базовий класс для артибутів по валідації строковиї властивостей
-	/// </summary>
+    /// <summary>
+    /// базовий класс для артибутів по валідації строковиї властивостей
+    /// </summary>
     public abstract class ARMStringAttribute : ARMValidationAttribute
     {
         public ARMStringAttribute()
@@ -20,9 +20,9 @@ namespace ARM.Core.Attributes
         {
         }
 
-		/// <summary>
-		/// Шаблон, у відповідності до якого проводиться валідація
-		/// </summary>
+        /// <summary>
+        /// Шаблон, у відповідності до якого проводиться валідація
+        /// </summary>
         public string Pattern
         {
             get;

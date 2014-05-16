@@ -25,5 +25,5 @@ namespace ARM.Data.Layer.Interfaces
         DbEntityEntry<T> Entry(T e);
 
         DbSet<TObj> Set<TObj>() where TObj : BaseModel;
-    }//end IContext
-}//end namespace Interfaces
+    } //end IContext
+} //end namespace Interfaces

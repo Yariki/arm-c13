@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Invoice
 {
     public interface IInvoiceContext : IContext<Models.Invoice>
     {
-    }//end IInvoiceContext
-}//end namespace Invoice
+    } //end IInvoiceContext
+} //end namespace Invoice

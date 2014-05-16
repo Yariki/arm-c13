@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
+using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
@@ -18,26 +19,14 @@ namespace ARM.Data.Models
     {
         [ARMRequired]
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Session_DateBegin")]
-        public DateTime DateBegin
-        {
-            get;
-            set;
-        }
+        [Display(ResourceType = typeof (Resources), Name = "Model_Session_DateBegin")]
+        public DateTime DateBegin { get; set; }
 
         [ARMRequired]
         [ARMGrid(Order = 3)]
-        [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Session_DateEnd")]
-        public DateTime DateEnd
-        {
-            get;
-            set;
-        }
+        [Display(ResourceType = typeof (Resources), Name = "Model_Session_DateEnd")]
+        public DateTime DateEnd { get; set; }
 
-        public virtual IList<Class> Classes
-        {
-            get;
-            set;
-        }
-    }//end Session
-}//end namespace Models
+        public virtual IList<Class> Classes { get; set; }
+    } //end Session
+} //end namespace Models

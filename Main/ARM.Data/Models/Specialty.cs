@@ -6,36 +6,26 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ARM.Core.Attributes;
 using ARM.Core.Enums;
+using ARM.Resource.AppResource;
 
 namespace ARM.Data.Models
 {
     [ARMMetadata(Metadata = eARMMetadata.Specialty)]
-
     public class Specialty : BaseNamedModel
     {
         [ARMRequired]
         [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Speciality_Faculty")]
-        public Guid? FacultyId
-        {
-            get;
-            set;
-        }
+        [Display(ResourceType = typeof (Resources), Name = "Model_Speciality_Faculty")]
+        public Guid? FacultyId { get; set; }
 
-        public virtual Faculty Faculty
-        {
-            get;
-            set;
-        }
+        public virtual Faculty Faculty { get; set; }
 
         public override string Display
         {
             get { return Name; }
         }
-    }//end Specialty
-}//end namespace Models
+    } //end Specialty
+} //end namespace Models

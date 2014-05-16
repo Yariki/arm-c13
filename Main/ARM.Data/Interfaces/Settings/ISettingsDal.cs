@@ -6,10 +6,11 @@
 ///////////////////////////////////////////////////////////
 
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Data.Interfaces.Settings
 {
-    public interface ISettingsDal : IDal<Models.SettingParameters>
+    public interface ISettingsDal : IDal<SettingParameters>
     {
-    }//end ISettingsDal
-}//end namespace Settings
+    } //end ISettingsDal
+} //end namespace Settings

@@ -8,23 +8,22 @@ using Microsoft.Practices.Prism.Logging;
 
 namespace ARM.Core.Logging
 {
-    public class ARMLogger : IARMLoggerFacade,ILoggerFacade
+    public class ARMLogger : IARMLoggerFacade, ILoggerFacade
     {
-
         private const string Filename = "log4net.config";
 
         #region fields
-        private ILog _log;
-        #endregion
 
+        private ILog _log;
+
+        #endregion fields
 
         #region fields static
 
         private static ARMLogger _instance = null;
         private static object _lock = new object();
 
-        #endregion
-
+        #endregion fields static
 
         #region [ctor]
 
@@ -42,7 +41,7 @@ namespace ARM.Core.Logging
             }
         }
 
-        #endregion
+        #endregion [ctor]
 
         public static IARMLoggerFacade Instance
         {
@@ -61,21 +60,20 @@ namespace ARM.Core.Logging
 
         #region [logging]
 
-
         public void LogError(string message)
         {
-           WriteLog(eARMLogLevel.Error, message); 
+            WriteLog(eARMLogLevel.Error, message);
         }
 
         public void LogError(string format, object[] args)
         {
             string message = string.Format(format, args);
-            WriteLog(eARMLogLevel.Error, message);    
+            WriteLog(eARMLogLevel.Error, message);
         }
 
         public void LogWarning(string message)
         {
-            WriteLog(eARMLogLevel.Warning,message);
+            WriteLog(eARMLogLevel.Warning, message);
         }
 
         public void LogWarning(string format, object[] args)
@@ -102,19 +100,22 @@ namespace ARM.Core.Logging
                 case Category.Warn:
                     WriteLog(eARMLogLevel.Warning, message);
                     break;
+
                 case Category.Debug:
                     WriteLog(eARMLogLevel.Info, message);
                     break;
+
                 case Category.Info:
                     WriteLog(eARMLogLevel.Info, message);
                     break;
+
                 case Category.Exception:
                     WriteLog(eARMLogLevel.Error, message);
                     break;
             }
         }
 
-        #endregion
+        #endregion [logging]
 
         #region private
 
@@ -127,17 +128,20 @@ namespace ARM.Core.Logging
                 case eARMLogLevel.Info:
                     _log.Info(message);
                     break;
+
                 case eARMLogLevel.Warning:
                     _log.Warn(message);
                     break;
+
                 case eARMLogLevel.Error:
                     _log.Error(message);
                     break;
+
                 default:
                     break;
             }
         }
 
-        #endregion
+        #endregion private
     }
 }
