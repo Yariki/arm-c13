@@ -3,8 +3,16 @@ using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation.Rules
 {
+  /// <summary>
+  /// Класс правило для валідації типів значення.
+  /// </summary>
     public class ARMValuableValidationRule : ARMValidationRule
     {
+      /// <summary>
+      /// Валідації значення
+      /// </summary>
+      /// <param name="val">Значення.</param>
+      /// <returns></returns>
         protected override IARMValidationResult InternalEvalute(object val)
         {
             var result = new ARMValidationResult() { IsValid = true };

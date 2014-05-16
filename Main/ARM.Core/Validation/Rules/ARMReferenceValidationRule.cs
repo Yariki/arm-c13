@@ -2,8 +2,16 @@
 
 namespace ARM.Core.Validation.Rules
 {
+  /// <summary>
+  /// Класс-правило для валідації ссилочних типів
+  /// </summary>
     public class ARMReferenceValidationRule : ARMValidationRule
     {
+      /// <summary>
+      /// Валідація зрачення
+      /// </summary>
+      /// <param name="val">Значення.</param>
+      /// <returns></returns>
         protected override IARMValidationResult InternalEvalute(object val)
         {
             var result = new ARMValidationResult() { IsValid = true };
