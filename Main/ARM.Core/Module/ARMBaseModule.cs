@@ -5,17 +5,35 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Core.Module
 {
+  /// <summary>
+  /// Базовий класс для всіх модулів.
+  /// </summary>
     public abstract class ARMBaseModule : IModule
     {
 
         #region [needs]
 
+      /// <summary>
+      /// Менеджер областей.
+      /// </summary>
         protected readonly IRegionManager RegionManager;
+        /// <summary>
+        /// Контейнер IoC.
+        /// </summary>
         protected readonly IUnityContainer UnityContainer;
+        /// <summary>
+        /// Агрегатор подій.
+        /// </summary>
         protected readonly IEventAggregator EventAggregator;
 
         #endregion
 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу.
+        /// </summary>
+        /// <param name="regionManager">Менеджер областей.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
         protected ARMBaseModule(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator)
         {
@@ -24,6 +42,9 @@ namespace ARM.Core.Module
             UnityContainer = unityContainer;
         }
 
+        /// <summary>
+        /// Повідомляє модуль, що вона буде инициализирована.
+        /// </summary>
         public void Initialize()
         {
             RegistreInterfaces();
@@ -32,16 +53,25 @@ namespace ARM.Core.Module
 
         }
 
+        /// <summary>
+        /// Реєстрація інтерфейсів.
+        /// </summary>
         protected virtual void RegistreInterfaces()
         {
             
         }
 
+        /// <summary>
+        /// Підготовка користувацьокого інтерфейсу
+        /// </summary>
         protected virtual void InjectViews()
         {
             
         }
 
+        /// <summary>
+        /// Внутрішня ініціалізація.
+        /// </summary>
         protected virtual void InternalInitialize()
         {
             

@@ -8,18 +8,30 @@ using Microsoft.Practices.Prism.Logging;
 
 namespace ARM.Core.Logging
 {
+  /// <summary>
+  /// класс відповідай за функціональність логування.
+  /// </summary>
     public class ARMLogger : IARMLoggerFacade,ILoggerFacade
     {
 
+      /// <summary>
+      /// файл налаштування
+      /// </summary>
         private const string Filename = "log4net.config";
 
         #region fields
+        /// <summary>
+        /// внутрішній обєкт логування.
+        /// </summary>
         private ILog _log;
         #endregion
 
 
         #region fields static
 
+        /// <summary>
+        /// статичний обєкт классу ARMLogger. Призначений для реалізації патерну Singleton
+        /// </summary>
         private static ARMLogger _instance = null;
         private static object _lock = new object();
 
@@ -28,6 +40,9 @@ namespace ARM.Core.Logging
 
         #region [ctor]
 
+        /// <summary>
+        /// Контруктор, що запобігай створенню обєкта.
+        /// </summary>
         private ARMLogger()
         {
             string path = Assembly.GetAssembly(typeof(ARMLogger)).Location;
@@ -44,6 +59,9 @@ namespace ARM.Core.Logging
 
         #endregion
 
+        /// <summary>
+        /// Повертає обєкь логування
+        /// </summary>
         public static IARMLoggerFacade Instance
         {
             get
@@ -61,40 +79,67 @@ namespace ARM.Core.Logging
 
         #region [logging]
 
-
+        /// <summary>
+        /// Метод для логування помилок
+        /// </summary>
+        /// <param name="message">Повідомлення</param>
         public void LogError(string message)
         {
            WriteLog(eARMLogLevel.Error, message); 
         }
-
+        /// <summary>
+        /// Метод для логування помилок
+        /// </summary>
+        /// <param name="format">Формат.</param>
+        /// <param name="args">Аргументи повідомлення.</param>
         public void LogError(string format, object[] args)
         {
             string message = string.Format(format, args);
             WriteLog(eARMLogLevel.Error, message);    
         }
-
+        /// <summary>
+        /// Метод для логування попереджень
+        /// </summary>
+        /// <param name="message">Повідомлення.</param>
         public void LogWarning(string message)
         {
             WriteLog(eARMLogLevel.Warning,message);
         }
-
+        /// <summary>
+        /// Метод для логування попереджень
+        /// </summary>
+        /// <param name="format">Формат.</param>
+        /// <param name="args">Аргументи повідомлення.</param>
         public void LogWarning(string format, object[] args)
         {
             string message = string.Format(format, args);
             WriteLog(eARMLogLevel.Warning, message);
         }
-
+        /// <summary>
+        /// Метод для логування корисної інформації
+        /// </summary>
+        /// <param name="message">Повідомлення.</param>
         public void LogInfo(string message)
         {
             WriteLog(eARMLogLevel.Info, message);
         }
-
+        /// <summary>
+        /// Метод для логування корисної інформації
+        /// </summary>
+        /// <param name="format">Формат.</param>
+        /// <param name="args">Аргументи повідомлення.</param>
         public void LogInfo(string format, object[] args)
         {
             string message = string.Format(format, args);
             WriteLog(eARMLogLevel.Info, message);
         }
 
+        /// <summary>
+        /// Написати новий запис журналу з зазначеної категорії та пріоритету.
+        /// </summary>
+        /// <param name="message">Тіфло повідомлення.</param>
+        /// <param name="category">Категоря повідомлення.</param>
+        /// <param name="priority">Пріоритет повібдомлення.</param>
         public void Log(string message, Category category, Priority priority)
         {
             switch (category)
@@ -118,6 +163,11 @@ namespace ARM.Core.Logging
 
         #region private
 
+        /// <summary>
+        /// Запис в  журнал.
+        /// </summary>
+        /// <param name="level">Рівень.</param>
+        /// <param name="message">Повідомлення.</param>
         private void WriteLog(eARMLogLevel level, string message)
         {
             if (_log == null)

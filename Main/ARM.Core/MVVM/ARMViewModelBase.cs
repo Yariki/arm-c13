@@ -69,10 +69,10 @@ namespace ARM.Core.MVVM
         }
 
         /// <summary>
-        /// Gets the name of the property.
+        /// Повертає нахву властивості
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="exp">The exp.</param>
+        /// <typeparam name="T">Тип</typeparam>
+        /// <param name="exp">Вираз.</param>
         /// <returns></returns>
         protected string GetPropertyName<T>(Expression<Func<T>> exp)
         {
