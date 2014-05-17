@@ -5,6 +5,9 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Rate
 {
+    /// <summary>
+    /// Реалізація бізнес логіки для рейтингу
+    /// </summary>
     public class RateBll : BaseBll<Models.Rate>, IRateBll
     {
         public RateBll(IDal<Models.Rate> dal)

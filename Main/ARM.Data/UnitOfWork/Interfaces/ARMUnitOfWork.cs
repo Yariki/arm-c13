@@ -27,6 +27,10 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Data.UnitOfWork.Interfaces
 {
+    /// <summary>
+    /// Реалізація класу дя доступу до всіх репозитаріїв.
+    /// З автоматичними знищенням всіх створених, які використовувались на протязі роботи.
+    /// </summary>
     public class ARMUnitOfWork : IUnitOfWork
     {
         #region [needs]
@@ -60,6 +64,10 @@ namespace ARM.Data.UnitOfWork.Interfaces
 
         #endregion [needs]
 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMUnitOfWork"/>.
+        /// </summary>
+        /// <param name="unityContainer">Контейнер IoC.</param>
         public ARMUnitOfWork(IUnityContainer unityContainer)
         {
             _unityContainer = unityContainer;
@@ -67,12 +75,19 @@ namespace ARM.Data.UnitOfWork.Interfaces
 
         #region [disposable]
 
+        /// <summary>
+        /// Виконує визначаються додатком завдання, пов'язані з вивільненням або скиданням некерованих ресурсів.
+        /// </summary>
         public void Dispose()
         {
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Звільняє некеровані і - можливо - керовані ресурси.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси;<c>false</c> щоб звільнити тільки некеровані ресурси.</param>
         private void Dispose(bool disposing)
         {
             if (!this._disposed)
@@ -85,6 +100,9 @@ namespace ARM.Data.UnitOfWork.Interfaces
             this._disposed = true;
         }
 
+        /// <summary>
+        /// Знищує всі репозитарії, які використовувались.
+        /// </summary>
         private void DisposeAllAlive()
         {
             if (_achivementRepository != null)
@@ -139,116 +157,185 @@ namespace ARM.Data.UnitOfWork.Interfaces
 
         #region [repositories]
 
+        /// <summary>
+        /// Отримує сховище Досягнення.
+        /// </summary>
         public IAchivementBll AchivementRepository
         {
             get { return _achivementRepository ?? (_achivementRepository = _unityContainer.Resolve<IAchivementBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище адресу.
+        /// </summary>
         public IAddressBll AddressRepository
         {
             get { return _addressRepository ?? (_addressRepository = _unityContainer.Resolve<IAddressBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище класу.
+        /// </summary>
         public IClassBll ClassRepository
         {
             get { return _classRepository ?? (_classRepository = _unityContainer.Resolve<IClassBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище контракту.
+        /// </summary>
         public IContractBll ContractRepository
         {
             get { return _contractRepository ?? (_contractRepository = _unityContainer.Resolve<IContractBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховищ країни.
+        /// </summary>
         public ICountryBll CountryRepository
         {
             get { return _countryRepository ?? (_countryRepository = _unityContainer.Resolve<ICountryBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище факультету.
+        /// </summary>
         public IFacultyBll FacultyRepository
         {
             get { return _facultyRepository ?? (_facultyRepository = _unityContainer.Resolve<IFacultyBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище групи.
+        /// </summary>
         public IGroupBll GroupRepository
         {
             get { return _groupRepository ?? (_groupRepository = _unityContainer.Resolve<IGroupBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище хобі.
+        /// </summary>
         public IHobbyBll HobbyRepository
         {
             get { return _hobbyRepository ?? (_hobbyRepository = _unityContainer.Resolve<IHobbyBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище invoise.
+        /// </summary>
         public IInvoiceBll InvoiseRepository
         {
             get { return _invoiseRepository ?? (_invoiseRepository = _unityContainer.Resolve<IInvoiceBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище мови.
+        /// </summary>
         public ILanguageBll LanguageRepository
         {
             get { return _languageRepository ?? (_languageRepository = _unityContainer.Resolve<ILanguageBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище оцінок.
+        /// </summary>
         public IMarkBll MarkRepository
         {
             get { return _markrepository ?? (_markrepository = _unityContainer.Resolve<IMarkBll>()); }
         }
 
-        public IParentBll ParentReposotory
+        /// <summary>
+        /// Повертає батьківський репозиторій.
+        /// </summary>
+        public IParentBll ParentRepository
         {
             get { return _parentReposotory ?? (_parentReposotory = _unityContainer.Resolve<IParentBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище оплати.
+        /// </summary>
         public IPaymentBll PaymentRepository
         {
             get { return _paymentrepository ?? (_paymentrepository = _unityContainer.Resolve<IPaymentBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище сесії.
+        /// </summary>
         public ISessionBll SessionRepository
         {
             get { return _sessionRepository ?? (_sessionRepository = _unityContainer.Resolve<ISessionBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище налаштувань.
+        /// </summary>
         public ISettingsBll SettingsRepository
         {
             get { return _settingsRepository ?? (_settingsRepository = _unityContainer.Resolve<ISettingsBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище спеціальності.
+        /// </summary>
         public ISpecialtyBll SpeciltyRepository
         {
             get { return _speciltyRepository ?? (_speciltyRepository = _unityContainer.Resolve<ISpecialtyBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище персоналу.
+        /// </summary>
         public IStaffBll StaffRepository
         {
             get { return _staffRepository ?? (_staffRepository = _unityContainer.Resolve<IStaffBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище студентів.
+        /// </summary>
         public IStudentBll StudentRepository
         {
             get { return _studentRepository ?? (_studentRepository = _unityContainer.Resolve<IStudentBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище університету.
+        /// </summary>
         public IUniversityBll UniversityRepository
         {
             get { return _universityRepository ?? (_universityRepository = _unityContainer.Resolve<IUniversityBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховища користувачів.
+        /// </summary>
         public IUserBll UserRepository
         {
             get { return _userRepositotry ?? (_userRepositotry = _unityContainer.Resolve<IUserBll>()); }
         }
 
+        /// <summary>
+        /// Отримує сховище роботодавця.
+        /// </summary>
         public IEmployerBll EmployerRepository
         {
             get { return _employerRepository ?? (_employerRepository = _unityContainer.Resolve<IEmployerBll>()); }
         }
 
+        /// <summary>
+        /// Отримує візового репозиторій.
+        /// </summary>
         public IVisaBll VisaRepository
         {
             get { return _visaRepository ?? (_visaRepository = _unityContainer.Resolve<IVisaBll>()); }
         }
 
+        /// <summary>
+        /// Отримує репозитария рейтингу.
+        /// </summary>
         public IRateBll RateRepositary
         {
             get { return _rateRepository ?? (_rateRepository = _unityContainer.Resolve<IRateBll>()); }

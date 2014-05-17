@@ -4,6 +4,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Visa
 {
+    /// <summary>
+    /// Контекст бази даних для віз
+    /// </summary>
     public class VisaContext : BaseContext<Models.Visa>, IVisaContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -4,6 +4,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Group
 {
+    /// <summary>
+    /// Контекст бази даних для груп
+    /// </summary>
     public class GroupContext : BaseContext<Models.Group>, IGroupContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

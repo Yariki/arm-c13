@@ -5,6 +5,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    /// <summary>
+    /// Модель роботодавця
+    /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.Employer)]
     public class Employer : BaseNamedModel
     {

@@ -4,6 +4,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    /// <summary>
+    /// Модель візи
+    /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.Visa)]
     public class Visa : BaseNamedModel
     {

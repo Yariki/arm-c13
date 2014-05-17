@@ -1,6 +1,9 @@
 ﻿namespace ARM.Data.Models
 {
     // ukrainian types
+    /// <summary>
+    /// Типи віз
+    /// </summary>
     public enum VisaType
     {
         VD,

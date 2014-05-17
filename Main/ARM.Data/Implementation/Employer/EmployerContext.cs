@@ -3,6 +3,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Employer
 {
+    /// <summary>
+    /// Контекст бази даних для роботодавців
+    /// </summary>
     public class EmployerContext : BaseContext<Models.Employer>, IEmployerContext
     {
     }

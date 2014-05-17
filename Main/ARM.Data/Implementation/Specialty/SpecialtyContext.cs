@@ -3,6 +3,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Specialty
 {
+    /// <summary>
+    /// Контекст бази даних для спеціальностей
+    /// </summary>
     public class SpecialtyContext : BaseContext<Models.Specialty>, ISpecialtyContext
     {
     }

@@ -6,6 +6,9 @@ using Microsoft.Practices.ObjectBuilder2;
 
 namespace ARM.Data.Implementation.Student
 {
+    /// <summary>
+    /// Контекст бази даних для студентів
+    /// </summary>
     public class StudentContext : BaseContext<Models.Student>, IStudentContext
     {
         public DbSet<Models.Language> Languages { get; set; }

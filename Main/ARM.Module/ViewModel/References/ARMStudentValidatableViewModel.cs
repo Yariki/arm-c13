@@ -525,8 +525,8 @@ namespace ARM.Module.ViewModel.References
                 {
                     var parent = viewModel.SelectedItem as Parent;
                     parent.StudentId = GetBusinessObject<Student>().Id;
-                    _unitOfWork.ParentReposotory.Update(parent);
-                    _unitOfWork.ParentReposotory.Save();
+                    _unitOfWork.ParentRepository.Update(parent);
+                    _unitOfWork.ParentRepository.Save();
                     ParentsList.Add(parent);
                     OnPropertyChanged(() => ParentsList);
                 }
@@ -544,8 +544,8 @@ namespace ARM.Module.ViewModel.References
             try
             {
                 SelectedParent.StudentId = null;
-                _unitOfWork.ParentReposotory.Update(SelectedParent);
-                _unitOfWork.ParentReposotory.Save();
+                _unitOfWork.ParentRepository.Update(SelectedParent);
+                _unitOfWork.ParentRepository.Save();
                 ParentsList.Remove(SelectedParent);
                 OnPropertyChanged(() => ParentsList);
             }

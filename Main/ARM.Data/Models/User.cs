@@ -4,6 +4,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    /// <summary>
+    /// Модель корстувача
+    /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.User)]
     public class User : BaseNamedModel
     {

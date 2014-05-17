@@ -3,6 +3,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.University
 {
+    /// <summary>
+    /// Контекст бази даних для уніветситету
+    /// </summary>
     public class UniversityContext : BaseContext<Models.University>, IUniversityContext
     {
     }

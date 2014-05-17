@@ -5,6 +5,9 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.User
 {
+    /// <summary>
+    /// Реалізація доступу до даних для користувачів
+    /// </summary>
     public class UserDal : BaseDal<Models.User>, IUserDal
     {
         public UserDal(IContext<Models.User> context)

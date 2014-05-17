@@ -6,6 +6,9 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.User
 {
+    /// <summary>
+    /// Реалізація бізнес логіки для користувача
+    /// </summary>
     public class UserBll : BaseBll<Models.User>, IUserBll
     {
         public UserBll(IDal<Models.User> dal)

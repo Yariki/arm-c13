@@ -4,6 +4,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Mark
 {
+    /// <summary>
+    /// Контекст бази даних для оцінок
+    /// </summary>
     public class MarkContext : BaseContext<Models.Mark>, IMarkContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

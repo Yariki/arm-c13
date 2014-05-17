@@ -3,6 +3,9 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    /// <summary>
+    /// Модель логіну
+    /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.Login)]
     public class Login : BaseModel
     {

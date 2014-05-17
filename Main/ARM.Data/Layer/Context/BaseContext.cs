@@ -9,20 +9,37 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer.Context
 {
+    /// <summary>
+    /// Абстрактна реалізація конексту БД.
+    /// </summary>
+    /// <typeparam name="T">Тип моделі даних</typeparam>
     public abstract class BaseContext<T> : DbContext, IContext<T> where T : BaseModel
     {
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="BaseContext{T}"/>.
+        /// </summary>
         protected BaseContext()
             : base("ARMDatabase")
         {
         }
 
+        /// <summary>
+        /// Отримує або задає записи.
+        /// </summary>
         public DbSet<T> Items { get; set; }
 
+        /// <summary>
+        /// Отримує всі записи.
+        /// </summary>
+        /// <returns></returns>
         public IDbSet<T> GetItems()
         {
             return Items;
         }
 
+        /// <summary>
+        /// Зберігає зміни до БД.
+        /// </summary>
         public void Save()
         {
             foreach (var entry in ChangeTracker.Entries<T>().Where(e => e.State == EntityState.Added))
@@ -35,6 +52,10 @@ namespace ARM.Data.Layer.Context
             SaveChanges();
         }
 
+        /// <summary>
+        /// Оновлює елемент в БД.
+        /// </summary>
+        /// <param name="obj">Елемент.</param>
         public void Update(T obj)
         {
             if (obj == null)
@@ -56,7 +77,10 @@ namespace ARM.Data.Layer.Context
             }
         }
 
-        public void Refresh()
+        /// <summary>
+        /// Обновляє дані з БД.
+        /// </summary>
+в        public void Refresh()
         {
             IObjectContextAdapter oca = this as IObjectContextAdapter;
             if (oca == null)
@@ -72,20 +96,39 @@ namespace ARM.Data.Layer.Context
             context.Refresh(RefreshMode.StoreWins, refreshableObjects);
         }
 
+        /// <summary>
+        ///Повертає спеціальни внутрішній обєкт EF.
+        /// </summary>
+        /// <param name="e">The e.</param>
+        /// <returns></returns>
         public DbEntityEntry<T> Entry(T e)
         {
             return base.Entry(e);
         }
 
+        /// <summary>
+        /// Повертає набір записів типу.
+        /// </summary>
+        /// <typeparam name="TObj">Тип моделі даних.</typeparam>
+        /// <returns></returns>
         public new DbSet<TObj> Set<TObj>() where TObj : BaseModel
         {
             return Set<TObj>();
         }
 
+        /// <summary>
+        /// Оновлення залежних записів.
+        /// </summary>
+        /// <param name="attached">Внутрішній обєкт.</param>
+        /// <param name="current">Обєкті, дані якого переносяться.</param>
         protected virtual void UpdateChilds(T attached, T current)
         {
         }
 
+        /// <summary>
+        /// Викликається при [модель Створення].
+        /// </summary>
+        /// <param name="modelBuilder">Модель будівельник.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

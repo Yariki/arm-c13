@@ -7,15 +7,29 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Data.Sevice.Resolver
 {
+    /// <summary>
+    /// Клас, що відповідає за вибірку елементів за їх метаданими та ідентифікаторами.
+    /// </summary>
     public class ARMDataModelResolveHelper : IARMDataModelResolver
     {
         private readonly IUnityContainer _unityContainer;
 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMDataModelResolveHelper"/>.
+        /// </summary>
+        /// <param name="unityContainer">Контейнер IoC.</param>
         public ARMDataModelResolveHelper(IUnityContainer unityContainer)
         {
             _unityContainer = unityContainer;
         }
 
+        /// <summary>
+        /// Отримує елемент.
+        /// </summary>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <param name="isIdEmpty">Чи може приймати пустий ідентифікатор.</param>
+        /// <returns></returns>
         public object GetDataModel(eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             if (id == Guid.Empty && !isIdEmpty)
@@ -34,6 +48,11 @@ namespace ARM.Data.Sevice.Resolver
             return null;
         }
 
+        /// <summary>
+        /// Отримує всі елементи по метадаті.
+        /// </summary>
+        /// <param name="metadata">Метадата.</param>
+        /// <returns></returns>
         public IEnumerable<object> GetAllByMetadata(eARMMetadata metadata)
         {
             var typeData = ARMModelsPropertyCache.Instance.GetTypeByMetadata(metadata);

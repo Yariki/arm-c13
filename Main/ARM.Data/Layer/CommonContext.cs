@@ -5,7 +5,10 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer
 {
-    // this class is used only for migrations at all.
+    /// <summary>
+    /// Класс призначений тільки для міграцій.
+    /// this class is used only for migrations at all.
+    /// </summary>
     public class CommonContext : DbContext
     {
         public CommonContext()

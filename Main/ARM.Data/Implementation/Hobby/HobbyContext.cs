@@ -4,6 +4,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Hobby
 {
+    /// <summary>
+    /// Контекст бази даних для хобі
+    /// </summary>
     public class HobbyContext : BaseContext<Models.Hobby>, IHobbyContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

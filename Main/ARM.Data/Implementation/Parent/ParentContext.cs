@@ -4,6 +4,9 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Parent
 {
+    /// <summary>
+    /// Контекст бази даних для батьків
+    /// </summary>
     public class ParentContext : BaseContext<Models.Parent>, IParentContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

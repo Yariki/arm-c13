@@ -9,14 +9,26 @@ using Unity.AutoRegistration;
 
 namespace ARM.Data
 {
+    /// <summary>
+    /// Моудль, що відповідає за реєстрацію всіх класів для даних.
+    /// </summary>
     public class ARMDataModule : ARMBaseModule
     {
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMDataModule"/>.
+        /// </summary>
+        /// <param name="regionManager">Менеджер областей.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
         public ARMDataModule(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator)
             : base(regionManager, unityContainer, eventAggregator)
         {
         }
 
+        /// <summary>
+        /// Реєстрація інтерфейсів.
+        /// </summary>
         protected override void RegistreInterfaces()
         {
             base.RegistreInterfaces();

@@ -25,52 +25,125 @@ using ARM.Data.Interfaces.Visa;
 
 namespace ARM.Data.UnitOfWork.Implementation
 {
+    /// <summary>
+    /// Інтерфейс, що відповідає за централізований доступ до всіх репозитарії, та їх видалення 
+    /// у разі закінчення роботи з ними.
+    /// </summary>
     public interface IUnitOfWork : IDisposable
     {
+        /// <summary>
+        /// Отримує сховище Досягнення.
+        /// </summary>
         IAchivementBll AchivementRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище адресу.
+        /// </summary>
         IAddressBll AddressRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище класу.
+        /// </summary>
         IClassBll ClassRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище контракту.
+        /// </summary>
         IContractBll ContractRepository { get; }
 
+        /// <summary>
+        /// Отримує сховищ країни.
+        /// </summary>
         ICountryBll CountryRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище факультету.
+        /// </summary>
         IFacultyBll FacultyRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище групи.
+        /// </summary>
         IGroupBll GroupRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище хобі.
+        /// </summary>
         IHobbyBll HobbyRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище invoise.
+        /// </summary>
         IInvoiceBll InvoiseRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище мови.
+        /// </summary>
         ILanguageBll LanguageRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище оцінок.
+        /// </summary>
         IMarkBll MarkRepository { get; }
 
-        IParentBll ParentReposotory { get; }
+        /// <summary>
+        /// Повертає батьківський репозиторій.
+        /// </summary>
+        IParentBll ParentRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище оплати.
+        /// </summary>
         IPaymentBll PaymentRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище сесії.
+        /// </summary>
         ISessionBll SessionRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище налаштувань.
+        /// </summary>
         ISettingsBll SettingsRepository { get; }
 
+        /// <summary>
+        ///Отримує сховище спеціальності.
+        /// </summary>
         ISpecialtyBll SpeciltyRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище персоналу.
+        /// </summary>
         IStaffBll StaffRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище студентів.
+        /// </summary>
         IStudentBll StudentRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище університету.
+        /// </summary>
         IUniversityBll UniversityRepository { get; }
 
+        /// <summary>
+        /// Отримує сховища користувачів.
+        /// </summary>
         IUserBll UserRepository { get; }
 
+        /// <summary>
+        /// Отримує сховище роботодавця.
+        /// </summary>
         IEmployerBll EmployerRepository { get; }
 
+        /// <summary>
+        /// Отримує візового репозиторій.
+        /// </summary>
         IVisaBll VisaRepository { get; }
 
+        /// <summary>
+        /// Отримує репозитария рейтингу.
+        /// </summary>
         IRateBll RateRepositary { get; }
     }
 }
