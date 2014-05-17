@@ -147,7 +147,7 @@ namespace ARM.Module.ViewModel.Documents
         private Dictionary<InvoiceStatus, string> _sourceInvoice;
         public Dictionary<InvoiceStatus, string> SourceInvoice
         {
-            get { return _sourceInvoice ?? (_sourceInvoice = EnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
+            get { return _sourceInvoice ?? (_sourceInvoice = ARMEnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
         }
 
         #endregion

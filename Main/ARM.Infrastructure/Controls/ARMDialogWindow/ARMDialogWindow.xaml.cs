@@ -5,12 +5,16 @@ using ARM.Infrastructure.Controls.Interfaces;
 namespace ARM.Infrastructure.Controls.ARMDialogWindow
 {
     /// <summary>
-    /// Interaction logic for ARMWindow.xaml
+    /// Логіка взаємодії для ARMWindow.xaml
     /// </summary>
     public partial class ARMDialogWindow : Window
     {
         private IARMDialogViewModel _viewModel;
 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMDialogWindow"/>.
+        /// </summary>
+        /// <param name="viewModel">Модель представлення.</param>
         public ARMDialogWindow(IARMDialogViewModel viewModel)
         {
             InitializeComponent();
@@ -18,6 +22,11 @@ namespace ARM.Infrastructure.Controls.ARMDialogWindow
             Dispatcher.BeginInvoke((Action)(() => this.DataContext = _viewModel));
         }
 
+        /// <summary>
+        /// Обробляє подія OnClick елемента управління ButtonBase.
+        /// </summary>
+        /// <param name="sender">Відправник.</param>
+        /// <param name="e">Аргументи.</param>
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             if (!_viewModel.Validate())
@@ -25,7 +34,11 @@ namespace ARM.Infrastructure.Controls.ARMDialogWindow
             DialogResult = true;
             Close();
         }
-
+        /// <summary>
+        /// Обробляє подія OnClick елемента управління ButtonBase.
+        /// </summary>
+        /// <param name="sender">Відправник.</param>
+        /// <param name="e">Аргументи.</param>
         private void ButtonBase_CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

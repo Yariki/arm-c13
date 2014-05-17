@@ -245,25 +245,25 @@ namespace ARM.Module.ViewModel.References
         private Dictionary<SexType, string> _sourceSex;
         public Dictionary<SexType, string> SourceSex
         {
-            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
+            get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         private Dictionary<StudyMode, string> _sourceStudyMode;
         public Dictionary<StudyMode, string> SourceStudyMode
         {
-            get { return _sourceStudyMode ?? (_sourceStudyMode = EnumHelper.Instance.GetLocalsForEnum<StudyMode>()); }
+            get { return _sourceStudyMode ?? (_sourceStudyMode = ARMEnumHelper.Instance.GetLocalsForEnum<StudyMode>()); }
         }
 
         private Dictionary<StudentStatus, string> _sourceStudentStatus;
         public Dictionary<StudentStatus, string> SourceStudentStatus
         {
-            get { return _sourceStudentStatus ?? (_sourceStudentStatus = EnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
+            get { return _sourceStudentStatus ?? (_sourceStudentStatus = ARMEnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
         }
 
         private Dictionary<eARMStudyType, string> _sourceStudyType;
         public Dictionary<eARMStudyType, string> SourceStudyType
         {
-            get { return _sourceStudyType ?? (_sourceStudyType = EnumHelper.Instance.GetLocalsForEnum<eARMStudyType>()); }
+            get { return _sourceStudyType ?? (_sourceStudyType = ARMEnumHelper.Instance.GetLocalsForEnum<eARMStudyType>()); }
         }
 
         #endregion

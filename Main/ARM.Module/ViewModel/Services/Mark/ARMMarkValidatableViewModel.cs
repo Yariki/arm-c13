@@ -90,7 +90,7 @@ namespace ARM.Module.ViewModel.Services.Mark
         private Dictionary<MarkType, string> _sourceMarkType;
         public Dictionary<MarkType, string> SourceMarkType
         {
-            get { return _sourceMarkType ?? (_sourceMarkType = EnumHelper.Instance.GetLocalsForEnum<MarkType>()); }
+            get { return _sourceMarkType ?? (_sourceMarkType = ARMEnumHelper.Instance.GetLocalsForEnum<MarkType>()); }
         }
 
         #endregion

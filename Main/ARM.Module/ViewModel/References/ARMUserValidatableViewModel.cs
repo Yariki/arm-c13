@@ -88,7 +88,7 @@ namespace ARM.Module.ViewModel.References
 
         public Dictionary<eARMSystemLanguage, string> SourceLanguage
         {
-            get { return _sourceLang ?? (_sourceLang = EnumHelper.Instance.GetLocalsForEnum<eARMSystemLanguage>()); }
+            get { return _sourceLang ?? (_sourceLang = ARMEnumHelper.Instance.GetLocalsForEnum<eARMSystemLanguage>()); }
         }
 
         #endregion

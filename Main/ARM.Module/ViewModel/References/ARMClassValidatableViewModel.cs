@@ -76,7 +76,7 @@ namespace ARM.Module.ViewModel.References
         private Dictionary<eARMClassSummary, string> _sourceClassSummary;
         public Dictionary<eARMClassSummary, string> SourceClassSummary
         {
-            get { return _sourceClassSummary ?? (_sourceClassSummary = EnumHelper.Instance.GetLocalsForEnum<eARMClassSummary>()); }
+            get { return _sourceClassSummary ?? (_sourceClassSummary = ARMEnumHelper.Instance.GetLocalsForEnum<eARMClassSummary>()); }
         }
 
         #endregion

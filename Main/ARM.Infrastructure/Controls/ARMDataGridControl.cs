@@ -9,6 +9,9 @@ using Xceed.Wpf.DataGrid;
 
 namespace ARM.Infrastructure.Controls
 {
+    /// <summary>
+    /// Елемент управління дл відображення певної моделі даних в сітці.
+    /// </summary>
     public class ARMDataGridControl : DataGridControl
     {
         #region [ctor]

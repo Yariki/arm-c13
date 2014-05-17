@@ -1,5 +1,7 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using ARM.Data.Layer;
+using ARM.Data.Models;
 
 namespace ARM.Data.CommonContextMigrations
 {

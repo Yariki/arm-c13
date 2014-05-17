@@ -122,7 +122,7 @@
     <Compile Include="Events\EventPayload\ARMCloseEventPayload.cs" />
     <Compile Include="Events\EventPayload\ARMSyncEventPayload.cs" />
     <Compile Include="Facade\ARMSystemFacade.cs" />
-    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\ARMEnumHelper.cs" />
     <Compile Include="InfrastructureModule.cs" />
     <Compile Include="Interfaces\Grid\IARMGridView.cs" />
     <Compile Include="Interfaces\IARMFacade.cs" />

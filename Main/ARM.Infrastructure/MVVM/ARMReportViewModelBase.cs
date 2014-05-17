@@ -17,8 +17,18 @@ using XlSaveAsAccessMode = ManagedExcel.XlSaveAsAccessMode;
 
 namespace ARM.Infrastructure.MVVM
 {
+    /// <summary>
+    /// Базовий клас для звітів.
+    /// </summary>
     public abstract class ARMReportViewModelBase : ARMWorkspaceViewModelBase, IARMReportViewModel
     {
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMReportViewModelBase"/>.
+        /// </summary>
+        /// <param name="regionManager">Менеджер регіонів.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
+        /// <param name="view">The view.</param>
         protected ARMReportViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
@@ -27,14 +37,23 @@ namespace ARM.Infrastructure.MVVM
 
         #region [properties]
 
+        /// <summary>
+        /// Команда для експорту даних звіту
+        /// </summary>
         public ICommand ExportCommand { get; private set; }
 
+        /// <summary>
+        /// Встановлює або повертає прогрес експорту.
+        /// </summary>
         public int Progress
         {
             get { return Get(() => Progress); }
             set { Set(() => Progress, value); }
         }
 
+        /// <summary>
+        /// Втановлює або повертає статус експорту.
+        /// </summary>
         public string Status
         {
             get { return Get(() => Status); }
@@ -43,35 +62,67 @@ namespace ARM.Infrastructure.MVVM
 
         #endregion [properties]
 
+        /// <summary>
+        /// Виконання експорту.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void ExportExecute(object arg)
         {
             GenerateReport();
         }
 
+        /// <summary>
+        /// Визначає, чи є цей екземпляр [може експортувати виконати] зазначений аргумент.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         protected virtual bool CanExportExecute(object arg)
         {
             return true;
         }
 
+        /// <summary>
+        /// Заповнення листа даними при еспорті.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <param name="rowStart">Номер рідка, з якого потрібно почитнати заповнення.</param>
         protected virtual void FillSheet(Worksheet sheet, int rowStart)
         {
         }
 
+        /// <summary>
+        /// Створює заголовки.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <returns></returns>
         protected virtual int GenerateHeaders(Worksheet sheet)
         {
             return 1;
         }
 
+        /// <summary>
+        /// Перевіряє параметр звіту.
+        /// </summary>
+        /// <param name="name">Назва параметру.</param>
+        /// <returns></returns>
         protected virtual string ValidateReportParameter(string name)
         {
             return string.Empty;
         }
 
+        /// <summary>
+        /// Очищає прогрес.
+        /// </summary>
         protected void ClearProgress()
         {
             Progress = 0;
         }
 
+        /// <summary>
+        /// Перераховує прогрес.
+        /// </summary>
+        /// <param name="current">Поточний запис.</param>
+        /// <param name="count">Загальна кількість.</param>
         protected void UpdateProgress(int current, int count)
         {
             Progress = ((current / count) * 100);
@@ -79,6 +130,9 @@ namespace ARM.Infrastructure.MVVM
 
         #region [private]
 
+        /// <summary>
+        /// Запуск генерації звіту.
+        /// </summary>
         private void GenerateReport()
         {
             string filename = string.Empty;
@@ -97,6 +151,10 @@ namespace ARM.Infrastructure.MVVM
             Task.Factory.StartNew(new Action(() => InternalExport(filename)));
         }
 
+        /// <summary>
+        /// Еспорт звіту.
+        /// </summary>
+        /// <param name="filename">Назва файлу.</param>
         private void InternalExport(string filename)
         {
             SetLocal();
@@ -133,6 +191,9 @@ namespace ARM.Infrastructure.MVVM
             }
         }
 
+        /// <summary>
+        /// Встановлює локаль для потоку, в якому виконується екпорт звіту.
+        /// </summary>
         private void SetLocal()
         {
             switch (ARMSystemFacade.Instance.CurrentUser.Language)
@@ -150,11 +211,19 @@ namespace ARM.Infrastructure.MVVM
 
         #endregion [private]
 
+        /// <summary>
+        /// Повертає повідомлення у відповідності до переданої колонки.
+        /// </summary>
+        /// <param name="columnName">Назва колонки.</param>
+        /// <returns></returns>
         public string this[string columnName]
         {
             get { return ValidateReportParameter(columnName); }
         }
 
+        /// <summary>
+        /// Повертає повідомлення помилки.
+        /// </summary>
         public virtual string Error
         {
             get { return string.Empty; }

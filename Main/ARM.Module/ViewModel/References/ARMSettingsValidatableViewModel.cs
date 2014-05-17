@@ -109,7 +109,7 @@ namespace ARM.Module.ViewModel.References
         {
             get
             {
-                return _sourceEducation ?? (_sourceEducation = EnumHelper.Instance.GetLocalsForEnum<EducationLevel>());
+                return _sourceEducation ?? (_sourceEducation = ARMEnumHelper.Instance.GetLocalsForEnum<EducationLevel>());
             }
         }
 
@@ -117,7 +117,7 @@ namespace ARM.Module.ViewModel.References
 
         public Dictionary<InvoiceStatus, string> SourceInvoice
         {
-            get { return _sourceInvoice ?? (_sourceInvoice = EnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
+            get { return _sourceInvoice ?? (_sourceInvoice = ARMEnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
         }
 
         #endregion [emun resource]

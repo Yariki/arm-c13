@@ -12,6 +12,14 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.Controls.ARMLookupControl
 {
+    /// <summary>
+    /// Елемент управління для представлення обєкту даних за його ідентифікатором.
+    /// Даний елемент управляння приймає тип даних та його ідентифікатором він визначає:
+    /// 1. Який клас доступу до даних використовувати.
+    /// 2. Метод відображення даних.
+    /// Також він призначений ддл вибору подібних елементів и може бути првязаний до обєкту даних,
+    /// для редагування його властивостей.
+    /// </summary>
     [TemplatePart(Name = "PART_TextBoxValue", Type = typeof(TextBox))]
     [TemplatePart(Name = "PART_ButtonWnd", Type = typeof(Button))]
     [TemplatePart(Name = "PART_ButtonWndClear", Type = typeof(Button))]
@@ -51,6 +59,10 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
 
         #region [oveeride]
 
+        /// <summary>
+        /// При перевизначенні в похідному класі викликається кожного разу, коли код програми або внутрішні процеси викликають <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.
+
+        /// </summary>
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -79,6 +91,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         public static readonly DependencyProperty UnityContainerProperty = DependencyProperty.Register(
             "UnityContainer", typeof(IUnityContainer), typeof(ARMLookupControl), new PropertyMetadata(default(IUnityContainer)));
 
+        /// <summary>
+        /// Отримує або задає IoC контейнер.
+        /// </summary>
         public IUnityContainer UnityContainer
         {
             get { return (IUnityContainer)GetValue(UnityContainerProperty); }
@@ -88,6 +103,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         public static readonly DependencyProperty MetadataProperty = DependencyProperty.Register(
             "Metadata", typeof(eARMMetadata), typeof(ARMLookupControl), new PropertyMetadata(default(eARMMetadata)));
 
+        /// <summary>
+        /// Отримує або задає метадані.
+        /// </summary>
         public eARMMetadata Metadata
         {
             get { return (eARMMetadata)GetValue(MetadataProperty); }
@@ -97,6 +115,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(Guid), typeof(ARMLookupControl), new PropertyMetadata(Guid.Empty, ValueOnChangeCallback));
 
+        /// <summary>
+        /// Отримує або задає значення.
+        /// </summary>
         public Guid Value
         {
             get { return (Guid)GetValue(ValueProperty); }

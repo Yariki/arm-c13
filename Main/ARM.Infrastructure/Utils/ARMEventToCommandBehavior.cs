@@ -6,6 +6,10 @@ using System.Windows.Interactivity;
 
 namespace ARM.Infrastructure.Utils
 {
+    /// <summary>
+    /// Класс призначений для привязки певної команди до події, яка 
+    /// проходить в певному обєкті.
+    /// </summary>
     public class ARMEventToCommandBehavior : Behavior<FrameworkElement>
     {
         #region [need]
@@ -17,6 +21,9 @@ namespace ARM.Infrastructure.Utils
 
         #region [ctor]
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ARMEventToCommandBehavior"/> class.
+        /// </summary>
         public ARMEventToCommandBehavior()
         {
         }
@@ -29,6 +36,9 @@ namespace ARM.Infrastructure.Utils
                                                                                        typeof(ARMEventToCommandBehavior),
                                                                                        new PropertyMetadata(null));
 
+        /// <summary>
+        /// Отримує або задає команду, яка буде викликатись.
+        /// </summary>
         public ICommand Command
         {
             get { return (ICommand)GetValue(CommandProperty); }
@@ -40,6 +50,9 @@ namespace ARM.Infrastructure.Utils
                                                                                                ARMEventToCommandBehavior),
                                                                                              new PropertyMetadata(false));
 
+        /// <summary>
+        /// Отримує або задає можливість передачі аргументів події в команду.
+        /// </summary>
         public bool PassArguments
         {
             get { return (bool)GetValue(PassArgumentsProperty); }
@@ -51,6 +64,9 @@ namespace ARM.Infrastructure.Utils
                                                                                                ARMEventToCommandBehavior),
                                                                                              new PropertyMetadata(false));
 
+        /// <summary>
+        /// Отримує або задає можливість передачі відправника в команду.
+        /// </summary>
         public bool PassSender
         {
             get { return (bool)GetValue(PassSenderProperty); }
@@ -62,12 +78,20 @@ namespace ARM.Infrastructure.Utils
                                                                                      new PropertyMetadata(null,
                                                                                                           OnEventChanged));
 
+        /// <summary>
+        /// Отримує або задає назву події до якої буде привязнано команду.
+        /// </summary>
         public string Event
         {
             get { return (string)GetValue(EventProperty); }
             set { SetValue(EventProperty, value); }
         }
 
+        /// <summary>
+        /// Викликається при [зміни подія].
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         public static void OnEventChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
             var beh = (ARMEventToCommandBehavior)o;

@@ -13,10 +13,16 @@ using ARM.Core.Enums;
 namespace ARM.Infrastructure.Events.EventPayload
 {
     /// <summary>
-    /// Description of ARMAddEventPayload.
+    /// Класс для події, яка викликається при здійсненні певної дії над моделю даних.
     /// </summary>
     public class ARMProcessEntityEventPayload : ARMBasePayload
     {
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMProcessEntityEventPayload"/>.
+        /// </summary>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="mode">Режим.</param>
+        /// <param name="id">Ідентифікатор.</param>
         public ARMProcessEntityEventPayload(eARMMetadata metadata, ViewMode mode, Guid id)
             : base(mode, id)
         {

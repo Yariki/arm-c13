@@ -101,7 +101,7 @@ namespace ARM.Module.ViewModel.Documents
         {
             get
             {
-                return _sourceEducation ?? (_sourceEducation = EnumHelper.Instance.GetLocalsForEnum<EducationLevel>());
+                return _sourceEducation ?? (_sourceEducation = ARMEnumHelper.Instance.GetLocalsForEnum<EducationLevel>());
             }
         }
 

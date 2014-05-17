@@ -14,12 +14,5 @@ namespace ARM.Core.Attributes
     /// </summary>
     public abstract class ARMBaseAttribute : Attribute
     {
-        public ARMBaseAttribute()
-        {
-        }
-
-        ~ARMBaseAttribute()
-        {
-        }
     }//end ARMBaseAttribute
 }//end namespace Attributes

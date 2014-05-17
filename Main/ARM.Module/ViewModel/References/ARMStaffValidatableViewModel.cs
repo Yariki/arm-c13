@@ -97,14 +97,14 @@ namespace ARM.Module.ViewModel.References
 
         public Dictionary<SexType, string> SourceSex
         {
-            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
+            get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         private Dictionary<StaffType, string> _sourceStaff;
 
         public Dictionary<StaffType, string> SourceStaff
         {
-            get { return _sourceStaff ?? (_sourceStaff = EnumHelper.Instance.GetLocalsForEnum<StaffType>()); }
+            get { return _sourceStaff ?? (_sourceStaff = ARMEnumHelper.Instance.GetLocalsForEnum<StaffType>()); }
         }
 
         #endregion [enum resources]
