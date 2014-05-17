@@ -221,6 +221,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportSessionMarks:
                     workspaceViewModel = _unityContainer.Resolve<IARMSessionMarksViewModel>();
                     break;
+                case eARMMainMenuCommand.ReportDebt:
+                    workspaceViewModel = _unityContainer.Resolve<IARMDebtViewModel>();
+                    break;
             }
             if (workspaceViewModel != null)
             {

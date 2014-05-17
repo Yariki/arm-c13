@@ -156,6 +156,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMSessionMarksView, ARMSessionMarksView>();
             UnityContainer.RegisterType<IARMSessionMarksViewModel, ARMSessionMarksViewModel>();
 
+            UnityContainer.RegisterType<IARMDebtView, ARMDebtView>();
+            UnityContainer.RegisterType<IARMDebtViewModel, ARMDebtViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:44 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Interfaces.Payment;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +19,11 @@ namespace ARM.Data.Implementation.Payment
         public PaymentBll(IDal<Models.Payment> dal)
             : base(dal)
         {
+        }
+
+        public IEnumerable<Models.Payment> GetInvoicesPayments(IEnumerable<Guid> listInvoice)
+        {
+            return Dal.GetAsQueryable().Where((Func<Models.Payment, bool>) (p => listInvoice.Contains(p.InvoiceId)));
         }
     } //end PaymentBll
 } //end namespace Payment

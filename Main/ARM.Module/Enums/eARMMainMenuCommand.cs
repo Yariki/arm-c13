@@ -27,7 +27,7 @@
         ServiceCalculationStipend, 
         ReportContractGroup,
         ReportCertification,
-        ReportSessionMarks
-
+        ReportSessionMarks,
+        ReportDebt
     }
 }

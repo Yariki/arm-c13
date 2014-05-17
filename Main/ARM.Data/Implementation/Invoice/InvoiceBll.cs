@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Interfaces.Invoice;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +19,15 @@ namespace ARM.Data.Implementation.Invoice
         public InvoiceBll(IDal<Models.Invoice> dal)
             : base(dal)
         {
+        }
+
+        public IEnumerable<Models.Invoice> GetInvoicesByContractAndPeriod(Guid idContract, DateTime begin, DateTime end)
+        {
+            return
+                Dal.GetAsQueryable()
+                    .Where(
+                        (Func<Models.Invoice, bool>)
+                            (i => i.ContractId == idContract && i.DateModified >= begin && i.DateModified <= end));//
         }
     } //end InvoiceBll
 } //end namespace Invoice

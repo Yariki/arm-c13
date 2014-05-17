@@ -1834,6 +1834,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debts by Contract.
+        /// </summary>
+        public static string Report_Debt_Title {
+            get {
+                return ResourceManager.GetString("Report_Debt_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You should choose valid path.
         /// </summary>
         public static string Report_EmptyPath {
@@ -1960,6 +1969,33 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debt.
+        /// </summary>
+        public static string UI_Debt {
+            get {
+                return ResourceManager.GetString("UI_Debt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish Date.
+        /// </summary>
+        public static string UI_FihishDate {
+            get {
+                return ResourceManager.GetString("UI_FihishDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form report.
+        /// </summary>
+        public static string UI_Form {
+            get {
+                return ResourceManager.GetString("UI_Form", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group.
         /// </summary>
         public static string UI_Group {
@@ -1983,6 +2019,15 @@ namespace ARM.Resource.AppResource {
         public static string UI_Session {
             get {
                 return ResourceManager.GetString("UI_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string UI_StartDate {
+            get {
+                return ResourceManager.GetString("UI_StartDate", resourceCulture);
             }
         }
         

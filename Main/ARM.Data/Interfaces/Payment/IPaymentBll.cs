@@ -5,11 +5,14 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Payment
 {
     public interface IPaymentBll : IBll<Models.Payment>
     {
+        IEnumerable<Models.Payment> GetInvoicesPayments(IEnumerable<Guid> listInvoice);
     } //end IPaymentBll
 } //end namespace Payment

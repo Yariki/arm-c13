@@ -5,11 +5,14 @@
 //  Created on:      29-Mar-2014 5:16:41 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Invoice
 {
     public interface IInvoiceBll : IBll<Models.Invoice>
     {
+        IEnumerable<Models.Invoice> GetInvoicesByContractAndPeriod(Guid idContract, DateTime begin, DateTime end);
     } //end IInvoiceBll
 } //end namespace Invoice

@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:39 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Interfaces.Contract;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -16,6 +19,11 @@ namespace ARM.Data.Implementation.Contract
         public ContractBll(IDal<Models.Contract> dal)
             : base(dal)
         {
+        }
+
+        public IEnumerable<Models.Contract> GetContractsByStudent(IEnumerable<Guid> listOfStudentsId)
+        {
+            return Dal.GetAsQueryable().Where( (Func<Models.Contract,bool>)( c => listOfStudentsId.Contains(c.StudentId.Value)));
         }
     } //end ContractBll
 } //end namespace Contract

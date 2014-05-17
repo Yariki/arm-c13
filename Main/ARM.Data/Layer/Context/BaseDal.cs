@@ -101,6 +101,11 @@ namespace ARM.Data.Layer.Context
             return Context.GetItems().Where(filter).AsEnumerable();
         }
 
+        public IQueryable<T> GetAsQueryable()
+        {
+            return Context.GetItems().AsQueryable();
+        }
+
         public void Dispose()
         {
             if (Context != null)

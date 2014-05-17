@@ -132,6 +132,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMMenuDebtCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuSessionMarksCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
@@ -199,9 +200,11 @@
     <Compile Include="Interfaces\References\View\Password\IARMPasswordView.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMCertificationViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMContractGroupViewModel.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMDebtViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMSessionMarksViewModel.cs" />
     <Compile Include="Interfaces\Reports\View\IARMCertificationView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMContractGroupView.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMDebtView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMSessionMarksView.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\ViewModel\IARMCalculationStipendViewModel.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\View\IARMCalculationStipendView.cs" />
@@ -260,11 +263,13 @@
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMCertificationViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
+    <Compile Include="ViewModel\Reports\ARMDebtViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMReportGroupSessionViewModelBase.cs" />
     <Compile Include="ViewModel\Reports\ARMSessionMarksViewModel.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMCertificationDetailsData.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMStudentCertificationData.cs" />
     <Compile Include="ViewModel\Reports\Data\ARMStudentClassData.cs" />
+    <Compile Include="ViewModel\Reports\Debt\ARMStudentDebtDetails.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMSessionMarkDetails.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMStudentSessionMarksData.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\ARMCalculationStipendViewModel.cs" />
@@ -365,6 +370,9 @@
     </Compile>
     <Compile Include="View\Reports\ARMContractGroupView.xaml.cs">
       <DependentUpon>ARMContractGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\ARMDebtView.xaml.cs">
+      <DependentUpon>ARMDebtView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\ARMSessionMarksView.xaml.cs">
       <DependentUpon>ARMSessionMarksView.xaml</DependentUpon>
@@ -526,6 +534,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\ARMContractGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMDebtView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
