@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceClass;
             Title = Resources.Model_Class_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/appointment.png";
+        }
     }
 }

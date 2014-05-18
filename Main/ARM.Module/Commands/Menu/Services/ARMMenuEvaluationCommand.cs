@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Services
             Title = Resource.AppResource.Resources.Service_Evaluation_Title;
         }
 
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/mark.png";
+        }
+
     }
 }

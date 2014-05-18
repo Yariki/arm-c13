@@ -38,7 +38,21 @@ namespace ARM.Module.Commands.Menu
         public string Tooltip { get; set; }
 
         public eARMMainMenuCommand MenuCommand { get; protected set; }
+        public string Icon 
+        {
+            get { return GetIconPath(); }
+        }
+
+        public bool HasIcon
+        {
+            get { return !string.IsNullOrEmpty(Icon); }
+        }
 
         #endregion IARMMenuCommand Members
+
+        protected virtual string GetIconPath()
+        {
+            return string.Empty;
+        }
     }
 }

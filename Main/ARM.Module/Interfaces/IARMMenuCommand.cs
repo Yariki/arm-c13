@@ -17,5 +17,9 @@ namespace ARM.Module.Interfaces
         string Tooltip { get; set; }
 
         eARMMainMenuCommand MenuCommand { get; }
+
+        string Icon { get; }
+        bool HasIcon { get; }
+
     } //end IARMMenuCommand
 } //end namespace Interfaces

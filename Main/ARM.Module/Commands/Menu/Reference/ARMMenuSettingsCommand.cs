@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceSettings;
             Title = Resources.Model_Settings_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/gear.png";
+        }
     }
 }

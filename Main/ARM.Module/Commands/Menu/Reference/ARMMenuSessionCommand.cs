@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceSession;
             Title = Resources.Model_Session_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/session.png";
+        }
     }
 }

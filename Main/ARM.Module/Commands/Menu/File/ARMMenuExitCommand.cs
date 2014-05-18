@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.File
             MenuCommand = eARMMainMenuCommand.Exit;
             Title = Tooltip = Resources.Menu_Exit;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/exit.png";
+        }
     }
 }

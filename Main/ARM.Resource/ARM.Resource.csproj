@@ -72,6 +72,77 @@
       <LastGenOutput>Resources.uk1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apply_1.png" />
+    <Resource Include="Images\apply_2.png" />
+    <Resource Include="Images\appointment.png" />
+    <Resource Include="Images\bank.png" />
+    <Resource Include="Images\block.png" />
+    <Resource Include="Images\briefcase.png" />
+    <Resource Include="Images\bubble.png" />
+    <Resource Include="Images\calendar.png" />
+    <Resource Include="Images\calendar_2.png" />
+    <Resource Include="Images\chart.png" />
+    <Resource Include="Images\clipboard.png" />
+    <Resource Include="Images\clock.png" />
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\Conference.png" />
+    <Resource Include="Images\data-add-icon.png" />
+    <Resource Include="Images\data-apply-icon.png" />
+    <Resource Include="Images\data-delete-icon.png" />
+    <Resource Include="Images\data-edit-icon.png" />
+    <Resource Include="Images\data-find-icon.png" />
+    <Resource Include="Images\data-folder-icon.png" />
+    <Resource Include="Images\data-icon.png" />
+    <Resource Include="Images\data-left-icon.png" />
+    <Resource Include="Images\data-remove-icon.png" />
+    <Resource Include="Images\data-right-icon.png" />
+    <Resource Include="Images\datas-icon.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\diagram.png" />
+    <Resource Include="Images\dialog_question.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\flag.png" />
+    <Resource Include="Images\folder.png" />
+    <Resource Include="Images\gear.png" />
+    <Resource Include="Images\globe.png" />
+    <Resource Include="Images\graduated-icon.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\key.png" />
+    <Resource Include="Images\line_chart.png" />
+    <Resource Include="Images\network_1.png" />
+    <Resource Include="Images\network_error.png" />
+    <Resource Include="Images\process_stop.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\table-add-icon.png" />
+    <Resource Include="Images\table-colums-icon.png" />
+    <Resource Include="Images\table-down-icon.png" />
+    <Resource Include="Images\table-edit-icon.png" />
+    <Resource Include="Images\table-lines-icon.png" />
+    <Resource Include="Images\table-next-icon.png" />
+    <Resource Include="Images\table-remove-icon.png" />
+    <Resource Include="Images\user-business-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\contract.png" />
+    <Resource Include="Images\invoice.png" />
+    <Resource Include="Images\payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\calculate.png" />
+    <Resource Include="Images\group.png" />
+    <Resource Include="Images\session.png" />
+    <Resource Include="Images\staff.png" />
+    <Resource Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\atestation.png" />
+    <Resource Include="Images\mark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

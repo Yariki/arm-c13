@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceStaff;
             Title = Resources.Grid_Staff_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/staff.png";
+        }
     }
 }

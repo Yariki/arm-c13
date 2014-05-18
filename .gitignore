@@ -80,3 +80,5 @@
 /Main/ARM.Resource/obj
 /Main/ManagedExcel/bin
 /Main/ManagedExcel/obj
+
+/Main/ARM.Resource/ARM.Resource.csproj.user

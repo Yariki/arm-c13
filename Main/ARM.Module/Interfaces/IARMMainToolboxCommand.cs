@@ -6,10 +6,13 @@
 ///////////////////////////////////////////////////////////
 
 using ARM.Core.Interfaces;
+using ARM.Module.Enums;
 
 namespace ARM.Module.Interfaces
 {
     public interface IARMMainToolboxCommand : IARMToolboxCommand
     {
+        eARMMainMenuCommand ToolbarCommand { get; }
+        bool IsSeparator { get; }
     } //end IARMMainToolboxCommand
 } //end namespace Interfaces

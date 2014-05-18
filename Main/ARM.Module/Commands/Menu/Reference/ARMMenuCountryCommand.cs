@@ -12,5 +12,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceCountry;
             Title = Resources.Grid_Country_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/globe.png";
+        }
     }
 }

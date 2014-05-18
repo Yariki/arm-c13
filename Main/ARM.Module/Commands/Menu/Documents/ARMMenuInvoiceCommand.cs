@@ -11,5 +11,11 @@ namespace ARM.Module.Commands.Menu.Documents
             MenuCommand = eARMMainMenuCommand.DocumentInvoice;
             Title = Resource.AppResource.Resources.Model_Invoice_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/invoice.png";
+        }
+
     }
 }

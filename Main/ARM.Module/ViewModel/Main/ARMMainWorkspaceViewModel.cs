@@ -58,8 +58,10 @@ namespace ARM.Module.ViewModel.Main
             Menu = _unityContainer.Resolve<IARMMainMenuViewModel>();
             Toolbox = _unityContainer.Resolve<IARMMainToolboxViewModel>();
             StatusBar = _unityContainer.Resolve<IARMMainStatusBarViewModel>();
+            Toolbox.SetActions(OnMenuExecute,OnMenuCanExecute);
             Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
             Menu.InitializeCommands();
+            Toolbox.InitializeCommands();
             InitEventAggregator();
             ClosingCommand = new DelegateCommand<object>(OnClosingDocument, o => true);
         }

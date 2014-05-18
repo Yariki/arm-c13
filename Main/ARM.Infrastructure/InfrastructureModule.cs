@@ -34,7 +34,7 @@ namespace ARM.Infrastructure
         /// <summary>
         /// Реєстрація інтерфейсів.
         /// </summary>
-в        protected override void RegistreInterfaces()
+        protected override void RegistreInterfaces()
         {
             base.RegistreInterfaces();
             UnityContainer.RegisterType<IARMToolboxView, ARMToolboxView>();

@@ -11,5 +11,10 @@ namespace ARM.Module.Commands.Menu.Documents
             MenuCommand = eARMMainMenuCommand.DocumentContract;
             Title = Resource.AppResource.Resources.Model_Contract_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/contract.png";
+        }
     }
 }

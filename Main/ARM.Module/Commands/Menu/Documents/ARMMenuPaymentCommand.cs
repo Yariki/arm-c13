@@ -11,5 +11,10 @@ namespace ARM.Module.Commands.Menu.Documents
             MenuCommand = eARMMainMenuCommand.DocumentPayment;
             Title = Resource.AppResource.Resources.Model_Payment_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/payment.png";
+        }
     }
 }

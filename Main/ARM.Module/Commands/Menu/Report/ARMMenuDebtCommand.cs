@@ -15,5 +15,10 @@ namespace ARM.Module.Commands.Menu.Report
             MenuCommand = eARMMainMenuCommand.ReportDebt;
             Title = Resource.AppResource.Resources.Report_Debt_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/bank.png";
+        }
     }
 }

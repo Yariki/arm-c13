@@ -11,5 +11,10 @@ namespace ARM.Module.Commands.Menu.Services
             MenuCommand = eARMMainMenuCommand.ServiceCalculationStipend;
             Title = Resource.AppResource.Resources.Service_CalculationStipend_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/calculate.png";
+        }
     }
 }

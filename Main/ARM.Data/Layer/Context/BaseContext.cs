@@ -80,7 +80,7 @@ namespace ARM.Data.Layer.Context
         /// <summary>
         /// Обновляє дані з БД.
         /// </summary>
-в        public void Refresh()
+        public void Refresh()
         {
             IObjectContextAdapter oca = this as IObjectContextAdapter;
             if (oca == null)

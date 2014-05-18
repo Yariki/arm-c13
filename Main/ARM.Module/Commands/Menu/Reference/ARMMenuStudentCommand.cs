@@ -11,5 +11,10 @@ namespace ARM.Module.Commands.Menu.Reference
             MenuCommand = eARMMainMenuCommand.ReferenceStudent;
             Title = Resource.AppResource.Resources.Model_Student_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/graduated-icon.png";
+        }
     }
 }

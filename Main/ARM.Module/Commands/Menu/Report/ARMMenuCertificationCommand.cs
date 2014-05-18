@@ -11,5 +11,10 @@ namespace ARM.Module.Commands.Menu.Report
             MenuCommand = eARMMainMenuCommand.ReportCertification;
             Title = Resource.AppResource.Resources.Report_Certification_Title;
         }
+
+        protected override string GetIconPath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/atestation.png";
+        }
     }
 }

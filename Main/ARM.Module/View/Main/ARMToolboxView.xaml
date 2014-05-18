@@ -3,9 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:selector="clr-namespace:ARM.Module.Helpers.Selectors"
 >
+    <UserControl.Resources>
+        <DataTemplate x:Key="ButtonToolboxTemplate">
+            <Grid Width="24" Height="24" Margin="2">
+                <Button Command="{Binding}">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="{Binding Tooltip}"></TextBlock>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="{Binding Image}"></Image>
+                </Button>
+            </Grid>
+        </DataTemplate>                
+        
+        <DataTemplate x:Key="SeparatorToolboxTemplate">
+            <Border Width="2" Margin="2" Background="PowderBlue"></Border>
+        </DataTemplate>
+            
+        <selector:ARMMainToolboxTemplateSelector x:Key="MainToolboxTemplateSelector" ButtonTemplate="{StaticResource ButtonToolboxTemplate}"
+                                                 SeparatorTemplate="{StaticResource SeparatorToolboxTemplate}"></selector:ARMMainToolboxTemplateSelector>
+        
+    </UserControl.Resources>
     <Grid>
-        <ToolBar x:Name="RooToolBar" ItemsSource="{Binding Commands}" MinHeight="24">
+        <ToolBar x:Name="RootToolBar" ItemsSource="{Binding Commands}" MinHeight="24" ItemTemplateSelector="{StaticResource MainToolboxTemplateSelector}">
         </ToolBar>
     </Grid>
 </UserControl>
