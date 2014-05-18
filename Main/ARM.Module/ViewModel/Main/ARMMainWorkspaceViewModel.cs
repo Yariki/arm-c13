@@ -226,6 +226,10 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportDebt:
                     workspaceViewModel = _unityContainer.Resolve<IARMDebtViewModel>();
                     break;
+                case eARMMainMenuCommand.ReportForeignStudent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMForeignStudentViewModel>();
+                    break;
+
             }
             if (workspaceViewModel != null)
             {

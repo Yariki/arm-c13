@@ -7,7 +7,7 @@
 >
     <UserControl.Resources>
         <DataTemplate x:Key="ButtonToolboxTemplate">
-            <Grid Width="24" Height="24" Margin="2">
+            <Grid Width="32" Height="32" Margin="2">
                 <Button Command="{Binding}">
                     <Button.ToolTip>
                         <ToolTip>
@@ -28,7 +28,7 @@
         
     </UserControl.Resources>
     <Grid>
-        <ToolBar x:Name="RootToolBar" ItemsSource="{Binding Commands}" MinHeight="24" ItemTemplateSelector="{StaticResource MainToolboxTemplateSelector}">
+        <ToolBar x:Name="RootToolBar" ItemsSource="{Binding Commands}" MinHeight="32" ItemTemplateSelector="{StaticResource MainToolboxTemplateSelector}">
         </ToolBar>
     </Grid>
 </UserControl>

@@ -159,6 +159,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMDebtView, ARMDebtView>();
             UnityContainer.RegisterType<IARMDebtViewModel, ARMDebtViewModel>();
 
+            UnityContainer.RegisterType<IARMForeignStudentView, ARMForeignStudentView>();
+            UnityContainer.RegisterType<IARMForeignStudentViewModel, ARMForeignStudentViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

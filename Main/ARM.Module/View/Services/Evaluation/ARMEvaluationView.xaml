@@ -71,9 +71,9 @@
                  SelectedItem="{Binding SelectedClass,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ListBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" MinHeight="22">
-            <Button Command="{Binding AddMarkCommand}">Add</Button>
-            <Button Command="{Binding EditMarkCommand}">Edit</Button>
-            <Button Command="{Binding DeleteMarkCommand}">Delete</Button>
+            <Button Command="{Binding AddMarkCommand}" Content="{x:Static prop:Resources.UI_Add}" Margin="2" Width="75"></Button>
+            <Button Command="{Binding EditMarkCommand}" Content="{x:Static prop:Resources.UI_Edit}" Margin="2" Width="75"></Button>
+            <Button Command="{Binding DeleteMarkCommand}" Content="{x:Static prop:Resources.UI_Delete}" Margin="2" Width="75"></Button>
         </StackPanel>
 
         <Control:ARMDataGridControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3"

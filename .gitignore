@@ -82,3 +82,5 @@
 /Main/ManagedExcel/obj
 
 /Main/ARM.Resource/ARM.Resource.csproj.user
+
+/Main/ARM.Client/*.user

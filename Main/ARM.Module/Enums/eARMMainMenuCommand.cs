@@ -28,6 +28,7 @@
         ReportContractGroup,
         ReportCertification,
         ReportSessionMarks,
-        ReportDebt
+        ReportDebt,
+        ReportForeignStudent
     }
 }

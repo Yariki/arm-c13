@@ -133,6 +133,7 @@
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuDebtCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMmenuForeignStudentCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuSessionMarksCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
@@ -216,10 +217,12 @@
     <Compile Include="Interfaces\Reports\ViewModel\IARMCertificationViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMContractGroupViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMDebtViewModel.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMForeignStudentViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMSessionMarksViewModel.cs" />
     <Compile Include="Interfaces\Reports\View\IARMCertificationView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMContractGroupView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMDebtView.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMForeignStudentView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMSessionMarksView.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\ViewModel\IARMCalculationStipendViewModel.cs" />
     <Compile Include="Interfaces\Services\CalculationStipend\View\IARMCalculationStipendView.cs" />
@@ -279,6 +282,7 @@
     <Compile Include="ViewModel\Reports\ARMCertificationViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMDebtViewModel.cs" />
+    <Compile Include="ViewModel\Reports\ARMForeignStudentViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMReportGroupSessionViewModelBase.cs" />
     <Compile Include="ViewModel\Reports\ARMSessionMarksViewModel.cs" />
     <Compile Include="ViewModel\Reports\Certification\ARMCertificationDetailsData.cs" />
@@ -388,6 +392,9 @@
     </Compile>
     <Compile Include="View\Reports\ARMDebtView.xaml.cs">
       <DependentUpon>ARMDebtView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\ARMForeignStudentView.xaml.cs">
+      <DependentUpon>ARMForeignStudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\ARMSessionMarksView.xaml.cs">
       <DependentUpon>ARMSessionMarksView.xaml</DependentUpon>
@@ -553,6 +560,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\ARMDebtView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMForeignStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

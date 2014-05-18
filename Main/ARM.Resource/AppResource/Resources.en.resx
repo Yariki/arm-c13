@@ -777,4 +777,22 @@
   <data name="UI_StartDate" xml:space="preserve">
     <value>Start Date</value>
   </data>
+  <data name="UI_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="UI_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="UI_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="UI_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="UI_Main_Title" xml:space="preserve">
+    <value>ARM Curator</value>
+  </data>
+  <data name="Report_ForeignStudent_Title" xml:space="preserve">
+    <value>Foreign Student</value>
+  </data>
 </root>

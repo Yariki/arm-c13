@@ -25,7 +25,7 @@ namespace ARM.Core.MVVM.Commands
             : base(action, predicate)
         {
             Type = ToolbarCommand.Edit;
-            Title = "Edit";
+            Title = Resource.AppResource.Resources.UI_Edit;
         }
 
         /// <summary>
@@ -36,6 +36,11 @@ namespace ARM.Core.MVVM.Commands
             : this(action,null)
         {
 
+        }
+
+        protected override string GetImagePath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/data-edit-icon.png";
         }
     }//end ARMToolboxEditCommand
 }//end namespace Commands

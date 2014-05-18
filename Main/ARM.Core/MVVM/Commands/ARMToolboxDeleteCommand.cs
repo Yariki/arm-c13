@@ -25,7 +25,7 @@ namespace ARM.Core.MVVM.Commands
             : base(action, predicate)
         {
             Type = ToolbarCommand.Delete;
-            Title = "Delete";
+            Title = Resource.AppResource.Resources.UI_Delete;
         }
 
         /// <summary>
@@ -44,6 +44,11 @@ namespace ARM.Core.MVVM.Commands
         protected override int GetOrder()
         {
             return 2;
+        }
+
+        protected override string GetImagePath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/data-delete-icon.png";
         }
     }//end ARMToolboxDeleteCommand
 }//end namespace Commands

@@ -1852,6 +1852,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foreign Student.
+        /// </summary>
+        public static string Report_ForeignStudent_Title {
+            get {
+                return ResourceManager.GetString("Report_ForeignStudent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Report.
         /// </summary>
         public static string Report_SaveReport {
@@ -1942,6 +1951,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string UI_Add {
+            get {
+                return ResourceManager.GetString("UI_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         public static string UI_Apply {
@@ -1978,6 +1996,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string UI_Delete {
+            get {
+                return ResourceManager.GetString("UI_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string UI_Edit {
+            get {
+                return ResourceManager.GetString("UI_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finish Date.
         /// </summary>
         public static string UI_FihishDate {
@@ -2001,6 +2037,24 @@ namespace ARM.Resource.AppResource {
         public static string UI_Group {
             get {
                 return ResourceManager.GetString("UI_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ARM Curator.
+        /// </summary>
+        public static string UI_Main_Title {
+            get {
+                return ResourceManager.GetString("UI_Main_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string UI_Refresh {
+            get {
+                return ResourceManager.GetString("UI_Refresh", resourceCulture);
             }
         }
         

@@ -7,14 +7,17 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <DataTemplate x:Key="ToolbarCommandDataTemplate">
-            <Button Command="{Binding}">
+            <Button Command="{Binding}" Margin="2">
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock  Text="{Binding Title}"></TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" />
-                    <TextBlock Text="{Binding Title}" />
+                    <Image Grid.Column="0" Source="{Binding Image}"/>
                 </Grid>
             </Button>
         </DataTemplate>

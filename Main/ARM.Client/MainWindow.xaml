@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cal="http://www.codeplex.com/CompositeWPF"
         xmlns:infr="clr-namespace:ARM.Infrastructure.Region;assembly=ARM.Infrastructure"
-        Title="MainWindow" Height="650" Width="825"
+        xmlns:res="clr-namespace:ARM.Resource.AppResource;assembly=ARM.Resource"
+        Title="{x:Static res:Resources.UI_Main_Title}" Height="650" Width="825"
+        Icon="education.ico"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>

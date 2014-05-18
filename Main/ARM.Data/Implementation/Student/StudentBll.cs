@@ -5,6 +5,8 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -19,6 +21,11 @@ namespace ARM.Data.Implementation.Student
         public StudentBll(IDal<Models.Student> dal)
             : base(dal)
         {
+        }
+
+        public IEnumerable<Models.Student> GetAllForeignStudent()
+        {
+            return Dal.GetAsQueryable().Where(s => s.IsForeign);
         }
     } //end StudentBll
 } //end namespace Student

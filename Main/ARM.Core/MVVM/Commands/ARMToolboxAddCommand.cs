@@ -11,29 +11,29 @@ using ARM.Core.MVVM.Commands.Base;
 
 namespace ARM.Core.MVVM.Commands
 {
-  /// <summary>
-  /// Команда додавання нового запису
-  /// </summary>
+    /// <summary>
+    /// Команда додавання нового запису
+    /// </summary>
     public class ARMToolboxAddCommand : ARMToolboxCommandBase
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand"/>.
-      /// </summary>
-      /// <param name="action">Дія.</param>
-      /// <param name="predicate">Предикат.</param>
-        public ARMToolboxAddCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand"/>.
+        /// </summary>
+        /// <param name="action">Дія.</param>
+        /// <param name="predicate">Предикат.</param>
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Add;
-            Title = "Add";
+            Title = Resource.AppResource.Resources.UI_Add;
         }
 
         /// <summary>
         /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand"/>.
         /// </summary>
         /// <param name="action">Дія.</param>
-        public ARMToolboxAddCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxAddCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
         }
 
@@ -46,5 +46,9 @@ namespace ARM.Core.MVVM.Commands
             return 0;
         }
 
+        protected override string GetImagePath()
+        {
+            return @"pack://application:,,,/ARM.Resource;component/Images/data-add-icon.png";
+        }
     }//end ARMToolboxAddCommand
 }//end namespace Commands
