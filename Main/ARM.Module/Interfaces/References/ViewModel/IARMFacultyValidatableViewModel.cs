@@ -2,6 +2,9 @@
 
 namespace ARM.Module.Interfaces.References.ViewModel
 {
+    /// <summary>
+    /// Інтерфейс моделі представлення для факультету.
+    /// </summary>
     public interface IARMFacultyValidatableViewModel : IARMValidatableViewModel
     {
     }

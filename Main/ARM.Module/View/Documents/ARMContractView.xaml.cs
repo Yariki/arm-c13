@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Documents.View;
 namespace ARM.Module.View.Documents
 {
     /// <summary>
-    /// Interaction logic for ARMContractView.xaml
+    /// Преставлення дла роботи з контрактами.
     /// </summary>
     public partial class ARMContractView : UserControl,IARMContractView
     {
+        /// <summary>
+        /// Створення екземпляру.
+        /// </summary>
         public ARMContractView()
         {
             InitializeComponent();

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\ARM.Module.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\ROutput\ARM.Module.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -133,7 +135,7 @@
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuDebtCommand.cs" />
-    <Compile Include="Commands\Menu\Report\ARMmenuForeignStudentCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMMenuForeignStudentCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuSessionMarksCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuEvaluationCommand.cs" />
@@ -167,7 +169,7 @@
     <Compile Include="Interfaces\Documents\View\IARMContractView.cs" />
     <Compile Include="Interfaces\Documents\View\IARMInvoiceView.cs" />
     <Compile Include="Interfaces\Documents\View\IARMPaymentView.cs" />
-    <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
+    <Compile Include="Interfaces\View\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />

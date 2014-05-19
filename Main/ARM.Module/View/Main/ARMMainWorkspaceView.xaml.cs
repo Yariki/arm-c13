@@ -4,10 +4,16 @@ using ARM.Module.Interfaces.View;
 namespace ARM.Module.View.Main
 {
     /// <summary>
-    ///     Interaction logic for ARMMainWorkspaceView.xaml
+    /// Головне представлення програми.
+    /// Воно містить TabControl в якому створюються вкладки для кожної операції, документа,
+    /// журналу, звіту.
     /// </summary>
     public partial class ARMMainWorkspaceView : UserControl, IARMMainWorkspaceView
     {
+
+        /// <summary>
+        /// Створити екземпляр ARMMainWorkspaceView.
+        /// </summary>
         public ARMMainWorkspaceView()
         {
             InitializeComponent();

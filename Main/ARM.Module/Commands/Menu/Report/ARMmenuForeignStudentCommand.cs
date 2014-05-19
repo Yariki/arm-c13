@@ -3,9 +3,17 @@ using ARM.Module.Enums;
 
 namespace ARM.Module.Commands.Menu.Report
 {
-    public class ARMmenuForeignStudentCommand : ARMBaseMainMenuCommand
+    /// <summary>
+    /// Команда відкриття форми звіту по студентам-іноземцям.
+    /// </summary>
+    public class ARMMenuForeignStudentCommand : ARMBaseMainMenuCommand
     {
-        public ARMmenuForeignStudentCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) : base(action, canPredicate)
+        /// <summary>
+        /// Створення екземпляру.
+        /// </summary>
+        /// <param name="action">Дія.</param>
+        /// <param name="canPredicate">Предикат.</param>
+        public ARMMenuForeignStudentCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportForeignStudent;
             Title = Tooltip = Resource.AppResource.Resources.Report_ForeignStudent_Title;

@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Documents.View;
 namespace ARM.Module.View.Documents
 {
     /// <summary>
-    /// Interaction logic for ARMInvoiceView.xaml
+    /// Преставлення дла роботи з рахунками.
     /// </summary>
     public partial class ARMInvoiceView : UserControl,IARMInvoiceView
     {
+        /// <summary>
+        /// Створити екземпляр.
+        /// </summary>
         public ARMInvoiceView()
         {
             InitializeComponent();

@@ -1,5 +1,8 @@
 ﻿namespace ARM.Module.Enums
 {
+    /// <summary>
+    /// Типи команд в головному меню та панелі управління.
+    /// </summary>
     public enum eARMMainMenuCommand
     {
         None,
