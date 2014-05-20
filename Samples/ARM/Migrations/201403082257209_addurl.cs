@@ -1,8 +1,7 @@
 namespace ARMConsoleTest.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class addurl : DbMigration
     {
         public override void Up()
@@ -16,7 +15,7 @@ namespace ARMConsoleTest.Migrations
                         Url = c.String(),
                     })
                 .PrimaryKey(t => t.BlogId);
-            
+
             CreateTable(
                 "dbo.Posts",
                 c => new
@@ -29,9 +28,8 @@ namespace ARMConsoleTest.Migrations
                 .PrimaryKey(t => t.PostId)
                 .ForeignKey("dbo.Blogs", t => t.BlogId, cascadeDelete: true)
                 .Index(t => t.BlogId);
-            
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Posts", "BlogId", "dbo.Blogs");

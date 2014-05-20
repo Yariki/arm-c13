@@ -636,4 +636,163 @@
   <data name="Model_ModifiedBy" xml:space="preserve">
     <value>Modified By</value>
   </data>
+  <data name="Enum_AdditionalRate" xml:space="preserve">
+    <value>Additional Rate</value>
+  </data>
+  <data name="Enum_Coursework" xml:space="preserve">
+    <value>Coursework</value>
+  </data>
+  <data name="Enum_DifferentialTest" xml:space="preserve">
+    <value>Differential Test</value>
+  </data>
+  <data name="Enum_Exam" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="Enum_Laboratory" xml:space="preserve">
+    <value>Laboratory</value>
+  </data>
+  <data name="Enum_MKR" xml:space="preserve">
+    <value>MKR</value>
+  </data>
+  <data name="Enum_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Model_Class_CourseWork" xml:space="preserve">
+    <value>Is coursework needed</value>
+  </data>
+  <data name="Model_Class_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Model_Data_Mark" xml:space="preserve">
+    <value>{0} Mark</value>
+  </data>
+  <data name="Model_Mark_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Model_Mark_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Model_Mark_MarkRate" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="Model_Mark_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Model_Mark_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Service_Evaluation_Title" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="Enum_Certification" xml:space="preserve">
+    <value>Certification</value>
+  </data>
+  <data name="Model_Mark_IsCertification" xml:space="preserve">
+    <value>Certificated</value>
+  </data>
+  <data name="Enum_Budget" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="Enum_Contract" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="Model_Student_StudyType" xml:space="preserve">
+    <value>Type of Study</value>
+  </data>
+  <data name="Report_ContractGroup_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Report_ContractGroup_Title" xml:space="preserve">
+    <value>Accounting for group contracts</value>
+  </data>
+  <data name="Report_EmptyPath" xml:space="preserve">
+    <value>You should choose valid path</value>
+  </data>
+  <data name="Report_SaveReport" xml:space="preserve">
+    <value>Save Report</value>
+  </data>
+  <data name="Report_Status_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Report_Status_Finish" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Report_Status_Start" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="Report_Certification_Title" xml:space="preserve">
+    <value>Certification</value>
+  </data>
+  <data name="UI_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="UI_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="UI_Session" xml:space="preserve">
+    <value>Session</value>
+  </data>
+  <data name="UI_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="UI_Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Service_CalculationStipend_Title" xml:space="preserve">
+    <value>Calculation Stipend</value>
+  </data>
+  <data name="Service_CalculationStipend_Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Service_CalculationStipend_Stipend" xml:space="preserve">
+    <value>Calculated Stipend</value>
+  </data>
+  <data name="UI_Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="UI_Calculation" xml:space="preserve">
+    <value>Calculation</value>
+  </data>
+  <data name="Service_CalculationStipend_CurrentStipend" xml:space="preserve">
+    <value>Current Stipend</value>
+  </data>
+  <data name="Model_Student_Stipend" xml:space="preserve">
+    <value>Stipend</value>
+  </data>
+  <data name="Report_SessionMark_Title" xml:space="preserve">
+    <value>Session Marks</value>
+  </data>
+  <data name="Report_Debt_Title" xml:space="preserve">
+    <value>Debts by Contract</value>
+  </data>
+  <data name="UI_Form" xml:space="preserve">
+    <value>Form report</value>
+  </data>
+  <data name="UI_Debt" xml:space="preserve">
+    <value>Debt</value>
+  </data>
+  <data name="UI_FihishDate" xml:space="preserve">
+    <value>Finish Date</value>
+  </data>
+  <data name="UI_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="UI_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="UI_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="UI_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="UI_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="UI_Main_Title" xml:space="preserve">
+    <value>ARM Curator</value>
+  </data>
+  <data name="Report_ForeignStudent_Title" xml:space="preserve">
+    <value>Foreign Student</value>
+  </data>
 </root>

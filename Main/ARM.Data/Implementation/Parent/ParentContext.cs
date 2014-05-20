@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using ARM.Data.Interfaces.Parent;
 using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Parent
 {
-    public class ParentContext : BaseContext<Models.Parent>,IParentContext
+    /// <summary>
+    /// Контекст бази даних для батьків
+    /// </summary>
+    public class ParentContext : BaseContext<Models.Parent>, IParentContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

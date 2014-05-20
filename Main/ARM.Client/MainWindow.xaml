@@ -1,9 +1,11 @@
 ﻿<Window x:Class="ARM.Client.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:cal="http://www.codeplex.com/CompositeWPF" 
+        xmlns:cal="http://www.codeplex.com/CompositeWPF"
         xmlns:infr="clr-namespace:ARM.Infrastructure.Region;assembly=ARM.Infrastructure"
-        Title="MainWindow" Height="650" Width="825"
+        xmlns:res="clr-namespace:ARM.Resource.AppResource;assembly=ARM.Resource"
+        Title="{x:Static res:Resources.UI_Main_Title}" Height="650" Width="825"
+        Icon="education.ico"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
@@ -12,7 +14,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <ContentControl Grid.Row="0" cal:RegionManager.RegionName="{x:Static infr:ARMMainRegionNames.MENU_REGION}"></ContentControl>
 
         <ContentControl Grid.Row="1" cal:RegionManager.RegionName="{x:Static infr:ARMMainRegionNames.TOOLBOX_REGION}"></ContentControl>
@@ -20,7 +22,5 @@
         <ContentControl Grid.Row="2" cal:RegionManager.RegionName="{x:Static infr:ARMMainRegionNames.WORKSPACE_REGION}"></ContentControl>
 
         <ContentControl Grid.Row="3" cal:RegionManager.RegionName="{x:Static infr:ARMMainRegionNames.STATUSBAR_REGION}"></ContentControl>
-
-
     </Grid>
 </Window>

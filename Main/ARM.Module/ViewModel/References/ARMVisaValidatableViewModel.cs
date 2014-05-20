@@ -82,7 +82,7 @@ namespace ARM.Module.ViewModel.References
 
         public Dictionary<VisaType, string> SourceVisaType
         {
-            get { return _sourceVisaType ?? (_sourceVisaType = EnumHelper.Instance.GetLocalsForEnum<VisaType>()); }
+            get { return _sourceVisaType ?? (_sourceVisaType = ARMEnumHelper.Instance.GetLocalsForEnum<VisaType>()); }
         }
 
         #endregion

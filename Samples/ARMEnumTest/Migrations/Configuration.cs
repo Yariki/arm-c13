@@ -1,22 +1,19 @@
+using System.Data.Entity.Migrations;
+
 namespace ARMEnumTest.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<ARMEnumTest.EnumContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EnumContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ARMEnumTest.EnumContext context)
+        protected override void Seed(EnumContext context)
         {
             //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data. E.g.
             //
             //    context.People.AddOrUpdate(

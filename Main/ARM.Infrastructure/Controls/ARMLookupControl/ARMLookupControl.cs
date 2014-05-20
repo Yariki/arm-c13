@@ -1,11 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces.Data;
-using ARM.Core.Module;
 using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Annotations;
 using ARM.Infrastructure.Controls.ARMLookupWindow;
@@ -14,7 +12,14 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.Controls.ARMLookupControl
 {
-
+    /// <summary>
+    /// Елемент управління для представлення обєкту даних за його ідентифікатором.
+    /// Даний елемент управляння приймає тип даних та його ідентифікатором він визначає:
+    /// 1. Який клас доступу до даних використовувати.
+    /// 2. Метод відображення даних.
+    /// Також він призначений ддл вибору подібних елементів и може бути првязаний до обєкту даних,
+    /// для редагування його властивостей.
+    /// </summary>
     [TemplatePart(Name = "PART_TextBoxValue", Type = typeof(TextBox))]
     [TemplatePart(Name = "PART_ButtonWnd", Type = typeof(Button))]
     [TemplatePart(Name = "PART_ButtonWndClear", Type = typeof(Button))]
@@ -22,30 +27,27 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
     {
         #region [const]
 
-
-        #endregion
+        #endregion [const]
 
         #region [needs]
 
         public static string PART_TextBox = "PART_TextBoxValue";
         public static string PART_Button = "PART_ButtonWnd";
         public static string PART_ButtonClear = "PART_ButtonWndClear";
-        
+
         private TextBox _textBox;
         private Button _button;
         private Button _buttonClear;
 
         private IARMModel _model;
 
-        #endregion
-
+        #endregion [needs]
 
         #region [ctor]
 
         public ARMLookupControl()
-            :base()
+            : base()
         {
-            
         }
 
         static ARMLookupControl()
@@ -53,10 +55,14 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ARMLookupControl), new FrameworkPropertyMetadata(typeof(ARMLookupControl)));
         }
 
-        #endregion
+        #endregion [ctor]
 
         #region [oveeride]
 
+        /// <summary>
+        /// При перевизначенні в похідному класі викликається кожного разу, коли код програми або внутрішні процеси викликають <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.
+
+        /// </summary>
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -72,38 +78,46 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             {
                 _buttonClear.Click += ButtonClearOnClick;
             }
-            if(_model != null && _textBox != null)
+            if (_model != null && _textBox != null)
             {
                 _textBox.Text = _model.ToString();
             }
         }
 
-        #endregion
-
+        #endregion [oveeride]
 
         #region [depedency property]
 
         public static readonly DependencyProperty UnityContainerProperty = DependencyProperty.Register(
-            "UnityContainer", typeof (IUnityContainer), typeof (ARMLookupControl), new PropertyMetadata(default(IUnityContainer)));
+            "UnityContainer", typeof(IUnityContainer), typeof(ARMLookupControl), new PropertyMetadata(default(IUnityContainer)));
 
+        /// <summary>
+        /// Отримує або задає IoC контейнер.
+        /// </summary>
         public IUnityContainer UnityContainer
         {
-            get { return (IUnityContainer) GetValue(UnityContainerProperty); }
+            get { return (IUnityContainer)GetValue(UnityContainerProperty); }
             set { SetValue(UnityContainerProperty, value); }
         }
 
         public static readonly DependencyProperty MetadataProperty = DependencyProperty.Register(
-            "Metadata", typeof (eARMMetadata), typeof (ARMLookupControl), new PropertyMetadata(default(eARMMetadata)));
+            "Metadata", typeof(eARMMetadata), typeof(ARMLookupControl), new PropertyMetadata(default(eARMMetadata)));
 
+        /// <summary>
+        /// Отримує або задає метадані.
+        /// </summary>
         public eARMMetadata Metadata
         {
-            get { return (eARMMetadata) GetValue(MetadataProperty); }
+            get { return (eARMMetadata)GetValue(MetadataProperty); }
             set { SetValue(MetadataProperty, value); }
         }
 
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-            "Value", typeof (Guid), typeof (ARMLookupControl), new PropertyMetadata(Guid.Empty,ValueOnChangeCallback));
+            "Value", typeof(Guid), typeof(ARMLookupControl), new PropertyMetadata(Guid.Empty, ValueOnChangeCallback));
 
+        /// <summary>
+        /// Отримує або задає значення.
+        /// </summary>
         public Guid Value
         {
             get { return (Guid)GetValue(ValueProperty); }
@@ -113,32 +127,31 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         private static void ValueOnChangeCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
             var ctrl = dependencyObject as ARMLookupControl;
-            if(ctrl == null)
+            if (ctrl == null)
                 return;
             ctrl.ValueChanged(dependencyPropertyChangedEventArgs);
-
         }
 
         public static readonly DependencyProperty IsIdEmptyProperty = DependencyProperty.Register(
-            "IsIdEmpty", typeof (bool), typeof (ARMLookupControl), new PropertyMetadata(false));
+            "IsIdEmpty", typeof(bool), typeof(ARMLookupControl), new PropertyMetadata(false));
 
         public bool IsIdEmpty
         {
-            get { return (bool) GetValue(IsIdEmptyProperty); }
+            get { return (bool)GetValue(IsIdEmptyProperty); }
             set { SetValue(IsIdEmptyProperty, value); }
         }
 
-        #endregion
+        #endregion [depedency property]
 
         #region [public]
 
         public void ValueChanged(DependencyPropertyChangedEventArgs args)
         {
             System.Windows.Threading.Dispatcher.CurrentDispatcher.BeginInvoke(
-                (Action) (() => ApplyValue((Guid) args.NewValue)));
+                (Action)(() => ApplyValue((Guid)args.NewValue)));
         }
 
-        #endregion
+        #endregion [public]
 
         #region [private]
 
@@ -149,7 +162,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             var resolver = UnityContainer.Resolve<IARMDataModelResolver>();
             if (resolver == null)
                 return;
-            _model = resolver.GetDataModel(Metadata, id,IsIdEmpty) as IARMModel;
+            _model = resolver.GetDataModel(Metadata, id, IsIdEmpty) as IARMModel;
             if (_model == null || _textBox == null)
             {
                 return;
@@ -157,10 +170,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             _textBox.Text = _model.ToString();
         }
 
-
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer,new ARMLookupView());
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
             viewModel.Initialize(Metadata);
             ARMLookupWindow.ARMLookupWindow wnd = new ARMLookupWindow.ARMLookupWindow(viewModel);
 
@@ -173,7 +185,6 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             }
         }
 
-
         private void ButtonClearOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             Value = Guid.Empty;
@@ -181,9 +192,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
             OnPropertyChanged("Value");
         }
 
-        
-
-        #endregion
+        #endregion [private]
 
         public event PropertyChangedEventHandler PropertyChanged;
 

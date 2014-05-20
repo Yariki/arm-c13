@@ -460,7 +460,7 @@
     <value>Статус</value>
   </data>
   <data name="Model_Student_StudyMode" xml:space="preserve">
-    <value>Тип навчання</value>
+    <value>Форма навчання</value>
   </data>
   <data name="Model_Student_Title" xml:space="preserve">
     <value>Студенти</value>
@@ -635,5 +635,164 @@
   </data>
   <data name="Model_ModifiedBy" xml:space="preserve">
     <value>Змінено</value>
+  </data>
+  <data name="Enum_AdditionalRate" xml:space="preserve">
+    <value>Додаткові бали</value>
+  </data>
+  <data name="Enum_Coursework" xml:space="preserve">
+    <value>Курсова робота</value>
+  </data>
+  <data name="Enum_DifferentialTest" xml:space="preserve">
+    <value>Диференційний залік</value>
+  </data>
+  <data name="Enum_Exam" xml:space="preserve">
+    <value>Іспит</value>
+  </data>
+  <data name="Enum_Laboratory" xml:space="preserve">
+    <value>Лабораторна</value>
+  </data>
+  <data name="Enum_MKR" xml:space="preserve">
+    <value>МКР</value>
+  </data>
+  <data name="Enum_Test" xml:space="preserve">
+    <value>Залік</value>
+  </data>
+  <data name="Model_Class_CourseWork" xml:space="preserve">
+    <value>Курсова робота присутня</value>
+  </data>
+  <data name="Model_Class_Summary" xml:space="preserve">
+    <value>Оцінка знань</value>
+  </data>
+  <data name="Model_Data_Mark" xml:space="preserve">
+    <value>{0} Бали</value>
+  </data>
+  <data name="Model_Mark_Class" xml:space="preserve">
+    <value>Предмет</value>
+  </data>
+  <data name="Model_Mark_Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Model_Mark_MarkRate" xml:space="preserve">
+    <value>Бал</value>
+  </data>
+  <data name="Model_Mark_Student" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+  <data name="Model_Mark_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Service_Evaluation_Title" xml:space="preserve">
+    <value>Оцінування</value>
+  </data>
+  <data name="Enum_Certification" xml:space="preserve">
+    <value>Атестація</value>
+  </data>
+  <data name="Model_Mark_IsCertification" xml:space="preserve">
+    <value>Атестовано</value>
+  </data>
+  <data name="Enum_Budget" xml:space="preserve">
+    <value>Бюджет</value>
+  </data>
+  <data name="Enum_Contract" xml:space="preserve">
+    <value>Контракт</value>
+  </data>
+  <data name="Model_Student_StudyType" xml:space="preserve">
+    <value>Тип навчання</value>
+  </data>
+  <data name="Report_ContractGroup_Group" xml:space="preserve">
+    <value>Група</value>
+  </data>
+  <data name="Report_ContractGroup_Title" xml:space="preserve">
+    <value>Облік  контрактів  по  групі</value>
+  </data>
+  <data name="Report_EmptyPath" xml:space="preserve">
+    <value>Ви повиння обрати правильний шлях </value>
+  </data>
+  <data name="Report_SaveReport" xml:space="preserve">
+    <value>Зберегти звіт</value>
+  </data>
+  <data name="Report_Status_Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="Report_Status_Finish" xml:space="preserve">
+    <value>Завершився</value>
+  </data>
+  <data name="Report_Status_Start" xml:space="preserve">
+    <value>Стартував</value>
+  </data>
+  <data name="Report_Certification_Title" xml:space="preserve">
+    <value>Атестація</value>
+  </data>
+  <data name="UI_Class" xml:space="preserve">
+    <value>Предмет</value>
+  </data>
+  <data name="UI_Group" xml:space="preserve">
+    <value>Група</value>
+  </data>
+  <data name="UI_Session" xml:space="preserve">
+    <value>Сесія</value>
+  </data>
+  <data name="UI_Student" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+  <data name="UI_Run" xml:space="preserve">
+    <value>Сформувати</value>
+  </data>
+  <data name="Service_CalculationStipend_Title" xml:space="preserve">
+    <value>Нарахування стипендії</value>
+  </data>
+  <data name="Service_CalculationStipend_Rate" xml:space="preserve">
+    <value>Середній Бал</value>
+  </data>
+  <data name="Service_CalculationStipend_Stipend" xml:space="preserve">
+    <value>Стипендія</value>
+  </data>
+  <data name="UI_Apply" xml:space="preserve">
+    <value>Застосувати</value>
+  </data>
+  <data name="UI_Calculation" xml:space="preserve">
+    <value>Розрахунок</value>
+  </data>
+  <data name="Service_CalculationStipend_CurrentStipend" xml:space="preserve">
+    <value>Поточна стипендія</value>
+  </data>
+  <data name="Model_Student_Stipend" xml:space="preserve">
+    <value>Стипендія</value>
+  </data>
+  <data name="Report_SessionMark_Title" xml:space="preserve">
+    <value>Успішність по сесії</value>
+  </data>
+  <data name="Report_Debt_Title" xml:space="preserve">
+    <value>Звіт по заборгованості</value>
+  </data>
+  <data name="UI_Form" xml:space="preserve">
+    <value>Сформувати звіт</value>
+  </data>
+  <data name="UI_Debt" xml:space="preserve">
+    <value>Заборгованість</value>
+  </data>
+  <data name="UI_FihishDate" xml:space="preserve">
+    <value>Дата закінчення</value>
+  </data>
+  <data name="UI_StartDate" xml:space="preserve">
+    <value>Дата початку</value>
+  </data>
+  <data name="UI_Add" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="UI_Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="UI_Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="UI_Refresh" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="UI_Main_Title" xml:space="preserve">
+    <value>АРМ Куратора</value>
+  </data>
+  <data name="Report_ForeignStudent_Title" xml:space="preserve">
+    <value>Іноземні студенти</value>
   </data>
 </root>

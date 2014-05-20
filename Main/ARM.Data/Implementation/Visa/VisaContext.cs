@@ -4,11 +4,14 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Visa
 {
-    public class VisaContext : BaseContext<Models.Visa>,IVisaContext
+    /// <summary>
+    /// Контекст бази даних для віз
+    /// </summary>
+    public class VisaContext : BaseContext<Models.Visa>, IVisaContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //visas 
+            //visas
             modelBuilder.Entity<Models.Visa>()
                 .HasRequired<Models.Student>(h => h.Student)
                 .WithMany(s => s.Visas)

@@ -1,8 +1,7 @@
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class EmployersAdd : DbMigration
     {
         public override void Up()
@@ -21,12 +20,12 @@ namespace ARM.Data.CommonContextMigrations
                         ModifiedBy = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             AddColumn("dbo.Student", "EmployerId", c => c.Guid());
             CreateIndex("dbo.Student", "EmployerId");
             AddForeignKey("dbo.Student", "EmployerId", "dbo.Employer", "Id");
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Student", "EmployerId", "dbo.Employer");

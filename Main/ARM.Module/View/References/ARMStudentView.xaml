@@ -30,6 +30,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
            
         </Grid.RowDefinitions>
@@ -147,8 +148,19 @@
                   SelectedValuePath="Key"
                   SelectedValue="{Binding Status,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
+        <TextBlock Text="{x:Static prop:Resources.Model_Student_StudyType}" Grid.Column="4" Grid.Row="9"></TextBlock>
+        <ComboBox Grid.Column="5" Grid.Row="9"
+                  ItemsSource="{Binding SourceStudyType}"
+                  DisplayMemberPath="Value"
+                  SelectedValuePath="Key"
+                  SelectedValue="{Binding StudyType,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="10" Height="200" Visibility="{Binding VisibilityAdditional}">
+        <TextBlock Text="{x:Static prop:Resources.Model_Student_Stipend}" Grid.Column="1" Grid.Row="10"></TextBlock>
+        <TextBlock Text="{Binding Stipend,StringFormat={}{0:0.00}}" Grid.Column="2" Grid.Row="10" FontWeight="Bold"></TextBlock>
+        
+
+
+        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="11" Visibility="{Binding VisibilityAdditional}">
             <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}">
                 <Grid>
                     <Grid.RowDefinitions>

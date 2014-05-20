@@ -9,7 +9,10 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Country
 {
+    /// <summary>
+    /// Die Antwoord
+    /// </summary>
     public interface ICountryContext : IContext<Models.Country>
     {
-    }//end ICountryContext
-}//end namespace Country
+    } //end ICountryContext
+} //end namespace Country

@@ -27,7 +27,7 @@ namespace ARM.Module.ViewModel.References
 
         public Dictionary<SexType, string> SourceSex
         {
-            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
+            get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         #region [override]
@@ -43,14 +43,14 @@ namespace ARM.Module.ViewModel.References
                     switch (Mode)
                     {
                         case ViewMode.Add:
-                            unitOfWork.ParentReposotory.Insert(GetBusinessObject<Parent>());
+                            unitOfWork.ParentRepository.Insert(GetBusinessObject<Parent>());
                             break;
 
                         case ViewMode.Edit:
-                            unitOfWork.ParentReposotory.Update(GetBusinessObject<Parent>());
+                            unitOfWork.ParentRepository.Update(GetBusinessObject<Parent>());
                             break;
                     }
-                    unitOfWork.ParentReposotory.Save();
+                    unitOfWork.ParentRepository.Save();
                 }
             }
             catch (Exception ex)

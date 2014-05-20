@@ -70,6 +70,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional Rate.
+        /// </summary>
+        public static string Enum_AdditionalRate {
+            get {
+                return ResourceManager.GetString("Enum_AdditionalRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Art.
         /// </summary>
         public static string Enum_Art {
@@ -88,6 +97,51 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Budget.
+        /// </summary>
+        public static string Enum_Budget {
+            get {
+                return ResourceManager.GetString("Enum_Budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certification.
+        /// </summary>
+        public static string Enum_Certification {
+            get {
+                return ResourceManager.GetString("Enum_Certification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contract.
+        /// </summary>
+        public static string Enum_Contract {
+            get {
+                return ResourceManager.GetString("Enum_Contract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coursework.
+        /// </summary>
+        public static string Enum_Coursework {
+            get {
+                return ResourceManager.GetString("Enum_Coursework", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Differential Test.
+        /// </summary>
+        public static string Enum_DifferentialTest {
+            get {
+                return ResourceManager.GetString("Enum_DifferentialTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Distance.
         /// </summary>
         public static string Enum_Distance {
@@ -102,6 +156,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_English {
             get {
                 return ResourceManager.GetString("Enum_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam.
+        /// </summary>
+        public static string Enum_Exam {
+            get {
+                return ResourceManager.GetString("Enum_Exam", resourceCulture);
             }
         }
         
@@ -142,6 +205,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Laboratory.
+        /// </summary>
+        public static string Enum_Laboratory {
+            get {
+                return ResourceManager.GetString("Enum_Laboratory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lecture.
         /// </summary>
         public static string Enum_Lecture {
@@ -165,6 +237,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_Master {
             get {
                 return ResourceManager.GetString("Enum_Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MKR.
+        /// </summary>
+        public static string Enum_MKR {
+            get {
+                return ResourceManager.GetString("Enum_MKR", resourceCulture);
             }
         }
         
@@ -255,6 +336,15 @@ namespace ARM.Resource.AppResource {
         public static string Enum_Technician {
             get {
                 return ResourceManager.GetString("Enum_Technician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string Enum_Test {
+            get {
+                return ResourceManager.GetString("Enum_Test", resourceCulture);
             }
         }
         
@@ -547,6 +637,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is coursework needed.
+        /// </summary>
+        public static string Model_Class_CourseWork {
+            get {
+                return ResourceManager.GetString("Model_Class_CourseWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Session.
         /// </summary>
         public static string Model_Class_Session {
@@ -561,6 +660,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Class_Staff {
             get {
                 return ResourceManager.GetString("Model_Class_Staff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string Model_Class_Summary {
+            get {
+                return ResourceManager.GetString("Model_Class_Summary", resourceCulture);
             }
         }
         
@@ -741,6 +849,15 @@ namespace ARM.Resource.AppResource {
         public static string Model_Data_Language {
             get {
                 return ResourceManager.GetString("Model_Data_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Mark.
+        /// </summary>
+        public static string Model_Data_Mark {
+            get {
+                return ResourceManager.GetString("Model_Data_Mark", resourceCulture);
             }
         }
         
@@ -1002,6 +1119,60 @@ namespace ARM.Resource.AppResource {
         public static string Model_Invoice_Title {
             get {
                 return ResourceManager.GetString("Model_Invoice_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        public static string Model_Mark_Class {
+            get {
+                return ResourceManager.GetString("Model_Mark_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Model_Mark_Date {
+            get {
+                return ResourceManager.GetString("Model_Mark_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certificated.
+        /// </summary>
+        public static string Model_Mark_IsCertification {
+            get {
+                return ResourceManager.GetString("Model_Mark_IsCertification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark.
+        /// </summary>
+        public static string Model_Mark_MarkRate {
+            get {
+                return ResourceManager.GetString("Model_Mark_MarkRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Model_Mark_Student {
+            get {
+                return ResourceManager.GetString("Model_Mark_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Model_Mark_Type {
+            get {
+                return ResourceManager.GetString("Model_Mark_Type", resourceCulture);
             }
         }
         
@@ -1492,11 +1663,29 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stipend.
+        /// </summary>
+        public static string Model_Student_Stipend {
+            get {
+                return ResourceManager.GetString("Model_Student_Stipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Study Mode.
         /// </summary>
         public static string Model_Student_StudyMode {
             get {
                 return ResourceManager.GetString("Model_Student_StudyMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Study.
+        /// </summary>
+        public static string Model_Student_StudyType {
+            get {
+                return ResourceManager.GetString("Model_Student_StudyType", resourceCulture);
             }
         }
         
@@ -1614,6 +1803,294 @@ namespace ARM.Resource.AppResource {
         public static string Model_Visa_ValidUntil {
             get {
                 return ResourceManager.GetString("Model_Visa_ValidUntil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certification.
+        /// </summary>
+        public static string Report_Certification_Title {
+            get {
+                return ResourceManager.GetString("Report_Certification_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Report_ContractGroup_Group {
+            get {
+                return ResourceManager.GetString("Report_ContractGroup_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accounting for group contracts.
+        /// </summary>
+        public static string Report_ContractGroup_Title {
+            get {
+                return ResourceManager.GetString("Report_ContractGroup_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debts by Contract.
+        /// </summary>
+        public static string Report_Debt_Title {
+            get {
+                return ResourceManager.GetString("Report_Debt_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You should choose valid path.
+        /// </summary>
+        public static string Report_EmptyPath {
+            get {
+                return ResourceManager.GetString("Report_EmptyPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foreign Student.
+        /// </summary>
+        public static string Report_ForeignStudent_Title {
+            get {
+                return ResourceManager.GetString("Report_ForeignStudent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Report.
+        /// </summary>
+        public static string Report_SaveReport {
+            get {
+                return ResourceManager.GetString("Report_SaveReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Marks.
+        /// </summary>
+        public static string Report_SessionMark_Title {
+            get {
+                return ResourceManager.GetString("Report_SessionMark_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Report_Status_Error {
+            get {
+                return ResourceManager.GetString("Report_Status_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        public static string Report_Status_Finish {
+            get {
+                return ResourceManager.GetString("Report_Status_Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        public static string Report_Status_Start {
+            get {
+                return ResourceManager.GetString("Report_Status_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_CurrentStipend {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_CurrentStipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string Service_CalculationStipend_Rate {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculated Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_Stipend {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Stipend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation Stipend.
+        /// </summary>
+        public static string Service_CalculationStipend_Title {
+            get {
+                return ResourceManager.GetString("Service_CalculationStipend_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation.
+        /// </summary>
+        public static string Service_Evaluation_Title {
+            get {
+                return ResourceManager.GetString("Service_Evaluation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string UI_Add {
+            get {
+                return ResourceManager.GetString("UI_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string UI_Apply {
+            get {
+                return ResourceManager.GetString("UI_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation.
+        /// </summary>
+        public static string UI_Calculation {
+            get {
+                return ResourceManager.GetString("UI_Calculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        public static string UI_Class {
+            get {
+                return ResourceManager.GetString("UI_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debt.
+        /// </summary>
+        public static string UI_Debt {
+            get {
+                return ResourceManager.GetString("UI_Debt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string UI_Delete {
+            get {
+                return ResourceManager.GetString("UI_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string UI_Edit {
+            get {
+                return ResourceManager.GetString("UI_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish Date.
+        /// </summary>
+        public static string UI_FihishDate {
+            get {
+                return ResourceManager.GetString("UI_FihishDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form report.
+        /// </summary>
+        public static string UI_Form {
+            get {
+                return ResourceManager.GetString("UI_Form", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string UI_Group {
+            get {
+                return ResourceManager.GetString("UI_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ARM Curator.
+        /// </summary>
+        public static string UI_Main_Title {
+            get {
+                return ResourceManager.GetString("UI_Main_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string UI_Refresh {
+            get {
+                return ResourceManager.GetString("UI_Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string UI_Run {
+            get {
+                return ResourceManager.GetString("UI_Run", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session.
+        /// </summary>
+        public static string UI_Session {
+            get {
+                return ResourceManager.GetString("UI_Session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string UI_StartDate {
+            get {
+                return ResourceManager.GetString("UI_StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string UI_Student {
+            get {
+                return ResourceManager.GetString("UI_Student", resourceCulture);
             }
         }
     }

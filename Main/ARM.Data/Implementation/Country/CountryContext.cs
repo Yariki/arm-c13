@@ -3,8 +3,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Country
 {
-    public class CountryContext : BaseContext<Models.Country>,ICountryContext
+    /// <summary>
+    /// Контекст бази даних для країн
+    /// </summary>
+    public class CountryContext : BaseContext<Models.Country>, ICountryContext
     {
-         
     }
 }

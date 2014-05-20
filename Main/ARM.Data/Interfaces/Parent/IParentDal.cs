@@ -11,5 +11,5 @@ namespace ARM.Data.Interfaces.Parent
 {
     public interface IParentDal : IDal<Models.Parent>
     {
-    }//end IParentDal
-}//end namespace Parent
+    } //end IParentDal
+} //end namespace Parent

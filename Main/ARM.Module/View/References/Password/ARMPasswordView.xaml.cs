@@ -17,10 +17,13 @@ using ARM.Module.Interfaces.References.View.Password;
 namespace ARM.Module.View.References.Password
 {
     /// <summary>
-    /// Interaction logic for ARMPasswordView.xaml
+    /// Предаставлення для паролів.
     /// </summary>
     public partial class ARMPasswordView : UserControl,IARMPasswordView,IARMDialogView
     {
+        /// <summary>
+        /// Створити екземпляр ARMPasswordView.
+        /// </summary>
         public ARMPasswordView()
         {
             InitializeComponent();

@@ -3,9 +3,11 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Payment
 {
-    public class PaymentContext 
-       :BaseContext<Models.Payment>,IPaymentContext
+    /// <summary>
+    /// Контекст бази даних для платіжок
+    /// </summary>
+    public class PaymentContext
+       : BaseContext<Models.Payment>, IPaymentContext
     {
-         
     }
 }

@@ -5,8 +5,15 @@
 //  Created on:      02-Apr-2014 1:17:47 AM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.ObjectModel;
 using ARM.Core.MVVM;
+using ARM.Module.Commands.Toolbar;
+using ARM.Module.Commands.Toolbar.Documents;
+using ARM.Module.Commands.Toolbar.Reference;
+using ARM.Module.Commands.Toolbar.Report;
+using ARM.Module.Commands.Toolbar.Services;
+using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.View;
 
@@ -14,11 +21,48 @@ namespace ARM.Module.ViewModel.Main
 {
     public class ARMMainToolboxViewModel : ARMViewModelBase, IARMMainToolboxViewModel
     {
+
+        private Action<eARMMainMenuCommand> _actionMenu;
+        private Func<eARMMainMenuCommand, bool> _canPredicate;
+
         public ARMMainToolboxViewModel(IARMMainToolboxView toolboxView)
             : base(toolboxView)
         {
         }
 
         public ObservableCollection<IARMMainToolboxCommand> Commands { get; private set; }
+
+        public void InitializeCommands()
+        {
+            Commands = new ObservableCollection<IARMMainToolboxCommand>();
+            Commands.Add(new ARMToolboxContractCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxInvoiceCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxPaymentCommand(_actionMenu, _canPredicate));
+
+            Commands.Add(new ARMToolboxSeparator(_actionMenu, _canPredicate));
+
+            Commands.Add(new ARMToolboxAddressCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxClassCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxSpecialityCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxStudentCommand(_actionMenu,_canPredicate));
+
+            Commands.Add(new ARMToolboxSeparator(_actionMenu, _canPredicate));
+
+            Commands.Add(new ARMToolboxCertificationCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxDebtCommand(_actionMenu, _canPredicate));
+
+            Commands.Add(new ARMToolboxSeparator(_actionMenu, _canPredicate));
+
+            Commands.Add(new ARMToolboxEvalutionCommand(_actionMenu, _canPredicate));
+            Commands.Add(new ARMToolboxCalculationStipendCommand(_actionMenu, _canPredicate));
+
+
+        }
+
+        public void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate)
+        {
+            _actionMenu = actionMenu;
+            _canPredicate = canPredicate;
+        }
     }//end ARMMainToolboxViewModel
 }//end namespace Main

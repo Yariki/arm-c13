@@ -1,16 +1,12 @@
-﻿using System.Data.Entity.Core.Metadata.Edm;
+﻿using System;
+using System.Data.Entity.Migrations;
+using ARM.Data.Layer;
 using ARM.Data.Models;
 
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<ARM.Data.Layer.CommonContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CommonContext>
     {
-
         private const string GuidDefault = "00000000-0000-0000-0000-000000000001";
 
         public Configuration()
@@ -20,11 +16,11 @@ namespace ARM.Data.CommonContextMigrations
             MigrationsDirectory = @"CommonContextMigrations";
         }
 
-        protected override void Seed(ARM.Data.Layer.CommonContext context)
+        protected override void Seed(CommonContext context)
         {
             //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data. E.g.
             //
             //    context.People.AddOrUpdate(
@@ -35,14 +31,15 @@ namespace ARM.Data.CommonContextMigrations
             //    );
             //
 
-            context.Universities.AddOrUpdate(u => u.Id, new University() { Id = Guid.Parse(GuidDefault), Name = "KPI", DateModified = DateTime.Now });
-            context.Countries.AddOrUpdate(c => c.Id, new Country()
+            context.Universities.AddOrUpdate(u => u.Id,
+                new University {Id = Guid.Parse(GuidDefault), Name = "KPI", DateModified = DateTime.Now});
+            context.Countries.AddOrUpdate(c => c.Id, new Country
             {
                 Id = Guid.Parse(GuidDefault),
                 Name = "Україна",
                 DateModified = DateTime.Now
             });
-            context.SettingParameterses.AddOrUpdate(s => s.Id, new SettingParameters()
+            context.SettingParameterses.AddOrUpdate(s => s.Id, new SettingParameters
             {
                 Id = Guid.Parse(GuidDefault),
                 DefUniversity = Guid.Parse(GuidDefault),
@@ -55,12 +52,12 @@ namespace ARM.Data.CommonContextMigrations
                 DefStipenHighMark = 5,
                 ContractPrefix = "КС",
                 InvoicePrefix = "РФС",
-                PaymentPrefix =  "ПС",
+                PaymentPrefix = "ПС",
                 ContractNumber = 0,
                 InvoiceNumber = 0,
                 PaymentNumber = 0
             });
-            context.Users.AddOrUpdate(u => u.Id, new User()
+            context.Users.AddOrUpdate(u => u.Id, new User
             {
                 Id = Guid.Parse(GuidDefault),
                 Name = "admin",
@@ -70,6 +67,14 @@ namespace ARM.Data.CommonContextMigrations
                 Language = eARMSystemLanguage.Ukrainian
             });
 
+            context.Rates.AddOrUpdate(u => u.Id,
+                new Rate {Id = Guid.NewGuid(), Name = "A", RateMin = 95, RateMax = 100, Mark = 5},
+                new Rate {Id = Guid.NewGuid(), Name = "B", RateMin = 85, RateMax = 94, Mark = 4},
+                new Rate {Id = Guid.NewGuid(), Name = "C", RateMin = 75, RateMax = 84, Mark = 4},
+                new Rate {Id = Guid.NewGuid(), Name = "D", RateMin = 70, RateMax = 74, Mark = 3},
+                new Rate {Id = Guid.NewGuid(), Name = "E", RateMin = 60, RateMax = 69, Mark = 3},
+                new Rate {Id = Guid.NewGuid(), Name = "F", RateMin = 0, RateMax = 60, Mark = 2}
+                );
         }
     }
 }

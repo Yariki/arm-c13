@@ -215,6 +215,12 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => EmployerId, value); }
         }
 
+        public eARMStudyType StudyType
+        {
+            get { return Get(() => StudyType); }
+            set { Set(() => StudyType, value); }
+        }
+
         public ObservableCollection<Visa> VisaList
         {
             get { return Get(() => VisaList); }
@@ -226,6 +232,12 @@ namespace ARM.Module.ViewModel.References
             get { return (Mode == ViewMode.Edit && IsForeign).ToVisibility(); }
         }
 
+        public decimal Stipend
+        {
+            get { return Get(() => Stipend); }
+            set { Set(() => Stipend, value); }
+        }
+
         #endregion
 
         #region [enum source]
@@ -233,19 +245,25 @@ namespace ARM.Module.ViewModel.References
         private Dictionary<SexType, string> _sourceSex;
         public Dictionary<SexType, string> SourceSex
         {
-            get { return _sourceSex ?? (_sourceSex = EnumHelper.Instance.GetLocalsForEnum<SexType>()); }
+            get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         private Dictionary<StudyMode, string> _sourceStudyMode;
         public Dictionary<StudyMode, string> SourceStudyMode
         {
-            get { return _sourceStudyMode ?? (_sourceStudyMode = EnumHelper.Instance.GetLocalsForEnum<StudyMode>()); }
+            get { return _sourceStudyMode ?? (_sourceStudyMode = ARMEnumHelper.Instance.GetLocalsForEnum<StudyMode>()); }
         }
 
         private Dictionary<StudentStatus, string> _sourceStudentStatus;
         public Dictionary<StudentStatus, string> SourceStudentStatus
         {
-            get { return _sourceStudentStatus ?? (_sourceStudentStatus = EnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
+            get { return _sourceStudentStatus ?? (_sourceStudentStatus = ARMEnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
+        }
+
+        private Dictionary<eARMStudyType, string> _sourceStudyType;
+        public Dictionary<eARMStudyType, string> SourceStudyType
+        {
+            get { return _sourceStudyType ?? (_sourceStudyType = ARMEnumHelper.Instance.GetLocalsForEnum<eARMStudyType>()); }
         }
 
         #endregion
@@ -507,8 +525,8 @@ namespace ARM.Module.ViewModel.References
                 {
                     var parent = viewModel.SelectedItem as Parent;
                     parent.StudentId = GetBusinessObject<Student>().Id;
-                    _unitOfWork.ParentReposotory.Update(parent);
-                    _unitOfWork.ParentReposotory.Save();
+                    _unitOfWork.ParentRepository.Update(parent);
+                    _unitOfWork.ParentRepository.Save();
                     ParentsList.Add(parent);
                     OnPropertyChanged(() => ParentsList);
                 }
@@ -526,8 +544,8 @@ namespace ARM.Module.ViewModel.References
             try
             {
                 SelectedParent.StudentId = null;
-                _unitOfWork.ParentReposotory.Update(SelectedParent);
-                _unitOfWork.ParentReposotory.Save();
+                _unitOfWork.ParentRepository.Update(SelectedParent);
+                _unitOfWork.ParentRepository.Save();
                 ParentsList.Remove(SelectedParent);
                 OnPropertyChanged(() => ParentsList);
             }

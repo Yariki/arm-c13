@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using ARM.Core.Enums;
 using ARM.Data.Models;
 using ARM.Infrastructure.Facade;
@@ -7,11 +6,9 @@ using ARM.Infrastructure.Region;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.Login.ViewModel;
 using ARM.Module.View.Login.Dialog;
-using Microsoft.Practices.Prism.Logging;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.UnityExtensions;
-using Microsoft.Practices.Prism.UnityExtensions.Properties;
 using Microsoft.Practices.Unity;
 
 namespace ARM.Client
@@ -34,7 +31,6 @@ namespace ARM.Client
             return catalog;
         }
 
-
         protected override void ConfigureModuleCatalog()
         {
             base.ConfigureModuleCatalog();
@@ -50,8 +46,8 @@ namespace ARM.Client
         private void Login()
         {
             var loginViewModel = Container.Resolve<IARMLoginViewModel>();
-            loginViewModel.SetBusinessObject(ViewMode.Add,eARMMetadata.Login,new Login());
-            var dlg = new ARMLoginDialogView(loginViewModel){Width = 250, Height = 200};
+            loginViewModel.SetBusinessObject(ViewMode.Add, eARMMetadata.Login, new Login());
+            var dlg = new ARMLoginDialogView(loginViewModel) { Width = 250, Height = 200 };
             var result = dlg.ShowDialog();
             if (result.HasValue && result.Value && loginViewModel.IsUserValid)
             {
@@ -60,6 +56,7 @@ namespace ARM.Client
                     case eARMSystemLanguage.English:
                         System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
                         break;
+
                     case eARMSystemLanguage.Ukrainian:
                         System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk");
                         break;

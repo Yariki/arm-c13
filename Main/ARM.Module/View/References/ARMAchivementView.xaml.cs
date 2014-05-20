@@ -17,10 +17,13 @@ using ARM.Module.Interfaces.References.View;
 namespace ARM.Module.View.References
 {
     /// <summary>
-    /// Interaction logic for ARMAchivementView.xaml
+    /// Представлення для досягнень.
     /// </summary>
     public partial class ARMAchivementView : UserControl,IARMAchivementView,IARMDialogView
     {
+        /// <summary>
+        /// Створити екземпляр ARMAchivementView.
+        /// </summary>
         public ARMAchivementView()
         {
             InitializeComponent();

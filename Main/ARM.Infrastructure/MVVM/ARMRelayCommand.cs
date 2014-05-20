@@ -4,27 +4,22 @@ using System.Windows.Input;
 
 namespace ARM.Infrastructure.MVVM
 {
-
     /// <summary>
-    /// A command whose sole purpose is to
-    /// relay its functionality to other
-    /// objects by invoking delegates. The
-    /// default return value for the CanExecute
-    /// method is 'true'.
+    ///  Класс команди, яка відповідає за реалізацію інтерфейсу ICommand.
     /// </summary>
     public class ARMRelayCommand : ICommand
     {
         #region Fields
 
-        private readonly Action<object> _execute;
         private readonly Predicate<object> _canExecute;
+        private readonly Action<object> _execute;
 
         #endregion Fields
 
         #region Constructors
 
         /// <summary>
-        /// Creates a new command that can always execute.
+        ///     Створює нову команду, яка завжди може виконувати.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         public ARMRelayCommand(Action<object> execute)
@@ -33,10 +28,10 @@ namespace ARM.Infrastructure.MVVM
         }
 
         /// <summary>
-        /// Creates a new command.
+        ///     Створює нову команду.
         /// </summary>
-        /// <param name="execute">The execution logic.</param>
-        /// <param name="canExecute">The execution status logic.</param>
+        /// <param name="execute">Логіка виконання.</param>
+        /// <param name="canExecute">Логіка статус виконання.</param>
         public ARMRelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
             if (execute == null)
@@ -50,18 +45,32 @@ namespace ARM.Infrastructure.MVVM
 
         #region ICommand Members
 
+        /// <summary>
+        /// Визначає метод, який визначає, чи може команда виконуватися в її поточному стані.
+        /// </summary>
+        /// <param name="parameter">Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей об'єкт може бути встановлений в нуль.</param>
+        /// <returns>
+        /// true якщо ця команда може бути виконана; в іншому випадку false.
+        /// </returns>
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
             return _canExecute == null ? true : _canExecute(parameter);
         }
 
+        /// <summary>
+        /// Відбувається, коли зміни відбуваються, які впливають, чи повинен команда виконати.
+        /// </summary>
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
+        /// <summary>
+        /// Визначає метод, який буде викликатися при виклику команди.
+        /// </summary>
+        /// <param name="parameter">Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей об'єкт може бути встановлений в нуль.</param>
         public void Execute(object parameter)
         {
             _execute(parameter);

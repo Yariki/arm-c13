@@ -4,12 +4,15 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+    /// <summary>
+    /// Модель корстувача
+    /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.User)]
     public class User : BaseNamedModel
     {
-        [ARMGrid(Order =  2)]
+        [ARMGrid(Order = 2)]
         [ARMRequired]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name = "Model_User_Email")]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_User_Email")]
         public string Email { get; set; }
 
         [ARMRequired]
@@ -23,6 +26,5 @@ namespace ARM.Data.Models
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_User_Language")]
         public eARMSystemLanguage Language { get; set; }
-
     }
 }

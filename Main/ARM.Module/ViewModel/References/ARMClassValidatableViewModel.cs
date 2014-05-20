@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using ARM.Core.Enums;
 using ARM.Data.Models;
 using ARM.Data.UnitOfWork.Implementation;
 using ARM.Infrastructure.Facade;
+using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.References.View;
 using ARM.Module.Interfaces.References.ViewModel;
@@ -55,7 +57,30 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => SessionId, value); }
         }
 
+        public eARMClassSummary Summary
+        {
+            get { return Get(() => Summary); }
+            set { Set(() => Summary, value); }
+        }
+
+        public bool CourseWorkPresent
+        {
+            get { return Get(() => CourseWorkPresent); }
+            set { Set(() => CourseWorkPresent, value); }
+        }
+
         #endregion [properties]
+
+        #region [enum source]
+
+        private Dictionary<eARMClassSummary, string> _sourceClassSummary;
+        public Dictionary<eARMClassSummary, string> SourceClassSummary
+        {
+            get { return _sourceClassSummary ?? (_sourceClassSummary = ARMEnumHelper.Instance.GetLocalsForEnum<eARMClassSummary>()); }
+        }
+
+        #endregion
+
 
         #region [override]
 
@@ -63,32 +88,25 @@ namespace ARM.Module.ViewModel.References
         {
             if (!ValidateBeforeSave())
                 return;
-            IUnitOfWork unitOfWork = null;
             try
             {
-                unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
+                UnitOfWork = UnityContainer.Resolve<IUnitOfWork>();
                 switch (Mode)
                 {
                     case ViewMode.Add:
-                        unitOfWork.ClassRepository.Insert(GetBusinessObject<Class>());
+                        UnitOfWork.ClassRepository.Insert(GetBusinessObject<Class>());
                         break;
 
                     case ViewMode.Edit:
-                        unitOfWork.ClassRepository.Update(GetBusinessObject<Class>());
+                        UnitOfWork.ClassRepository.Update(GetBusinessObject<Class>());
                         break;
                 }
-                unitOfWork.ClassRepository.Save();
+                UnitOfWork.ClassRepository.Save();
             }
             catch (Exception ex)
             {
                 ARMSystemFacade.Instance.Logger.LogError(ex.Message);
             }
-            finally
-            {
-                if (unitOfWork != null)
-                    unitOfWork.Dispose();
-            }
-
             base.SaveExecute(arg);
         }
 

@@ -16,7 +16,7 @@ using ARM.Module.Interfaces.Documents.View;
 namespace ARM.Module.View.Documents
 {
     /// <summary>
-    /// Interaction logic for ARMPaymentView.xaml
+    /// Преставлення дла роботи з платіжками.
     /// </summary>
     public partial class ARMPaymentView : UserControl,IARMPaymentView
     {

@@ -1,8 +1,7 @@
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Prefix : DbMigration
     {
         public override void Up()
@@ -14,7 +13,7 @@ namespace ARM.Data.CommonContextMigrations
             AddColumn("dbo.SettingParameters", "InvoiceNumber", c => c.Long(nullable: false));
             AddColumn("dbo.SettingParameters", "PaymentNumber", c => c.Long(nullable: false));
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.SettingParameters", "PaymentNumber");

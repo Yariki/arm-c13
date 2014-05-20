@@ -3,8 +3,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Class
 {
-    public class ClassContext : BaseContext<Models.Class>,IClassContext
+    /// <summary>
+    /// Контекст бази даних для класів
+    /// </summary>
+    public class ClassContext : BaseContext<Models.Class>, IClassContext
     {
-         
     }
 }

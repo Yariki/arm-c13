@@ -4,7 +4,7 @@ using ARM.Infrastructure.Interfaces.Grid;
 namespace ARM.Module.View.Grid
 {
     /// <summary>
-    ///     Interaction logic for ARMGridView.xaml
+    ///    Преставлення дла роботи з сітками даних.
     /// </summary>
     public partial class ARMGridView : UserControl, IARMGridView
     {

@@ -4,9 +4,13 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Visa
 {
-    public class VisaBll : BaseBll<Models.Visa>,IVisaBll
+    /// <summary>
+    /// Реалізація бізнес логіки для віз
+    /// </summary>
+    public class VisaBll : BaseBll<Models.Visa>, IVisaBll
     {
-        public VisaBll(IDal<Models.Visa> dal) : base(dal)
+        public VisaBll(IDal<Models.Visa> dal)
+            : base(dal)
         {
         }
     }

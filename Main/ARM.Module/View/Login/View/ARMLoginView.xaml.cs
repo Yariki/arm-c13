@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Login.View;
 namespace ARM.Module.View.Login.View
 {
     /// <summary>
-    /// Interaction logic for ARMLoginView.xaml
+    /// Преставлення дла роботи з логіном.
     /// </summary>
     public partial class ARMLoginView : UserControl, IARMLoginView
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ARMLoginView"/> class.
+        /// </summary>
         public ARMLoginView()
         {
             InitializeComponent();

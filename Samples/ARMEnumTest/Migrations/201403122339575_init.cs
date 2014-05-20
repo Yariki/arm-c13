@@ -1,8 +1,7 @@
 namespace ARMEnumTest.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class init : DbMigration
     {
         public override void Up()
@@ -17,9 +16,8 @@ namespace ARMEnumTest.Migrations
                         Type = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.InvoiceID);
-            
         }
-        
+
         public override void Down()
         {
             DropTable("dbo.Invoices");

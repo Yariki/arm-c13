@@ -1,8 +1,7 @@
 namespace ARMConsoleTest.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _base : DbMigration
     {
         public override void Up()
@@ -14,7 +13,7 @@ namespace ARMConsoleTest.Migrations
             AddColumn("dbo.Posts", "Created", c => c.DateTime(nullable: false));
             AddColumn("dbo.Posts", "Edited", c => c.DateTime(nullable: false));
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.Posts", "Edited");

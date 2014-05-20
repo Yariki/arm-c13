@@ -4,7 +4,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Contract
 {
-    public class ContractContext : BaseContext<Models.Contract>,IContractContext
+    /// <summary>
+    /// Контекст бази даних для контрактів
+    /// </summary>
+    public class ContractContext : BaseContext<Models.Contract>, IContractContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -4,7 +4,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Language
 {
-    public class LanguageContext : BaseContext<Models.Language>,ILanguageContext
+    /// <summary>
+    /// Контекст бази даних для мов
+    /// </summary>
+    public class LanguageContext : BaseContext<Models.Language>, ILanguageContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -11,6 +11,8 @@ using ARM.Core.MVVM;
 using ARM.Module.Commands.Menu.Documents;
 using ARM.Module.Commands.Menu.File;
 using ARM.Module.Commands.Menu.Reference;
+using ARM.Module.Commands.Menu.Report;
+using ARM.Module.Commands.Menu.Services;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.View;
@@ -42,7 +44,13 @@ namespace ARM.Module.ViewModel.Main
         public void InitializeCommands()
         {
             InitFile();
+            InitDocument();
+            InitReference();
+            InitService();
+            InitReport();
         }
+
+
 
         public void SetActions(Action<eARMMainMenuCommand> actionMenu, Func<eARMMainMenuCommand, bool> canPredicate)
         {
@@ -52,10 +60,33 @@ namespace ARM.Module.ViewModel.Main
 
         #region [private]
 
+
+        private void InitReport()
+        {
+            Reports = new ObservableCollection<IARMMenuCommand>();
+            Reports.Add(new ARMMenuContractGroupCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuCertificationCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuSessionMarksCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuDebtCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuForeignStudentCommand(_actionMenu, _canFunc));
+        }
+
         private void InitFile()
         {
             Files = new ObservableCollection<IARMMenuCommand>();
             Files.Add(new ARMMenuExitCommand(_actionMenu, _canFunc));
+        }
+
+        private void InitDocument()
+        {
+            Documents = new ObservableCollection<IARMMenuCommand>();
+            Documents.Add(new ARMMenuContractCommand(_actionMenu, _canFunc));
+            Documents.Add(new ARMMenuInvoiceCommand(_actionMenu, _canFunc));
+            Documents.Add(new ARMMenuPaymentCommand(_actionMenu, _canFunc));
+        }
+
+        private void InitReference()
+        {
 
             References = new ObservableCollection<IARMMenuCommand>();
             References.Add(new ARMMenuUniversityCommand(_actionMenu, _canFunc));
@@ -74,10 +105,13 @@ namespace ARM.Module.ViewModel.Main
             References.Add(new ARMMenuEmployerCommand(_actionMenu, _canFunc));
             References.Add(new ARMMenuSettingsCommand(_actionMenu, _canFunc));
 
-            Documents = new ObservableCollection<IARMMenuCommand>();
-            Documents.Add(new ARMMenuContractCommand(_actionMenu,_canFunc));
-            Documents.Add(new ARMMenuInvoiceCommand(_actionMenu,_canFunc));
-            Documents.Add(new ARMMenuPaymentCommand(_actionMenu, _canFunc));
+        }
+
+        private void InitService()
+        {
+            Services = new ObservableCollection<IARMMenuCommand>();
+            Services.Add(new ARMMenuEvaluationCommand(_actionMenu, _canFunc));
+            Services.Add(new ARMMenuCalculationStipendCommand(_actionMenu, _canFunc));
         }
 
         #endregion [private]

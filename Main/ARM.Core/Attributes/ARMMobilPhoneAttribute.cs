@@ -7,6 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
+    /// <summary>
+    /// атрибут, що вказую на валідацію властивості як номеру мобільного телефону, щодо встановленого шаблону
+    /// </summary>
     public class ARMMobilPhoneAttribute : ARMStringAttribute
     {
         public ARMMobilPhoneAttribute()

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Output\ARM.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\ROutput\ARM.Core.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
@@ -106,6 +108,8 @@
     <Compile Include="Interfaces\IARMGridViewModel.cs" />
     <Compile Include="Interfaces\IARMLoggerFacade.cs" />
     <Compile Include="Interfaces\IARMModelPropertyInfo.cs" />
+    <Compile Include="Interfaces\IARMReportViewModel.cs" />
+    <Compile Include="Interfaces\IARMServiceViewModel.cs" />
     <Compile Include="Interfaces\IARMToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMToolboxView.cs" />
     <Compile Include="Interfaces\IARMToolboxViewModel.cs" />
@@ -149,7 +153,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ARM.Resource\ARM.Resource.csproj">
+      <Project>{A4B7F6B2-3D63-44B2-9F54-627EF12BEAA6}</Project>
+      <Name>ARM.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

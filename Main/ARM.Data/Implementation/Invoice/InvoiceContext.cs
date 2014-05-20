@@ -3,8 +3,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Invoice
 {
-    public class InvoiceContext : BaseContext<Models.Invoice>,IInvoiceContext
+    /// <summary>
+    /// Контекст бази даних для рахунків
+    /// </summary>
+    public class InvoiceContext : BaseContext<Models.Invoice>, IInvoiceContext
     {
-         
     }
 }

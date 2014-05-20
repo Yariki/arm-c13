@@ -4,9 +4,13 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Visa
 {
-    public class VisaDal : BaseDal<Models.Visa>,IVisaDal
+    /// <summary>
+    /// Реалізація доступу до даних для віз
+    /// </summary>
+    public class VisaDal : BaseDal<Models.Visa>, IVisaDal
     {
-        public VisaDal(IContext<Models.Visa> context) : base(context)
+        public VisaDal(IContext<Models.Visa> context)
+            : base(context)
         {
         }
     }

@@ -5,6 +5,9 @@ using ARM.Module.Interfaces.References.ViewModel;
 
 namespace ARM.Module.Interfaces.Login.View
 {
+    /// <summary>
+    /// Інтертфейс представлення логіна.
+    /// </summary>
     public interface IARMLoginView : IARMDialogView
     {   
     }

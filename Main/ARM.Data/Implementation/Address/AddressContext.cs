@@ -3,7 +3,10 @@ using ARM.Data.Layer.Context;
 
 namespace ARM.Data.Implementation.Address
 {
-    public class AddressContext : BaseContext<Models.Address>,IAddressContext
-    {    
+    /// <summary>
+    /// Контекст бази даних для адрес
+    /// </summary>
+    public class AddressContext : BaseContext<Models.Address>, IAddressContext
+    {
     }
 }

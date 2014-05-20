@@ -63,7 +63,7 @@ namespace ARM.Module.ViewModel.References
             get
             {
                 return _sourceAchivemetnSource ??
-                       (_sourceAchivemetnSource = EnumHelper.Instance.GetLocalsForEnum<AchivementType>());
+                       (_sourceAchivemetnSource = ARMEnumHelper.Instance.GetLocalsForEnum<AchivementType>());
             }
         }
 

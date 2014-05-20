@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="ARM.Module.View.Reports.ARMForeignStudentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:grid="clr-namespace:Xceed.Wpf.DataGrid;assembly=Xceed.Wpf.DataGrid"
+             xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
+             xmlns:attach="clr-namespace:ARM.Module.Helpers.AttachedProperty"
+             xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
+             xmlns:Control="clr-namespace:ARM.Infrastructure.Controls;assembly=ARM.Infrastructure"
+             xmlns:selector="clr-namespace:ARM.Module.Helpers.Selectors"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="pack://application:,,,/ARM.Infrastructure;component/Styles/CommomStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <Style TargetType="{x:Type grid:GroupByControl}">
+                <Setter Property="AllowGroupingModification" Value="False" />
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Resources>
+            <grid:DataGridCollectionViewSource 
+                x:Key="DataSourceCollectionViewSource"
+                Source="{Binding DataSource, UpdateSourceTrigger=PropertyChanged}">
+                <grid:DataGridCollectionViewSource.GroupDescriptions>
+                    <PropertyGroupDescription PropertyName="Group" />
+                </grid:DataGridCollectionViewSource.GroupDescriptions>
+            </grid:DataGridCollectionViewSource>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <!--1-->
+            <ColumnDefinition Width="*" />
+            <!--2-->
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <!--4-->
+            <ColumnDefinition Width="*" />
+            <!--5-->
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="0">
+            <Button Content="{x:Static prop:Resources.UI_Calculation}" Command="{Binding RunCommand}" Margin="5" Width="100"></Button>
+        </StackPanel>
+
+        <grid:DataGridControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1"
+           ItemsSource="{Binding Source={StaticResource DataSourceCollectionViewSource}}"
+                              AutoCreateColumns="False"
+                              >
+            <grid:DataGridControl.Columns>
+                <grid:Column FieldName="LastName" ReadOnly="True"
+                             Title="{x:Static prop:Resources.Model_Person_LastName}" 
+                             IsMainColumn="True"
+                             Width="250"></grid:Column>
+                <grid:Column FieldName="FirstName" ReadOnly="True"
+                             Title="{x:Static prop:Resources.Model_Person_FirstName}"
+                             Width="150"></grid:Column>
+                <grid:Column FieldName="Sex"  ReadOnly="True"
+                             Title="{x:Static prop:Resources.Model_Person_Sex}" 
+                             Width="150"></grid:Column>
+                <grid:Column FieldName="DateFirstEnter"  ReadOnly="True"
+                             Title="{x:Static prop:Resources.Model_Student_DateEnter}"
+                             Width="150"
+                             ></grid:Column>
+                <grid:Column FieldName="Address.Display" ReadOnly="True"
+                             Title="{x:Static prop:Resources.Model_Address_Country}"
+                             Width="250"
+                             ></grid:Column>
+            </grid:DataGridControl.Columns>
+
+        </grid:DataGridControl>
+
+    </Grid>
+</UserControl>

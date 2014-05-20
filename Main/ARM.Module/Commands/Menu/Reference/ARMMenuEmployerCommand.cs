@@ -3,9 +3,17 @@ using ARM.Module.Enums;
 
 namespace ARM.Module.Commands.Menu.Reference
 {
+    /// <summary>
+    /// Команда відкриття журналу роботодавців.
+    /// </summary>
     public class ARMMenuEmployerCommand : ARMBaseMainMenuCommand
     {
-        public ARMMenuEmployerCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate) 
+        /// <summary>
+        /// Створення екземпляру.
+        /// </summary>
+        /// <param name="action">Дія.</param>
+        /// <param name="canPredicate">Предикат.</param>
+        public ARMMenuEmployerCommand(Action<eARMMainMenuCommand> action, Func<eARMMainMenuCommand, bool> canPredicate)
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceEmployer;

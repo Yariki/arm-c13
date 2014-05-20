@@ -6,12 +6,18 @@ using Microsoft.Practices.ObjectBuilder2;
 
 namespace ARM.Data.Implementation.Student
 {
+    /// <summary>
+    /// Контекст бази даних для студентів
+    /// </summary>
     public class StudentContext : BaseContext<Models.Student>, IStudentContext
     {
         public DbSet<Models.Language> Languages { get; set; }
+
         public DbSet<Models.Hobby> Hobbies { get; set; }
+
         public DbSet<Models.Achivement> Achivements { get; set; }
-        public DbSet<Models.Visa> Visas { get; set; } 
+
+        public DbSet<Models.Visa> Visas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,8 +29,7 @@ namespace ARM.Data.Implementation.Student
                 .HasRequired(s => s.LivingAddress)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-            
-            
+
             modelBuilder.Entity<Models.Student>().Map(m =>
             {
                 m.MapInheritedProperties();
@@ -43,7 +48,6 @@ namespace ARM.Data.Implementation.Student
             base.OnModelCreating(modelBuilder);
             //student
         }
-
 
         protected override void UpdateChilds(Models.Student attached, Models.Student current)
         {

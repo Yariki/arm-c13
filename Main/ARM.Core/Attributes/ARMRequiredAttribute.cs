@@ -7,6 +7,9 @@
 
 namespace ARM.Core.Attributes
 {
+    /// <summary>
+    /// атрибут, який вказує, що дана властивість є обов"язковою до заповнення
+    /// </summary>
     public class ARMRequiredAttribute : ARMValidationAttribute
     {
         public ARMRequiredAttribute()

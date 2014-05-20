@@ -1,8 +1,7 @@
 namespace ARM.Data.CommonContextMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class VisaAdd : DbMigration
     {
         public override void Up()
@@ -26,9 +25,8 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Student", t => t.StudentId)
                 .Index(t => t.StudentId);
-            
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Visa", "StudentId", "dbo.Student");

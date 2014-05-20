@@ -1,35 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using ARM.Data.Interfaces.Achivement;
-using ARM.Data.Interfaces.Address;
-using ARM.Data.Interfaces.Class;
-using ARM.Data.Interfaces.Contract;
-using ARM.Data.Interfaces.Country;
-using ARM.Data.Interfaces.Faculty;
-using ARM.Data.Interfaces.Group;
-using ARM.Data.Interfaces.Hobby;
-using ARM.Data.Interfaces.Invoice;
-using ARM.Data.Interfaces.Language;
-using ARM.Data.Interfaces.Mark;
-using ARM.Data.Interfaces.Parent;
-using ARM.Data.Interfaces.Payment;
-using ARM.Data.Interfaces.Session;
-using ARM.Data.Interfaces.Settings;
-using ARM.Data.Interfaces.Specialty;
-using ARM.Data.Interfaces.Staff;
-using ARM.Data.Interfaces.Student;
-using ARM.Data.Interfaces.University;
-using ARM.Data.Layer.Context;
-using ARM.Data.Layer.Interfaces;
 using ARM.Data.Models;
 
 namespace ARM.Data.Layer
 {
-    // this class is used only for migrations at all.
+    /// <summary>
+    /// Класс призначений тільки для міграцій.
+    /// this class is used only for migrations at all.
+    /// </summary>
     public class CommonContext : DbContext
     {
-
         public CommonContext()
             : base("ARMDatabase")
         {
@@ -37,53 +18,76 @@ namespace ARM.Data.Layer
         }
 
         #region [dbsets]
-        
+
         public DbSet<Achivement> Achivements { get; set; }
+
         public DbSet<Address> Addresses { get; set; }
+
         public DbSet<Class> Classes { get; set; }
+
         public DbSet<Contract> Contracts { get; set; }
+
         public DbSet<Country> Countries { get; set; }
+
         public DbSet<Faculty> Faculties { get; set; }
+
         public DbSet<Group> Groups { get; set; }
+
         public DbSet<Hobby> Hobbies { get; set; }
+
         public DbSet<Invoice> Invoices { get; set; }
+
         public DbSet<Language> Languages { get; set; }
+
         public DbSet<Mark> Marks { get; set; }
+
         public DbSet<Parent> Parents { get; set; }
+
         public DbSet<Payment> Payments { get; set; }
+
         public DbSet<Session> Sessions { get; set; }
+
         public DbSet<SettingParameters> SettingParameterses { get; set; }
+
         public DbSet<Specialty> Specialties { get; set; }
+
         public DbSet<Staff> Staves { get; set; }
+
         public DbSet<Student> Students { get; set; }
+
         public DbSet<University> Universities { get; set; }
+
         public DbSet<User> Users { get; set; }
+
         public DbSet<Employer> Employers { get; set; }
+
         public DbSet<Visa> Visas { get; set; }
 
-        #endregion
+        public DbSet<Rate> Rates { get; set; }
+
+        #endregion [dbsets]
 
         #region [model builder]
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
             //contract
             modelBuilder.Entity<Contract>()
                 .HasRequired(c => c.Student)
-                .WithMany(c =>c.Contracts)
+                .WithMany(c => c.Contracts)
                 .HasForeignKey(c => c.StudentId)
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<Contract>()
-                .HasRequired(c =>c.Customer)
-                .WithMany(c =>c.Contracts)
-                .HasForeignKey(c =>c.ParentId)
+                .HasRequired(c => c.Customer)
+                .WithMany(c => c.Contracts)
+                .HasForeignKey(c => c.ParentId)
                 .WillCascadeOnDelete(false);
             // marks
             modelBuilder.Entity<Mark>()
                 .HasRequired(c => c.Student)
-                .WithMany(c =>c.Marks)
+                .WithMany(c => c.Marks)
                 .HasForeignKey(c => c.StudentId)
                 .WillCascadeOnDelete(false);
             //student
@@ -123,11 +127,11 @@ namespace ARM.Data.Layer
                     m.MapRightKey("StudentId");
                     m.ToTable("StudentLanguages");
                 });
-            //hobbies 
+            //hobbies
             modelBuilder.Entity<Hobby>()
                 .HasRequired<Student>(h => h.Student)
                 .WithMany(s => s.Hobbies)
-                .HasForeignKey(h =>h.StudentId)
+                .HasForeignKey(h => h.StudentId)
                 .WillCascadeOnDelete(true);
             // achivement
             modelBuilder.Entity<Achivement>()
@@ -138,20 +142,17 @@ namespace ARM.Data.Layer
             //parent
             modelBuilder.Entity<Parent>()
                 .HasOptional<Student>(p => p.Child)
-                .WithMany(s =>s.Parents)
+                .WithMany(s => s.Parents)
                 .HasForeignKey(p => p.StudentId)
                 .WillCascadeOnDelete(false);
-            //visas 
+            //visas
             modelBuilder.Entity<Visa>()
                 .HasRequired<Student>(h => h.Student)
                 .WithMany(s => s.Visas)
                 .HasForeignKey(h => h.StudentId)
                 .WillCascadeOnDelete(true);
-
         }
 
-        #endregion
-
-
+        #endregion [model builder]
     }
 }

@@ -22,6 +22,9 @@ using ARM.Module.Enums;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.Documents.ViewModel;
 using ARM.Module.Interfaces.References.ViewModel;
+using ARM.Module.Interfaces.Reports.ViewModel;
+using ARM.Module.Interfaces.Services.CalculationStipend.ViewModel;
+using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.View;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
@@ -55,8 +58,10 @@ namespace ARM.Module.ViewModel.Main
             Menu = _unityContainer.Resolve<IARMMainMenuViewModel>();
             Toolbox = _unityContainer.Resolve<IARMMainToolboxViewModel>();
             StatusBar = _unityContainer.Resolve<IARMMainStatusBarViewModel>();
+            Toolbox.SetActions(OnMenuExecute,OnMenuCanExecute);
             Menu.SetActions(OnMenuExecute, OnMenuCanExecute);
             Menu.InitializeCommands();
+            Toolbox.InitializeCommands();
             InitEventAggregator();
             ClosingCommand = new DelegateCommand<object>(OnClosingDocument, o => true);
         }
@@ -203,10 +208,32 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReferenceEmployer:
                     workspaceViewModel = _unityContainer.Resolve<IARMGridViewModel<Employer>>();
                     break;
+                case eARMMainMenuCommand.ServiceEvaluation:
+                    workspaceViewModel = _unityContainer.Resolve<IARMEvaluationViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportContractGroup:
+                    workspaceViewModel = _unityContainer.Resolve<IARMContractGroupViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportCertification:
+                    workspaceViewModel = _unityContainer.Resolve<IARMCertificationViewModel>();
+                    break;
+                case eARMMainMenuCommand.ServiceCalculationStipend:
+                    workspaceViewModel = _unityContainer.Resolve<IARMCalculationStipendViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportSessionMarks:
+                    workspaceViewModel = _unityContainer.Resolve<IARMSessionMarksViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportDebt:
+                    workspaceViewModel = _unityContainer.Resolve<IARMDebtViewModel>();
+                    break;
+                case eARMMainMenuCommand.ReportForeignStudent:
+                    workspaceViewModel = _unityContainer.Resolve<IARMForeignStudentViewModel>();
+                    break;
 
             }
             if (workspaceViewModel != null)
             {
+                workspaceViewModel.Initialize();
                 Items.Add(workspaceViewModel);
                 CurrentWorkspace = workspaceViewModel;
             }
