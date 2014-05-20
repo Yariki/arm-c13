@@ -83,61 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201404261649255_Init.cs" />
-    <Compile Include="CommonContextMigrations\201404261649255_Init.Designer.cs">
-      <DependentUpon>201404261649255_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.cs" />
-    <Compile Include="CommonContextMigrations\201404271235370_NumberForInvoice.Designer.cs">
-      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.cs" />
-    <Compile Include="CommonContextMigrations\201404271348243_NumberForPayment.Designer.cs">
-      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404272152555_Prefix.cs" />
-    <Compile Include="CommonContextMigrations\201404272152555_Prefix.Designer.cs">
-      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404282201160_EmployersAdd.cs" />
-    <Compile Include="CommonContextMigrations\201404282201160_EmployersAdd.Designer.cs">
-      <DependentUpon>201404282201160_EmployersAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201404282229054_VisaAdd.cs" />
-    <Compile Include="CommonContextMigrations\201404282229054_VisaAdd.Designer.cs">
-      <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405041254105_ClassAddFields.cs" />
-    <Compile Include="CommonContextMigrations\201405041254105_ClassAddFields.Designer.cs">
-      <DependentUpon>201405041254105_ClassAddFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405042113469_NamedMark.cs" />
-    <Compile Include="CommonContextMigrations\201405042113469_NamedMark.Designer.cs">
-      <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405062315461_MarkAddCertification.cs" />
-    <Compile Include="CommonContextMigrations\201405062315461_MarkAddCertification.Designer.cs">
-      <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405082232584_AddRate.cs" />
-    <Compile Include="CommonContextMigrations\201405082232584_AddRate.Designer.cs">
-      <DependentUpon>201405082232584_AddRate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405082245518_AddRate2.cs" />
-    <Compile Include="CommonContextMigrations\201405082245518_AddRate2.Designer.cs">
-      <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405091330029_AddStudyType.cs" />
-    <Compile Include="CommonContextMigrations\201405091330029_AddStudyType.Designer.cs">
-      <DependentUpon>201405091330029_AddStudyType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405091349050_ChangeStudyType.cs" />
-    <Compile Include="CommonContextMigrations\201405091349050_ChangeStudyType.Designer.cs">
-      <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommonContextMigrations\201405132213063_StudentStipend.cs" />
-    <Compile Include="CommonContextMigrations\201405132213063_StudentStipend.Designer.cs">
-      <DependentUpon>201405132213063_StudentStipend.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201405201711094_Init.cs" />
+    <Compile Include="CommonContextMigrations\201405201711094_Init.Designer.cs">
+      <DependentUpon>201405201711094_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -349,47 +297,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201404261649255_Init.resx">
-      <DependentUpon>201404261649255_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404271235370_NumberForInvoice.resx">
-      <DependentUpon>201404271235370_NumberForInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404271348243_NumberForPayment.resx">
-      <DependentUpon>201404271348243_NumberForPayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404272152555_Prefix.resx">
-      <DependentUpon>201404272152555_Prefix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404282201160_EmployersAdd.resx">
-      <DependentUpon>201404282201160_EmployersAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201404282229054_VisaAdd.resx">
-      <DependentUpon>201404282229054_VisaAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405041254105_ClassAddFields.resx">
-      <DependentUpon>201405041254105_ClassAddFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405042113469_NamedMark.resx">
-      <DependentUpon>201405042113469_NamedMark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405062315461_MarkAddCertification.resx">
-      <DependentUpon>201405062315461_MarkAddCertification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405082232584_AddRate.resx">
-      <DependentUpon>201405082232584_AddRate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405082245518_AddRate2.resx">
-      <DependentUpon>201405082245518_AddRate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405091330029_AddStudyType.resx">
-      <DependentUpon>201405091330029_AddStudyType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405091349050_ChangeStudyType.resx">
-      <DependentUpon>201405091349050_ChangeStudyType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonContextMigrations\201405132213063_StudentStipend.resx">
-      <DependentUpon>201405132213063_StudentStipend.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201405201711094_Init.resx">
+      <DependentUpon>201405201711094_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
