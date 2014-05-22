@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Services.Mark.View;
 namespace ARM.Module.View.Services.Mark
 {
     /// <summary>
-    /// Interaction logic for ARMMarkView.xaml
+    /// Форма для робота з оцінками.
     /// </summary>
     public partial class ARMMarkView : UserControl,IARMMarkView
     {
+        /// <summary>
+        /// Створити екземпляр ARMMarkView.
+        /// </summary>
         public ARMMarkView()
         {
             InitializeComponent();

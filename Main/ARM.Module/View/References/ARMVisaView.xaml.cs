@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.References.View;
 namespace ARM.Module.View.References
 {
     /// <summary>
-    /// Interaction logic for ARMVisaView.xaml
+    /// Представлення для роботи з візами.
     /// </summary>
     public partial class ARMVisaView : UserControl, IARMVisaView
     {
+        /// <summary>
+        /// Створити екземпляр ARMVisaView.
+        /// </summary>
         public ARMVisaView()
         {
             InitializeComponent();

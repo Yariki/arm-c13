@@ -4,10 +4,13 @@ using System.Windows.Controls;
 namespace ARM.Module.View.Services.CalculaltionStipend
 {
     /// <summary>
-    /// Interaction logic for ARMCalculationStipendView.xaml
+    /// Представлення для роботи з сервісом розрахунку стипендій.
     /// </summary>
     public partial class ARMCalculationStipendView : UserControl, IARMCalculationStipendView
     {
+        /// <summary>
+        /// Створити екземпляр ARMCalculationStipendView.
+        /// </summary>
         public ARMCalculationStipendView()
         {
             InitializeComponent();

@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.References.View;
 namespace ARM.Module.View.References
 {
     /// <summary>
-    /// Interaction logic for ARMHobbyView.xaml
+    /// Представлення для роботи з хобі
     /// </summary>
     public partial class ARMHobbyView : UserControl, IARMHobbyView
     {
+        /// <summary>
+        /// Створити екземпляр ARMHobbyView.
+        /// </summary>
         public ARMHobbyView()
         {
             InitializeComponent();

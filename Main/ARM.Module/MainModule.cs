@@ -162,6 +162,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMForeignStudentView, ARMForeignStudentView>();
             UnityContainer.RegisterType<IARMForeignStudentViewModel, ARMForeignStudentViewModel>();
 
+            UnityContainer.RegisterType<IARMAcademicArrearsView, ARMAcademicArrearsView>();
+            UnityContainer.RegisterType<IARMAcademicArrearsViewModel, ARMAcademicArrearsViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

@@ -69,6 +69,7 @@ namespace ARM.Module.ViewModel.Main
             Reports.Add(new ARMMenuSessionMarksCommand(_actionMenu, _canFunc));
             Reports.Add(new ARMMenuDebtCommand(_actionMenu, _canFunc));
             Reports.Add(new ARMMenuForeignStudentCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuAcademicArrearsCommand(_actionMenu, _canFunc));
         }
 
         private void InitFile()

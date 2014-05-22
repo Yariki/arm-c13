@@ -194,7 +194,7 @@ namespace ARM.Infrastructure.MVVM
         /// <summary>
         /// Встановлює локаль для потоку, в якому виконується екпорт звіту.
         /// </summary>
-        private void SetLocal()
+        protected void SetLocal()
         {
             switch (ARMSystemFacade.Instance.CurrentUser.Language)
             {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Models;
 
 namespace ARM.Module.ViewModel.Reports.Data
@@ -11,7 +12,7 @@ namespace ARM.Module.ViewModel.Reports.Data
 
         public object this[string key]
         {
-            get { return _dictvalues.ContainsKey(key) ? _dictvalues[key] : null; }
+            get { return _dictvalues.ContainsKey(key) ? (object) _dictvalues[key] : string.Empty; }
             set
             {
                 if (!_dictvalues.ContainsKey(key))
@@ -21,5 +22,19 @@ namespace ARM.Module.ViewModel.Reports.Data
                 _dictvalues[key].Add(value as T);
             }
         }
+
+        public int Count
+        {
+            get { return _dictvalues.Count; } 
+        }
+
+        public KeyValuePair<string, List<T>> GetKeyValue(int index)
+        {
+            if (index >= _dictvalues.Count)
+                return default(KeyValuePair<string, List<T>>);
+            return _dictvalues.ElementAt(index);
+        }
+ 
+
     }
 }

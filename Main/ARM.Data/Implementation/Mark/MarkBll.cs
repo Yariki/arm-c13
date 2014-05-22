@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Interfaces.Mark;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -19,6 +22,13 @@ namespace ARM.Data.Implementation.Mark
         public MarkBll(IDal<Models.Mark> dal)
             : base(dal)
         {
+        }
+
+        public IQueryable<Models.Mark> GetMarkAccordingStudentsAndClasses(IEnumerable<Guid> listStudents, IEnumerable<Guid> listClasses)
+        {
+            return
+                Dal.GetAsQueryable()
+                    .Where(m => listStudents.Contains(m.StudentId.Value) && listClasses.Contains(m.ClassId.Value));
         }
     } //end MarkBll
 } //end namespace Mark

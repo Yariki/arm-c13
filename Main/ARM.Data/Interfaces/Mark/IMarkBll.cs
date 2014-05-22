@@ -5,6 +5,10 @@
 //  Created on:      29-Mar-2014 5:16:42 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Mark
@@ -14,5 +18,7 @@ namespace ARM.Data.Interfaces.Mark
     /// </summary>
     public interface IMarkBll : IBll<Models.Mark>
     {
+        IQueryable<Models.Mark> GetMarkAccordingStudentsAndClasses(IEnumerable<Guid> listStudents,
+            IEnumerable<Guid> listClasses);
     } //end IMarkBll
 } //end namespace Mark

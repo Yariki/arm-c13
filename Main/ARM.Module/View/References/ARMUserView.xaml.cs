@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.References.View;
 namespace ARM.Module.View.References
 {
     /// <summary>
-    /// Interaction logic for ARMUserView.xaml
+    /// Представлення для роботи з користувачами.
     /// </summary>
     public partial class ARMUserView : UserControl,IARMUserView
     {
+        /// <summary>
+        /// Створити екземпляр ARMUserView.
+        /// </summary>
         public ARMUserView()
         {
             InitializeComponent();
