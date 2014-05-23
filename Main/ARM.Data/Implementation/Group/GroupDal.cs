@@ -5,6 +5,9 @@
 //  Created on:      29-Mar-2014 5:16:40 PM
 ///////////////////////////////////////////////////////////
 
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using ARM.Data.Interfaces.Group;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -20,6 +23,11 @@ namespace ARM.Data.Implementation.Group
         public GroupDal(IContext<Models.Group> context)
             : base(context)
         {
+        }
+
+        public override IEnumerable<Models.Group> GetAllWithRelated()
+        {
+            return GetAsQueryable().Include(g => g.Curator).Include(g => g.Faculty).AsEnumerable();
         }
     } //end GroupDal
 } //end namespace Group

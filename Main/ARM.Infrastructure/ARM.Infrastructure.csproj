@@ -113,6 +113,9 @@
     <Compile Include="Controls\ARMLookupWindow\ARMLookupWindow.xaml.cs">
       <DependentUpon>ARMLookupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Filter\ARMApplyCritetiaEventArgs.cs" />
+    <Compile Include="Controls\Filter\ARMFilterCell.cs" />
+    <Compile Include="Controls\Filter\ARMFilterRow.cs" />
     <Compile Include="Controls\Interfaces\IARMDialogViewModel.cs" />
     <Compile Include="Controls\Interfaces\IARMLookupViewModel.cs" />
     <Compile Include="Controls\Interfaces\View\IARMDialogView.cs" />

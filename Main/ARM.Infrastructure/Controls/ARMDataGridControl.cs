@@ -10,7 +10,7 @@ using Xceed.Wpf.DataGrid;
 namespace ARM.Infrastructure.Controls
 {
     /// <summary>
-    /// Елемент управління дл відображення певної моделі даних в сітці.
+    /// Елемент управління для відображення певної моделі даних в сітці.
     /// </summary>
     public class ARMDataGridControl : DataGridControl
     {
@@ -59,6 +59,7 @@ namespace ARM.Infrastructure.Controls
                 column.Width = 150;
                 this.Columns.Add(column);
             }
+
         }
 
         #endregion [type of entity]
