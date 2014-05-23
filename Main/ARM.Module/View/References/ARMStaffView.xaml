@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
+             xmlns:required="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -39,9 +40,9 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_FirstName}" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_FirstName}" required:ARMRequiredLabel.RequiredLabel="Required"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_MiddleName}" />
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_LastName}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_LastName}" required:ARMRequiredLabel.RequiredLabel="Required"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_Email}" />
 
         <TextBox Text="{Binding FirstName,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"

@@ -6,6 +6,8 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
+             xmlns:armRequiredLabel="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
+
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -40,9 +42,9 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_FirstName}" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_FirstName}" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_MiddleName}" />
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_LastName}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_LastName}" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Static prop:Resources.Model_Person_Email}" />
 
         <TextBox Text="{Binding FirstName,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"
@@ -58,7 +60,7 @@
         <TextBlock Grid.Row="1" Grid.Column="4" Text="{x:Static prop:Resources.Model_Person_PhoneHome}" />
         <TextBlock Grid.Row="2" Grid.Column="4" Text="{x:Static prop:Resources.Model_Person_Sex}" />
         <TextBlock Grid.Row="3" Grid.Column="4" Text="{x:Static prop:Resources.Model_Parent_Student}" />
-        <TextBlock Grid.Row="4" Grid.Column="4" Text="{x:Static prop:Resources.Model_Parent_Address}" />
+        <TextBlock Grid.Row="4" Grid.Column="4" Text="{x:Static prop:Resources.Model_Parent_Address}" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
 
         <TextBox Text="{Binding PhoneMobile,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"
                  Grid.Column="5" Grid.Row="0" />

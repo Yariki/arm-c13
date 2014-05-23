@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              mc:Ignorable="d"
+             xmlns:required="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -24,7 +25,7 @@
             <ColumnDefinition Width="10"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Name}" Grid.Column="1" Grid.Row="0"></TextBlock>
+        <TextBlock Text="{x:Static prop:Resources.Model_Name}" Grid.Column="1" Grid.Row="0" required:ARMRequiredLabel.RequiredLabel="Required"></TextBlock>
 
         <TextBox Text="{Binding Name,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Column="2" Grid.Row="0"></TextBox>
     </Grid>
