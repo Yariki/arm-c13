@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:controls="clr-namespace:ARM.Infrastructure.Controls"
+             xmlns:filter="clr-namespace:ARM.Infrastructure.Controls.Filter"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -13,15 +14,31 @@
             <Setter Property="AllowGroupingModification" Value="False" />
             <Setter Property="Visibility" Value="Collapsed" />
         </Style>
+
     </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <xcdg:DataGridCollectionViewSource x:Key="DataSourceCollection" FilterCriteriaMode="And" Source="{Binding Source,UpdateSourceTrigger=PropertyChanged }">
+                
+            </xcdg:DataGridCollectionViewSource>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <controls:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding Source,UpdateSourceTrigger=PropertyChanged}"
+        <controls:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource DataSourceCollection}}"
                                      TypeOfEntity="{Binding EntityType}"
-                                     SelectedItem="{Binding SelectedItem,Mode=TwoWay}" />
+                                     SelectedItem="{Binding SelectedItem,Mode=TwoWay}" >
+            <controls:ARMDataGridControl.View>
+                <xcdg:TableView>
+                    <xcdg:TableView.FixedHeaders>
+                        <DataTemplate>
+                            <filter:ARMFilterRow Source="{StaticResource DataSourceCollection}"></filter:ARMFilterRow>
+                        </DataTemplate>
+                    </xcdg:TableView.FixedHeaders>
+                </xcdg:TableView>
+            </controls:ARMDataGridControl.View>
+        </controls:ARMDataGridControl>
     </Grid>
 </UserControl>

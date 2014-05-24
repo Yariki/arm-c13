@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Reports.View;
 namespace ARM.Module.View.Reports
 {
     /// <summary>
-    /// Interaction logic for ARMSessionMarksView.xaml
+    /// Представлення для роботи з оцінкаи за семестр.
     /// </summary>
     public partial class ARMSessionMarksView : UserControl, IARMSessionMarksView
     {
+        /// <summary>
+        /// Створити екземпляр ARMSessionMarksView.
+        /// </summary>
         public ARMSessionMarksView()
         {
             InitializeComponent();

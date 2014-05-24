@@ -13,10 +13,20 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - факультети
+    /// </summary>
     public class ARMFacultyValidatableViewModel : ARMValidatableViewModelBase, IARMFacultyValidatableViewModel
     {
         private IUnitOfWork _unitOfWork;
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMFacultyValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMFacultyValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator, IARMFacultyView view)
             : base(regionManager, unityContainer, eventAggregator, view)
@@ -26,6 +36,9 @@ namespace ARM.Module.ViewModel.References
 
         #region IARMFacultyValidatableViewModel Members
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resources.Model_Data_Faculty); }
@@ -68,6 +81,13 @@ namespace ARM.Module.ViewModel.References
 
         #region [override]
 
+        /// <summary>
+        /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
+        /// </summary>
+        /// <param name="mode">Режим роботи.</param>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <param name="isIdEmpty">Флаг, чи може фдентифікатор бути пустим.</param>
         public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             base.SetBusinessObject(mode, metadata, id, isIdEmpty);
@@ -82,6 +102,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Звільняє некеровані і - можливо - керовані ресурси.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки некеровані ресурси.</param>
         protected override void Dispose(bool disposing)
         {
             if (!Disposed && disposing)
@@ -95,6 +119,10 @@ namespace ARM.Module.ViewModel.References
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();

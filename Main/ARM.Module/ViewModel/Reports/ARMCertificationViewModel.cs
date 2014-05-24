@@ -19,13 +19,26 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.Reports
 {
+    /// <summary>
+    /// Кла для обробки та відображення результатів атестації по групам та сесіям.
+    /// </summary>
     public class ARMCertificationViewModel : ARMReportGroupSessionViewModelBase, IARMCertificationViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMCertificationViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMCertificationViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMCertificationView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Report_Certification_Title; }
@@ -33,18 +46,27 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [properties]
 
+        /// <summary>
+        /// Отримує або задає колекцію даних.
+        /// </summary>
         public ObservableCollection<ARMStudentCertificationData> DataSource
         {
             get { return Get(() => DataSource); }
             set { Set(() => DataSource, value); }
         }
 
+        /// <summary>
+        /// Команда запуску формування колекції даних.
+        /// </summary>
         public ICommand RunCommand { get; private set; }
 
         #endregion [properties]
 
         #region [overrides]
 
+        /// <summary>
+        /// Ініціалізація екземпляру.
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
@@ -53,6 +75,11 @@ namespace ARM.Module.ViewModel.Reports
             Columns = new ObservableCollection<DataGridColumn>();
         }
 
+        /// <summary>
+        /// Створює заголовки.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <returns></returns>
         protected override int GenerateHeaders(Worksheet sheet)
         {
             int Row = 1;
@@ -68,6 +95,11 @@ namespace ARM.Module.ViewModel.Reports
             return ++Row;
         }
 
+        /// <summary>
+        /// Заповнення листа даними при еспорті.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <param name="rowStart">Номер рідка, з якого потрібно почитнати заповнення.</param>
         protected override void FillSheet(Worksheet sheet, int rowStart)
         {
             var listClasses = SelectedSession.Classes.OrderBy(c => c.Id).Select(c => c.Id).ToList();
@@ -101,6 +133,11 @@ namespace ARM.Module.ViewModel.Reports
             }
         }
 
+        /// <summary>
+        /// Визначає, чи є цей екземпляр [може експортувати виконати] зазначений аргумент.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         protected override bool CanExportExecute(object arg)
         {
             return DataSource != null && DataSource.Count > 0;
@@ -110,6 +147,10 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [private]
 
+        /// <summary>
+        /// Запускає формування в потоці.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void RunExecute(object arg)
         {
             IsBusy = true;
@@ -126,6 +167,9 @@ namespace ARM.Module.ViewModel.Reports
             Task.Factory.StartNew(ProcessReport);
         }
 
+        /// <summary>
+        /// Процес формування даних.
+        /// </summary>
         private void ProcessReport()
         {
             var data = new ObservableCollection<ARMStudentCertificationData>();
@@ -160,6 +204,12 @@ namespace ARM.Module.ViewModel.Reports
             }));
         }
 
+        /// <summary>
+        /// Вибирає студента або додає в колекцію, якщо він відсутній.
+        /// </summary>
+        /// <param name="list">Список.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <returns></returns>
         private ARMStudentCertificationData AddAndGetData(ObservableCollection<ARMStudentCertificationData> list, Guid id)
         {
             var data = list.FirstOrDefault(s => s.Student.Id == id);
@@ -172,6 +222,9 @@ namespace ARM.Module.ViewModel.Reports
             return data;
         }
 
+        /// <summary>
+        /// Генерація колонок.
+        /// </summary>
         private void GenerateColumns()
         {
             var col = new ObservableCollection<DataGridColumn>();
@@ -188,6 +241,11 @@ namespace ARM.Module.ViewModel.Reports
             Columns = col;
         }
 
+        /// <summary>
+        /// Визначає чи доступна кнопка формування.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         private bool CanRunExecute(object arg)
         {
             return SelectedGroup != null && SelectedSession != null;

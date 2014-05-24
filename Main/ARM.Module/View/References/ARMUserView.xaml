@@ -7,6 +7,7 @@
              xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
              xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:pass="clr-namespace:ARM.Module.Helpers.Password"
+             xmlns:armRequiredLabel="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -39,9 +40,9 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Static prop:Resources.Model_Name }" />
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Static prop:Resources.Model_User_Email }" />
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="{x:Static prop:Resources.Model_User_Password }" />
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Static prop:Resources.Model_Name }" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Static prop:Resources.Model_User_Email }" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="{x:Static prop:Resources.Model_User_Password }" armRequiredLabel:ARMRequiredLabel.RequiredLabel="Required"/>
         <TextBlock Grid.Column="1" Grid.Row="3" Text="{x:Static prop:Resources.Model_User_IsActive }" />
         <TextBlock Grid.Column="1" Grid.Row="4" Text="{x:Static prop:Resources.Model_User_Language }" />
 

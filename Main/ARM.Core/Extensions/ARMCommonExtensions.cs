@@ -26,5 +26,29 @@ namespace ARM.Core.Extensions
         {
             return arg == Visibility.Visible;
         }
+
+        /// <summary>
+        /// Визначає чи число входить в діапазон.
+        /// </summary>
+        /// <param name="value">Значення.</param>
+        /// <param name="min">Мінімальна границя.</param>
+        /// <param name="max">Таксимальна границя.</param>
+        /// <returns></returns>
+        public static bool IsBeetwen(this decimal value, decimal min, decimal max)
+        {
+            return value >= min && value < max;
+        }
+
+        /// <summary>
+        /// Визначає чи число входить в діапазон.
+        /// </summary>
+        /// <param name="value">Значення.</param>
+        /// <param name="min">Мінімальна границя.</param>
+        /// <param name="max">Таксимальна границя.</param>
+        /// <returns></returns>
+        public static bool IsBeetwen(this int value, int min, int max)
+        {
+            return value >= min && value < max;
+        }
     }
 }

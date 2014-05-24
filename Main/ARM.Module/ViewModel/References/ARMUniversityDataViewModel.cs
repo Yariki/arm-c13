@@ -13,8 +13,18 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних -   університет.
+    /// </summary>
     public class ARMUniversityDataViewModel : ARMDataViewModelBase, IARMUniversityDataViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMUniversityDataViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMUniversityDataViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator, IARMUniversityView view)
             : base(regionManager, unityContainer, eventAggregator, view)
@@ -47,6 +57,9 @@ namespace ARM.Module.ViewModel.References
 
         #region IARMUniversityDataViewModel Members
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get
@@ -62,6 +75,10 @@ namespace ARM.Module.ViewModel.References
 
         #endregion IARMUniversityDataViewModel Members
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             using (var unitOfWork = UnityContainer.Resolve<IUnitOfWork>())

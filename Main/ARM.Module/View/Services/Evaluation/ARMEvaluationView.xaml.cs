@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Services.Evaluation.View;
 namespace ARM.Module.View.Services.Evaluation
 {
     /// <summary>
-    /// Interaction logic for ARMEvaluationView.xaml
+    /// Представлення для роботи з сервісом оцінування студентів.
     /// </summary>
     public partial class ARMEvaluationView : UserControl, IARMEvaluationView
     {
+        /// <summary>
+        /// Створити екземпляр ARMEvaluationView.
+        /// </summary>
         public ARMEvaluationView()
         {
             InitializeComponent();

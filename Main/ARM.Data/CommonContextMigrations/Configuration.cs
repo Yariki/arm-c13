@@ -68,12 +68,13 @@ namespace ARM.Data.CommonContextMigrations
             });
 
             context.Rates.AddOrUpdate(u => u.Id,
-                new Rate {Id = Guid.NewGuid(), Name = "A", RateMin = 95, RateMax = 100, Mark = 5},
-                new Rate {Id = Guid.NewGuid(), Name = "B", RateMin = 85, RateMax = 94, Mark = 4},
-                new Rate {Id = Guid.NewGuid(), Name = "C", RateMin = 75, RateMax = 84, Mark = 4},
-                new Rate {Id = Guid.NewGuid(), Name = "D", RateMin = 70, RateMax = 74, Mark = 3},
-                new Rate {Id = Guid.NewGuid(), Name = "E", RateMin = 60, RateMax = 69, Mark = 3},
-                new Rate {Id = Guid.NewGuid(), Name = "F", RateMin = 0, RateMax = 60, Mark = 2}
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000001"), Name = "A", RateMin = 95, RateMax = 100, Mark = 5 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000002"), Name = "B", RateMin = 85, RateMax = 94, Mark = 4 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000003"), Name = "C", RateMin = 75, RateMax = 84, Mark = 4 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000004"), Name = "D", RateMin = 65, RateMax = 74, Mark = 3 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000005"), Name = "E", RateMin = 60, RateMax = 64, Mark = 3 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000006"), Name = "Fx", RateMin = 0, RateMax = 60, Mark = 2 },
+                new Rate { Id = Guid.Parse("00000000-0000-0000-0000-000000000007"), Name = "F", RateMin = 0, RateMax = 40, Mark = 2 }
                 );
         }
     }

@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Reports.View;
 namespace ARM.Module.View.Reports
 {
     /// <summary>
-    /// Interaction logic for ARMContractGroupView.xaml
+    /// Представлення для роботи з звітом по контрактам групи.
     /// </summary>
     public partial class ARMContractGroupView : UserControl, IARMContractGroupView
     {
+        /// <summary>
+        /// Створити екземпляр ARMContractGroupView.
+        /// </summary>
         public ARMContractGroupView()
         {
             InitializeComponent();

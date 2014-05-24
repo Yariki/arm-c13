@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
+             xmlns:required="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
              xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -36,10 +37,10 @@
             <ColumnDefinition Width="10"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Static prop:Resources.Model_Name }"></TextBlock>
+        <TextBlock  Grid.Column="1" Grid.Row="0" Text="{x:Static prop:Resources.Model_Name }" required:ARMRequiredLabel.RequiredLabel="Required"></TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Url"></TextBlock>
 
-        <TextBlock Grid.Column="4" Grid.Row="0" Text="{x:Static prop:Resources.Model_Faculty_Head }"></TextBlock>
+        <TextBlock  Grid.Column="4" Grid.Row="0" Text="{x:Static prop:Resources.Model_Faculty_Head }" required:ARMRequiredLabel.RequiredLabel="Required"></TextBlock>
         <TextBlock Grid.Column="4" Grid.Row="1" Text="{x:Static prop:Resources.Model_Faculty_University }"></TextBlock>
 
         <TextBox Text="{Binding Name,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}"

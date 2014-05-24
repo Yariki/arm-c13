@@ -16,13 +16,26 @@ using Group = ARM.Data.Models.Group;
 
 namespace ARM.Module.ViewModel.Reports
 {
+    /// <summary>
+    /// Клас для формування звіту по контрактам в групі.
+    /// </summary>
     public class ARMContractGroupViewModel : ARMReportViewModelBase, IARMContractGroupViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMContractGroupViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMContractGroupViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMContractGroupView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Report_ContractGroup_Title; }
@@ -30,12 +43,18 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [properties]
 
+        /// <summary>
+        /// Отримує або задає групи.
+        /// </summary>
         public ObservableCollection<Group> Groups
         {
             get { return Get(() => Groups); }
             set { Set(() => Groups, value); }
         }
 
+        /// <summary>
+        /// Оотримує або задає обрану групу.
+        /// </summary>
         public Group SelectedGroup
         {
             get { return Get(() => SelectedGroup); }
@@ -46,6 +65,9 @@ namespace ARM.Module.ViewModel.Reports
             }
         }
 
+        /// <summary>
+        /// Список контрактів, призначених для відображення.
+        /// </summary>
         public ObservableCollection<Contract> Contracts
         {
             get { return Get(() => Contracts); }
@@ -57,6 +79,9 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [overrides]
 
+        /// <summary>
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
@@ -64,11 +89,21 @@ namespace ARM.Module.ViewModel.Reports
             Contracts = new ObservableCollection<Contract>();
         }
 
+        /// <summary>
+        /// Визначає, чи є цей екземпляр [може експортувати виконати] зазначений аргумент.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         protected override bool CanExportExecute(object arg)
         {
             return Contracts != null && Contracts.Any();
         }
 
+        /// <summary>
+        /// Створює заголовки.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <returns></returns>
         protected override int GenerateHeaders(Worksheet sheet)
         {
             int row = 1;
@@ -89,6 +124,11 @@ namespace ARM.Module.ViewModel.Reports
             return ++row;
         }
 
+        /// <summary>
+        /// Заповнення листа даними при еспорті.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <param name="rowStart">Номер рідка, з якого потрібно почитнати заповнення.</param>
         protected override void FillSheet(Worksheet sheet, int rowStart)
         {
             int current = 0;
@@ -111,6 +151,9 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [private]
 
+        /// <summary>
+        /// Виконується при зміні групи. Проводиться вибірка контрактів по групі.
+        /// </summary>
         private void SelectedGroupChanged()
         {
             if (SelectedGroup == null)

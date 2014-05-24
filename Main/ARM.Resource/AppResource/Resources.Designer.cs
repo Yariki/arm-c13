@@ -394,6 +394,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Letter_Academic_Template {
+            get {
+                return ResourceManager.GetString("Letter_Academic_Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ARM - bla - bla.
         /// </summary>
         public static string MAINWINDOW_TITLE {
@@ -1807,6 +1816,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Academic Arrears.
+        /// </summary>
+        public static string Report_AcademicArrears_Title {
+            get {
+                return ResourceManager.GetString("Report_AcademicArrears_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Certification.
         /// </summary>
         public static string Report_Certification_Title {
@@ -1951,6 +1969,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table Success.
+        /// </summary>
+        public static string Table_Success {
+            get {
+                return ResourceManager.GetString("Table_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string UI_Add {
@@ -1983,6 +2010,15 @@ namespace ARM.Resource.AppResource {
         public static string UI_Class {
             get {
                 return ResourceManager.GetString("UI_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Letter.
+        /// </summary>
+        public static string UI_CreateLetter {
+            get {
+                return ResourceManager.GetString("UI_CreateLetter", resourceCulture);
             }
         }
         

@@ -21,7 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Output\ARM.Module.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,10 @@
     <DocumentationFile>..\..\ROutput\ARM.Module.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX">
+      <HintPath>..\..\packages\DocX.1.0.0.13\lib\net40\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
@@ -132,6 +137,7 @@
     <Compile Include="Commands\Menu\Reference\ARMMenuStudentCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUniversityCommand.cs" />
     <Compile Include="Commands\Menu\Reference\ARMMenuUserCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMMenuAcademicArrearsCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuCertificationCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuDebtCommand.cs" />
@@ -169,6 +175,8 @@
     <Compile Include="Interfaces\Documents\View\IARMContractView.cs" />
     <Compile Include="Interfaces\Documents\View\IARMInvoiceView.cs" />
     <Compile Include="Interfaces\Documents\View\IARMPaymentView.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMAcademicArrearsViewModel.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMAcademicArrearsView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
@@ -281,6 +289,10 @@
     <Compile Include="ViewModel\References\ARMUserValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
+    <Compile Include="ViewModel\Reports\AcademicArrears\ARMAcademicArrearsDetails.cs" />
+    <Compile Include="ViewModel\Reports\AcademicArrears\ARMAcademicArrearsLetterTemplate.cs" />
+    <Compile Include="ViewModel\Reports\AcademicArrears\ARMStudentAcademicArrearsData.cs" />
+    <Compile Include="ViewModel\Reports\ARMAcademicArrearsViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMCertificationViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMContractGroupViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMDebtViewModel.cs" />
@@ -385,6 +397,9 @@
     </Compile>
     <Compile Include="View\References\Password\ARMPasswordView.xaml.cs">
       <DependentUpon>ARMPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\ARMAcademicArrearsView.xaml.cs">
+      <DependentUpon>ARMAcademicArrearsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\ARMCertificationView.xaml.cs">
       <DependentUpon>ARMCertificationView.xaml</DependentUpon>
@@ -550,6 +565,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\References\Password\ARMPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMAcademicArrearsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

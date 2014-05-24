@@ -32,6 +32,7 @@
         ReportCertification,
         ReportSessionMarks,
         ReportDebt,
-        ReportForeignStudent
+        ReportForeignStudent,
+        ReportAcademicArrears
     }
 }

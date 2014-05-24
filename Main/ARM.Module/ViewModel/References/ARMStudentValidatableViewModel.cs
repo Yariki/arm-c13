@@ -28,6 +28,9 @@ using NSubstitute.Core;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних -  студент.
+    /// </summary>
     public class ARMStudentValidatableViewModel : ARMValidatableViewModelBase, IARMStudentValidatableViewModel
     {
         #region [needs]
@@ -37,6 +40,13 @@ namespace ARM.Module.ViewModel.References
         #endregion
 
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMStudentValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMStudentValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMStudentView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
@@ -65,6 +75,9 @@ namespace ARM.Module.ViewModel.References
             VisaList = new ObservableCollection<Visa>();
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Student); }
@@ -243,24 +256,36 @@ namespace ARM.Module.ViewModel.References
         #region [enum source]
 
         private Dictionary<SexType, string> _sourceSex;
+        /// <summary>
+        /// Отримує або задає список значень типу статі.
+        /// </summary>
         public Dictionary<SexType, string> SourceSex
         {
             get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
         }
 
         private Dictionary<StudyMode, string> _sourceStudyMode;
+        /// <summary>
+        /// Отримує або задає список значень типу методу навчання.
+        /// </summary>
         public Dictionary<StudyMode, string> SourceStudyMode
         {
             get { return _sourceStudyMode ?? (_sourceStudyMode = ARMEnumHelper.Instance.GetLocalsForEnum<StudyMode>()); }
         }
 
         private Dictionary<StudentStatus, string> _sourceStudentStatus;
+        /// <summary>
+        /// Отримує або задає список значень типу статуса студента.
+        /// </summary>
         public Dictionary<StudentStatus, string> SourceStudentStatus
         {
             get { return _sourceStudentStatus ?? (_sourceStudentStatus = ARMEnumHelper.Instance.GetLocalsForEnum<StudentStatus>()); }
         }
 
         private Dictionary<eARMStudyType, string> _sourceStudyType;
+        /// <summary>
+        /// Отримує або задає список значень типу типу навчання.
+        /// </summary>
         public Dictionary<eARMStudyType, string> SourceStudyType
         {
             get { return _sourceStudyType ?? (_sourceStudyType = ARMEnumHelper.Instance.GetLocalsForEnum<eARMStudyType>()); }
@@ -270,6 +295,13 @@ namespace ARM.Module.ViewModel.References
 
         #region [override]
 
+        /// <summary>
+        /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
+        /// </summary>
+        /// <param name="mode">Режим роботи.</param>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <param name="isIdEmpty">Флаг, чи може фдентифікатор бути пустим.</param>
         public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             base.SetBusinessObject(mode, metadata, id, isIdEmpty);
@@ -304,6 +336,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Звільняє некеровані і - можливо - керовані ресурси.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки некеровані ресурси.</param>
         protected override void Dispose(bool disposing)
         {
             if (!Disposed && disposing)
@@ -317,6 +353,10 @@ namespace ARM.Module.ViewModel.References
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())
@@ -353,6 +393,9 @@ namespace ARM.Module.ViewModel.References
         #endregion
 
 
+        /// <summary>
+        /// Керує видимістю додаткових вкладок для роботи з моделю студента.
+        /// </summary>
         public Visibility VisibilityAdditional
         {
             get { return Mode == ViewMode.Add ? Visibility.Collapsed : Visibility.Visible; }
@@ -360,17 +403,30 @@ namespace ARM.Module.ViewModel.References
 
         #region [Achivement]
 
+        /// <summary>
+        /// Отримує або задає обране досягнення.
+        /// </summary>
         public Achivement SelectedAchivement
         {
             get { return Get(() => SelectedAchivement); }
             set { Set(() => SelectedAchivement, value); }
         }
 
+        /// <summary>
+        /// Команда для додавання досягнення.
+        /// </summary>
         public ICommand AddAchivementCommand { get; private set; }
 
+        /// <summary>
+        /// Команда для видалення досягнення.
+        /// </summary>
         public ICommand DeleteAchivementCommand { get; private set; }
 
 
+        /// <summary>
+        /// Додає нове досягення.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void AddAchivementExecute(object arg)
         {
             try
@@ -411,6 +467,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Видаляє досягення.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void DeleteAchivementExecute(object arg)
         {
             if (SelectedAchivement == null)
@@ -432,17 +492,30 @@ namespace ARM.Module.ViewModel.References
 
         #region [Hobby]
 
+        /// <summary>
+        /// Отримує або задає обране хобі.
+        /// </summary>
         public Hobby SelectedHobby
         {
             get { return Get(() => SelectedHobby); }
             set { Set(() => SelectedHobby, value); }
         }
 
+        /// <summary>
+        /// Команда для додавання хобі.
+        /// </summary>
         public ICommand AddHobbyCommand { get; private set; }
 
+        /// <summary>
+        /// Команда для видалення хобі.
+        /// </summary>
         public ICommand DeleteHobbyCommand { get; private set; }
 
 
+        /// <summary>
+        /// Додає хобі.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void AddHobbyExecute(object arg)
         {
             try
@@ -483,6 +556,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Видаляє хобі.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void DeleteHobbyExecute(object arg)
         {
             if (SelectedHobby == null)
@@ -504,15 +581,28 @@ namespace ARM.Module.ViewModel.References
 
         #region [Parents]
 
+        /// <summary>
+        /// Отримує або задає обраного з батьків (:D).
+        /// </summary>
         public Parent SelectedParent
         {
             get { return Get(() => SelectedParent); }
             set { Set(() => SelectedParent, value); }
         }
 
+        /// <summary>
+        /// Команда для додавання одного з батьків.
+        /// </summary>
         public ICommand AddParentCommand { get; private set; }
+        /// <summary>
+        /// Команда для видалення одного з батьків.
+        /// </summary>
         public ICommand DeleteParentCommand { get; private set; }
 
+        /// <summary>
+        /// Додавання одного з батьків.
+        /// </summary>
+        /// <param name="obj">Аргументи для додавання.</param>
         private void AddParentExecute(object obj)
         {
             IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
@@ -537,6 +627,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Видалення одного з батьків.
+        /// </summary>
+        /// <param name="obj">Аргументи для видалення.</param>
         private void DeleteParentExecute(object obj)
         {
             if (SelectedParent == null)
@@ -559,6 +653,9 @@ namespace ARM.Module.ViewModel.References
 
         #region [languages]
 
+        /// <summary>
+        /// Отримує або задає обрану мову.
+        /// </summary>
         public Language SelectedLanguage
         {
             get
@@ -571,9 +668,19 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Команда для додавання мови.
+        /// </summary>
         public ICommand AddLanguageCommand { get; private set; }
+        /// <summary>
+        /// Команда для видалення мови.
+        /// </summary>
         public ICommand DeleteLanguageCommand { get; private set; }
 
+        /// <summary>
+        /// Додє мову до списку.
+        /// </summary>
+        /// <param name="arg">The argument.</param>
         private void AddLanguageExecute(object arg)
         {
             IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
@@ -588,6 +695,10 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
+        /// <summary>
+        /// Видалає мову зі списку.
+        /// </summary>
+        /// <param name="arg">The argument.</param>
         private void DeleteLanguageExecute(object arg)
         {
             if (SelectedLanguage == null)
@@ -600,15 +711,28 @@ namespace ARM.Module.ViewModel.References
 
         #region [visa]
 
+        /// <summary>
+        /// Отримує або задає обрану візу.
+        /// </summary>
         public Visa SelectedVisa 
         {
             get { return Get(() => SelectedVisa); }
             set {Set(() => SelectedVisa,value); }
         }
 
+        /// <summary>
+        /// Команда для додавання візи.
+        /// </summary>
         public ICommand AddVisaCommand { get; private set; }
+        /// <summary>
+        /// Команда видалення візи.
+        /// </summary>
         public ICommand DeleteVisaCommand { get; private set; }
 
+        /// <summary>
+        /// Додавання візи.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void AddVisaExecute(object arg)
         {
             IARMVisaValidatableViewModel viewModel = UnityContainer.Resolve<IARMVisaValidatableViewModel>();
@@ -642,6 +766,10 @@ namespace ARM.Module.ViewModel.References
         }
 
 
+        /// <summary>
+        /// Видалення мови.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void DeleteVisaExecute(object arg)
         {
             if (SelectedVisa == null)

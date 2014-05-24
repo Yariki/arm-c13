@@ -206,7 +206,7 @@ namespace ARM.Module.ViewModel.Reports
 
                 System.Windows.Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    GenerateColumns();
+                    GenerateColumns(SelectedSession.Classes.Select(c => c.Id).ToList());
                     DataSource =
                         new ObservableCollection<ARMStudentSessionMarksData>(data.OrderBy(d => d.Student.Display).AsEnumerable());
                     IsBusy = false;
@@ -217,25 +217,6 @@ namespace ARM.Module.ViewModel.Reports
                 ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 IsBusy = false;
             }
-        }
-
-        /// <summary>
-        /// генерація колонок
-        /// </summary>
-        private void GenerateColumns()
-        {
-            var col = new ObservableCollection<DataGridColumn>();
-            var name = new DataGridTextColumn() { Width = 200, Header = Resource.AppResource.Resources.Model_Student_Title };
-            name.Binding = new Binding("Student.Display") { Mode = BindingMode.OneTime };
-            name.CanUserSort = false;
-            col.Add(name);
-            foreach (var source in SelectedSession.Classes.OrderBy(c => c.Id))
-            {
-                var c = new DataGridTemplateColumn() { Width = 150, Header = source.Name };
-                c.SetValue(ARMDataGridTemplateColumnBinding.ColumnBindingProperty, string.Format("[{0}]", source.Id.ToString().ToLower()));
-                col.Add(c);
-            }
-            Columns = col;
         }
 
         #endregion [private]

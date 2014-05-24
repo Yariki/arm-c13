@@ -17,13 +17,26 @@ using Application = System.Windows.Application;
 
 namespace ARM.Module.ViewModel.Reports
 {
+    /// <summary>
+    /// Класс, який призначений для формування списків студентів фноземців.
+    /// </summary>
     public class ARMForeignStudentViewModel : ARMReportViewModelBase, IARMForeignStudentViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMForeignStudentViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMForeignStudentViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMForeignStudentView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Report_ForeignStudent_Title; }
@@ -31,8 +44,14 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [properties]
 
+        /// <summary>
+        /// Отримує команду для формування даних.
+        /// </summary>
         public ICommand RunCommand { get; private set; }
 
+        /// <summary>
+        /// Отримує або задає колекцію даних для відображення.
+        /// </summary>
         public ObservableCollection<Student> DataSource
         {
             get { return Get(() => DataSource); }
@@ -43,6 +62,9 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [override]
 
+        /// <summary>
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
@@ -50,11 +72,21 @@ namespace ARM.Module.ViewModel.Reports
             RunCommand = new ARMRelayCommand(RunExecute, CanRunExecute);
         }
 
+        /// <summary>
+        /// Визначає, чи є цей екземпляр [може експортувати виконати] зазначений аргумент.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         protected override bool CanExportExecute(object arg)
         {
             return DataSource != null && DataSource.Count > 0;
         }
 
+        /// <summary>
+        /// Створює заголовки.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <returns></returns>
         protected override int GenerateHeaders(Worksheet sheet)
         {
             int row = 1;
@@ -77,6 +109,11 @@ namespace ARM.Module.ViewModel.Reports
             return ++row;
         }
 
+        /// <summary>
+        /// Заповнення листа даними при еспорті.
+        /// </summary>
+        /// <param name="sheet">Лист.</param>
+        /// <param name="rowStart">Номер рідка, з якого потрібно почитнати заповнення.</param>
         protected override void FillSheet(Worksheet sheet, int rowStart)
         {
             int current = 0;
@@ -109,6 +146,10 @@ namespace ARM.Module.ViewModel.Reports
 
         #region [private]
 
+        /// <summary>
+        /// ЖЗапуск формування даних в потоці.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void RunExecute(object arg)
         {
             if (DataSource != null)
@@ -119,6 +160,9 @@ namespace ARM.Module.ViewModel.Reports
             Task.Factory.StartNew(InternalProcess);
         }
 
+        /// <summary>
+        /// Внутрішня обробка даних.
+        /// </summary>
         private void InternalProcess()
         {
             try
@@ -137,6 +181,11 @@ namespace ARM.Module.ViewModel.Reports
             }
         }
 
+        /// <summary>
+        /// Визначає яи доступна кнопка формування.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         private bool CanRunExecute(object arg)
         {
             return true;

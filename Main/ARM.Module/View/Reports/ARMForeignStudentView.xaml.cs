@@ -16,10 +16,13 @@ using ARM.Module.Interfaces.Reports.View;
 namespace ARM.Module.View.Reports
 {
     /// <summary>
-    /// Interaction logic for ARMForeignStudentView.xaml
+    /// Представлення для роботи з звітом по іноземним студентам.
     /// </summary>
     public partial class ARMForeignStudentView : UserControl,IARMForeignStudentView
     {
+        /// <summary>
+        /// Створити екземпляр ARMForeignStudentView.
+        /// </summary>
         public ARMForeignStudentView()
         {
             InitializeComponent();
