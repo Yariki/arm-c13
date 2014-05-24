@@ -18,7 +18,7 @@ namespace ARM.Data.Models
     public abstract class Person : BaseModel
     {
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_FirstName")]
-        [ARMGrid(Order = 1)]
+        [ARMGrid(Order = 2)]
         [ARMRequired]
         public string FirstName { get; set; }
 
@@ -27,7 +27,7 @@ namespace ARM.Data.Models
         public String MiddleName { get; set; }
 
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_LastName")]
-        [ARMGrid(Order = 2)]
+        [ARMGrid(Order = 1)]
         [ARMRequired]
         public string LastName { get; set; }
 
