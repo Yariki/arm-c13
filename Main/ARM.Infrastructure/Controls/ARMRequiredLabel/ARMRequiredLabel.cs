@@ -23,7 +23,7 @@ namespace ARM.Infrastructure.Controls.ARMRequiredLabel
                 switch (req)
                 {
                     case eARMRequiredLabel.Required:
-                        textBox.Text = string.Format("{0}*", textBox.Text);
+                        textBox.Text = string.Format("{0} *", textBox.Text);
                         break;
                     default:
                         if (textBox.Text.IndexOf(RequiredChar) > -1)
