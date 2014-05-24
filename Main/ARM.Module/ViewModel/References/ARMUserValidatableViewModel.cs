@@ -178,7 +178,7 @@ namespace ARM.Module.ViewModel.References
         /// <param name="md5Hash">Екземпляр MD5.</param>
         /// <param name="input">Вхідний рядок.</param>
         /// <returns>Шифрований пароль</returns>
-в        private static string GetMd5Hash(MD5 md5Hash, string input)
+        private static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
             // Convert the input string to a byte array and compute the hash. 
