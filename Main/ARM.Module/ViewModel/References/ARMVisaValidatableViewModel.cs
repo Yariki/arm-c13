@@ -15,14 +15,27 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних -  віза.
+    /// </summary>
     public class ARMVisaValidatableViewModel : ARMValidatableViewModelBase, IARMVisaValidatableViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMVisaValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMVisaValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMVisaView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             OkCommand = new ARMRelayCommand(OkExecute, CanOkExecute);
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Visa); }
@@ -80,6 +93,12 @@ namespace ARM.Module.ViewModel.References
 
         private Dictionary<VisaType, string> _sourceVisaType;
 
+        /// <summary>
+        /// Отримує або задає список значень типу типів віз.
+        /// </summary>
+        /// <value>
+        /// The type of the source visa.
+        /// </value>
         public Dictionary<VisaType, string> SourceVisaType
         {
             get { return _sourceVisaType ?? (_sourceVisaType = ARMEnumHelper.Instance.GetLocalsForEnum<VisaType>()); }
@@ -89,6 +108,13 @@ namespace ARM.Module.ViewModel.References
 
         #region [overrides]
 
+        /// <summary>
+        /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
+        /// </summary>
+        /// <param name="mode">Режим роботи.</param>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <param name="isIdEmpty">Флаг, чи може фдентифікатор бути пустим.</param>
         public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             base.SetBusinessObject(mode, metadata, id, isIdEmpty);
@@ -109,11 +135,20 @@ namespace ARM.Module.ViewModel.References
 
         #region [private]
 
+        /// <summary>
+        /// Натискання на кнопку ОК.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         private void OkExecute(object arg)
         {
 
         }
 
+        /// <summary>
+        /// Визначає чи доступна кнопка ОК.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        /// <returns></returns>
         private bool CanOkExecute(object arg)
         {
             return true;
@@ -121,7 +156,14 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
+        /// <summary>
+        /// Отримує команду ОК.
+        /// </summary>
         public ICommand OkCommand { get; private set; }
+        /// <summary>
+        /// Перевіряє цей екземпляр.
+        /// </summary>
+        /// <returns></returns>
         public bool Validate()
         {
             return ValidateBeforeSave();

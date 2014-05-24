@@ -4,6 +4,9 @@ using ARM.Data.Models;
 
 namespace ARM.Module.ViewModel.Services.CalculationStipend.Stipend
 {
+    /// <summary>
+    /// Клас для збереження даних по резільтатам сесії для студента.
+    /// </summary>
     public class ARMStudentMarksData
     {
         public ARMStudentMarksData()

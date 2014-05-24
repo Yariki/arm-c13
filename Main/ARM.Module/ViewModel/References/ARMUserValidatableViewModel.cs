@@ -22,6 +22,9 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних -  користувач.
+    /// </summary>
     public class ARMUserValidatableViewModel : ARMValidatableViewModelBase, IARMUserValidatableViewModel
     {
         #region [needs]
@@ -30,13 +33,23 @@ namespace ARM.Module.ViewModel.References
 
         #endregion
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMUserValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMUserValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMUserView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             SetPasswordCommand = new DelegateCommand(SetPasswordCommandExecute);
         }
 
-        
+
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resource.AppResource.Resources.Model_Data_User); }
@@ -86,6 +99,12 @@ namespace ARM.Module.ViewModel.References
 
         private Dictionary<eARMSystemLanguage, string> _sourceLang;
 
+        /// <summary>
+        /// отримує або задає список значень для типу мов.
+        /// </summary>
+        /// <value>
+        /// The source language.
+        /// </value>
         public Dictionary<eARMSystemLanguage, string> SourceLanguage
         {
             get { return _sourceLang ?? (_sourceLang = ARMEnumHelper.Instance.GetLocalsForEnum<eARMSystemLanguage>()); }
@@ -95,6 +114,10 @@ namespace ARM.Module.ViewModel.References
 
         #region [override]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())
@@ -134,6 +157,9 @@ namespace ARM.Module.ViewModel.References
 
         #region [private]
 
+        /// <summary>
+        /// Установка пароля для користувача.
+        /// </summary>
         private void SetPasswordCommandExecute()
         {
             var passViewModel = new ARMPasswordViewModel(RegionManager, UnityContainer, EventAggregator,
@@ -146,7 +172,13 @@ namespace ARM.Module.ViewModel.References
             }
         }
 
-        private static string GetMd5Hash(MD5 md5Hash, string input)
+        /// <summary>
+        /// Шифрування пароля.
+        /// </summary>
+        /// <param name="md5Hash">Екземпляр MD5.</param>
+        /// <param name="input">Вхідний рядок.</param>
+        /// <returns>Шифрований пароль</returns>
+в        private static string GetMd5Hash(MD5 md5Hash, string input)
         {
 
             // Convert the input string to a byte array and compute the hash. 

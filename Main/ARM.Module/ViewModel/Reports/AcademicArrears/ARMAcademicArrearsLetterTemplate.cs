@@ -2,6 +2,9 @@
 
 namespace ARM.Module.ViewModel.Reports.AcademicArrears
 {
+    /// <summary>
+    /// Клас що представляє собою модель шаблона листа. Шаблон розміщения у файлі локалізації.
+    /// </summary>
     [Serializable]
     [System.Xml.Serialization.XmlRoot("lettertemplate")]
     public class ARMAcademicArrearsLetterTemplate

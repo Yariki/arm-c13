@@ -12,6 +12,9 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References.Password
 {
+    /// <summary>
+    /// Клас містить функціональність для роботи з паролями.
+    /// </summary>
     public class ARMPasswordViewModel : ARMDataViewModelBase,IARMPasswordViewModel, IARMDialogViewModel
     {
         private bool _hasErrors;
@@ -21,12 +24,22 @@ namespace ARM.Module.ViewModel.References.Password
 
 
 
+        /// <summary>
+        /// Створити екземпляр ARMPasswordViewModel.
+        /// </summary>
+        /// <param name="regionManager">Менеджер регіонів.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
+        /// <param name="view">Користувацький інтерфейс.</param>
         public ARMPasswordViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view) 
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             OkCommand = new ARMRelayCommand(OnExecute,OnCanExecute);        
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Model_User_Password; }
@@ -34,6 +47,9 @@ namespace ARM.Module.ViewModel.References.Password
 
         #region [properties]
 
+        /// <summary>
+        /// Отримує або задає перший варіант пароля.
+        /// </summary>
         public string Password1
         {
             get { return Get(() => Password1); }
@@ -44,6 +60,9 @@ namespace ARM.Module.ViewModel.References.Password
             }
         }
 
+        /// <summary>
+        /// Отримує аббо задає повтор пароля.
+        /// </summary>
         public string Password2
         {
             get { return Get(() => Password2); }
@@ -54,6 +73,9 @@ namespace ARM.Module.ViewModel.References.Password
             }
         }
 
+        /// <summary>
+        /// Отримує  або задає значення індикатору. Показує чи валідні паролі.
+        /// </summary>
         public SolidColorBrush Indicator
         {
             get { return Get(() => Indicator); }
@@ -62,6 +84,11 @@ namespace ARM.Module.ViewModel.References.Password
 
         #endregion
 
+        /// <summary>
+        /// Повертає повідомлення про помилку для властивості із заданим ім'ям.
+        /// </summary>
+        /// <param name="columnName">Колонка.</param>
+        /// <returns></returns>
         public string this[string columnName]
         {
             get
@@ -79,12 +106,22 @@ namespace ARM.Module.ViewModel.References.Password
             }
         }
 
+        /// <summary>
+        /// Отримує повідомлення про помилку, яке вказує, що сталося з цим об'єктом.
+        /// </summary>
         public string Error 
         {
             get { return string.Empty; }
         }
 
+        /// <summary>
+        /// Отримує команду ОК.
+        /// </summary>
         public ICommand OkCommand { get; private set; }
+        /// <summary>
+        /// Перевіряє цей екземпляр.
+        /// </summary>
+        /// <returns></returns>
         public bool Validate()
         {
             return !_hasErrors;
@@ -100,6 +137,9 @@ namespace ARM.Module.ViewModel.References.Password
 
         }
 
+        /// <summary>
+        /// перевірка паролей.
+        /// </summary>
         private void CheckPasswords()
         {
             if (string.IsNullOrEmpty(Password1) || string.IsNullOrEmpty(Password2))

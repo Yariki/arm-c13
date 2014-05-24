@@ -14,13 +14,26 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - налаштування.
+    /// </summary>
     public class ARMSettingsValidatableViewModel : ARMValidatableViewModelBase, IARMSettingsValidatableViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMSettingsValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMSettingsValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMSettingsView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Model_Settings_Title; }
@@ -105,6 +118,9 @@ namespace ARM.Module.ViewModel.References
 
         private Dictionary<EducationLevel, string> _sourceEducation;
 
+        /// <summary>
+        /// Отримує або задає список типів навчання.
+        /// </summary>
         public Dictionary<EducationLevel, string> SourceEducation
         {
             get
@@ -115,6 +131,9 @@ namespace ARM.Module.ViewModel.References
 
         private Dictionary<InvoiceStatus, string> _sourceInvoice;
 
+        /// <summary>
+        /// Отримує або задає список типів рахунків.
+        /// </summary>
         public Dictionary<InvoiceStatus, string> SourceInvoice
         {
             get { return _sourceInvoice ?? (_sourceInvoice = ARMEnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }
@@ -122,6 +141,10 @@ namespace ARM.Module.ViewModel.References
 
         #endregion [emun resource]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();

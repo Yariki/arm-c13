@@ -2,6 +2,9 @@
 
 namespace ARM.Module.ViewModel.Services.CalculationStipend.Stipend
 {
+    /// <summary>
+    /// Клас моделі представлення даних в сітці.
+    /// </summary>
     public class ARMStudentStipendViewModel
     {
         public ARMStudentStipendViewModel()

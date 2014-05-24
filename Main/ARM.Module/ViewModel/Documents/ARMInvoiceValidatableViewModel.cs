@@ -15,16 +15,29 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.Documents
 {
+    /// <summary>
+    /// Клас для роботи з рахунками.
+    /// </summary>
     public class ARMInvoiceValidatableViewModel : ARMValidatableViewModelBase, IARMInvoiceValidatableViewModel
     {
         private IUnitOfWork _unitOfWork = null;
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMInvoiceValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">Менеджер регіонів.</param>
+        /// <param name="unityContainer">Контейнер.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
+        /// <param name="view">Представлення.</param>
         public ARMInvoiceValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMInvoiceView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             _unitOfWork = UnityContainer.Resolve<IUnitOfWork>();
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Invoice); }
@@ -83,6 +96,13 @@ namespace ARM.Module.ViewModel.Documents
 
         #region [overrides]
 
+        /// <summary>
+        /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
+        /// </summary>
+        /// <param name="mode">Режим роботи.</param>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="id">Ідентифікатор.</param>
+        /// <param name="isIdEmpty">Флаг, чи може фдентифікатор бути пустим.</param>
         public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, Guid id, bool isIdEmpty = false)
         {
             base.SetBusinessObject(mode, metadata, id, isIdEmpty);
@@ -100,6 +120,10 @@ namespace ARM.Module.ViewModel.Documents
             }
         }
 
+        /// <summary>
+        /// Звільняє некеровані і - можливо - керовані ресурси.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки некеровані ресурси.</param>
         protected override void Dispose(bool disposing)
         {
             if (!Disposed && disposing)
@@ -113,6 +137,10 @@ namespace ARM.Module.ViewModel.Documents
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave() || _unitOfWork == null)
@@ -145,6 +173,9 @@ namespace ARM.Module.ViewModel.Documents
         #region [enum source]
         
         private Dictionary<InvoiceStatus, string> _sourceInvoice;
+        /// <summary>
+        /// Отримує або задає дані для типів рахунків.
+        /// </summary>
         public Dictionary<InvoiceStatus, string> SourceInvoice
         {
             get { return _sourceInvoice ?? (_sourceInvoice = ARMEnumHelper.Instance.GetLocalsForEnum<InvoiceStatus>()); }

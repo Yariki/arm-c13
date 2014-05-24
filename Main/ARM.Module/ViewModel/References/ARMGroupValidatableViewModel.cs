@@ -13,8 +13,18 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - групи.
+    /// </summary>
     public class ARMGroupValidatableViewModel : ARMValidatableViewModelBase, IARMGroupValidatableViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMGroupValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMGroupValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator, IARMGroupView view)
             : base(regionManager, unityContainer, eventAggregator, view)
@@ -23,6 +33,9 @@ namespace ARM.Module.ViewModel.References
 
         #region IARMGroupValidatableViewModel Members
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resources.Model_Data_Group); }
@@ -57,6 +70,10 @@ namespace ARM.Module.ViewModel.References
 
         #endregion [properties]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())

@@ -12,13 +12,26 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - мови.
+    /// </summary>
     public class ARMLanguageValidatableViewModel : ARMValidatableViewModelBase, IARMLanguageValidatableViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMLanguageValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMLanguageValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMLanguageView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resource.AppResource.Resources.Model_Data_Language); }
@@ -34,6 +47,10 @@ namespace ARM.Module.ViewModel.References
 
         #endregion [properties]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             ValidateBeforeSave();

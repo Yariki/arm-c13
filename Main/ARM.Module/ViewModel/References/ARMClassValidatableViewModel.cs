@@ -15,8 +15,18 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - заняття.
+    /// </summary>
     public class ARMClassValidatableViewModel : ARMValidatableViewModelBase, IARMClassValidatableViewModel
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMClassValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMClassValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator, IARMClassView view)
             : base(regionManager, unityContainer, eventAggregator, view)
@@ -25,6 +35,9 @@ namespace ARM.Module.ViewModel.References
 
         #region IARMClassValidatableViewModel Members
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resources.Model_Data_Class); }
@@ -74,6 +87,9 @@ namespace ARM.Module.ViewModel.References
         #region [enum source]
 
         private Dictionary<eARMClassSummary, string> _sourceClassSummary;
+        /// <summary>
+        /// Отримує або задає даня длі типів оцінування класів.
+        /// </summary>
         public Dictionary<eARMClassSummary, string> SourceClassSummary
         {
             get { return _sourceClassSummary ?? (_sourceClassSummary = ARMEnumHelper.Instance.GetLocalsForEnum<eARMClassSummary>()); }
@@ -84,6 +100,10 @@ namespace ARM.Module.ViewModel.References
 
         #region [override]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())

@@ -14,13 +14,26 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.Reports
 {
+    /// <summary>
+    /// Базовий класс для формування звітів, які залежать від групи та сесії.
+    /// </summary>
     public abstract class ARMReportGroupSessionViewModelBase : ARMReportViewModelBase
     {
+        /// <summary>
+        /// Створити екземпляр ARMReportGroupSessionViewModelBase.
+        /// </summary>
+        /// <param name="regionManager">Менеджер регіонів.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
+        /// <param name="view">The view.</param>
         protected ARMReportGroupSessionViewModelBase(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view) 
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
@@ -30,30 +43,45 @@ namespace ARM.Module.ViewModel.Reports
             SelectedSession = null;
         }
 
+        /// <summary>
+        /// Отримує або задає список груп.
+        /// </summary>
         public ObservableCollection<Group> Groups
         {
             get { return Get(() => Groups); }
             set { Set(() => Groups, value); }
         }
 
+        /// <summary>
+        /// Отримує або задає список сесій.
+        /// </summary>
         public ObservableCollection<Session> Sessions
         {
             get { return Get(() => Sessions); }
             set { Set(() => Sessions, value); }
         }
 
+        /// <summary>
+        /// Отримує або задає обрану групу.
+        /// </summary>
         public Group SelectedGroup
         {
             get { return Get(() => SelectedGroup); }
             set { Set(() => SelectedGroup, value); }
         }
 
+        /// <summary>
+        /// Отримує або задає обрану сесію.
+        /// </summary>
         public Session SelectedSession
         {
             get { return Get(() => SelectedSession); }
             set { Set(() => SelectedSession, value); }
         }
 
+        /// <summary>
+        /// Отримує або задаю список колонок для сітки.
+        /// </summary>
         public ObservableCollection<DataGridColumn> Columns
         {
             get { return Get(() => Columns); }

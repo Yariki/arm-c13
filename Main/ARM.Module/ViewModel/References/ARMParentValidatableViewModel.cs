@@ -15,16 +15,29 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Module.ViewModel.References
 {
+    /// <summary>
+    /// Клас для роботи з моделю даних - батьки.
+    /// </summary>
     public class ARMParentValidatableViewModel : ARMValidatableViewModelBase, IARMParentValidatableViewModel
     {
         private Dictionary<SexType, string> _sourceSex;
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMParentValidatableViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMParentValidatableViewModel(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator, IARMParentView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
         }
 
+        /// <summary>
+        /// Отримує або задає список типів для статі.
+        /// </summary>
         public Dictionary<SexType, string> SourceSex
         {
             get { return _sourceSex ?? (_sourceSex = ARMEnumHelper.Instance.GetLocalsForEnum<SexType>()); }
@@ -32,6 +45,10 @@ namespace ARM.Module.ViewModel.References
 
         #region [override]
 
+        /// <summary>
+        /// Виклик зберігання обєкту.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
         protected override void SaveExecute(object arg)
         {
             if (!ValidateBeforeSave())
@@ -64,6 +81,9 @@ namespace ARM.Module.ViewModel.References
 
         #region IARMParentValidatableViewModel Members
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return FormatTitle(Resources.Model_Data_Parent); }

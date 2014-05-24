@@ -23,6 +23,10 @@ using Xceed.Wpf.DataGrid.FilterCriteria;
 using Models = ARM.Data.Models;
 namespace ARM.Module.ViewModel.Services.Evaluation
 {
+    /// <summary>
+    /// Клас що забезпечує функціональність по відслідковуванні успішності студентів протягом сесії.
+    /// Допомагає вносити бали по предметам і атестаціям.
+    /// </summary>
     public class ARMEvaluationViewModel : ARMServiceViewModelBase, IARMEvaluationViewModel
     {
         #region [needs]
@@ -31,6 +35,13 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         #endregion
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMEvaluationViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMEvaluationViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMEvaluationView view)
             : base(regionManager, unityContainer, eventAggregator, view)
         {
@@ -39,6 +50,9 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             DeleteMarkCommand = new ARMRelayCommand(DeleteMarkExecute);
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return Resource.AppResource.Resources.Service_Evaluation_Title; }
@@ -46,8 +60,17 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         #region [commands]
 
+        /// <summary>
+        /// Команда для додавання оцінки.
+        /// </summary>
         public ICommand AddMarkCommand { get; private set; }
+        /// <summary>
+        /// Команда для редагування оцінки.
+        /// </summary>
         public ICommand EditMarkCommand { get; private set; }
+        /// <summary>
+        /// Команда видалення оцінки.
+        /// </summary>
         public ICommand DeleteMarkCommand { get; private set; }
 
         #endregion
@@ -55,28 +78,46 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         #region [properties]
 
+        /// <summary>
+        /// ОТримує список груп.
+        /// </summary>
         public ObservableCollection<Group> GroupList
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Отримує список студентів.
+        /// </summary>
         public ObservableCollection<Student> StudentList
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Отримує список оцінок.
+        /// </summary>
         public ObservableCollection<Models.Mark> MarkList
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Отримує список класів/занять.
+        /// </summary>
         public ObservableCollection<Class> ClassList { get; private set; }
 
+        /// <summary>
+        /// Отримує список сесій.
+        /// </summary>
         public ObservableCollection<Session> SessionList { get; private set; }
 
+        /// <summary>
+        /// отримує або задає обрану групу.
+        /// </summary>
         public Group SelectedGroup
         {
             get { return Get(() => SelectedGroup); }
@@ -87,6 +128,9 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             }
         }
 
+        /// <summary>
+        /// Отримує або задає обраного студента.
+        /// </summary>
         public Student SelectedStudent
         {
             get { return Get(() => SelectedStudent); }
@@ -97,6 +141,9 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             }
         }
 
+        /// <summary>
+        /// Отримує або задає обраний клас/заняття.
+        /// </summary>
         public Class SelectedClass
         {
             get { return Get(() => SelectedClass); }
@@ -107,6 +154,9 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             }
         }
 
+        /// <summary>
+        /// Отримує або задає обрану сесію.
+        /// </summary>
         public Session SelectedSession
         {
             get { return Get(() => SelectedSession); }
@@ -117,18 +167,27 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             }
         }
 
+        /// <summary>
+        /// Отримує або задає обрану оцінку.
+        /// </summary>
         public Models.Mark SelectedMark
         {
             get { return Get(() => SelectedMark); }
             set { Set(() => SelectedMark, value); }
         }
 
+        /// <summary>
+        /// Отримує тип оцінки.
+        /// </summary>
         public Type TypeMark { get { return typeof(Models.Mark); } }
 
         #endregion
 
         #region [override]
 
+        /// <summary>
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
+        /// </summary>
         public override void Initialize()
         {
             _initialize = true;
@@ -150,6 +209,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         #region [private]
 
+        /// <summary>
+        /// Виконується при зміні групи.
+        /// Фільтрує оцінки в сітці.
+        /// </summary>
         private void GroupChanged()
         {
             if (SelectedGroup == null)
@@ -160,6 +223,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             UpdateMarks(false);
         }
 
+        /// <summary>
+        /// Виконується при зміні сесії.
+        /// Фільтрує оцінки в сітці.
+        /// </summary>
         private void SessionChanged()
         {
             if (SelectedSession == null)
@@ -170,11 +237,19 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             UpdateMarks(false);
         }
 
+        /// <summary>
+        /// Виконується при зміні студента.
+        /// Фільтрує оцінки відносно студента.
+        /// </summary>
         private void StudentChanged()
         {
             UpdateMarks();
         }
 
+        /// <summary>
+        /// Виконується при зміні класу.
+        /// Фільтрує оцінки відносно класу.
+        /// </summary>
         private void ClassChanged()
         {
             UpdateMarks();
@@ -182,6 +257,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
 
         // m => m.StudentId == StudenyId && m.ClassId == ClassId
         // m => m.
+        /// <summary>
+        /// Будує вираз для фільтрації відносно студента і занятя.
+        /// </summary>
+        /// <returns></returns>
         private Expression<Func<Models.Mark, bool>> BuildFilterFunctionStudentClass()
         {
             ParameterExpression pe = Expression.Parameter(typeof(Models.Mark), "m");
@@ -209,6 +288,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
                     : null;
         }
 
+        /// <summary>
+        /// Будує вираз для фільтрації відносно групи та сесії.
+        /// </summary>
+        /// <returns></returns>
         private Expression<Func<Models.Mark, bool>> BuildFilterFunctionGroupSession()
         {
             ParameterExpression pe = Expression.Parameter(typeof(Models.Mark), "m");
@@ -243,6 +326,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
                     : ex2 != null ? ex2 : null);
         }
 
+        /// <summary>
+        /// Застосування фільтрації.
+        /// </summary>
+        /// <param name="isOld">if set to <c>true</c> [is old].</param>
         private void UpdateMarks(bool isOld = true)
         {
             if (_initialize)
@@ -255,11 +342,19 @@ namespace ARM.Module.ViewModel.Services.Evaluation
         }
 
 
+        /// <summary>
+        /// Додавання оцінки.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void AddMarkExecute(object arg)
         {
             ProcessMark(ViewMode.Add,Guid.Empty);
         }
 
+        /// <summary>
+        /// Редагування оцінки.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void EditMarkExecute(object arg)
         {
             if(SelectedMark == null)
@@ -267,6 +362,10 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             ProcessMark(ViewMode.Edit,SelectedMark.Id);
         }
 
+        /// <summary>
+        /// Видалення оцінки.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private void DeleteMarkExecute(object arg)
         {
             if(SelectedMark == null)
@@ -276,6 +375,11 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             UpdateMarks();
         }
 
+        /// <summary>
+        /// Процес роботи з оцінками.
+        /// </summary>
+        /// <param name="mode">Режим.</param>
+        /// <param name="id">Ідентифікатор.</param>
         private void ProcessMark(ViewMode mode, Guid id)
         {
             IARMMarkValidatableViewModel markViewModel = UnityContainer.Resolve<IARMMarkValidatableViewModel>();

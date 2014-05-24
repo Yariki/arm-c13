@@ -101,7 +101,7 @@ namespace ARM.Infrastructure.MVVM
         public ICommand CancelCommand {get;private set;}
 
         /// <summary>
-        /// Проводить ініціялазацію вкладки і моделі представлення вцілому.
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
         /// </summary>
         public virtual void Initialize()
         {

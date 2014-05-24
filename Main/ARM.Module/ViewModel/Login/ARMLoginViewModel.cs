@@ -17,6 +17,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace ARM.Module.ViewModel.Login
 {
+    /// <summary>
+    /// Клас відповідає за роботу при вході в систему, за збереження та відтворення інформації про останій логін, перевірку правильноссті введеної інформації.
+    /// </summary>
     public class ARMLoginViewModel : ARMValidatableViewModelBase,IARMLoginViewModel
     {
         #region [login info]
@@ -33,34 +36,64 @@ namespace ARM.Module.ViewModel.Login
         private const string SavedloginInfoFile = "info.json";
         private User _user;
 
+        /// <summary>
+        /// Створити екземпляр <see cref="ARMLoginViewModel"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
+        /// <param name="unityContainer">The unity container.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
+        /// <param name="view">The view.</param>
         public ARMLoginViewModel(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMLoginView view) 
             : base(regionManager, unityContainer, eventAggregator, view)
         {
             OkCommand = new ARMRelayCommand(OnOkExecute,CanOkExecute);
         }
 
+        /// <summary>
+        /// Заголовок вкладки.
+        /// </summary>
         public override string Title
         {
             get { return "LOGIN"; }
         }
 
         #region [implentations]
+        /// <summary>
+        /// Отримує команду ОК.
+        /// </summary>
         public ICommand OkCommand { get; private set; }
 
+        /// <summary>
+        /// Перевіряє цей екземпляр.
+        /// </summary>
+        /// <returns></returns>
         public bool Validate()
         {
             return ValidateBeforeSave();
         }
 
+        /// <summary>
+        /// Отримує або зажаю дію закриття.
+        /// </summary>
         public Action<bool> CloseAction { get; set; }
 
+        /// <summary>
+        /// Отримує або задає валідність користувача.
+        /// </summary>
         public bool IsUserValid { get; private set; }
 
+        /// <summary>
+        /// Повертає поточного користувача.
+        /// </summary>
+        /// <returns></returns>
         public User GetUser()
         {
             return _user;
         }
 
+        /// <summary>
+        /// Отримує поточну мову користувача.
+        /// </summary>
         public eARMSystemLanguage Language { get; private set; }
         #endregion
 
@@ -88,6 +121,12 @@ namespace ARM.Module.ViewModel.Login
 
         #region [overrides]
 
+        /// <summary>
+        /// втсановлення режиму роботи та моделі даних
+        /// </summary>
+        /// <param name="mode">Режим.</param>
+        /// <param name="metadata">Метадата.</param>
+        /// <param name="data">Модель даних.</param>
         public override void SetBusinessObject(ViewMode mode, eARMMetadata metadata, object data)
         {
             base.SetBusinessObject(mode,metadata,data);
@@ -101,6 +140,10 @@ namespace ARM.Module.ViewModel.Login
             }
         }
 
+        /// <summary>
+        /// Виклик методу відміни.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         protected override void CancelExecute(object arg)
         {
             CloseDialog(false);
@@ -110,6 +153,9 @@ namespace ARM.Module.ViewModel.Login
 
         #region [private]
 
+        /// <summary>
+        /// Викликається при натисканні на кнопку ОК.
+        /// </summary>
         private void OnOkExecute(object arg)
         {
             var loginInfo = GetBusinessObject<ARM.Data.Models.Login>();
@@ -132,11 +178,18 @@ namespace ARM.Module.ViewModel.Login
             }
         }
 
+        /// <summary>
+        /// Визначає чи доступна кнопка ОК.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
         private bool CanOkExecute(object arg)
         {
             return IsValid;
         }
 
+        /// <summary>
+        /// Закриття діалогу.
+        /// </summary>
         private void CloseDialog(bool result)
         {
             if (CloseAction != null)
@@ -149,6 +202,12 @@ namespace ARM.Module.ViewModel.Login
 
         #region [settings]
 
+        /// <summary>
+        /// Зберігає інформацію про логін.
+        /// </summary>
+        /// <param name="name">Імя.</param>
+        /// <param name="password">Пароль.</param>
+        /// <param name="isSave">Флаг, який показує чи потрібно зберігати.</param>
         private void SaveLoginInfo(string name, string password, bool isSave)
         {
             IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
@@ -163,6 +222,10 @@ namespace ARM.Module.ViewModel.Login
             }
         }
 
+        /// <summary>
+        /// Отримує попередньо збережену інформацію про логін.
+        /// </summary>
+        /// <returns></returns>
         private LoginInfo GetSavedLoginInfo()
         {
             IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
