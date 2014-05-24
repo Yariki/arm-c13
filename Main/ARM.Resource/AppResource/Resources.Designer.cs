@@ -1861,6 +1861,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List of deducted students.
+        /// </summary>
+        public static string Report_Deduct_Title {
+            get {
+                return ResourceManager.GetString("Report_Deduct_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You should choose valid path.
         /// </summary>
         public static string Report_EmptyPath {

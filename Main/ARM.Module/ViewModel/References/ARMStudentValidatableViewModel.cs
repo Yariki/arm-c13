@@ -605,7 +605,7 @@ namespace ARM.Module.ViewModel.References
         /// <param name="obj">Аргументи для додавання.</param>
         private void AddParentExecute(object obj)
         {
-            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, EventAggregator, new ARMLookupView());
             viewModel.Initialize(eARMMetadata.Parent);
             ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
             var result = wnd.ShowDialog();
@@ -683,7 +683,7 @@ namespace ARM.Module.ViewModel.References
         /// <param name="arg">The argument.</param>
         private void AddLanguageExecute(object arg)
         {
-            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, EventAggregator, new ARMLookupView());
             viewModel.Initialize(eARMMetadata.Language);
             ARMLookupWindow wnd = new ARMLookupWindow(viewModel);
             var result = wnd.ShowDialog();

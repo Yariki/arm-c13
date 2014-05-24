@@ -174,6 +174,9 @@ namespace ARM.Module
             UnityContainer.RegisterType<IARMAcademicArrearsView, ARMAcademicArrearsView>();
             UnityContainer.RegisterType<IARMAcademicArrearsViewModel, ARMAcademicArrearsViewModel>();
 
+            UnityContainer.RegisterType<IARMStudentListDeductView, ARMStudentListDeductView>();
+            UnityContainer.RegisterType<IARMStudentListDeductViewModel, ARMStudentListDeductViewModel>();
+
             UnityContainer.ConfigureAutoRegistration()
                 .ExcludeSystemAssemblies()
                 //.Include(If.ImplementsITypeName,Then.Register().UsingPerCallMode())

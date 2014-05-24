@@ -33,6 +33,7 @@
         ReportSessionMarks,
         ReportDebt,
         ReportForeignStudent,
-        ReportAcademicArrears
+        ReportAcademicArrears,
+        ReportDeduct
     }
 }

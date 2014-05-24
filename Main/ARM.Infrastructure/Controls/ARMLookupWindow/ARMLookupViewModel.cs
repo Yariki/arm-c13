@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM;
@@ -7,6 +8,10 @@ using ARM.Core.Service;
 using ARM.Data.Models;
 using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Controls.Interfaces;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.MVVM;
+using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.Controls.ARMLookupWindow
@@ -18,16 +23,19 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
     public class ARMLookupViewModel : ARMViewModelBase, IARMLookupViewModel
     {
         private IUnityContainer _unityContainer;
+        private IEventAggregator _eventAggregator;
 
         /// <summary>
         /// Ініціалізує новий екземпляр класу <see cref="ARMLookupViewModel"/>.
         /// </summary>
         /// <param name="unityContainer">Контейнер IoC.</param>
         /// <param name="view">Користувацький інтерфейс.</param>
-        public ARMLookupViewModel(IUnityContainer unityContainer, IARMView view)
+        public ARMLookupViewModel(IUnityContainer unityContainer, IEventAggregator eventAggregator, IARMView view)
             : base(view)
         {
             _unityContainer = unityContainer;
+            _eventAggregator = eventAggregator;
+            AddEntityCommand = new ARMRelayCommand(AddEntityExecute);
         }
 
         /// <summary>
@@ -65,6 +73,45 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
 
             OnPropertyChanged(() => Source);
             OnPropertyChanged(() => EntityType);
+        }
+
+        /// <summary>
+        /// Команда для створення обєкту обраного типу.
+        /// </summary>
+        public ICommand AddEntityCommand { get; private set; }
+        /// <summary>
+        /// Викликається при відміні вводу.
+        /// </summary>
+        public event EventHandler Cancel;
+
+        /// <summary>
+        /// ОТримує шлях до зображення.
+        /// </summary>
+        public string ImagePath { get { return @"pack://application:,,,/ARM.Resource;component/Images/data-add-icon.png";  } }
+
+        /// <summary>
+        /// Викликається при відміні.
+        /// </summary>
+        protected virtual void OnCancel()
+        {
+            EventHandler handler = Cancel;
+            if (handler != null) 
+                handler(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Відображає форму для додавання нового обєкта та закриває вікно вибору.
+        /// </summary>
+        /// <param name="arg">The argument.</param>
+        private void AddEntityExecute(object arg)
+        {
+            if(_eventAggregator == null)
+                return;
+            var eventProcess = _eventAggregator.GetEvent<ARMEntityProcessEvent>();
+            if(eventProcess == null)
+                return;
+            eventProcess.Publish(new ARMProcessEntityEventPayload(Metadata,ViewMode.Add, Guid.Empty));
+            OnCancel();
         }
     }
 }

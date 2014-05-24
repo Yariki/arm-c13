@@ -15,7 +15,15 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         {
             InitializeComponent();
             _viewModel = viewModel;
+            _viewModel.Cancel += ViewModelOnCancel;
             Dispatcher.BeginInvoke((Action)(() => this.DataContext = _viewModel));
+        }
+
+        private void ViewModelOnCancel(object sender, EventArgs eventArgs)
+        {
+            _viewModel.Cancel -= ViewModelOnCancel;
+            DialogResult = false;
+            Close();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

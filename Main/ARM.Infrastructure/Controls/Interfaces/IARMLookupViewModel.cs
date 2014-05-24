@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
@@ -32,5 +33,18 @@ namespace ARM.Infrastructure.Controls.Interfaces
         /// </summary>
         /// <param name="metadata">Метадата.</param>
         void Initialize(eARMMetadata metadata);
+        /// <summary>
+        /// Команда для створення обєкту обраного типу.
+        /// </summary>
+        ICommand AddEntityCommand { get; }
+        /// <summary>
+        /// Викликається при відміні вводу.
+        /// </summary>
+        event EventHandler Cancel;
+
+        /// <summary>
+        /// ОТримує шлях до зображення.
+        /// </summary>
+        string ImagePath { get; }
     }
 }

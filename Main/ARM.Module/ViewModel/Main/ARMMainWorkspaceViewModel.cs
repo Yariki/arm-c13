@@ -284,6 +284,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportAcademicArrears:
                     workspaceViewModel = _unityContainer.Resolve<IARMAcademicArrearsViewModel>();
                     break;
+                case eARMMainMenuCommand.ReportDeduct:
+                    workspaceViewModel = _unityContainer.Resolve<IARMStudentListDeductViewModel>();
+                    break;
 
 
             }

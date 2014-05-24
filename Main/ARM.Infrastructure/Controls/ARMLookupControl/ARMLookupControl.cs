@@ -8,6 +8,7 @@ using ARM.Data.Sevice.Resolver;
 using ARM.Infrastructure.Annotations;
 using ARM.Infrastructure.Controls.ARMLookupWindow;
 using ARM.Infrastructure.Controls.Interfaces;
+using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.Controls.ARMLookupControl
@@ -45,6 +46,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
 
         #region [ctor]
 
+        /// <summary>
+        /// Створити екземпляр ARMLookupControl.
+        /// </summary>
         public ARMLookupControl()
             : base()
         {
@@ -61,7 +65,6 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
 
         /// <summary>
         /// При перевизначенні в похідному класі викликається кожного разу, коли код програми або внутрішні процеси викликають <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.
-
         /// </summary>
         public override void OnApplyTemplate()
         {
@@ -172,7 +175,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
 
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, new ARMLookupView());
+            IARMLookupViewModel viewModel = new ARMLookupViewModel(UnityContainer, UnityContainer.Resolve<IEventAggregator>(), new ARMLookupView());
             viewModel.Initialize(Metadata);
             ARMLookupWindow.ARMLookupWindow wnd = new ARMLookupWindow.ARMLookupWindow(viewModel);
 

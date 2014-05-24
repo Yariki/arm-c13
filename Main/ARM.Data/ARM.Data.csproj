@@ -84,9 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201405201711094_Init.cs" />
-    <Compile Include="CommonContextMigrations\201405201711094_Init.Designer.cs">
-      <DependentUpon>201405201711094_Init.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201405031533580_Init.cs" />
+    <Compile Include="CommonContextMigrations\201405031533580_Init.Designer.cs">
+      <DependentUpon>201405031533580_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -298,8 +298,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201405201711094_Init.resx">
-      <DependentUpon>201405201711094_Init.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201405031533580_Init.resx">
+      <DependentUpon>201405031533580_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

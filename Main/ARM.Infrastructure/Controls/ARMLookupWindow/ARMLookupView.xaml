@@ -6,6 +6,7 @@
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:controls="clr-namespace:ARM.Infrastructure.Controls"
              xmlns:filter="clr-namespace:ARM.Infrastructure.Controls.Filter"
+             xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -14,7 +15,7 @@
             <Setter Property="AllowGroupingModification" Value="False" />
             <Setter Property="Visibility" Value="Collapsed" />
         </Style>
-
+        
     </UserControl.Resources>
     <Grid>
         <Grid.Resources>
@@ -26,6 +27,22 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0" MaxHeight="32">
+            <Button Command="{Binding AddEntityCommand}" Width="32">
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock  Text="{x:Static prop:Resources.UI_Add}"></TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="{Binding ImagePath}"/>
+                </Grid>
+            </Button>
+        </ToolBar>
 
         <controls:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource DataSourceCollection}}"
                                      TypeOfEntity="{Binding EntityType}"

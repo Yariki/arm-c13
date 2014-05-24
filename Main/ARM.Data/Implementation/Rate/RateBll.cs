@@ -16,6 +16,7 @@ namespace ARM.Data.Implementation.Rate
         #region [needs]
 
         private const decimal LowRateMaxValue = 40;
+        private const decimal LowRateMaxValue60 = 60;
 
         private IEnumerable<Models.Rate> _lowRatesCollection =  null; 
 
@@ -53,5 +54,15 @@ namespace ARM.Data.Implementation.Rate
         {
             return Dal.GetAsQueryable().FirstOrDefault(r => r.RateMax == LowRateMaxValue);
         }
+
+        /// <summary>
+        /// Повертає рейтинг - Fx.
+        /// </summary>
+        /// <returns></returns>
+        public Models.Rate GetLowRate60()
+        {
+            return Dal.GetAsQueryable().FirstOrDefault(r => r.RateMax == LowRateMaxValue60);
+        }
+
     }
 }

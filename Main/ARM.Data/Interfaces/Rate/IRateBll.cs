@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Rate
@@ -21,5 +22,11 @@ namespace ARM.Data.Interfaces.Rate
         /// </summary>
         /// <returns></returns>
         Models.Rate GetLowRate();
+
+        /// <summary>
+        /// Повертає рейтинг - Fx.
+        /// </summary>
+        /// <returns></returns>
+        Models.Rate GetLowRate60();
     }
 }
