@@ -122,12 +122,16 @@
     <Compile Include="Controls\Interfaces\View\IARMDialogView.cs" />
     <Compile Include="Controls\Interfaces\View\IARMLookupView.cs" />
     <Compile Include="Enums\eARMRequiredLabel.cs" />
+    <Compile Include="Events\ARMClearProgressEvent.cs" />
     <Compile Include="Events\ARMCloseEvent.cs" />
     <Compile Include="Events\ARMEntityProcessEvent.cs" />
+    <Compile Include="Events\ARMProgressEvent.cs" />
     <Compile Include="Events\ARMSyncEvent.cs" />
+    <Compile Include="Events\EventPayload\ARMClearProgressEventPayload.cs" />
     <Compile Include="Events\EventPayload\ARMProcessEntityEventPayload.cs" />
     <Compile Include="Events\EventPayload\ARMBasePayload.cs" />
     <Compile Include="Events\EventPayload\ARMCloseEventPayload.cs" />
+    <Compile Include="Events\EventPayload\ARMProgressEventPayload.cs" />
     <Compile Include="Events\EventPayload\ARMSyncEventPayload.cs" />
     <Compile Include="Facade\ARMSystemFacade.cs" />
     <Compile Include="Helpers\ARMEnumHelper.cs" />

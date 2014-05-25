@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
 using ARM.Infrastructure.Facade;
 using ManagedExcel;
 using Microsoft.Office.Interop.Excel;
@@ -41,15 +43,6 @@ namespace ARM.Infrastructure.MVVM
         /// Команда для експорту даних звіту
         /// </summary>
         public ICommand ExportCommand { get; private set; }
-
-        /// <summary>
-        /// Встановлює або повертає прогрес експорту.
-        /// </summary>
-        public int Progress
-        {
-            get { return Get(() => Progress); }
-            set { Set(() => Progress, value); }
-        }
 
         /// <summary>
         /// Втановлює або повертає статус експорту.
@@ -115,7 +108,7 @@ namespace ARM.Infrastructure.MVVM
         /// </summary>
         protected void ClearProgress()
         {
-            Progress = 0;
+            EventAggregator.GetEvent<ARMClearProgressEvent>().Publish(new ARMClearProgressEventPayload());
         }
 
         /// <summary>
@@ -125,7 +118,8 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="count">Загальна кількість.</param>
         protected void UpdateProgress(int current, int count)
         {
-            Progress = ((current / count) * 100);
+            var progress = ((current / count) * 100);
+            EventAggregator.GetEvent<ARMProgressEvent>().Publish(new ARMProgressEventPayload(){Progress = progress});
         }
 
         #region [private]

@@ -821,4 +821,10 @@
   <data name="Report_SavePath" xml:space="preserve">
     <value>Шлях збереження</value>
   </data>
+  <data name="UI_CurretnUser" xml:space="preserve">
+    <value>Поточний користувач:</value>
+  </data>
+  <data name="UI_OpenLogFile" xml:space="preserve">
+    <value>Відкрити файл логування</value>
+  </data>
 </root>

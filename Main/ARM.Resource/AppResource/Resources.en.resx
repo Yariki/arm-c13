@@ -816,4 +816,10 @@
   <data name="Report_SavePath" xml:space="preserve">
     <value>Save Path</value>
   </data>
+  <data name="UI_CurretnUser" xml:space="preserve">
+    <value>Current User:</value>
+  </data>
+  <data name="UI_OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
+  </data>
 </root>

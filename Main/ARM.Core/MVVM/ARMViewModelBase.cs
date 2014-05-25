@@ -58,8 +58,11 @@ namespace ARM.Core.MVVM
             }
         }
 
-        ///
-        /// <param name="exp"></param>
+        /// <summary>
+        /// Повідомляє всі обєкти про зміну значення певної властивості.
+        /// </summary>
+        /// <typeparam name="T">Тип</typeparam>
+        /// <param name="exp">Вираз.</param>
         protected void OnPropertyChanged<T>(Expression<Func<T>> exp)
         {
             MemberExpression memberExpression = exp.Body as MemberExpression;
@@ -94,9 +97,6 @@ namespace ARM.Core.MVVM
         /// <summary>
         /// модель користувацького інтерфейсу
         /// </summary>
-        /// <value>
-        /// The view.
-        /// </value>
         public IARMView View
         {
             get;

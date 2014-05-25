@@ -60,8 +60,6 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     
-                    <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{Binding Progress,UpdateSourceTrigger=PropertyChanged}" Margin="5"></ProgressBar>
-                    
                     <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5">
                         <TextBlock Text="{Binding Status,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                     </StackPanel>                    

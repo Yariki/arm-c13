@@ -5,9 +5,24 @@
 //  Created on:      02-Apr-2014 1:17:47 AM
 ///////////////////////////////////////////////////////////
 
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Windows.Input;
 using ARM.Core.MVVM;
+using ARM.Data.CommonContextMigrations;
+using ARM.Infrastructure.Events;
+using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.Facade;
+using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces;
 using ARM.Module.Interfaces.View;
+using log4net;
+using log4net.Appender;
+using log4net.Repository.Hierarchy;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Prism.Events;
 
 namespace ARM.Module.ViewModel.Main
 {
@@ -16,13 +31,104 @@ namespace ARM.Module.ViewModel.Main
     /// </summary>
     public class ARMMainStatusBarViewModel : ARMViewModelBase, IARMMainStatusBarViewModel
     {
+
+        #region [needs]
+
+        private IUnityContainer _unityContainer;
+        private IEventAggregator _eventAggregator;
+
+        #endregion
+
         /// <summary>
         /// Створити екземпляр <see cref="ARMMainStatusBarViewModel"/> class.
         /// </summary>
         /// <param name="statusBarView">The status bar view.</param>
-        public ARMMainStatusBarViewModel(IARMMainStatusBarView statusBarView)
+        public ARMMainStatusBarViewModel(IUnityContainer unityContainer, IEventAggregator eventAggregator,IARMMainStatusBarView statusBarView)
             : base(statusBarView)
         {
+            _unityContainer = unityContainer;
+            _eventAggregator = eventAggregator;
+            Init();
         }
+
+        private void Init()
+        {
+            CurrentUser = ARMSystemFacade.Instance.CurrentUser.Display;
+            OnPropertyChanged(() => CurrentUser);
+            _eventAggregator.GetEvent<ARMClearProgressEvent>().Subscribe(ClearProgressHook);
+            _eventAggregator.GetEvent<ARMProgressEvent>().Subscribe(ProgressHook);
+            OpenLogFileCommand = new ARMRelayCommand(OpenLogFileExecute);
+        }
+
+        /// <summary>
+        /// Виконуэться, коли приходить подія оновлення прогресу.
+        /// </summary>
+        /// <param name="armProgressEventPayload">Аргументи.</param>
+        private void ProgressHook(ARMProgressEventPayload armProgressEventPayload)
+        {
+            Progress = armProgressEventPayload.Progress;
+            OnPropertyChanged(() => Progress);
+        }
+
+
+        /// <summary>
+        /// Виконується, коли приходить подія очищення прогресу.
+        /// </summary>
+        /// <param name="armClearProgressEventPayload">Аргументи.</param>
+        private void ClearProgressHook(ARMClearProgressEventPayload armClearProgressEventPayload)
+        {
+            Progress = 0;
+            OnPropertyChanged(() => Progress);
+        }
+
+        /// <summary>
+        /// Отримує імя поточного користувача.
+        /// </summary>
+        public string CurrentUser { get; private set; }
+        /// <summary>
+        /// Отримує команда для відкриття лог файлу.
+        /// </summary>
+        public ICommand OpenLogFileCommand { get; private set; }
+        /// <summary>
+        /// Отримує або задає прогрес виконання операції.
+        /// </summary>
+        public int Progress { get; set; }
+
+        public string ImagePath
+        {
+            get { return @"pack://application:,,,/ARM.Resource;component/Images/log.png"; }
+        }
+
+        /// <summary>
+        /// Звільняє некеровані і - можливо - керовані ресурси.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки некеровані ресурси.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (!Disposed && disposing)
+            {
+                _eventAggregator.GetEvent<ARMClearProgressEvent>().Unsubscribe(ClearProgressHook);
+                _eventAggregator.GetEvent<ARMProgressEvent>().Unsubscribe(ProgressHook);
+            }
+            base.Dispose(disposing);
+        }
+
+        private void OpenLogFileExecute(object arg)
+        {
+            var rootAppender = ((Hierarchy)LogManager.GetRepository()).Root.Appenders.OfType<FileAppender>().FirstOrDefault();
+            string filename = rootAppender != null ? rootAppender.File : string.Empty;
+            if (!string.IsNullOrEmpty(filename) && File.Exists(filename))
+            {
+                try
+                {
+                    Process.Start(filename);
+                }
+                catch (Exception ex)
+                {
+                    ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                }
+            }
+        }
+
     }//end ARMMainStatusBasrViewModel
 }//end namespace Main

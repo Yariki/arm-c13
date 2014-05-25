@@ -2050,6 +2050,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current User:.
+        /// </summary>
+        public static string UI_CurretnUser {
+            get {
+                return ResourceManager.GetString("UI_CurretnUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debt.
         /// </summary>
         public static string UI_Debt {
@@ -2109,6 +2118,15 @@ namespace ARM.Resource.AppResource {
         public static string UI_Main_Title {
             get {
                 return ResourceManager.GetString("UI_Main_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open log file.
+        /// </summary>
+        public static string UI_OpenLogFile {
+            get {
+                return ResourceManager.GetString("UI_OpenLogFile", resourceCulture);
             }
         }
         

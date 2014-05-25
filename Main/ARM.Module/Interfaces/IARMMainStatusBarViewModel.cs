@@ -5,6 +5,7 @@
 //  Created on:      01-Apr-2014 1:37:55 AM
 ///////////////////////////////////////////////////////////
 
+using System.Windows.Input;
 using ARM.Core.Interfaces;
 
 namespace ARM.Module.Interfaces
@@ -14,5 +15,18 @@ namespace ARM.Module.Interfaces
     /// </summary>
     public interface IARMMainStatusBarViewModel : IARMViewModel
     {
+        /// <summary>
+        /// Отримує імя поточного користувача.
+        /// </summary>
+        string CurrentUser { get; }
+        /// <summary>
+        /// Отримує команда для відкриття лог файлу.
+        /// </summary>
+        ICommand OpenLogFileCommand { get; }
+        /// <summary>
+        /// Отримує або задає прогрес виконання операції.
+        /// </summary>
+        int Progress { get; set; }
+
     } //end IARMMainStatusBarViewModel
 } //end namespace Interfaces

@@ -17,6 +17,7 @@ using ARM.Core.MVVM;
 using ARM.Data.Models;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
 using ARM.Module.Enums;
 using ARM.Module.Interfaces;
@@ -74,6 +75,7 @@ namespace ARM.Module.ViewModel.Main
             Toolbox.InitializeCommands();
             InitEventAggregator();
             ClosingCommand = new DelegateCommand<object>(OnClosingDocument, o => true);
+            ARMSystemFacade.Instance.Logger.LogInfo("Application Started....");
         }
 
         #region IARMMainWorkspaceViewModel Members
