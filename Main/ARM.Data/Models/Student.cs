@@ -45,14 +45,13 @@ namespace ARM.Data.Models
         }
 
         [ARMRequired]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Group")]
-        [ARMGrid(Order = 8)]
         public Guid? GroupId
         {
             get;
             set;
         }
-
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Group")]
+        [ARMGrid(Order = 8)]
         public virtual Group Group
         {
             get;
@@ -99,14 +98,13 @@ namespace ARM.Data.Models
         }
 
         [ARMRequired]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Faculty")]
-        [ARMGrid(Order = 10)]
         public Guid? FacultyId
         {
             get;
             set;
         }
-
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Faculty")]
+        [ARMGrid(Order = 10)]
         public virtual Faculty Faculty
         {
             get;

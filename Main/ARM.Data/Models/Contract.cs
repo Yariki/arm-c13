@@ -28,8 +28,6 @@ namespace ARM.Data.Models
         public EducationLevel Level { get; set; }
 
         [ARMRequired]
-        [ARMGrid(Order = 3)]
-        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Contract_Parent")]
         public Guid? ParentId { get; set; }
 
         [ARMRequired]
@@ -44,6 +42,8 @@ namespace ARM.Data.Models
         [ARMRequired]
         public decimal Price { get; set; }
 
+        [ARMGrid(Order = 3)]
+        [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Contract_Parent")]
         public virtual Parent Customer { get; set; }
 
         public virtual University University { get; set; }

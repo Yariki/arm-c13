@@ -18,7 +18,7 @@ namespace ARM.Module.Commands.Menu.Reference
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceGroup;
-            Title = Resources.Model_Group_Title;
+            Title = Tooltip = Resources.Model_Group_Title;
         }
 
         /// <summary>

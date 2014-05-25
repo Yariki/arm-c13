@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Documents
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.DocumentContract;
-            Title = Resource.AppResource.Resources.Model_Contract_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Model_Contract_Title;
         }
 
         /// <summary>

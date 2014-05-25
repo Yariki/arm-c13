@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Services
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ServiceCalculationStipend;
-            Title = Resource.AppResource.Resources.Service_CalculationStipend_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Service_CalculationStipend_Title;
         }
 
         /// <summary>

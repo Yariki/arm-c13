@@ -20,10 +20,10 @@ namespace ARM.Data.Models
     public class Specialty : BaseNamedModel
     {
         [ARMRequired]
-        [ARMGrid(Order = 2)]
-        [Display(ResourceType = typeof (Resources), Name = "Model_Speciality_Faculty")]
         public Guid? FacultyId { get; set; }
 
+        [ARMGrid(Order = 2)]
+        [Display(ResourceType = typeof(Resources), Name = "Model_Speciality_Faculty")]
         public virtual Faculty Faculty { get; set; }
 
         public override string Display

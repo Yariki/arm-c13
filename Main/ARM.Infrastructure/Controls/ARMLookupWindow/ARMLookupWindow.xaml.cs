@@ -16,12 +16,18 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
             InitializeComponent();
             _viewModel = viewModel;
             _viewModel.Cancel += ViewModelOnCancel;
+            _viewModel.Ok += ViewModelOnOk;
             Dispatcher.BeginInvoke((Action)(() => this.DataContext = _viewModel));
+        }
+
+        private void ViewModelOnOk(object sender, EventArgs eventArgs)
+        {
+            DialogResult = true;
+            Close();
         }
 
         private void ViewModelOnCancel(object sender, EventArgs eventArgs)
         {
-            _viewModel.Cancel -= ViewModelOnCancel;
             DialogResult = false;
             Close();
         }
@@ -36,6 +42,12 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         {
             DialogResult = false;
             Close();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            _viewModel.Cancel -= ViewModelOnCancel;
         }
     }
 }

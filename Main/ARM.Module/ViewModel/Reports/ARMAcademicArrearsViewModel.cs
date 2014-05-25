@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -92,6 +93,24 @@ namespace ARM.Module.ViewModel.Reports
         /// </summary>
         public ICommand CreateLetterCommand { get; private set; }
 
+        /// <summary>
+        /// Отримує або задає флаг для відкриття документів.
+        /// </summary>
+        public bool ShouldOpenDocument
+        {
+            get { return Get(() => ShouldOpenDocument); }
+            set { Set(() => ShouldOpenDocument, value); }
+        }
+
+        /// <summary>
+        /// Отримує або зажає шлях для збереження листів.
+        /// </summary>
+        public string SaveLetterPath
+        {
+            get { return Get(() => SaveLetterPath); }
+            set { Set(() => SaveLetterPath, value); }
+        }
+
         #endregion [properties]
 
         #region [override]
@@ -104,6 +123,8 @@ namespace ARM.Module.ViewModel.Reports
             base.Initialize();
             RunCommand = new ARMRelayCommand(RunExecute, CanRunExecute);
             CreateLetterCommand = new ARMRelayCommand(CreateLetterExecute, CanCreateLetterExecute);
+            SaveLetterPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
+            ShouldOpenDocument = false;
         }
 
 
@@ -292,6 +313,13 @@ namespace ARM.Module.ViewModel.Reports
                 }
                 doc.ReplaceText(student, SelectedItem.Student.Display);
                 doc.Save();
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    if (ShouldOpenDocument)
+                    {
+                        Process.Start(path);
+                    }
+                }));
             }
             catch (Exception ex)
             {

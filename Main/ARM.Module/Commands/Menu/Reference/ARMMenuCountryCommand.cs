@@ -18,7 +18,7 @@ namespace ARM.Module.Commands.Menu.Reference
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceCountry;
-            Title = Resources.Grid_Country_Title;
+            Title = Tooltip = Resources.Grid_Country_Title;
         }
 
         /// <summary>

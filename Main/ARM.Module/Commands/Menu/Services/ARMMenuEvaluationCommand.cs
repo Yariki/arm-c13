@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Services
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ServiceEvaluation;
-            Title = Resource.AppResource.Resources.Service_Evaluation_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Service_Evaluation_Title;
         }
 
         /// <summary>

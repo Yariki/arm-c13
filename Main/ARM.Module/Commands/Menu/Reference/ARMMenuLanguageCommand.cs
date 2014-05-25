@@ -18,7 +18,7 @@ namespace ARM.Module.Commands.Menu.Reference
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReferenceLanguage;
-            Title = Resources.Grid_Language_Title;
+            Title = Tooltip = Resources.Grid_Language_Title;
         }
     }
 }

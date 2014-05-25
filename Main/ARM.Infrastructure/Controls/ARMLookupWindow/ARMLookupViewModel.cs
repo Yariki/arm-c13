@@ -36,6 +36,7 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
             _unityContainer = unityContainer;
             _eventAggregator = eventAggregator;
             AddEntityCommand = new ARMRelayCommand(AddEntityExecute);
+            MouseDouleClickCommand = new ARMRelayCommand(MouseDoubleClickExecute);
         }
 
         /// <summary>
@@ -85,6 +86,18 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         public event EventHandler Cancel;
 
         /// <summary>
+        /// Команда привязана до подвійного кліку миші на сітці.
+        /// </summary>
+        /// <value>
+        /// The mouse doule click command.
+        /// </value>
+        public ICommand MouseDouleClickCommand { get; private set; }
+        /// <summary>
+        /// Виклакається при аподвійному кліку миші на сітці.
+        /// </summary>
+        public event EventHandler Ok;
+
+        /// <summary>
         /// ОТримує шлях до зображення.
         /// </summary>
         public string ImagePath { get { return @"pack://application:,,,/ARM.Resource;component/Images/data-add-icon.png";  } }
@@ -100,6 +113,15 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
         }
 
         /// <summary>
+        /// Ініціює виклик події - ОК.
+        /// </summary>
+        protected virtual void OnOk()
+        {
+            EventHandler handler = Ok;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        /// <summary>
         /// Відображає форму для додавання нового обєкта та закриває вікно вибору.
         /// </summary>
         /// <param name="arg">The argument.</param>
@@ -112,6 +134,16 @@ namespace ARM.Infrastructure.Controls.ARMLookupWindow
                 return;
             eventProcess.Publish(new ARMProcessEntityEventPayload(Metadata,ViewMode.Add, Guid.Empty));
             OnCancel();
+        }
+
+        /// <summary>
+        /// Виконується при подвійному кліку на сітці.
+        /// Призначено для вибору елемента по подвійному кліку на сітці та закриті вікна вибору.
+        /// </summary>
+        /// <param name="arg">Аргумент.</param>
+        private void MouseDoubleClickExecute(object arg)
+        {
+            OnOk();
         }
     }
 }

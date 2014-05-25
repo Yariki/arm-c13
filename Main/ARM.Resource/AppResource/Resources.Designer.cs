@@ -1888,6 +1888,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open document after saving.
+        /// </summary>
+        public static string Report_OpenDocument {
+            get {
+                return ResourceManager.GetString("Report_OpenDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Path.
+        /// </summary>
+        public static string Report_SavePath {
+            get {
+                return ResourceManager.GetString("Report_SavePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Report.
         /// </summary>
         public static string Report_SaveReport {

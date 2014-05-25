@@ -5,24 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Control="clr-namespace:ARM.Infrastructure.Controls;assembly=ARM.Infrastructure"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:filter="clr-namespace:ARM.Infrastructure.Controls.Filter;assembly=ARM.Infrastructure"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
-        <Style TargetType="{x:Type xcdg:GroupByControl}">
+        <!--<Style TargetType="{x:Type xcdg:GroupByControl}">
             <Setter Property="AllowGroupingModification" Value="False" />
             <Setter Property="Visibility" Value="Collapsed" />
-        </Style>
+        </Style>-->
     </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <xcdg:DataGridCollectionViewSource x:Key="DataSourceCollection" FilterCriteriaMode="And" Source="{Binding DataSource,UpdateSourceTrigger=PropertyChanged }">
+
+            </xcdg:DataGridCollectionViewSource>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" x:Name="Toolbox" Content="{Binding Toolbox.View}"></ContentControl>
 
-        <Control:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding DataSource,UpdateSourceTrigger=PropertyChanged}" TypeOfEntity="{Binding EntityType}"
+        <Control:ARMDataGridControl Grid.Row="1" ItemsSource="{Binding Source={StaticResource DataSourceCollection}}" TypeOfEntity="{Binding EntityType}"
                                     SelectedItem="{Binding SelectedEntity,Mode=TwoWay}"
-                                    ></Control:ARMDataGridControl>
+                                    >
+            <Control:ARMDataGridControl.View>
+                <xcdg:TableView>
+                    <xcdg:TableView.FixedHeaders>
+                        <DataTemplate>
+                            <filter:ARMFilterRow Source="{StaticResource DataSourceCollection}"></filter:ARMFilterRow>
+                        </DataTemplate>
+                    </xcdg:TableView.FixedHeaders>
+                </xcdg:TableView>
+            </Control:ARMDataGridControl.View>
+        </Control:ARMDataGridControl>
     </Grid>
 </UserControl>

@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Report
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportContractGroup;
-            Title = Resource.AppResource.Resources.Report_ContractGroup_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Report_ContractGroup_Title;
         }
     }
 }

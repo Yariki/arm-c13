@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Report
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportSessionMarks;
-            Title = Resource.AppResource.Resources.Report_SessionMark_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Report_SessionMark_Title;
         }
     }
 }

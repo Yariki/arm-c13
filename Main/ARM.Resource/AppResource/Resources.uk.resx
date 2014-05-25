@@ -815,4 +815,10 @@
   <data name="Report_Deduct_Title" xml:space="preserve">
     <value>Списки студентів на відрахування</value>
   </data>
+  <data name="Report_OpenDocument" xml:space="preserve">
+    <value>Відкрити документ після збереження</value>
+  </data>
+  <data name="Report_SavePath" xml:space="preserve">
+    <value>Шлях збереження</value>
+  </data>
 </root>

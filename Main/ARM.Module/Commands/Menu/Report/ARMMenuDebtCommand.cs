@@ -18,7 +18,7 @@ namespace ARM.Module.Commands.Menu.Report
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportDebt;
-            Title = Resource.AppResource.Resources.Report_Debt_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Report_Debt_Title;
         }
 
         /// <summary>

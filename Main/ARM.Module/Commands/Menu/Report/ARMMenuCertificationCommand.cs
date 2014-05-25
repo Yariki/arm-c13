@@ -17,7 +17,7 @@ namespace ARM.Module.Commands.Menu.Report
             : base(action, canPredicate)
         {
             MenuCommand = eARMMainMenuCommand.ReportCertification;
-            Title = Resource.AppResource.Resources.Report_Certification_Title;
+            Title = Tooltip = Resource.AppResource.Resources.Report_Certification_Title;
         }
 
         /// <summary>

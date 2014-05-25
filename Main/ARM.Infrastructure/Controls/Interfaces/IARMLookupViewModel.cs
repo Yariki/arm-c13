@@ -41,7 +41,17 @@ namespace ARM.Infrastructure.Controls.Interfaces
         /// Викликається при відміні вводу.
         /// </summary>
         event EventHandler Cancel;
-
+        /// <summary>
+        /// Команда привязана до подвійного кліку миші на сітці.
+        /// </summary>
+        /// <value>
+        /// The mouse doule click command.
+        /// </value>
+        ICommand MouseDouleClickCommand { get; }
+        /// <summary>
+        /// Виклакається при аподвійному кліку миші на сітці.
+        /// </summary>
+        event EventHandler Ok;
         /// <summary>
         /// ОТримує шлях до зображення.
         /// </summary>
