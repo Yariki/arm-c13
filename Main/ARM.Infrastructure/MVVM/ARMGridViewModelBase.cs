@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.Interfaces.Data;
@@ -86,6 +87,11 @@ namespace ARM.Infrastructure.MVVM
         /// </summary>
         public T SelectedEntity { get; set; }
 
+        /// <summary>
+        /// Отримує команду для привязки її до події в сітці.
+        /// </summary>
+        public ICommand MouseDoubleClickCommand { get; private set; }
+
         #region [protected]
 
         /// <summary>
@@ -140,6 +146,9 @@ namespace ARM.Infrastructure.MVVM
                     if (SelectedEntity != null)
                         DeleteEntity(SelectedEntity);
                     break;
+                case ToolbarCommand.Refresh:
+                    UpdateSource();
+                    break;
             }
         }
 
@@ -169,6 +178,7 @@ namespace ARM.Infrastructure.MVVM
                 OnPropertyChanged(() => DataSource);
             }
             EventAggregator.GetEvent<ARMSyncEvent>().Subscribe(OnSyncEvent);
+            MouseDoubleClickCommand = new ARMRelayCommand(MouseDoubleClickExecute);
         }
 
         /// <summary>
@@ -208,6 +218,15 @@ namespace ARM.Infrastructure.MVVM
             _bll.Delete(entity);
             _bll.Save();
             UpdateSource();
+        }
+
+        /// <summary>
+        /// Виконується при подвійному кліку на сітці.
+        /// </summary>
+        /// <param name="arg">Аргументи.</param>
+        private void MouseDoubleClickExecute(object arg)
+        {
+            OnToolboxExecute(ToolbarCommand.Edit);
         }
 
         #endregion [private]

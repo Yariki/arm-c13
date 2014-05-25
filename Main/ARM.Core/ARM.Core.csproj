@@ -129,6 +129,7 @@
     <Compile Include="MVVM\Commands\ARMToolboxAddCommand.cs" />
     <Compile Include="MVVM\Commands\ARMToolboxDeleteCommand.cs" />
     <Compile Include="MVVM\Commands\ARMToolboxEditCommand.cs" />
+    <Compile Include="MVVM\Commands\ARMToolboxRefreshCommand.cs" />
     <Compile Include="MVVM\Commands\Base\ARMToolboxCommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\ARMModelPropertyInfo.cs" />

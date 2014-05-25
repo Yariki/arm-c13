@@ -46,6 +46,10 @@ namespace ARM.Core.MVVM.Commands
             return 0;
         }
 
+        /// <summary>
+        /// Отримує шлях зображення.
+        /// </summary>
+        /// <returns></returns>
         protected override string GetImagePath()
         {
             return @"pack://application:,,,/ARM.Resource;component/Images/data-add-icon.png";

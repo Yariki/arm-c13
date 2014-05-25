@@ -6,6 +6,8 @@
              xmlns:Control="clr-namespace:ARM.Infrastructure.Controls;assembly=ARM.Infrastructure"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:filter="clr-namespace:ARM.Infrastructure.Controls.Filter;assembly=ARM.Infrastructure"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:utils="clr-namespace:ARM.Infrastructure.Utils;assembly=ARM.Infrastructure"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -39,6 +41,10 @@
                     </xcdg:TableView.FixedHeaders>
                 </xcdg:TableView>
             </Control:ARMDataGridControl.View>
+            <i:Interaction.Behaviors>
+                <utils:ARMEventToCommandBehavior Event="MouseDoubleClick" Command="{Binding MouseDoubleClickCommand}"
+                                                    PassArguments="True" PassSender="False" />
+            </i:Interaction.Behaviors>
         </Control:ARMDataGridControl>
     </Grid>
 </UserControl>

@@ -87,6 +87,7 @@ namespace ARM.Core.MVVM
             CmdList.Add(new ARMToolboxAddCommand(InternalAction, InternalPredicate));
             CmdList.Add(new ARMToolboxEditCommand(InternalAction, InternalPredicate));
             CmdList.Add(new ARMToolboxDeleteCommand(InternalAction, InternalPredicate));
+            CmdList.Add(new ARMToolboxRefreshCommand(InternalAction,InternalPredicate));
         }
     }
 }

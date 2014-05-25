@@ -15,6 +15,7 @@ namespace ARM.Core.Enums
         None,
         Add,
         Edit,
-        Delete
+        Delete,
+        Refresh
     } //end ToolbarCommand
 } //end namespace Enums
