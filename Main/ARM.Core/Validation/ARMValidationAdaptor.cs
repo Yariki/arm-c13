@@ -16,6 +16,9 @@ using ARM.Core.Interfaces;
 using Microsoft.Practices.ObjectBuilder2;
 using NSubstitute.Core;
 
+/// <summary>
+/// Простір імен що вміщую в собі класи для забеспечення функціонування валідації.
+/// </summary>
 namespace ARM.Core.Validation
 {
   /// <summary>

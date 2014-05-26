@@ -3,6 +3,9 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
+/// <summary>
+/// Простір імен що містить клас, який відповідає за базову логіку  для ініціалізації всіх модулів програми.
+/// </summary>
 namespace ARM.Core.Module
 {
   /// <summary>

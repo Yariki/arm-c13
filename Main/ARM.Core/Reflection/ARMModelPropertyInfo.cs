@@ -4,6 +4,9 @@ using System.Runtime.Remoting.Channels;
 using System.ComponentModel.DataAnnotations;
 using ARM.Core.Interfaces;
 
+/// <summary>
+/// Простір імен, який містить класи кешування метолів та властивостей типів даних.
+/// </summary>
 namespace ARM.Core.Reflection
 {
   /// <summary>

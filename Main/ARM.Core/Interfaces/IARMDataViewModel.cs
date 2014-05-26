@@ -8,6 +8,9 @@
 using System;
 using ARM.Core.Enums;
 
+/// <summary>
+/// Простір імен, що містить всі основні інтерфейси.
+/// </summary>
 namespace ARM.Core.Interfaces
 {
     /// <summary>

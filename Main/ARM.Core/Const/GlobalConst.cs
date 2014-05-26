@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// Простір імен, який включає глобальні константи, що використовуються.
+/// </summary>
 namespace ARM.Core.Const
 {
     /// <summary>

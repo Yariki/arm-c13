@@ -17,6 +17,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
+/// <summary>
+/// Простір імен, що забеспечую функціональністю кеш властивостей всіх моделй даних.
+/// </summary>
 namespace ARM.Core.Service
 {
   /// <summary>

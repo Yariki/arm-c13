@@ -9,6 +9,9 @@ using System;
 using ARM.Core.Enums;
 using ARM.Core.MVVM.Commands.Base;
 
+/// <summary>
+/// Простір імен для команд. Містить в собі реалізації конкретних команд.
+/// </summary>
 namespace ARM.Core.MVVM.Commands
 {
   /// <summary>

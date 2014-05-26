@@ -7,6 +7,9 @@
 
 using System;
 
+/// <summary>
+/// Простір імен, який містить єдиний інтерфейс для всіх моделей даних апліікації.
+/// </summary>
 namespace ARM.Core.Interfaces.Data
 {
     /// <summary>

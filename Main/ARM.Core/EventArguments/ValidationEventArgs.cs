@@ -8,6 +8,9 @@
 using System;
 using ARM.Core.Interfaces;
 
+/// <summary>
+/// Простір імен основних аргументів подій.
+/// </summary>
 namespace ARM.Core.EventArguments
 {
     /// <summary>

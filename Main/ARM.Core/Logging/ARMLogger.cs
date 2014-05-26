@@ -6,6 +6,9 @@ using log4net;
 using log4net.Config;
 using Microsoft.Practices.Prism.Logging;
 
+/// <summary>
+/// Простівр імен, що містить класс, який забеспечує роботу системи логування.
+/// </summary>
 namespace ARM.Core.Logging
 {
   /// <summary>

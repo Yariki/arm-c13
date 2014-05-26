@@ -6,6 +6,9 @@ using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM.Commands;
 
+/// <summary>
+/// Простівр імен призначений для базових класів, що беруть участь у формуванні та реалізції патерну MVVM.
+/// </summary>
 namespace ARM.Core.MVVM
 {
     /// <summary>

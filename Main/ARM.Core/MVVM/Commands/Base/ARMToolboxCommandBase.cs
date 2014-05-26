@@ -9,6 +9,9 @@ using System;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 
+/// <summary>
+/// Простір імен для базовиїх класів команд.
+/// </summary>
 namespace ARM.Core.MVVM.Commands.Base
 {
   /// <summary>

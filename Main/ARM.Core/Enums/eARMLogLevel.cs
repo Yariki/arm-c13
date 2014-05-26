@@ -5,6 +5,9 @@
 //  Created on:      30-Mar-2014 8:12:16 PM
 ///////////////////////////////////////////////////////////
 
+/// <summary>
+/// Простір імен основних типів перечислень.
+/// </summary>
 namespace ARM.Infrastructure.Enums
 {
     /// <summary>

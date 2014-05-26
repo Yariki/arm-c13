@@ -14,6 +14,9 @@ using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
+/// <summary>
+/// Основний простір імен для кдасів ядра. В даному просторі представлені всі основні інтерфейси, як використовуться в аплікації.
+/// </summary>
 namespace ARM.Core
 {
   /// <summary>

@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 
+/// <summary>
+/// Простір імен, що містить допоміжні класи і методи розширення. Вони виконують певні загальні дії над даними.
+/// </summary>
 namespace ARM.Core.Extensions
 {
     /// <summary>
