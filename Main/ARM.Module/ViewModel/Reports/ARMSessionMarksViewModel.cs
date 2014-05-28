@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Drawing;
+using ARM.Core.Const;
 using ARM.Data.Models;
 using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.MVVM;
@@ -194,6 +195,7 @@ namespace ARM.Module.ViewModel.Reports
                     foreach (var classId in listClasses)
                     {
                         var sumRate = marks.Where(m => m.StudentId.Value == studentId && m.ClassId == classId).Sum(m => m.MarkRate);
+                        sumRate = sumRate > GlobalConst.MaxMark ? GlobalConst.MaxMark : sumRate;
                         var rate = UnitOfWork.RateRepositary.GetApproprialRate(sumRate);
                         if (rate != null)
                         {

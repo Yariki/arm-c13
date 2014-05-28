@@ -25,5 +25,10 @@ namespace ARM.Core.Const
         ///     конвертує ідентифікатор в класс Guid
         /// </summary>
         public static readonly Guid IdDefault = Guid.Parse(GuidDefaultStr);
+
+        /// <summary>
+        /// Максимальна кількість балів на семестр по одному предмету
+        /// </summary>
+        public const decimal MaxMark = 100;
     }
 }

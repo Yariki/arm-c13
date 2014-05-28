@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using ARM.Core.Const;
 using ARM.Core.Interfaces;
 using ARM.Data.Models;
 using ARM.Infrastructure.Facade;
@@ -13,10 +13,12 @@ using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.Services.CalculationStipend.View;
 using ARM.Module.Interfaces.Services.CalculationStipend.ViewModel;
 using ARM.Module.ViewModel.Services.CalculationStipend.Stipend;
+using Microsoft.Office.Interop.Excel;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using Application = System.Windows.Application;
 
 namespace ARM.Module.ViewModel.Services.CalculationStipend
 {
@@ -138,50 +140,60 @@ namespace ARM.Module.ViewModel.Services.CalculationStipend
         /// </summary>
         private void InternalProcessCalculationOfStipend()
         {
-            var listStudent = SelectedGroup.Students.Select(s => s.Id);
-            var listClasses = SelectedSession.Classes.Select(c => c.Id);
-            var filterResult =
-                UnitOfWork.MarkRepository.GetAll(
-                    new Func<Data.Models.Mark, bool>(
-                        m => listClasses.Contains(m.ClassId.Value) && listStudent.Contains(m.StudentId.Value)));
-            var list = new List<ARMStudentMarksData>();
-            listStudent.ForEach(s =>
+            try
             {
-                var sd = new ARMStudentMarksData() { StudentId = s };
-                foreach (var cl in listClasses)
+                var listStudent = SelectedGroup.Students.Select(s => s.Id);
+                var listClasses = SelectedSession.Classes.Select(c => c.Id);
+                var filterResult =
+                    UnitOfWork.MarkRepository.GetAll(
+                        new Func<Data.Models.Mark, bool>(
+                            m => listClasses.Contains(m.ClassId.Value) && listStudent.Contains(m.StudentId.Value)));
+                var list = new List<ARMStudentMarksData>();
+                listStudent.ForEach(s =>
                 {
-                    var summark = filterResult.Where(m => m.StudentId == s && m.ClassId.Value == cl)
-                        .Sum(m => m.MarkRate);
-                    sd.SumMarks.Add(cl, UnitOfWork.RateRepositary.GetApproprialRate(summark));
+                    var sd = new ARMStudentMarksData() { StudentId = s };
+                    foreach (var cl in listClasses)
+                    {
+                        var summark = filterResult.Where(m => m.StudentId == s && m.ClassId.Value == cl)
+                            .Sum(m => m.MarkRate);
+                        summark = summark >= GlobalConst.MaxMark ? GlobalConst.MaxMark : summark;
+                        sd.SumMarks.Add(cl, UnitOfWork.RateRepositary.GetApproprialRate(summark));
+                    }
+                    list.Add(sd);
+                });
+
+                decimal commonStipend = UnitOfWork.SettingsRepository.GetCommomStipend();
+                decimal increasedStipend = UnitOfWork.SettingsRepository.GetIncreasedStipend();
+                decimal commonMark = UnitOfWork.SettingsRepository.GetCommonMark();
+                decimal increasedMark = UnitOfWork.SettingsRepository.GetIncreasedMark();
+
+                var result = new ObservableCollection<ARMStudentStipendViewModel>();
+                foreach (var armStudentMarksData in list)
+                {
+                    var st = new ARMStudentStipendViewModel()
+                    {
+                        Student = SelectedGroup.Students.FirstOrDefault(s => s.Id == armStudentMarksData.StudentId)
+                    };
+                    st.Rate = armStudentMarksData.SumMarks.Values.Average(r => r.Mark);
+                    st.CurrentStipend = st.Student.Stipend;
+                    st.CalculatedStipend = commonMark <= st.Rate && st.Rate < increasedMark
+                        ? commonStipend
+                        : st.Rate == increasedMark ? increasedStipend : commonStipend;
+                    result.Add(st);
                 }
-                list.Add(sd);
-            });
 
-            decimal commonStipend = UnitOfWork.SettingsRepository.GetCommomStipend();
-            decimal increasedStipend = UnitOfWork.SettingsRepository.GetIncreasedStipend();
-            decimal commonMark = UnitOfWork.SettingsRepository.GetCommonMark();
-            decimal increasedMark = UnitOfWork.SettingsRepository.GetIncreasedMark();
-
-            var result = new ObservableCollection<ARMStudentStipendViewModel>();
-            foreach (var armStudentMarksData in list)
-            {
-                var st = new ARMStudentStipendViewModel()
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    Student = SelectedGroup.Students.FirstOrDefault(s => s.Id == armStudentMarksData.StudentId)
-                };
-                st.Rate = armStudentMarksData.SumMarks.Values.Average(r => r.Mark);
-                st.CurrentStipend = st.Student.Stipend;
-                st.CalculatedStipend = commonMark <= st.Rate && st.Rate < increasedMark
-                    ? commonStipend
-                    : st.Rate == increasedMark ? increasedStipend : commonStipend;
-                result.Add(st);
-            }
+                    StudentStipendsSource = result;
+                    IsBusy = false;
+                }));
 
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            }
+            catch (Exception ex)
             {
-                StudentStipendsSource = result;
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
                 IsBusy = false;
-            }));
+            }
         }
 
         /// <summary>
