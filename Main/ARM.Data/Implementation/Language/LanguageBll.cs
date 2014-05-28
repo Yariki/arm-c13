@@ -12,6 +12,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Implementation.Language
 {
     /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - мовами
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Реалізація бізнес логіки для мов
     /// </summary>
     public class LanguageBll : BaseBll<Models.Language>, ILanguageBll

@@ -8,47 +8,47 @@
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для сервісу логування
+    ///     Інтерфейс для сервісу логування
     /// </summary>
     public interface IARMLoggerFacade
     {
         /// <summary>
-        /// Метод для логування помилок
+        ///     Метод для логування помилок
         /// </summary>
         /// <param name="message">Повідомлення</param>
         void LogError(string message);
 
         /// <summary>
-        /// Метод для логування помилок
+        ///     Метод для логування помилок
         /// </summary>
         /// <param name="format">Формат.</param>
         /// <param name="args">Аргументи повідомлення.</param>
         void LogError(string format, object[] args);
 
         /// <summary>
-        /// Метод для логування попереджень
+        ///     Метод для логування попереджень
         /// </summary>
         /// <param name="message">Повідомлення.</param>
         void LogWarning(string message);
 
         /// <summary>
-        /// Метод для логування попереджень
+        ///     Метод для логування попереджень
         /// </summary>
         /// <param name="format">Формат.</param>
         /// <param name="args">Аргументи повідомлення.</param>
         void LogWarning(string format, object[] args);
 
         /// <summary>
-        /// Метод для логування корисної інформації
+        ///     Метод для логування корисної інформації
         /// </summary>
         /// <param name="message">Повідомлення.</param>
         void LogInfo(string message);
 
         /// <summary>
-        /// Метод для логування корисної інформації
+        ///     Метод для логування корисної інформації
         /// </summary>
         /// <param name="format">Формат.</param>
         /// <param name="args">Аргументи повідомлення.</param>
         void LogInfo(string format, object[] args);
-    }//end IARMLoggerFacade
-}//end namespace Interfaces
+    } //end IARMLoggerFacade
+} //end namespace Interfaces

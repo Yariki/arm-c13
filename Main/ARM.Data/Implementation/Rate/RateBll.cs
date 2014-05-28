@@ -8,6 +8,15 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Rate
 {
+
+
+    /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - рейтингами/балами
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Реалізація бізнес логіки для рейтингу
     /// </summary>

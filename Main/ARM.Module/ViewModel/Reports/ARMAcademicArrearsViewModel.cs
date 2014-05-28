@@ -15,6 +15,7 @@ using ARM.Infrastructure.MVVM;
 using ARM.Module.Interfaces.Reports.View;
 using ARM.Module.Interfaces.Reports.ViewModel;
 using ARM.Module.ViewModel.Reports.AcademicArrears;
+using ARM.Module.ViewModel.Reports.LetterTemplate;
 using ARM.Resource.AppResource;
 using ManagedExcel;
 using Microsoft.Practices.Prism.Events;
@@ -247,12 +248,12 @@ namespace ARM.Module.ViewModel.Reports
                     string.Format("{0}_{1}_Academic_Letter.docx", SelectedItem.Student.LastName,
                         SelectedItem.Student.FirstName));
 
-                ARMAcademicArrearsLetterTemplate lettertemplate = null;
-                var serializer = new XmlSerializer(typeof (ARMAcademicArrearsLetterTemplate));
+                ARMLetterTemplate lettertemplate = null;
+                var serializer = new XmlSerializer(typeof (ARMLetterTemplate));
                 using (TextReader reader = new StringReader(Resources.Letter_Academic_Template))
                 {
                     //reader.ReadToEnd();
-                    lettertemplate = (ARMAcademicArrearsLetterTemplate) serializer.Deserialize(reader);
+                    lettertemplate = (ARMLetterTemplate) serializer.Deserialize(reader);
                 }
 
                 DocX doc = DocX.Create(path);

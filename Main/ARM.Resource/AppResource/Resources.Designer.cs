@@ -403,6 +403,19 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;lettertemplate&gt;
+        ///	&lt;header&gt;Список студентів на відрахування групи *GROUP*.&lt;/header&gt;
+        ///	&lt;body&gt;Нижче наведено списко студентів на відрахування у зв&apos;язку з незадовільною успішністю.&lt;/body&gt;
+        ///	&lt;footer&gt;&lt;/footer&gt;
+        ///&lt;/lettertemplate&gt;.
+        /// </summary>
+        public static string Letter_Deduct_Template {
+            get {
+                return ResourceManager.GetString("Letter_Deduct_Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ARM - bla - bla.
         /// </summary>
         public static string MAINWINDOW_TITLE {
@@ -1861,6 +1874,33 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fail exam.
+        /// </summary>
+        public static string Report_Deduct_FailExam {
+            get {
+                return ResourceManager.GetString("Report_Deduct_FailExam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string Report_Deduct_Note {
+            get {
+                return ResourceManager.GetString("Report_Deduct_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Sequentially Certification.
+        /// </summary>
+        public static string Report_Deduct_NotSequentiallyCertification {
+            get {
+                return ResourceManager.GetString("Report_Deduct_NotSequentiallyCertification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to List of deducted students.
         /// </summary>
         public static string Report_Deduct_Title {
@@ -1992,6 +2032,15 @@ namespace ARM.Resource.AppResource {
         public static string Service_Evaluation_Title {
             get {
                 return ResourceManager.GetString("Service_Evaluation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List Of Student.
+        /// </summary>
+        public static string Table_ListOfStudent {
+            get {
+                return ResourceManager.GetString("Table_ListOfStudent", resourceCulture);
             }
         }
         
@@ -2172,6 +2221,15 @@ namespace ARM.Resource.AppResource {
         public static string UI_Student {
             get {
                 return ResourceManager.GetString("UI_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unload to Word.
+        /// </summary>
+        public static string UI_WordUnload {
+            get {
+                return ResourceManager.GetString("UI_WordUnload", resourceCulture);
             }
         }
     }

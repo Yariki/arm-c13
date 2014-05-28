@@ -9,8 +9,18 @@ using ARM.Data.Interfaces.Address;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
 
+
 namespace ARM.Data.Implementation.Address
 {
+    /// <summary>
+/// Простір імен для реалізації функциональності по роботі з - адресами
+/// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+
     /// <summary>
     /// Реалізація бізнес логіки для адрес
     /// </summary>

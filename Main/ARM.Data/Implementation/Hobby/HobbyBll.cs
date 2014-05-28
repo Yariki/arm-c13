@@ -9,8 +9,17 @@ using ARM.Data.Interfaces.Hobby;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
 
+
 namespace ARM.Data.Implementation.Hobby
 {
+/// <summary>
+/// Простір імен для реалізації функциональності по роботі з - хобі
+/// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     /// Реалізація бізнес логіки для хобі
     /// </summary>

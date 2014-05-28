@@ -6,29 +6,34 @@ using log4net;
 using log4net.Config;
 using Microsoft.Practices.Prism.Logging;
 
-/// <summary>
-/// Простівр імен, що містить класс, який забеспечує роботу системи логування.
-/// </summary>
 namespace ARM.Core.Logging
 {
-  /// <summary>
-  /// класс відповідай за функціональність логування.
-  /// </summary>
-    public class ARMLogger : IARMLoggerFacade,ILoggerFacade
+    /// <summary>
+    /// Простір імен, що містить класс, який забеспечує роботу системи логування.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
     {
+    }
 
-      /// <summary>
-      /// файл налаштування
-      /// </summary>
+    /// <summary>
+    /// класс відповідай за функціональність логування.
+    /// </summary>
+    public class ARMLogger : IARMLoggerFacade, ILoggerFacade
+    {
+        /// <summary>
+        /// файл налаштування
+        /// </summary>
         private const string Filename = "log4net.config";
 
         #region fields
+
         /// <summary>
         /// внутрішній обєкт логування.
         /// </summary>
         private ILog _log;
-        #endregion
 
+        #endregion fields
 
         #region fields static
 
@@ -36,10 +41,10 @@ namespace ARM.Core.Logging
         /// статичний обєкт классу ARMLogger. Призначений для реалізації патерну Singleton
         /// </summary>
         private static ARMLogger _instance = null;
+
         private static object _lock = new object();
 
-        #endregion
-
+        #endregion fields static
 
         #region [ctor]
 
@@ -60,7 +65,7 @@ namespace ARM.Core.Logging
             }
         }
 
-        #endregion
+        #endregion [ctor]
 
         /// <summary>
         /// Повертає обєкь логування
@@ -88,8 +93,9 @@ namespace ARM.Core.Logging
         /// <param name="message">Повідомлення</param>
         public void LogError(string message)
         {
-           WriteLog(eARMLogLevel.Error, message); 
+            WriteLog(eARMLogLevel.Error, message);
         }
+
         /// <summary>
         /// Метод для логування помилок
         /// </summary>
@@ -98,16 +104,18 @@ namespace ARM.Core.Logging
         public void LogError(string format, object[] args)
         {
             string message = string.Format(format, args);
-            WriteLog(eARMLogLevel.Error, message);    
+            WriteLog(eARMLogLevel.Error, message);
         }
+
         /// <summary>
         /// Метод для логування попереджень
         /// </summary>
         /// <param name="message">Повідомлення.</param>
         public void LogWarning(string message)
         {
-            WriteLog(eARMLogLevel.Warning,message);
+            WriteLog(eARMLogLevel.Warning, message);
         }
+
         /// <summary>
         /// Метод для логування попереджень
         /// </summary>
@@ -118,6 +126,7 @@ namespace ARM.Core.Logging
             string message = string.Format(format, args);
             WriteLog(eARMLogLevel.Warning, message);
         }
+
         /// <summary>
         /// Метод для логування корисної інформації
         /// </summary>
@@ -126,6 +135,7 @@ namespace ARM.Core.Logging
         {
             WriteLog(eARMLogLevel.Info, message);
         }
+
         /// <summary>
         /// Метод для логування корисної інформації
         /// </summary>
@@ -150,19 +160,22 @@ namespace ARM.Core.Logging
                 case Category.Warn:
                     WriteLog(eARMLogLevel.Warning, message);
                     break;
+
                 case Category.Debug:
                     WriteLog(eARMLogLevel.Info, message);
                     break;
+
                 case Category.Info:
                     WriteLog(eARMLogLevel.Info, message);
                     break;
+
                 case Category.Exception:
                     WriteLog(eARMLogLevel.Error, message);
                     break;
             }
         }
 
-        #endregion
+        #endregion [logging]
 
         #region private
 
@@ -180,17 +193,20 @@ namespace ARM.Core.Logging
                 case eARMLogLevel.Info:
                     _log.Info(message);
                     break;
+
                 case eARMLogLevel.Warning:
                     _log.Warn(message);
                     break;
+
                 case eARMLogLevel.Error:
                     _log.Error(message);
                     break;
+
                 default:
                     break;
             }
         }
 
-        #endregion
+        #endregion private
     }
 }

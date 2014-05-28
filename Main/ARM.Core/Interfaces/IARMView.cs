@@ -8,17 +8,13 @@
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Базовій інтерфейс користувацбго інтерфейсу
+    ///     Базовій інтерфейс користувацбго інтерфейсу
     /// </summary>
     public interface IARMView
     {
         /// <summary>
-        /// Встановити або повернути обєкт контексту.
+        ///     Встановити або повернути обєкт контексту.
         /// </summary>
-        object DataContext
-        {
-            get;
-            set;
-        }
-    }//end IARMView
-}//end namespace Interfaces
+        object DataContext { get; set; }
+    } //end IARMView
+} //end namespace Interfaces

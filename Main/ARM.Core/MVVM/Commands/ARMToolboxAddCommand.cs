@@ -6,18 +6,28 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.CompilerServices;
 using ARM.Core.Enums;
 using ARM.Core.MVVM.Commands.Base;
+using ARM.Resource.AppResource;
 
 namespace ARM.Core.MVVM.Commands
 {
     /// <summary>
-    /// Команда додавання нового запису
+    ///     Простір імен для реалізації команд панелі управління.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    ///     Команда додавання нового запису
     /// </summary>
     public class ARMToolboxAddCommand : ARMToolboxCommandBase
     {
         /// <summary>
-        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand"/>.
+        ///     Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand" />.
         /// </summary>
         /// <param name="action">Дія.</param>
         /// <param name="predicate">Предикат.</param>
@@ -25,11 +35,11 @@ namespace ARM.Core.MVVM.Commands
             : base(action, predicate)
         {
             Type = ToolbarCommand.Add;
-            Title = Resource.AppResource.Resources.UI_Add;
+            Title = Resources.UI_Add;
         }
 
         /// <summary>
-        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand"/>.
+        ///     Ініціалізує новий екземпляр класу <see cref="ARMToolboxAddCommand" />.
         /// </summary>
         /// <param name="action">Дія.</param>
         public ARMToolboxAddCommand(Action<ToolbarCommand> action)
@@ -38,7 +48,7 @@ namespace ARM.Core.MVVM.Commands
         }
 
         /// <summary>
-        /// Визначає порядок.
+        ///     Визначає порядок.
         /// </summary>
         /// <returns></returns>
         protected override int GetOrder()
@@ -47,12 +57,12 @@ namespace ARM.Core.MVVM.Commands
         }
 
         /// <summary>
-        /// Отримує шлях зображення.
+        ///     Отримує шлях зображення.
         /// </summary>
         /// <returns></returns>
         protected override string GetImagePath()
         {
             return @"pack://application:,,,/ARM.Resource;component/Images/data-add-icon.png";
         }
-    }//end ARMToolboxAddCommand
-}//end namespace Commands
+    } //end ARMToolboxAddCommand
+} //end namespace Commands

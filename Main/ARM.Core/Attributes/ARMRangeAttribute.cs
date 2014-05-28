@@ -8,16 +8,12 @@
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// атрибут, який вказує на валідацію властивості у відповідності до діапазону
+    ///     атрибут, який вказує на валідацію властивості у відповідності до діапазону
     /// </summary>
     public class ARMRangeAttribute : ARMNumericAttribute
     {
-        public ARMRangeAttribute()
-        {
-        }
-
         ~ARMRangeAttribute()
         {
         }
-    }//end ARMRangeAttribute
-}//end namespace Attributes
+    } //end ARMRangeAttribute
+} //end namespace Attributes

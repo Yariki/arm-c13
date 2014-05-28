@@ -8,18 +8,14 @@
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// атрибут, який вказує, що дана вдастивість повинна валідуватись по максимальному значенню
+    ///     атрибут, який вказує, що дана вдастивість повинна валідуватись по максимальному значенню
     /// </summary>
     public class ARMMaxAttribute : ARMNumericAttribute
     {
-        public ARMMaxAttribute()
-        {
-        }
-
         ~ARMMaxAttribute()
         {
         }
     }
 
     //end ARMMaxAttribute
-}//end namespace Attributes
+} //end namespace Attributes

@@ -3,7 +3,7 @@ namespace ARM.Data.CommonContextMigrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -137,6 +137,8 @@ namespace ARM.Data.CommonContextMigrations
                         Id = c.Guid(nullable: false),
                         StaffId = c.Guid(nullable: false),
                         SessionId = c.Guid(nullable: false),
+                        Summary = c.Int(nullable: false),
+                        CourseWorkPresent = c.Boolean(nullable: false),
                         Name = c.String(),
                         DateModified = c.DateTime(nullable: false),
                         ModifiedBy = c.String(),
@@ -262,6 +264,9 @@ namespace ARM.Data.CommonContextMigrations
                         ClassId = c.Guid(),
                         Date = c.DateTime(),
                         Type = c.Int(nullable: false),
+                        MarkRate = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        IsCertification = c.Boolean(nullable: false),
+                        Name = c.String(),
                         DateModified = c.DateTime(nullable: false),
                         ModifiedBy = c.String(),
                     })
@@ -290,6 +295,20 @@ namespace ARM.Data.CommonContextMigrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Student", t => t.StudentId)
                 .Index(t => t.StudentId);
+            
+            CreateTable(
+                "dbo.Rate",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        RateMin = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        RateMax = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Mark = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Name = c.String(),
+                        DateModified = c.DateTime(nullable: false),
+                        ModifiedBy = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.SettingParameters",
@@ -410,6 +429,8 @@ namespace ARM.Data.CommonContextMigrations
                         SpecialityId = c.Guid(),
                         Status = c.Int(nullable: false),
                         EmployerId = c.Guid(),
+                        StudyType = c.Int(nullable: false),
+                        Stipend = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Address", t => t.AddressId)
@@ -497,6 +518,7 @@ namespace ARM.Data.CommonContextMigrations
             DropTable("dbo.StudentLanguages");
             DropTable("dbo.User");
             DropTable("dbo.SettingParameters");
+            DropTable("dbo.Rate");
             DropTable("dbo.Visa");
             DropTable("dbo.Mark");
             DropTable("dbo.Language");

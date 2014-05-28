@@ -8,15 +8,15 @@
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфес правила валідації
+    ///     Інтерфес правила валідації
     /// </summary>
     public interface IARMValidationRule
     {
         /// <summary>
-        /// Запустити валідацію.
+        ///     Запустити валідацію.
         /// </summary>
         /// <param name="val">Обєкт валідації.</param>
         /// <returns></returns>
         IARMValidationResult Evalute(object val);
-    }//end IARMValidationRule
-}//end namespace Interfaces
+    } //end IARMValidationRule
+} //end namespace Interfaces

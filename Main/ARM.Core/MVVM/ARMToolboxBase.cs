@@ -6,11 +6,16 @@ using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 using ARM.Core.MVVM.Commands;
 
-/// <summary>
-/// Простівр імен призначений для базових класів, що беруть участь у формуванні та реалізції патерну MVVM.
-/// </summary>
 namespace ARM.Core.MVVM
 {
+    /// <summary>
+    /// Простівр імен призначений для базових класів, що беруть участь у формуванні та реалізції патерну MVVM.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     ///     базовий класс для панелей управління
     /// </summary>
@@ -90,7 +95,7 @@ namespace ARM.Core.MVVM
             CmdList.Add(new ARMToolboxAddCommand(InternalAction, InternalPredicate));
             CmdList.Add(new ARMToolboxEditCommand(InternalAction, InternalPredicate));
             CmdList.Add(new ARMToolboxDeleteCommand(InternalAction, InternalPredicate));
-            CmdList.Add(new ARMToolboxRefreshCommand(InternalAction,InternalPredicate));
+            CmdList.Add(new ARMToolboxRefreshCommand(InternalAction, InternalPredicate));
         }
     }
 }

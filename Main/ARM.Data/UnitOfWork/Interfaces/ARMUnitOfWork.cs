@@ -28,6 +28,14 @@ using Microsoft.Practices.Unity;
 namespace ARM.Data.UnitOfWork.Interfaces
 {
     /// <summary>
+    /// Простір імен реалізації вузла доступу та роботи з даними БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Реалізація класу дя доступу до всіх репозитаріїв.
     /// З автоматичними знищенням всіх створених, які використовувались на протязі роботи.
     /// </summary>

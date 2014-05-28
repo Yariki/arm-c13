@@ -294,7 +294,7 @@
     <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="ViewModel\Reports\AcademicArrears\ARMAcademicArrearsDetails.cs" />
-    <Compile Include="ViewModel\Reports\AcademicArrears\ARMAcademicArrearsLetterTemplate.cs" />
+    <Compile Include="ViewModel\Reports\LetterTemplate\ARMLetterTemplate.cs" />
     <Compile Include="ViewModel\Reports\AcademicArrears\ARMStudentAcademicArrearsData.cs" />
     <Compile Include="ViewModel\Reports\ARMAcademicArrearsViewModel.cs" />
     <Compile Include="ViewModel\Reports\ARMCertificationViewModel.cs" />
@@ -308,6 +308,7 @@
     <Compile Include="ViewModel\Reports\Certification\ARMStudentCertificationData.cs" />
     <Compile Include="ViewModel\Reports\Data\ARMStudentClassData.cs" />
     <Compile Include="ViewModel\Reports\Debt\ARMStudentDebtDetails.cs" />
+    <Compile Include="ViewModel\Reports\Deduct\ARMStudentDeduct.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMSessionMarkDetails.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMStudentSessionMarksData.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\ARMCalculationStipendViewModel.cs" />

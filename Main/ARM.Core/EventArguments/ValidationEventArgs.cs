@@ -6,38 +6,36 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.CompilerServices;
 using ARM.Core.Interfaces;
 
-/// <summary>
-/// Простір імен основних аргументів подій.
-/// </summary>
 namespace ARM.Core.EventArguments
 {
     /// <summary>
-    /// класс аргументів повідомллення. Містить назву властивості, що підлягала валідації і результат валідації
+    ///     Простір імен основних аргументів подій.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    ///     класс аргументів повідомллення. Містить назву властивості, що підлягала валідації і результат валідації
     /// </summary>
     public class ValidationEventArgs : EventArgs
     {
-        public ValidationEventArgs()
-        {
-        }
-
-        ~ValidationEventArgs()
-        {
-        }
-
         /// <summary>
-        /// назва властивості, що валідувалась
+        ///     назва властивості, що валідувалась
         /// </summary>
         public string PropertyName { get; set; }
 
         /// <summary>
-        /// результат валідації
+        ///     результат валідації
         /// </summary>
-        public IARMValidationResult Result
+        public IARMValidationResult Result { get; set; }
+
+        ~ValidationEventArgs()
         {
-            get;
-            set;
         }
-    }//end ValidationEventArgs
-}//end namespace EventArguments
+    } //end ValidationEventArgs
+} //end namespace EventArguments

@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace ARM.Module.ViewModel.Reports.AcademicArrears
+namespace ARM.Module.ViewModel.Reports.LetterTemplate
 {
     /// <summary>
     /// Клас що представляє собою модель шаблона листа. Шаблон розміщения у файлі локалізації.
     /// </summary>
     [Serializable]
     [System.Xml.Serialization.XmlRoot("lettertemplate")]
-    public class ARMAcademicArrearsLetterTemplate
+    public class ARMLetterTemplate
     {
         [System.Xml.Serialization.XmlElement("header")]
         public string Header { get; set; }

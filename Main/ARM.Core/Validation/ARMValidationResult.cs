@@ -11,13 +11,12 @@ using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation
 {
-  /// <summary>
-  /// Класс, який представляє собою результат валідації
-  /// </summary>
+    /// <summary>
+    /// Класс, який представляє собою результат валідації
+    /// </summary>
     public class ARMValidationResult : IARMValidationResult
     {
         private readonly IList<string> _listMessage = new List<string>();
-
 
         /// <summary>
         /// Додати повідомлення валідації

@@ -10,6 +10,13 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Parent
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - батьками
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+    /// <summary>
     /// Інтерфейс бізнес логіки батьків
     /// </summary>
     public interface IParentBll : IBll<Models.Parent>

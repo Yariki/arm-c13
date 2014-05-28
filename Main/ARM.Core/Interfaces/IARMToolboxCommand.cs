@@ -11,58 +11,43 @@ using ARM.Core.Enums;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс команди панелі управління
+    ///     Інтерфейс команди панелі управління
     /// </summary>
     public interface IARMToolboxCommand : ICommand
     {
         /// <summary>
-        /// Заголовок команди
+        ///     Заголовок команди
         /// </summary>
         string Title { get; }
 
         /// <summary>
-        /// Картинка команди
+        ///     Картинка команди
         /// </summary>
-        string Image
-        {
-            get;
-        }
+        string Image { get; }
 
         /// <summary>
-        /// Імя ресурсу
+        ///     Імя ресурсу
         /// </summary>
-        string ResourceName
-        {
-            get;
-        }
+        string ResourceName { get; }
 
         /// <summary>
-        /// Підказка команди
+        ///     Підказка команди
         /// </summary>
-        string Tooltip
-        {
-            get;
-        }
+        string Tooltip { get; }
 
         /// <summary>
-        /// Додатковий аргумент.
+        ///     Додатковий аргумент.
         /// </summary>
-        object Tag
-        {
-            get;
-        }
+        object Tag { get; }
 
         /// <summary>
-        /// Тип команди.
+        ///     Тип команди.
         /// </summary>
-        ToolbarCommand Type
-        {
-            get;
-        }
+        ToolbarCommand Type { get; }
 
         /// <summary>
-        /// Порядок відображення.
+        ///     Порядок відображення.
         /// </summary>
         int Order { get; }
-    }//end IARMToolboxCommand
-}//end namespace Interfaces
+    } //end IARMToolboxCommand
+} //end namespace Interfaces

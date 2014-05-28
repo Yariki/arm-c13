@@ -8,9 +8,9 @@
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для атритубів валідації
+    ///     Інтерфейс для атритубів валідації
     /// </summary>
     public interface IARMValidationAttribute
     {
-    }//end IARMValidationAttribute
-}//end namespace Interfaces
+    } //end IARMValidationAttribute
+} //end namespace Interfaces

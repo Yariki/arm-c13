@@ -6,17 +6,23 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.CompilerServices;
 
-/// <summary>
-/// Постір імен що обєднує всі класи атрибутів, які використовуються в аплікації. 
-/// В нашому випадку тут розміщені базові класи атрибутів, атрибути валідації, загальні атрибути для моделей даних.
-/// </summary>
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// Базовий класс для атрибутів.
+    ///     Постір імен що обєднує всі класи атрибутів, які використовуються в аплікації.
+    ///     В нашому випадку тут розміщені базові класи атрибутів, атрибути валідації, загальні атрибути для моделей даних.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    ///     Базовий класс для атрибутів.
     /// </summary>
     public abstract class ARMBaseAttribute : Attribute
     {
-    }//end ARMBaseAttribute
-}//end namespace Attributes
+    } //end ARMBaseAttribute
+} //end namespace Attributes

@@ -9,6 +9,14 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Address
 {
+
+    /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - адреси.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Інтерфейс бізнес логіки адрес
     /// </summary>

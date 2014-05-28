@@ -7,17 +7,16 @@
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для валідції значень які предщставляюь собою URL
-  /// </summary>
+    /// <summary>
+    /// Класс-правило для валідції значень які предщставляюь собою URL
+    /// </summary>
     public class ARMUrlValidationRule : ARMStringValidationRule
     {
-
-      /// <summary>
-      /// Валідація значення.
-      /// </summary>
-      /// <param name="val">Значення.</param>
-      /// <returns></returns>
+        /// <summary>
+        /// Валідація значення.
+        /// </summary>
+        /// <param name="val">Значення.</param>
+        /// <returns></returns>
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;

@@ -14,6 +14,14 @@ using ARM.Data.Models;
 namespace ARM.Data.Layer.Context
 {
     /// <summary>
+    /// Простір імен в якому розміщені базові класи по реалізації фукнціональності роботи з БД, рівень даних та  рівень бізнес логіки.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Базова реалізація бізнес-логіки для БД.
     /// </summary>
     /// <typeparam name="T"></typeparam>

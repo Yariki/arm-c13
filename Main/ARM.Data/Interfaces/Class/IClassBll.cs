@@ -9,6 +9,14 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Class
 {
+
+    /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - класи.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Інтерфейс бізнес логіки занятть
     /// </summary>

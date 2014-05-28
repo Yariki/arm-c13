@@ -9,8 +9,17 @@ using ARM.Data.Interfaces.Group;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
 
+
 namespace ARM.Data.Implementation.Group
 {
+/// <summary>
+/// Простір імен для реалізації функциональності по роботі з - групами
+/// </summary>
+
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Реалізація бізнес логіки для груп
     /// </summary>

@@ -12,34 +12,31 @@ using ARM.Core.Enums;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс моделі представлення панелі управління.
+    ///     Інтерфейс моделі представлення панелі управління.
     /// </summary>
     public interface IARMToolboxViewModel : IARMViewModel
     {
         /// <summary>
-        /// Список команд панелі управління.
+        ///     Список команд панелі управління.
         /// </summary>
-        IEnumerable<IARMToolboxCommand> Commands
-        {
-            get;
-        }
+        IEnumerable<IARMToolboxCommand> Commands { get; }
 
         /// <summary>
-        /// Ініціалізація панелі управління.
+        ///     Ініціалізація панелі управління.
         /// </summary>
         void InitializeCommands();
 
         /// <summary>
-        /// Додати команду.
+        ///     Додати команду.
         /// </summary>
         /// <param name="cmd">Команда.</param>
         void AddCommand(IARMToolboxCommand cmd);
 
         /// <summary>
-        /// Втановити зовнішні обробчики натискань.
+        ///     Втановити зовнішні обробчики натискань.
         /// </summary>
         /// <param name="action">Метод.</param>
         /// <param name="predicate">Предикат.</param>
         void SetActions(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate);
-    }//end IARMToolboxViewModel
-}//end namespace Interfaces
+    } //end IARMToolboxViewModel
+} //end namespace Interfaces

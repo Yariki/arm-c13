@@ -8,9 +8,9 @@
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для указання користувацього інтерфейсу
+    ///     Інтерфейс для указання користувацього інтерфейсу
     /// </summary>
     public interface IARMToolboxView : IARMView
     {
-    }//end IARMToolboxView
-}//end namespace Interfaces
+    } //end IARMToolboxView
+} //end namespace Interfaces

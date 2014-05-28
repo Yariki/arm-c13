@@ -13,24 +13,26 @@ using ARM.Core.Attributes;
 using ARM.Core.EventArguments;
 using ARM.Core.Extensions;
 using ARM.Core.Interfaces;
-using Microsoft.Practices.ObjectBuilder2;
-using NSubstitute.Core;
 
-/// <summary>
-/// Простір імен що вміщую в собі класи для забеспечення функціонування валідації.
-/// </summary>
 namespace ARM.Core.Validation
 {
-  /// <summary>
-  /// Класс, що відповідає за валідацію обєкта у відповідності до встановдених правил.
-  /// </summary>
+    /// <summary>
+    /// Простір імен що вміщую в собі класи для забеспечення функціонування валідації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    /// Класс, що відповідає за валідацію обєкта у відповідності до встановлених правил.
+    /// </summary>
     public class ARMValidationAdaptor : IARMValidationAdaptor
     {
         private object _dataObject;
-        private readonly Dictionary<string, PropertyInfo> _propertyInfos = new Dictionary<string, PropertyInfo>(); 
-        private readonly Dictionary<string,string> _results = new Dictionary<string, string>(); 
-        private readonly Dictionary<string,IARMValidationRule> _rules = new Dictionary<string, IARMValidationRule>();
-
+        private readonly Dictionary<string, PropertyInfo> _propertyInfos = new Dictionary<string, PropertyInfo>();
+        private readonly Dictionary<string, string> _results = new Dictionary<string, string>();
+        private readonly Dictionary<string, IARMValidationRule> _rules = new Dictionary<string, IARMValidationRule>();
 
         /// <summary>
         /// Установка обєкта валідації
@@ -47,11 +49,11 @@ namespace ARM.Core.Validation
         /// Ініціалізація правил.
         /// </summary>
         /// <param name="list">The list.</param>
-        private void InitRules(IList<IARMModelPropertyInfo> list )
+        private void InitRules(IList<IARMModelPropertyInfo> list)
         {
             foreach (var armModelPropertyInfo in list)
             {
-                if(!armModelPropertyInfo.IsRequired && armModelPropertyInfo.ValidationAttribute == null)
+                if (!armModelPropertyInfo.IsRequired && armModelPropertyInfo.ValidationAttribute == null)
                     continue;
                 IARMValidationRule rule = null;
 
@@ -59,7 +61,7 @@ namespace ARM.Core.Validation
                 {
                     rule = ARMValidationRulesFactory.Instance.GetRule(armModelPropertyInfo.ValidationAttribute);
                 }
-                else if(armModelPropertyInfo.IsRequired)
+                else if (armModelPropertyInfo.IsRequired)
                 {
                     if (armModelPropertyInfo.Property.PropertyType.IsValueType)
                     {
@@ -107,9 +109,9 @@ namespace ARM.Core.Validation
         /// <param name="name">Назва властивості.</param>
         public void Validate(string name)
         {
-            if(!_rules.ContainsKey(name))
+            if (!_rules.ContainsKey(name))
                 return;
-            
+
             var rule = _rules[name];
             var pi = _propertyInfos[name];
             if (_dataObject != null && rule != null && pi != null)
@@ -119,7 +121,7 @@ namespace ARM.Core.Validation
                 if (!result.IsValid)
                 {
                     _results[name] = string.Join(" -> ", result.GetErrors());
-                    RaiseValidationCompleted(name,result);
+                    RaiseValidationCompleted(name, result);
                 }
                 else
                 {
@@ -130,7 +132,7 @@ namespace ARM.Core.Validation
             else
             {
                 _results[name] = string.Empty;
-                RaiseValidationCompleted(name, new ARMValidationResult(){IsValid = true});
+                RaiseValidationCompleted(name, new ARMValidationResult() { IsValid = true });
             }
         }
 
@@ -182,14 +184,14 @@ namespace ARM.Core.Validation
         /// <returns></returns>
         public string GetResult(string name)
         {
-            return _results.ContainsKey(name ) ? _results[name] : string.Empty;
+            return _results.ContainsKey(name) ? _results[name] : string.Empty;
         }
 
         /// <summary>
         /// Повернути всі результати.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string,string> GetResultForAll()
+        public Dictionary<string, string> GetResultForAll()
         {
             return _results;
         }
@@ -208,22 +210,20 @@ namespace ARM.Core.Validation
         /// Отримує повідомлення про помилки, які вказують вказівку, що сталося з цим об'єктом.
         /// </summary>
         /// <returns>Повідомлень про помилки, які вказують вказівку, що сталося з цим об'єктом. За замовчуванням використовується порожній рядок ("").</returns>
-        public string Error { get {return string.Join(" - ", GetResultForAll().Values);} }
-
+        public string Error { get { return string.Join(" - ", GetResultForAll().Values); } }
 
         /// <summary>
         /// Викликається, коли операція перевірки завершена.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="result">The result.</param>
-        private void RaiseValidationCompleted(string name,IARMValidationResult result)
+        private void RaiseValidationCompleted(string name, IARMValidationResult result)
         {
             EventHandler<ValidationEventArgs> temp = ValidationCompleted;
             if (temp != null)
             {
-                temp(this,new ValidationEventArgs(){Result = result,PropertyName = name});
+                temp(this, new ValidationEventArgs() { Result = result, PropertyName = name });
             }
         }
-
     }//end ARMValidationAdaptor
 }//end namespace Validation

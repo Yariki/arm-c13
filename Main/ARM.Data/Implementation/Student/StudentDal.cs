@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
+using System.Linq;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
@@ -33,6 +34,8 @@ namespace ARM.Data.Implementation.Student
             ctx.Achivements.RemoveRange(entity.Achivements);
             ctx.Visas.RemoveRange(entity.Visas);
             entity.Languages.Clear();
+            if(entity.Parents.Any())
+                entity.Parents.Clear();
         }
     } //end StudentDal
 } //end namespace Student

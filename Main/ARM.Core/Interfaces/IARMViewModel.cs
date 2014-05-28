@@ -10,14 +10,14 @@ using System.ComponentModel;
 
 namespace ARM.Core.Interfaces
 {
-  /// <summary>
-  /// Базовий інтерфейс для моделей представлення аплікації
-  /// </summary>
-    public interface IARMViewModel : INotifyPropertyChanged,IDisposable
+    /// <summary>
+    /// Базовий інтерфейс для моделей представлення аплікації
+    /// </summary>
+    public interface IARMViewModel : INotifyPropertyChanged, IDisposable
     {
-      /// <summary>
-      /// Користувацбкий інтерфейс закріплений за дано. моделюю прпедставлення.
-      /// </summary>
+        /// <summary>
+        /// Користувацбкий інтерфейс закріплений за дано. моделюю прпедставлення.
+        /// </summary>
         IARMView View
         {
             get;

@@ -10,16 +10,12 @@ using ARM.Core.Interfaces;
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// базовий класс для всіх атрибутів валідації
+    ///     базовий класс для всіх атрибутів валідації
     /// </summary>
     public class ARMValidationAttribute : ARMBaseAttribute, IARMValidationAttribute
     {
-        public ARMValidationAttribute()
-        {
-        }
-
         ~ARMValidationAttribute()
         {
         }
-    }//end ARMValidationAttribute
-}//end namespace Attributes
+    } //end ARMValidationAttribute
+} //end namespace Attributes

@@ -12,15 +12,14 @@ using ARM.Core.Validation.Rules;
 
 namespace ARM.Core.Validation
 {
-  /// <summary>
-  ///Фабрики для створення правил перевірки примірників.
-  /// </summary>
+    /// <summary>
+    ///Фабрики для створення правил перевірки примірників.
+    /// </summary>
     public class ARMValidationRulesFactory
     {
-
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMValidationRulesFactory"/>.
-      /// </summary>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMValidationRulesFactory"/>.
+        /// </summary>
         protected ARMValidationRulesFactory()
         {
         }
@@ -45,17 +44,17 @@ namespace ARM.Core.Validation
             if (attr is ARMMaxAttribute)
             {
                 var maxAttr = attr as ARMMaxAttribute;
-                return new ARMMaxValidationRule(maxAttr.Min,maxAttr.Max);
+                return new ARMMaxValidationRule(maxAttr.Min, maxAttr.Max);
             }
             if (attr is ARMMinAttribute)
             {
                 var minAttr = attr as ARMMinAttribute;
-                return new ARMMinValidationRule(minAttr.Min,minAttr.Max);
+                return new ARMMinValidationRule(minAttr.Min, minAttr.Max);
             }
             if (attr is ARMRangeAttribute)
             {
                 var rangeAttr = attr as ARMRangeAttribute;
-                return new ARMRangeValidationRule(rangeAttr.Min,rangeAttr.Max);
+                return new ARMRangeValidationRule(rangeAttr.Min, rangeAttr.Max);
             }
             if (attr is ARMEmailAttribute)
             {
@@ -92,6 +91,5 @@ namespace ARM.Core.Validation
         {
             return new ARMValuableValidationRule();
         }
-
     }//end ARMValidationRulesFactory
 }//end namespace Validation

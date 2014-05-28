@@ -12,64 +12,52 @@ using System.Reflection;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс-контейнер інформації про тип PropertyInfo всіх властивостей певного типу
+    ///     Інтерфейс-контейнер інформації про тип PropertyInfo всіх властивостей певного типу
     /// </summary>
     public interface IARMModelPropertyInfo
     {
         /// <summary>
-        /// Повертає властивість
+        ///     Повертає властивість
         /// </summary>
-        PropertyInfo Property
-        {
-            get;
-        }
+        PropertyInfo Property { get; }
 
         /// <summary>
-        /// Повертає знаяення, що показує, ща властивість є обовязковоє до заповнення.
+        ///     Повертає знаяення, що показує, ща властивість є обовязковоє до заповнення.
         /// </summary>
         /// <value>
-        /// <c>true</c> якщо обовязкова; інакше, <c>false</c>.
+        ///     <c>true</c> якщо обовязкова; інакше, <c>false</c>.
         /// </value>
-        bool IsRequired
-        {
-            get;
-        }
+        bool IsRequired { get; }
 
         /// <summary>
-        /// Повертає тип результату
+        ///     Повертає тип результату
         /// </summary>
-        Type ReturnType
-        {
-            get;
-        }
+        Type ReturnType { get; }
 
         /// <summary>
-        /// Повертає атрибут валідації
+        ///     Повертає атрибут валідації
         /// </summary>
-        IARMValidationAttribute ValidationAttribute
-        {
-            get;
-        }
+        IARMValidationAttribute ValidationAttribute { get; }
 
         /// <summary>
-        /// Чи властивість повинна відображатись у сітці
+        ///     Чи властивість повинна відображатись у сітці
         /// </summary>
         /// <value>
-        ///   <c>true</c> якшо повинна відображатись; інакше, <c>false</c>.
+        ///     <c>true</c> якшо повинна відображатись; інакше, <c>false</c>.
         /// </value>
         bool VisibleInGrid { get; }
 
         /// <summary>
-        /// Повертає індекс відображення в сітці
+        ///     Повертає індекс відображення в сітці
         /// </summary>
         /// <value>
-        /// The order in grid.
+        ///     The order in grid.
         /// </value>
         int OrderInGrid { get; }
 
         /// <summary>
-        /// Атрибут для локалізації. За допомогою цього атрибуту можна вибрати локалізовані дані
+        ///     Атрибут для локалізації. За допомогою цього атрибуту можна вибрати локалізовані дані
         /// </summary>
         DisplayAttribute Display { get; }
-    }//end IARMModelPropertyInfo
-}//end namespace Interfaces
+    } //end IARMModelPropertyInfo
+} //end namespace Interfaces

@@ -6,6 +6,14 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.User
 {
+
+    /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - користувачами
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Реалізація бізнес логіки для користувача
     /// </summary>

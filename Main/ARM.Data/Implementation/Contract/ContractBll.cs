@@ -12,8 +12,17 @@ using ARM.Data.Interfaces.Contract;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
 
+
 namespace ARM.Data.Implementation.Contract
 {
+
+/// <summary>
+/// Простір імен для реалізації функциональності по роботі з - контрактами
+/// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Реалізація бізнес логіки для контрактів
     /// </summary>

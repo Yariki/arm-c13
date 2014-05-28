@@ -9,18 +9,17 @@ using System;
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для валідації мінімаальних числових начень
-  /// </summary>
+    /// <summary>
+    /// Класс-правило для валідації мінімаальних числових начень
+    /// </summary>
     public class ARMMinValidationRule : ARMNumericValidationRule
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу 
-      /// </summary>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу
+        /// </summary>
         public ARMMinValidationRule()
         {
         }
-
 
         /// <summary>
         /// Валідації значення.
@@ -43,7 +42,7 @@ namespace ARM.Core.Validation.Rules
         }
 
         /// <summary>
-        /// Ініціалізує новий екземпляр класу 
+        /// Ініціалізує новий екземпляр класу
         /// </summary>
         /// <param name="min">Мінімальна границя</param>
         /// <param name="max">Максимальна границя</param>

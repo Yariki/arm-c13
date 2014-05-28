@@ -11,6 +11,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Student
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - студенти
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки студентів
     /// </summary>
     public interface IStudentBll : IBll<Models.Student>

@@ -12,6 +12,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Implementation.Parent
 {
     /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - батьками
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Реалізація бізнес логіки для батьків
     /// </summary>
     public class ParentBll : BaseBll<Models.Parent>, IParentBll

@@ -10,6 +10,14 @@ using Unity.AutoRegistration;
 namespace ARM.Data
 {
     /// <summary>
+    /// Простір імен, класи якого призначені для забезпечення робота з БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Моудль, що відповідає за реєстрацію всіх класів для даних.
     /// </summary>
     public class ARMDataModule : ARMBaseModule

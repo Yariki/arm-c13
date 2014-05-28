@@ -14,19 +14,19 @@ using ARM.Core.EventArguments;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс, який забеспечує базову функціональність валідації
+    ///     Інтерфейс, який забеспечує базову функціональність валідації
     /// </summary>
     public interface IARMValidationAdaptor : IDataErrorInfo
     {
         /// <summary>
-        /// Установка обєкта валідації
+        ///     Установка обєкта валідації
         /// </summary>
         /// <param name="obj">Обєкт.</param>
         /// <param name="listPi">Список властивостей.</param>
         void SetValidationObject(object obj, IList<IARMModelPropertyInfo> listPi);
 
         /// <summary>
-        /// Додати правило валідації.
+        ///     Додати правило валідації.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="expression">Вираз.</param>
@@ -34,46 +34,46 @@ namespace ARM.Core.Interfaces
         void AddRule<T>(Expression<Func<T>> expression, IARMValidationRule rule);
 
         /// <summary>
-        /// Зовнішній виклик валідації.
+        ///     Зовнішній виклик валідації.
         /// </summary>
         /// <param name="name">Назва властивості.</param>
         void Validate(string name);
 
         /// <summary>
-        /// Зовнішній виклик валідації.
+        ///     Зовнішній виклик валідації.
         /// </summary>
         /// <param name="propName">Вираз з властивістю.</param>
         void Validate<T>(Expression<Func<T>> propName);
 
         /// <summary>
-        /// Запуск валідації всіх властивостей.
+        ///     Запуск валідації всіх властивостей.
         /// </summary>
         void ValidateAll();
 
         /// <summary>
-        /// Подія, яка виконується після закінчення валідації.
-        /// Повертає результат валідації.
+        ///     Подія, яка виконується після закінчення валідації.
+        ///     Повертає результат валідації.
         /// </summary>
         event EventHandler<ValidationEventArgs> ValidationCompleted;
 
         /// <summary>
-        /// Повернути результат
+        ///     Повернути результат
         /// </summary>
         /// <param name="propName">Вираз з властивістю.</param>
         /// <returns></returns>
         string GetResult<T>(Expression<Func<T>> propName);
 
         /// <summary>
-        /// Повернути результат валідації.
+        ///     Повернути результат валідації.
         /// </summary>
         /// <param name="name">Назва властивості.</param>
         /// <returns></returns>
         string GetResult(string name);
 
         /// <summary>
-        ///Повернути всі результати.
+        ///     Повернути всі результати.
         /// </summary>
         /// <returns></returns>
         Dictionary<string, string> GetResultForAll();
-    }//end IARMValidationAdaptor
-}//end namespace Interfaces
+    } //end IARMValidationAdaptor
+} //end namespace Interfaces

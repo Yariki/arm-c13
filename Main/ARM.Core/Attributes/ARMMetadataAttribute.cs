@@ -3,7 +3,7 @@
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// атрибут, котрий визначає метадату для типу
+    ///     атрибут, котрий визначає метадату для типу
     /// </summary>
     public class ARMMetadataAttribute : ARMBaseAttribute
     {

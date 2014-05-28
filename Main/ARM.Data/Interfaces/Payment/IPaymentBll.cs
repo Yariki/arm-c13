@@ -11,6 +11,14 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Payment
 {
+
+    /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - платіжки
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Інтерфейс бізнес логіки платіжок
     /// </summary>

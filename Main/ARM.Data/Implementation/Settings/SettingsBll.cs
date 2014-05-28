@@ -14,6 +14,15 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Implementation.Settings
 {
+
+
+    /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - налалштуваннями
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Реалізація бізнес логіки для налаштувань
     /// </summary>

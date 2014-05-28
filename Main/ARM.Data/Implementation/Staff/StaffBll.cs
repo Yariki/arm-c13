@@ -12,6 +12,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Implementation.Staff
 {
     /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - персоналом
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Реалізація бізнес логіки для працівників
     /// </summary>
     public class StaffBll : BaseBll<Models.Staff>, IStaffBll

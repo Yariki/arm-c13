@@ -26,6 +26,14 @@ using ARM.Data.Interfaces.Visa;
 namespace ARM.Data.UnitOfWork.Implementation
 {
     /// <summary>
+    /// Простір імен для інтерфейсу, що представляє собою центральний вузол забеспечення рівня роботи та сдотупу зо даних БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс, що відповідає за централізований доступ до всіх репозитарії, та їх видалення 
     /// у разі закінчення роботи з ними.
     /// </summary>

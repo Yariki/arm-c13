@@ -5,6 +5,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Rate
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - рейтинг/бали
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки  рейтингу
     /// </summary>
     public interface IRateBll : IBll<Models.Rate>

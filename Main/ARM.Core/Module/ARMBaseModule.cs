@@ -3,26 +3,33 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-/// <summary>
-/// Простір імен що містить клас, який відповідає за базову логіку  для ініціалізації всіх модулів програми.
-/// </summary>
 namespace ARM.Core.Module
 {
-  /// <summary>
-  /// Базовий класс для всіх модулів.
-  /// </summary>
+    /// <summary>
+    /// Простір імен що містить клас, який відповідає за базову логіку  для ініціалізації всіх модулів програми.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    /// Базовий класс для всіх модулів.
+    /// </summary>
     public abstract class ARMBaseModule : IModule
     {
         #region [needs]
 
-      /// <summary>
-      /// Менеджер областей.
-      /// </summary>
+        /// <summary>
+        /// Менеджер областей.
+        /// </summary>
         protected readonly IRegionManager RegionManager;
+
         /// <summary>
         /// Контейнер IoC.
         /// </summary>
         protected readonly IUnityContainer UnityContainer;
+
         /// <summary>
         /// Агрегатор подій.
         /// </summary>

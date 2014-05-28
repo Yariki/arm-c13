@@ -5,6 +5,7 @@ using ARM.Data.Models;
 
 namespace ARM.Data.Layer
 {
+    
     /// <summary>
     /// Класс призначений тільки для міграцій.
     /// this class is used only for migrations at all.
@@ -99,6 +100,12 @@ namespace ARM.Data.Layer
                 .HasRequired(s => s.LivingAddress)
                 .WithMany()
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Models.Student>()
+                .HasMany<Models.Parent>(s => s.Parents)
+                .WithOptional(p => p.Child)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Person>()
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);

@@ -10,37 +10,33 @@ using System.Collections.Generic;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для результату валідації
+    ///     Інтерфейс для результату валідації
     /// </summary>
     public interface IARMValidationResult
     {
         /// <summary>
-        /// Встановити або повернути стан валідації
+        ///     Встановити або повернути стан валідації
         /// </summary>
         /// <value>
-        ///   <c>true</c> якщо валідно; інакше, <c>false</c>.
+        ///     <c>true</c> якщо валідно; інакше, <c>false</c>.
         /// </value>
-        bool IsValid
-        {
-            get;
-            set;
-        }
+        bool IsValid { get; set; }
 
         /// <summary>
-        /// Поветнути всі повідомлення валідації
+        ///     Поветнути всі повідомлення валідації
         /// </summary>
         /// <returns></returns>
         IEnumerable<string> GetErrors();
 
         /// <summary>
-        /// Додати повідомлення валідації
+        ///     Додати повідомлення валідації
         /// </summary>
         /// <param name="mes">Повідомлення.</param>
         void AddMessage(string mes);
 
         /// <summary>
-        /// Очистати список повідомлень
+        ///     Очистати список повідомлень
         /// </summary>
         void ClearMessages();
-    }//end IARMValidationResult
-}//end namespace Interfaces
+    } //end IARMValidationResult
+} //end namespace Interfaces

@@ -10,16 +10,16 @@ using System.ComponentModel;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для моделі предатсвлення, яка проводить валідацію моделі даних
+    ///     Інтерфейс для моделі предатсвлення, яка проводить валідацію моделі даних
     /// </summary>
     public interface IARMValidatableViewModel : IARMDataViewModel, IDataErrorInfo
     {
         /// <summary>
-        /// Повертає або встановлює чи модель є валідна
+        ///     Повертає або встановлює чи модель є валідна
         /// </summary>
         /// <value>
-        ///   <c>true</c> якщо обєкт валідний; інакше, <c>false</c>.
+        ///     <c>true</c> якщо обєкт валідний; інакше, <c>false</c>.
         /// </value>
         bool IsValid { get; set; }
-    }//end IARMValidatableViewModel
-}//end namespace Interfaces
+    } //end IARMValidatableViewModel
+} //end namespace Interfaces

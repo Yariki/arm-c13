@@ -91,7 +91,7 @@ namespace ARM.Module.ViewModel.Reports
         /// <summary>
         /// генерація колонок
         /// </summary>
-        protected void GenerateColumns(IEnumerable<Guid> listClasses)
+        protected virtual void GenerateColumns(IEnumerable<Guid> listClasses)
         {
             var col = new ObservableCollection<DataGridColumn>();
             var name = new DataGridTextColumn() { Width = 200, Header = Resource.AppResource.Resources.Model_Student_Title };

@@ -8,6 +8,14 @@ using Microsoft.Practices.Unity;
 namespace ARM.Data.Sevice.Resolver
 {
     /// <summary>
+    /// Простір імен для допоміжних класів по роботі з БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Клас, що відповідає за вибірку елементів за їх метаданими та ідентифікаторами.
     /// </summary>
     public class ARMDataModelResolveHelper : IARMDataModelResolver

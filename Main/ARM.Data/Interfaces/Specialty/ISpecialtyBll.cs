@@ -10,6 +10,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Specialty
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - спеціальність
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки  спеціальностей
     /// </summary>
     public interface ISpecialtyBll : IBll<Models.Specialty>

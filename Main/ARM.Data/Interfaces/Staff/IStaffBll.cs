@@ -10,6 +10,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Staff
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - персонал
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки працівників
     /// </summary>
     public interface IStaffBll : IBll<Models.Staff>

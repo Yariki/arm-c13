@@ -11,17 +11,17 @@ using ARM.Core.MVVM.Commands.Base;
 
 namespace ARM.Core.MVVM.Commands
 {
-  /// <summary>
-  /// Команда для запуску редагування запису
-  /// </summary>
+    /// <summary>
+    /// Команда для запуску редагування запису
+    /// </summary>
     public class ARMToolboxEditCommand : ARMToolboxCommandBase
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxEditCommand"/>.
-      /// </summary>
-      /// <param name="action">Дія.</param>
-      /// <param name="predicate">Предикат.</param>
-        public ARMToolboxEditCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxEditCommand"/>.
+        /// </summary>
+        /// <param name="action">Дія.</param>
+        /// <param name="predicate">Предикат.</param>
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Edit;
@@ -32,10 +32,9 @@ namespace ARM.Core.MVVM.Commands
         /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxEditCommand"/>.
         /// </summary>
         /// <param name="action">Дія.</param>
-        public ARMToolboxEditCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxEditCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
-
         }
 
         protected override string GetImagePath()

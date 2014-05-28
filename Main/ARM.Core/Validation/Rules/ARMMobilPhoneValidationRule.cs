@@ -7,17 +7,16 @@
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для валідації властисовстей, що представляють значення мобільного
-  /// </summary>
+    /// <summary>
+    /// Класс-правило для валідації властисовстей, що представляють значення мобільного
+    /// </summary>
     public class ARMMobilPhoneValidationRule : ARMStringValidationRule
     {
-
-      /// <summary>
-      /// Валідація значення.
-      /// </summary>
-      /// <param name="val">Значення.</param>
-      /// <returns></returns>
+        /// <summary>
+        /// Валідація значення.
+        /// </summary>
+        /// <param name="val">Значення.</param>
+        /// <returns></returns>
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;

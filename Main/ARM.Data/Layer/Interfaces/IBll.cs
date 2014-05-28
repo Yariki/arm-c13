@@ -12,6 +12,15 @@ using System.Linq.Expressions;
 namespace ARM.Data.Layer.Interfaces
 {
     /// <summary>
+    /// Простір імен в якому акумульовані базові інтерфейси для доступу та роботи з даними БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+
+    /// <summary>
     /// Інтерфейс бізнес-логіки для БД.
     /// </summary>
     /// <typeparam name="T"></typeparam>

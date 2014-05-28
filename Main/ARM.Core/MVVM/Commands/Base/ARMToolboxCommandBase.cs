@@ -6,24 +6,30 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Runtime.CompilerServices;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
 
-/// <summary>
-/// Простір імен для базовиїх класів команд.
-/// </summary>
 namespace ARM.Core.MVVM.Commands.Base
 {
-  /// <summary>
-  /// Базовий клас для всієї команди панелі інструментів.
-  /// </summary>
+// <summary>
+    /// Простір імен для базовиїх класів команд.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    ///     Базовий клас для всієї команди панелі інструментів.
+    /// </summary>
     public class ARMToolboxCommandBase : IARMToolboxCommand
     {
-        private Action<ToolbarCommand> _action;
-        private Func<ToolbarCommand,bool> _predicate;
+        private readonly Action<ToolbarCommand> _action;
+        private readonly Func<ToolbarCommand, bool> _predicate;
 
         /// <summary>
-        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxCommandBase"/>.
+        ///     Ініціалізує новий екземпляр класу <see cref="ARMToolboxCommandBase" />.
         /// </summary>
         /// <param name="action">Дія.</param>
         /// <param name="predicate">Предикат.</param>
@@ -34,17 +40,101 @@ namespace ARM.Core.MVVM.Commands.Base
         }
 
         /// <summary>
-        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxCommandBase"/>.
+        ///     Ініціалізує новий екземпляр класу <see cref="ARMToolboxCommandBase" />.
         /// </summary>
         /// <param name="action">Дія.</param>
         public ARMToolboxCommandBase(Action<ToolbarCommand> action)
-            :this(action,null)
+            : this(action, null)
         {
+        }
 
+        #region IARMToolboxCommand Members
+
+        /// <summary>
+        ///     Визначає метод, який буде викликатися при виклику команди.
+        /// </summary>
+        /// <param name="parameter">
+        ///     Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей
+        ///     об'єкт може бути встановлений в нуль.
+        /// </param>
+        public void Execute(object parameter)
+        {
+            if (_action == null)
+                return;
+            _action(Type);
         }
 
         /// <summary>
-        /// Отримує шлях зображення.
+        ///     Визначає метод, який визначає, чи може команда виконуватися в її поточному стані.
+        /// </summary>
+        /// <param name="parameter">
+        ///     Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей
+        ///     об'єкт може бути встановлений в нуль.
+        /// </param>
+        /// <returns>
+        ///     true, якщо ця команда може бути виконана; в іншому випадку, false.
+        /// </returns>
+        public bool CanExecute(object parameter)
+        {
+            return _predicate != null && _predicate(Type);
+        }
+
+        /// <summary>
+        ///     Відбувається, коли зміни відбуваються, які впливають, чи повинен команда виконати.
+        /// </summary>
+        public event EventHandler CanExecuteChanged;
+
+        /// <summary>
+        ///     Заголовок команди
+        /// </summary>
+        public string Title { get; protected set; }
+
+        /// <summary>
+        ///     Картинка команди
+        /// </summary>
+        public string Image
+        {
+            get { return GetImagePath(); }
+        }
+
+        /// <summary>
+        ///     Імя ресурсу
+        /// </summary>
+        public string ResourceName
+        {
+            get { return GetResourceName(); }
+        }
+
+        /// <summary>
+        ///     Підказка команди
+        /// </summary>
+        public string Tooltip
+        {
+            get { return GetTooltip(); }
+        }
+
+        /// <summary>
+        ///     Додатковий аргумент.
+        /// </summary>
+        public object Tag
+        {
+            get { return GetTag(); }
+        }
+
+        public ToolbarCommand Type { get; protected set; }
+
+        /// <summary>
+        ///     Порядок відображення.
+        /// </summary>
+        public int Order
+        {
+            get { return GetOrder(); }
+        }
+
+        #endregion IARMToolboxCommand Members
+
+        /// <summary>
+        ///     Отримує шлях зображення.
         /// </summary>
         /// <returns></returns>
         protected virtual string GetImagePath()
@@ -53,7 +143,7 @@ namespace ARM.Core.MVVM.Commands.Base
         }
 
         /// <summary>
-        /// Отримує ім'я ресурсу.
+        ///     Отримує ім'я ресурсу.
         /// </summary>
         /// <returns></returns>
         protected virtual string GetResourceName()
@@ -62,7 +152,7 @@ namespace ARM.Core.MVVM.Commands.Base
         }
 
         /// <summary>
-        /// Отримує підказку.
+        ///     Отримує підказку.
         /// </summary>
         /// <returns></returns>
         protected virtual string GetTooltip()
@@ -71,7 +161,7 @@ namespace ARM.Core.MVVM.Commands.Base
         }
 
         /// <summary>
-        /// Визначає порядок.
+        ///     Визначає порядок.
         /// </summary>
         /// <returns></returns>
         protected virtual int GetOrder()
@@ -80,71 +170,12 @@ namespace ARM.Core.MVVM.Commands.Base
         }
 
         /// <summary>
-        /// Отримує тег.
+        ///     Отримує тег.
         /// </summary>
         /// <returns></returns>
         protected virtual object GetTag()
         {
             return null;
         }
-
-        /// <summary>
-        /// Визначає метод, який буде викликатися при виклику команди.
-        /// </summary>
-        /// <param name="parameter">Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей об'єкт може бути встановлений в нуль.</param>
-        public void Execute(object parameter)
-        {
-            if(_action == null)
-                return;
-            _action(Type);
-        }
-
-        /// <summary>
-        /// Визначає метод, який визначає, чи може команда виконуватися в її поточному стані.
-        /// </summary>
-        /// <param name="parameter">Дані, що використовуються командою. Якщо команда не вимагає дані повинні бути передані, цей об'єкт може бути встановлений в нуль.</param>
-        /// <returns>
-        /// true, якщо ця команда може бути виконана; в іншому випадку, false.
-        /// </returns>
-        public bool CanExecute(object parameter)
-        {
-            return _predicate != null && _predicate(Type);
-        }
-
-        /// <summary>
-        /// Відбувається, коли зміни відбуваються, які впливають, чи повинен команда виконати.
-        /// </summary>
-        public event EventHandler CanExecuteChanged;
-
-        /// <summary>
-        /// Заголовок команди
-        /// </summary>
-        public string Title { get; protected set; }
-        /// <summary>
-        /// Картинка команди
-        /// </summary>
-        public string Image { get { return GetImagePath(); } }
-
-        /// <summary>
-        /// Імя ресурсу
-        /// </summary>
-        public string ResourceName { get { return GetResourceName(); } }
-
-        /// <summary>
-        /// Підказка команди
-        /// </summary>
-        public string Tooltip { get { return GetTooltip(); } }
-
-        /// <summary>
-        /// Додатковий аргумент.
-        /// </summary>
-        public object Tag { get { return GetTag(); } }
-
-        public ToolbarCommand Type { get; protected set; }
-
-        /// <summary>
-        /// Порядок відображення.
-        /// </summary>
-        public int Order { get { return GetOrder(); } }
-    }//end ARMToolboxCommandBase
-}//end namespace Base
+    } //end ARMToolboxCommandBase
+} //end namespace Base

@@ -7,11 +7,16 @@
 
 using System;
 
-/// <summary>
-/// Простір імен, який містить єдиний інтерфейс для всіх моделей даних апліікації.
-/// </summary>
 namespace ARM.Core.Interfaces.Data
 {
+    /// <summary>
+    /// Простір імен, який містить єдиний інтерфейс для всіх моделей даних апліікації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     /// базовий інтерфейс для моделей даних
     /// </summary>

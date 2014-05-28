@@ -12,6 +12,14 @@ using ARM.Data.Models;
 namespace ARM.Data.Interfaces.Settings
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - налаштування
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки сесій
     /// </summary>
     public interface ISettingsBll : IBll<Models.SettingParameters>

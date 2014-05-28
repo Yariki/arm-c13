@@ -6,22 +6,21 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using ARM.Core.Attributes;
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для валідації входження знаяення в певний діапазон значень
-  /// </summary>
+    /// <summary>
+    /// Класс-правило для валідації входження знаяення в певний діапазон значень
+    /// </summary>
     public class ARMRangeValidationRule : ARMNumericValidationRule
     {
-
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMRangeValidationRule"/>.
-      /// </summary>
-      /// <param name="min">Мінімальна границя.</param>
-      /// <param name="max">Максимальна границя.</param>
-        public ARMRangeValidationRule(double min, double max) : base(min,max)
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMRangeValidationRule"/>.
+        /// </summary>
+        /// <param name="min">Мінімальна границя.</param>
+        /// <param name="max">Максимальна границя.</param>
+        public ARMRangeValidationRule(double min, double max)
+            : base(min, max)
         {
         }
 
@@ -35,12 +34,11 @@ namespace ARM.Core.Validation.Rules
             var result = new ARMValidationResult() { IsValid = true };
             if (val != null)
             {
-
                 double v = Convert.ToDouble(val);
-                result.IsValid = Min < v &&  v < Max;
+                result.IsValid = Min < v && v < Max;
                 if (!result.IsValid)
                 {
-                    result.AddMessage(string.Format("Value shouldn't be beetwen {0} - {1}.",Min,Max));
+                    result.AddMessage(string.Format("Value shouldn't be beetwen {0} - {1}.", Min, Max));
                 }
             }
             return result;

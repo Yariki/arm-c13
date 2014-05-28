@@ -9,16 +9,16 @@ using ARM.Core.Interfaces;
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Базовий класс для класів правил
-  /// </summary>
+    /// <summary>
+    /// Базовий класс для класів правил
+    /// </summary>
     public abstract class ARMValidationRule : IARMValidationRule
     {
-      /// <summary>
-      /// Валідація значення
-      /// </summary>
-      /// <param name="val">Значення.</param>
-      /// <returns></returns>
+        /// <summary>
+        /// Валідація значення
+        /// </summary>
+        /// <param name="val">Значення.</param>
+        /// <returns></returns>
         protected virtual ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
             return null;

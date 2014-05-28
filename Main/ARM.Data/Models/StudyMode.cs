@@ -8,7 +8,7 @@
 namespace ARM.Data.Models
 {
     /// <summary>
-    /// Режим навачання
+    /// Режим навчання
     /// </summary>
     public enum StudyMode
     {

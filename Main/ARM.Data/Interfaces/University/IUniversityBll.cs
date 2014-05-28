@@ -10,6 +10,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.University
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - університети
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки університету
     /// </summary>
     public interface IUniversityBll : IBll<Models.University>

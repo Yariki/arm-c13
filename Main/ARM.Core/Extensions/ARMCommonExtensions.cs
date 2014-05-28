@@ -1,17 +1,23 @@
-﻿using System.Windows;
+﻿using System.Runtime.CompilerServices;
+using System.Windows;
 
-/// <summary>
-/// Простір імен, що містить допоміжні класи і методи розширення. Вони виконують певні загальні дії над даними.
-/// </summary>
 namespace ARM.Core.Extensions
 {
     /// <summary>
-    /// статичний класс, який є контейнером для загальних методів розширення
+    ///     Простір імен, що містить допоміжні класи і методи розширення. Вони виконують певні загальні дії над даними.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    ///     статичний класс, який є контейнером для загальних методів розширення
     /// </summary>
     public static class ARMCommonExtensions
     {
         /// <summary>
-        /// метод розширення для конвертації bool значення у Visibility
+        ///     метод розширення для конвертації bool значення у Visibility
         /// </summary>
         /// <param name="arg">значення для конвертації</param>
         /// <returns></returns>
@@ -21,7 +27,7 @@ namespace ARM.Core.Extensions
         }
 
         /// <summary>
-        /// конвертація в bool
+        ///     конвертація в bool
         /// </summary>
         /// <param name="arg">значення для конвертації</param>
         /// <returns></returns>
@@ -31,7 +37,7 @@ namespace ARM.Core.Extensions
         }
 
         /// <summary>
-        /// Визначає чи число входить в діапазон.
+        ///     Визначає чи число входить в діапазон.
         /// </summary>
         /// <param name="value">Значення.</param>
         /// <param name="min">Мінімальна границя.</param>
@@ -43,7 +49,7 @@ namespace ARM.Core.Extensions
         }
 
         /// <summary>
-        /// Визначає чи число входить в діапазон.
+        ///     Визначає чи число входить в діапазон.
         /// </summary>
         /// <param name="value">Значення.</param>
         /// <param name="min">Мінімальна границя.</param>

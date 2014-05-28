@@ -8,11 +8,16 @@
 using System;
 using ARM.Core.Enums;
 
-/// <summary>
-/// Простір імен, що містить всі основні інтерфейси.
-/// </summary>
 namespace ARM.Core.Interfaces
 {
+    /// <summary>
+    /// Простір імен, що містить всі основні інтерфейси.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     /// базовий інтерфейс для моделей представлення
     /// </summary>

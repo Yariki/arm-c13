@@ -822,4 +822,26 @@
   <data name="UI_OpenLogFile" xml:space="preserve">
     <value>Open log file</value>
   </data>
+  <data name="Report_Deduct_FailExam" xml:space="preserve">
+    <value>Fail exam</value>
+  </data>
+  <data name="Report_Deduct_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Report_Deduct_NotSequentiallyCertification" xml:space="preserve">
+    <value>Not Sequentially Certification</value>
+  </data>
+  <data name="Letter_Deduct_Template" xml:space="preserve">
+    <value>&lt;lettertemplate&gt;
+	&lt;header&gt;Список студентів на відрахування групи *GROUP*.&lt;/header&gt;
+	&lt;body&gt;Нижче наведено списко студентів на відрахування у зв'язку з незадовільною успішністю.&lt;/body&gt;
+	&lt;footer&gt;&lt;/footer&gt;
+&lt;/lettertemplate&gt;</value>
+  </data>
+  <data name="Table_ListOfStudent" xml:space="preserve">
+    <value>List Of Student</value>
+  </data>
+  <data name="UI_WordUnload" xml:space="preserve">
+    <value>Unload to Word</value>
+  </data>
 </root>

@@ -21,8 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>..\..\Output\ARM.Data.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -84,9 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMDataModule.cs" />
-    <Compile Include="CommonContextMigrations\201405031533580_Init.cs" />
-    <Compile Include="CommonContextMigrations\201405031533580_Init.Designer.cs">
-      <DependentUpon>201405031533580_Init.cs</DependentUpon>
+    <Compile Include="CommonContextMigrations\201405272259265_init.cs" />
+    <Compile Include="CommonContextMigrations\201405272259265_init.Designer.cs">
+      <DependentUpon>201405272259265_init.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
@@ -298,8 +297,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonContextMigrations\201405031533580_Init.resx">
-      <DependentUpon>201405031533580_Init.cs</DependentUpon>
+    <EmbeddedResource Include="CommonContextMigrations\201405272259265_init.resx">
+      <DependentUpon>201405272259265_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

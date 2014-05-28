@@ -8,25 +8,17 @@
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// базовий класс для артибутів по валідації строковиї властивостей
+    ///     базовий класс для артибутів по валідації строковиї властивостей
     /// </summary>
     public abstract class ARMStringAttribute : ARMValidationAttribute
     {
-        public ARMStringAttribute()
-        {
-        }
+        /// <summary>
+        ///     Шаблон, у відповідності до якого проводиться валідація
+        /// </summary>
+        public string Pattern { get; set; }
 
         ~ARMStringAttribute()
         {
         }
-
-        /// <summary>
-        /// Шаблон, у відповідності до якого проводиться валідація
-        /// </summary>
-        public string Pattern
-        {
-            get;
-            set;
-        }
-    }//end ARMStringAttribute
-}//end namespace Attributes
+    } //end ARMStringAttribute
+} //end namespace Attributes

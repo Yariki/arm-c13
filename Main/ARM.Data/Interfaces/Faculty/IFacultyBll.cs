@@ -9,6 +9,14 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Interfaces.Faculty
 {
+
+    /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - факультетами
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
     /// <summary>
     /// Інтерфейс бізнес логіки факультетів
     /// </summary>

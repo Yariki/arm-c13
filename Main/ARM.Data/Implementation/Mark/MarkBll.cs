@@ -15,6 +15,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Implementation.Mark
 {
     /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - оцінками
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Реалізація бізнес логіки для оцінок
     /// </summary>
     public class MarkBll : BaseBll<Models.Mark>, IMarkBll

@@ -14,23 +14,28 @@ using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-/// <summary>
-/// Основний простір імен для кдасів ядра. В даному просторі представлені всі основні інтерфейси, як використовуться в аплікації.
-/// </summary>
 namespace ARM.Core
 {
-  /// <summary>
-  /// Класс модуля загально функціоноальнгості.
-  /// Реєструє загальні інтерфейси та запускає ініціалізацію кешу властивостей типів.
-  /// </summary>
+    /// <summary>
+    /// Основний простір імен для класів ядра. В даному просторі представлені всі основні інтерфейси, як використовуться в аплікації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    /// Класс модуля загально функціональності.
+    /// Реєструє загальні інтерфейси та запускає ініціалізацію кешу властивостей типів.
+    /// </summary>
     public class CoreModule : ARMBaseModule
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="CoreModule"/>.
-      /// </summary>
-      /// <param name="regionManager">Менеджер областей.</param>
-      /// <param name="unityContainer">Контейнер IoC.</param>
-      /// <param name="eventAggregator">Агрегатор подій.</param>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="CoreModule"/>.
+        /// </summary>
+        /// <param name="regionManager">Менеджер областей.</param>
+        /// <param name="unityContainer">Контейнер IoC.</param>
+        /// <param name="eventAggregator">Агрегатор подій.</param>
         public CoreModule(IRegionManager regionManager, IUnityContainer unityContainer,
             IEventAggregator eventAggregator)
             : base(regionManager, unityContainer, eventAggregator)

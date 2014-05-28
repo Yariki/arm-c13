@@ -9,6 +9,9 @@ using ARM.Data.Interfaces.Achivement;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
 
+/// <summary>
+/// Простір імен для реалізації функциональності по роботі з - досягненнями
+/// </summary>
 namespace ARM.Data.Implementation.Achivement
 {
     /// <summary>

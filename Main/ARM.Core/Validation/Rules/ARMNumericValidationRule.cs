@@ -7,14 +7,14 @@
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Базовий класс-правило для валідації числових значень
-  /// </summary>
+    /// <summary>
+    /// Базовий класс-правило для валідації числових значень
+    /// </summary>
     public abstract class ARMNumericValidationRule : ARMValidationRule
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMNumericValidationRule"/>.
-      /// </summary>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMNumericValidationRule"/>.
+        /// </summary>
         public ARMNumericValidationRule()
         {
         }

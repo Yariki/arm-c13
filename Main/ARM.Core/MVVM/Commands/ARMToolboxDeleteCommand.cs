@@ -14,17 +14,17 @@ using ARM.Core.MVVM.Commands.Base;
 /// </summary>
 namespace ARM.Core.MVVM.Commands
 {
-  /// <summary>
-  /// Команда видалення запису
-  /// </summary>
+    /// <summary>
+    /// Команда видалення запису
+    /// </summary>
     public class ARMToolboxDeleteCommand : ARMToolboxCommandBase
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxDeleteCommand"/>.
-      /// </summary>
-      /// <param name="action">Дія.</param>
-      /// <param name="predicate">Предикат.</param>
-        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) 
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxDeleteCommand"/>.
+        /// </summary>
+        /// <param name="action">Дія.</param>
+        /// <param name="predicate">Предикат.</param>
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
             : base(action, predicate)
         {
             Type = ToolbarCommand.Delete;
@@ -35,8 +35,8 @@ namespace ARM.Core.MVVM.Commands
         /// Ініціалізує новий екземпляр класу <see cref="ARMToolboxDeleteCommand"/>.
         /// </summary>
         /// <param name="action">Дія.</param>
-        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action) 
-            : this(action,null)
+        public ARMToolboxDeleteCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
         }
 

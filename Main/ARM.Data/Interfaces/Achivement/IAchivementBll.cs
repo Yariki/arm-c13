@@ -10,6 +10,14 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Achivement
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - досягнення.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс бізнес логіки досягнень
     /// </summary>
     public interface IAchivementBll : IBll<Models.Achivement>

@@ -12,6 +12,13 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Invoice
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - рахунками
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+    /// <summary>
     /// Інтерфейс бізнес логіки рахунків
     /// </summary>
     public interface IInvoiceBll : IBll<Models.Invoice>

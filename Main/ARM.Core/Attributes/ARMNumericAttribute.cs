@@ -8,34 +8,22 @@
 namespace ARM.Core.Attributes
 {
     /// <summary>
-    /// базовий артибут  для валідація числових властивостей.
+    ///     базовий артибут  для валідація числових властивостей.
     /// </summary>
     public abstract class ARMNumericAttribute : ARMValidationAttribute
     {
-        protected ARMNumericAttribute()
-        {
-        }
+        /// <summary>
+        ///     Максимальне число
+        /// </summary>
+        public double Max { get; set; }
+
+        /// <summary>
+        ///     Мінімальне число
+        /// </summary>
+        public double Min { get; set; }
 
         ~ARMNumericAttribute()
         {
         }
-
-        /// <summary>
-        /// Максимальне число
-        /// </summary>
-        public double Max
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Мінімальне число
-        /// </summary>
-        public double Min
-        {
-            get;
-            set;
-        }
-    }//end ARMNumericAttribute
-}//end namespace Attributes
+    } //end ARMNumericAttribute
+} //end namespace Attributes

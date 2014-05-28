@@ -11,6 +11,15 @@ using ARM.Data.Layer.Interfaces;
 
 namespace ARM.Data.Implementation.Specialty
 {
+
+    /// <summary>
+    /// Простір імен для реалізації функциональності по роботі з - спеціальностями
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     /// Реалізація бізнес логіки для спецальностей
     /// </summary>

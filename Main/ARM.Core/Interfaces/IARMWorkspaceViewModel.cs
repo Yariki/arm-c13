@@ -15,9 +15,9 @@ namespace ARM.Core.Interfaces
     /// </summary>
     public interface IARMWorkspaceViewModel : IARMViewModel
     {
-      /// <summary>
-      ///Отримує команду закриття вкладки.
-      /// </summary>
+        /// <summary>
+        ///Отримує команду закриття вкладки.
+        /// </summary>
         ICommand CloseCommand { get; }
 
         /// <summary>

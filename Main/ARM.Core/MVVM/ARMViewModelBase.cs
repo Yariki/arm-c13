@@ -8,24 +8,21 @@
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
-using System.Runtime.Remoting.Messaging;
-using System.Threading;
 using System.Windows.Threading;
 using ARM.Core.Interfaces;
 
 namespace ARM.Core.MVVM
 {
     /// <summary>
-    /// базова модель представлення. Містить найбільш загальну функціональність. 
-    /// Містить методі для видалення данних, для оповіщення користувацього інтерфейсу про зміни.
+    ///     базова модель представлення. Містить найбільш загальну функціональність.
+    ///     Містить методі для видалення данних, для оповіщення користувацього інтерфейсу про зміни.
     /// </summary>
     public abstract class ARMViewModelBase : IARMViewModel
     {
-
         protected bool Disposed = false;
 
         /// <summary>
-        /// стрворює новий екземпляр класу
+        ///     стрворює новий екземпляр класу
         /// </summary>
         /// <param name="view">модель користувацьго інтерфейсу</param>
         protected ARMViewModelBase(IARMView view)
@@ -34,24 +31,41 @@ namespace ARM.Core.MVVM
             SetDataContext();
         }
 
-        /// <summary>
-        /// встановлює контекст данних  для інтерфейсу.
-        /// </summary>
-        private void SetDataContext()
-        {
-            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => this.View.DataContext = this));
-        }
+        #region IARMViewModel Members
 
         /// <summary>
-        /// подія для оповіщещння про зміни стану.
+        ///     подія для оповіщещння про зміни стану.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        ///
+        /// <summary>
+        ///     модель користувацького інтерфейсу
+        /// </summary>
+        public IARMView View { get; protected set; }
+
+        /// <summary>
+        ///     Виконує визначаються додатком завдання, пов'язані з вивільненням або скиданням некерованих ресурсів.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion IARMViewModel Members
+
+        /// <summary>
+        ///     встановлює контекст данних  для інтерфейсу.
+        /// </summary>
+        private void SetDataContext()
+        {
+            Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() => View.DataContext = this));
+        }
+
         /// <param name="propertyName"></param>
         protected void OnPropertyChanged(string propertyName)
         {
-            var temp = PropertyChanged;
+            PropertyChangedEventHandler temp = PropertyChanged;
             if (temp != null)
             {
                 temp(this, new PropertyChangedEventArgs(propertyName));
@@ -59,20 +73,20 @@ namespace ARM.Core.MVVM
         }
 
         /// <summary>
-        /// Повідомляє всі обєкти про зміну значення певної властивості.
+        ///     Повідомляє всі обєкти про зміну значення певної властивості.
         /// </summary>
         /// <typeparam name="T">Тип</typeparam>
         /// <param name="exp">Вираз.</param>
         protected void OnPropertyChanged<T>(Expression<Func<T>> exp)
         {
-            MemberExpression memberExpression = exp.Body as MemberExpression;
+            var memberExpression = exp.Body as MemberExpression;
             if (memberExpression == null)
                 throw new ArgumentException("Expression is empty");
             OnPropertyChanged(memberExpression.Member.Name);
         }
 
         /// <summary>
-        /// Повертає нахву властивості
+        ///     Повертає нахву властивості
         /// </summary>
         /// <typeparam name="T">Тип</typeparam>
         /// <param name="exp">Вираз.</param>
@@ -86,30 +100,15 @@ namespace ARM.Core.MVVM
         }
 
         /// <summary>
-        /// Звільняє некеровані і - можливо - керовані ресурси.
+        ///     Звільняє некеровані і - можливо - керовані ресурси.
         /// </summary>
-        /// <param name="disposing"><c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки некеровані ресурси.</param>
+        /// <param name="disposing">
+        ///     <c>true</c> щоб звільнити керовані і некеровані ресурси; <c>false</c> щоб звільнити тільки
+        ///     некеровані ресурси.
+        /// </param>
         protected virtual void Dispose(bool disposing)
         {
             Disposed = true;
         }
-
-        /// <summary>
-        /// модель користувацького інтерфейсу
-        /// </summary>
-        public IARMView View
-        {
-            get;
-            protected set;
-        }
-
-        /// <summary>
-        /// Виконує визначаються додатком завдання, пов'язані з вивільненням або скиданням некерованих ресурсів.
-        /// </summary>
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-    }//end ARMViewModelBase
-}//end namespace MVVM
+    } //end ARMViewModelBase
+} //end namespace MVVM

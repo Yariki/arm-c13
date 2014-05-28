@@ -13,44 +13,38 @@ using ARM.Core.Interfaces.Data;
 namespace ARM.Core.Interfaces
 {
     /// <summary>
-    /// Інтерфейс для моделі, яка представляє дані у вигляді сітки
+    ///     Інтерфейс для моделі, яка представляє дані у вигляді сітки
     /// </summary>
     /// <typeparam name="T">Тип даних,  які відображаються</typeparam>
     public interface IARMGridViewModel<T> : IARMWorkspaceViewModel where T : IARMModel
     {
         /// <summary>
-        /// Колекція даних
+        ///     Колекція даних
         /// </summary>
-        IEnumerable<T> DataSource
-        {
-            get;
-        }
+        IEnumerable<T> DataSource { get; }
 
         /// <summary>
-        /// Метод, який оброблює натискання кнопок на панелі управління
+        ///     Модель панелі управліня
         /// </summary>
-        /// <param name="cmdType">Тип команди.</param>
-        void DoCommand(ToolbarCommand cmdType);
+        IARMToolboxViewModel Toolbox { get; }
 
         /// <summary>
-        /// Модель панелі управліня
-        /// </summary>
-        IARMToolboxViewModel Toolbox
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Повертає тип моделі даних
+        ///     Повертає тип моделі даних
         /// </summary>
         /// <value>
-        /// The type of the entity.
+        ///     The type of the entity.
         /// </value>
         Type EntityType { get; }
 
         /// <summary>
-        /// Встановлює або повертає вибрану модель в сітці
+        ///     Встановлює або повертає вибрану модель в сітці
         /// </summary>
         T SelectedEntity { get; set; }
-    }//end IARMGridViewModel
-}//end namespace Interfaces
+
+        /// <summary>
+        ///     Метод, який оброблює натискання кнопок на панелі управління
+        /// </summary>
+        /// <param name="cmdType">Тип команди.</param>
+        void DoCommand(ToolbarCommand cmdType);
+    } //end IARMGridViewModel
+} //end namespace Interfaces

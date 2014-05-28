@@ -10,6 +10,13 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Hobby
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - хобі
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+    /// <summary>
     /// Інтерфейс бізнес логіки хобі
     /// </summary>
     public interface IHobbyBll : IBll<Models.Hobby>

@@ -10,6 +10,13 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Language
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - мовами
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+    /// <summary>
     /// Інтерфейс бізнес логіки мов
     /// </summary>
     public interface ILanguageBll : IBll<Models.Language>

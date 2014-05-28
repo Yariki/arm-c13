@@ -7,15 +7,14 @@
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Базовий класс-правило для валідації строкових значень.
-  /// </summary>
+    /// <summary>
+    /// Базовий класс-правило для валідації строкових значень.
+    /// </summary>
     public class ARMStringValidationRule : ARMValidationRule
     {
-
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMStringValidationRule"/>.
-      /// </summary>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMStringValidationRule"/>.
+        /// </summary>
         protected ARMStringValidationRule()
         {
         }

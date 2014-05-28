@@ -5,31 +5,36 @@
 //  Created on:      29-Mar-2014 4:59:42 PM
 ///////////////////////////////////////////////////////////
 
-/// <summary>
-/// Простір імен, що містить в собі реалізації конкретних правил валідацій.
-/// </summary>
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для для валідації властивостей, що представляють собою Email
-  /// </summary>
-  public class ARMEmailValidationRule : ARMStringValidationRule
-  {
     /// <summary>
-    /// Ініціалізує новий екземпляр класу <see cref="ARMEmailValidationRule"/>.
+    /// Простір імен, що містить в собі реалізації конкретних правил валідацій.
     /// </summary>
-    public ARMEmailValidationRule()
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
     {
     }
 
     /// <summary>
-    /// Метод валідації
+    /// Класс-правило для для валідації властивостей, що представляють собою Email
     /// </summary>
-    /// <param name="val">Значення для валідації.</param>
-    /// <returns>результат валідації</returns>
-    protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
+    public class ARMEmailValidationRule : ARMStringValidationRule
     {
-      return null;
-    }
-  }//end ARMEmailValidationRule
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMEmailValidationRule"/>.
+        /// </summary>
+        public ARMEmailValidationRule()
+        {
+        }
+
+        /// <summary>
+        /// Метод валідації
+        /// </summary>
+        /// <param name="val">Значення для валідації.</param>
+        /// <returns>результат валідації</returns>
+        protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
+        {
+            return null;
+        }
+    }//end ARMEmailValidationRule
 }//end namespace Rules

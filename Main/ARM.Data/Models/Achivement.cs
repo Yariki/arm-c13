@@ -12,6 +12,15 @@ using ARM.Core.Enums;
 
 namespace ARM.Data.Models
 {
+
+    /// <summary>
+    /// Простір імен де розмішенні всі моделі даних, що використовуються в аплікації та БД.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     /// <summary>
     /// Модель досягнень
     /// </summary>

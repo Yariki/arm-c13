@@ -19,6 +19,8 @@ namespace ARM.Data.Implementation.Student
 
         public DbSet<Models.Visa> Visas { get; set; }
 
+        public DbSet<Models.Parent> Parents { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Student>()
@@ -28,6 +30,16 @@ namespace ARM.Data.Implementation.Student
             modelBuilder.Entity<Models.Student>()
                 .HasRequired(s => s.LivingAddress)
                 .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Models.Parent>()
+              .HasOptional<Models.Student>(p => p.Child)
+              .WithMany(s => s.Parents)
+              .HasForeignKey(p => p.StudentId)
+              .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Models.Student>()
+                .HasMany<Models.Parent>(s => s.Parents)
+                .WithOptional(p => p.Child)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Models.Student>().Map(m =>

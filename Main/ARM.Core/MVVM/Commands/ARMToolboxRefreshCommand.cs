@@ -14,7 +14,8 @@ namespace ARM.Core.MVVM.Commands
         /// </summary>
         /// <param name="action">Дія.</param>
         /// <param name="predicate">Предикат.</param>
-        public ARMToolboxRefreshCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate) : base(action, predicate)
+        public ARMToolboxRefreshCommand(Action<ToolbarCommand> action, Func<ToolbarCommand, bool> predicate)
+            : base(action, predicate)
         {
             Type = ToolbarCommand.Refresh;
             Title = Resource.AppResource.Resources.UI_Refresh;
@@ -24,7 +25,8 @@ namespace ARM.Core.MVVM.Commands
         /// Створити екземпляр ARMToolboxRefreshCommand.
         /// </summary>
         /// <param name="action">Дія.</param>
-        public ARMToolboxRefreshCommand(Action<ToolbarCommand> action) : this(action,null)
+        public ARMToolboxRefreshCommand(Action<ToolbarCommand> action)
+            : this(action, null)
         {
         }
 

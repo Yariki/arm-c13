@@ -10,6 +10,13 @@ using ARM.Data.Layer.Interfaces;
 namespace ARM.Data.Interfaces.Session
 {
     /// <summary>
+    /// Простір імен інтерфейсів для моделей даних - сесії
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+    /// <summary>
     /// Інтерфейс бізнес логіки сесій
     /// </summary>
     public interface ISessionBll : IBll<Models.Session>

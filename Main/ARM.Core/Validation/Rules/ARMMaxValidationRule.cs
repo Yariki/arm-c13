@@ -9,14 +9,14 @@ using System;
 
 namespace ARM.Core.Validation.Rules
 {
-  /// <summary>
-  /// Класс-правило для валідації числових значень
-  /// </summary>
+    /// <summary>
+    /// Класс-правило для валідації числових значень
+    /// </summary>
     public class ARMMaxValidationRule : ARMNumericValidationRule
     {
-      /// <summary>
-      /// Ініціалізує новий екземпляр класу <see cref="ARMMaxValidationRule"/>.
-      /// </summary>
+        /// <summary>
+        /// Ініціалізує новий екземпляр класу <see cref="ARMMaxValidationRule"/>.
+        /// </summary>
         public ARMMaxValidationRule()
         {
         }
@@ -26,7 +26,8 @@ namespace ARM.Core.Validation.Rules
         /// </summary>
         /// <param name="min">Максимальне границя</param>
         /// <param name="max">Мінімальна границя</param>
-        public ARMMaxValidationRule(double min, double max) : base(min,max)
+        public ARMMaxValidationRule(double min, double max)
+            : base(min, max)
         {
         }
 
@@ -37,14 +38,14 @@ namespace ARM.Core.Validation.Rules
         /// <returns></returns>
         protected override ARM.Core.Interfaces.IARMValidationResult InternalEvalute(object val)
         {
-            var result = new ARMValidationResult() {IsValid = true};
+            var result = new ARMValidationResult() { IsValid = true };
             if (val != null)
             {
                 double v = Convert.ToDouble(val);
                 result.IsValid = v < Max;
                 if (!result.IsValid)
                 {
-                    result.AddMessage(string.Format("Value shouldn't be greater {0}.",Max));
+                    result.AddMessage(string.Format("Value shouldn't be greater {0}.", Max));
                 }
             }
             return result;
