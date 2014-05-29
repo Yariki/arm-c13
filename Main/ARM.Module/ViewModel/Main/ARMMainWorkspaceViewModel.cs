@@ -289,8 +289,9 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportDeduct:
                     workspaceViewModel = _unityContainer.Resolve<IARMStudentListDeductViewModel>();
                     break;
-
-
+                case eARMMainMenuCommand.ReportRenew:
+                    workspaceViewModel = _unityContainer.Resolve<IARMRenewViewModel>();
+                    break;
             }
             if (workspaceViewModel != null)
             {

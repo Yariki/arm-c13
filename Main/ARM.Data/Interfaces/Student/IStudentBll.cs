@@ -5,6 +5,7 @@
 //  Created on:      29-Mar-2014 5:16:43 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using ARM.Data.Layer.Interfaces;
 
@@ -24,5 +25,7 @@ namespace ARM.Data.Interfaces.Student
     public interface IStudentBll : IBll<Models.Student>
     {
         IEnumerable<Models.Student> GetAllForeignStudent();
+
+        IEnumerable<Models.Student> GetAllRenewStudentInGroups(IEnumerable<Guid> listGroups);
     } //end IStudentBll
 } //end namespace Student

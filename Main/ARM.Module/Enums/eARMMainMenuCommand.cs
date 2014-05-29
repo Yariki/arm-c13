@@ -34,6 +34,7 @@
         ReportDebt,
         ReportForeignStudent,
         ReportAcademicArrears,
-        ReportDeduct
+        ReportDeduct,
+        ReportRenew
     }
 }

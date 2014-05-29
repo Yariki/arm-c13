@@ -150,7 +150,7 @@ namespace ARM.Module.ViewModel.Reports
         /// Заповнення листа даними при еспорті.
         /// </summary>
         /// <param name="sheet">Лист.</param>
-        /// <param name="rowStart">Номер рідка, з якого потрібно почитнати заповнення.</param>
+        /// <param name="rowStart">Номер рядка, з якого потрібно почитнати заповнення.</param>
         protected override void FillSheet(Worksheet sheet, int rowStart)
         {
             int current = 0;

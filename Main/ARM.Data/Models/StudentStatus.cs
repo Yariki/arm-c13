@@ -15,5 +15,6 @@ namespace ARM.Data.Models
         Studies,
         Graduated,
         Expelled,
+        Renewed
     } //end StudentStatus
 } //end namespace Models

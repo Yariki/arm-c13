@@ -87,6 +87,10 @@
     <Compile Include="CommonContextMigrations\201405272259265_init.Designer.cs">
       <DependentUpon>201405272259265_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonContextMigrations\201405291915347_AddStudentNote.cs" />
+    <Compile Include="CommonContextMigrations\201405291915347_AddStudentNote.Designer.cs">
+      <DependentUpon>201405291915347_AddStudentNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonContextMigrations\Configuration.cs" />
     <Compile Include="Implementation\Achivement\AchivementBll.cs" />
     <Compile Include="Implementation\Achivement\AchivementDal.cs" />
@@ -299,6 +303,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CommonContextMigrations\201405272259265_init.resx">
       <DependentUpon>201405272259265_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonContextMigrations\201405291915347_AddStudentNote.resx">
+      <DependentUpon>201405291915347_AddStudentNote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

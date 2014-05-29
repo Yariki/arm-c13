@@ -171,5 +171,8 @@ namespace ARM.Data.Models
         public decimal Stipend { get; set; }
 
         public virtual IList<Mark> Marks { get; set; }
+        [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Note")]
+        public string Note { get; set; }
+
     }//end Student
 }//end namespace Models

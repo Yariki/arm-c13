@@ -105,6 +105,7 @@ namespace ARM.Module.ViewModel.Main
             Reports.Add(new ARMMenuForeignStudentCommand(_actionMenu, _canFunc));
             Reports.Add(new ARMMenuAcademicArrearsCommand(_actionMenu, _canFunc));
             Reports.Add(new ARMMenuStudentDeductCommand(_actionMenu, _canFunc));
+            Reports.Add(new ARMMenuRenewCommand(_actionMenu, _canFunc));
         }
 
         /// <summary>

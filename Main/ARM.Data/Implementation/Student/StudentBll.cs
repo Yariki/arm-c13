@@ -5,11 +5,13 @@
 //  Created on:      29-Mar-2014 5:16:46 PM
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ARM.Data.Interfaces.Student;
 using ARM.Data.Layer.Context;
 using ARM.Data.Layer.Interfaces;
+using ARM.Data.Models;
 
 namespace ARM.Data.Implementation.Student
 {
@@ -31,9 +33,23 @@ namespace ARM.Data.Implementation.Student
         {
         }
 
+        /// <summary>
+        /// Отримує всіх студентів-іноземців.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Models.Student> GetAllForeignStudent()
         {
             return Dal.GetAsQueryable().Where(s => s.IsForeign);
+        }
+
+        /// <summary>
+        /// Повернути всых студентів, які пішли на перездачу.
+        /// </summary>
+        /// <param name="listGroups">Список груп.</param>
+        /// <returns></returns>
+        public IEnumerable<Models.Student> GetAllRenewStudentInGroups(IEnumerable<Guid> listGroups)
+        {
+            return Dal.GetAsQueryable().Where(s => listGroups.Contains(s.GroupId.Value) && s.Status == StudentStatus.Renewed);
         }
     } //end StudentBll
 } //end namespace Student

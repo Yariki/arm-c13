@@ -143,6 +143,7 @@
     <Compile Include="Commands\Menu\Report\ARMMenuContractGroupCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuDebtCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuForeignStudentCommand.cs" />
+    <Compile Include="Commands\Menu\Report\ARMMenuRenewCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuSessionMarksCommand.cs" />
     <Compile Include="Commands\Menu\Report\ARMMenuStudentDeductCommand.cs" />
     <Compile Include="Commands\Menu\Services\ARMMenuCalculationStipendCommand.cs" />
@@ -178,8 +179,10 @@
     <Compile Include="Interfaces\Documents\View\IARMInvoiceView.cs" />
     <Compile Include="Interfaces\Documents\View\IARMPaymentView.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMAcademicArrearsViewModel.cs" />
+    <Compile Include="Interfaces\Reports\ViewModel\IARMRenewViewModel.cs" />
     <Compile Include="Interfaces\Reports\ViewModel\IARMStudentListDeductViewModel.cs" />
     <Compile Include="Interfaces\Reports\View\IARMAcademicArrearsView.cs" />
+    <Compile Include="Interfaces\Reports\View\IARMRenewView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMStudentListDeductView.cs" />
     <Compile Include="Interfaces\View\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
@@ -294,6 +297,7 @@
     <Compile Include="ViewModel\References\ARMVisaValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\Password\ARMPasswordViewModel.cs" />
     <Compile Include="ViewModel\Reports\AcademicArrears\ARMAcademicArrearsDetails.cs" />
+    <Compile Include="ViewModel\Reports\ARMRenewViewModel.cs" />
     <Compile Include="ViewModel\Reports\LetterTemplate\ARMLetterTemplate.cs" />
     <Compile Include="ViewModel\Reports\AcademicArrears\ARMStudentAcademicArrearsData.cs" />
     <Compile Include="ViewModel\Reports\ARMAcademicArrearsViewModel.cs" />
@@ -309,6 +313,8 @@
     <Compile Include="ViewModel\Reports\Data\ARMStudentClassData.cs" />
     <Compile Include="ViewModel\Reports\Debt\ARMStudentDebtDetails.cs" />
     <Compile Include="ViewModel\Reports\Deduct\ARMStudentDeduct.cs" />
+    <Compile Include="ViewModel\Reports\Renew\ARMCheckboxWraper.cs" />
+    <Compile Include="ViewModel\Reports\Renew\ARMStudentRenewInfo.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMSessionMarkDetails.cs" />
     <Compile Include="ViewModel\Reports\SessionMarks\ARMStudentSessionMarksData.cs" />
     <Compile Include="ViewModel\Services\CalculationStipend\ARMCalculationStipendViewModel.cs" />
@@ -418,6 +424,9 @@
     </Compile>
     <Compile Include="View\Reports\ARMForeignStudentView.xaml.cs">
       <DependentUpon>ARMForeignStudentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\ARMRenewView.xaml.cs">
+      <DependentUpon>ARMRenewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\ARMSessionMarksView.xaml.cs">
       <DependentUpon>ARMSessionMarksView.xaml</DependentUpon>
@@ -594,6 +603,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\ARMForeignStudentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\ARMRenewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

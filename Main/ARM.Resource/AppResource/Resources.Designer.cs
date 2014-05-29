@@ -416,6 +416,19 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;lettertemplate&gt;
+        ///	&lt;header&gt;Список студентів що поновлююються по групам.&lt;/header&gt;
+        ///	&lt;body&gt;&lt;/body&gt;
+        ///	&lt;footer&gt;&lt;/footer&gt;
+        ///&lt;/lettertemplate&gt;.
+        /// </summary>
+        public static string Letter_Renew_Template {
+            get {
+                return ResourceManager.GetString("Letter_Renew_Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ARM - bla - bla.
         /// </summary>
         public static string MAINWINDOW_TITLE {
@@ -1933,6 +1946,15 @@ namespace ARM.Resource.AppResource {
         public static string Report_OpenDocument {
             get {
                 return ResourceManager.GetString("Report_OpenDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of renewing students.
+        /// </summary>
+        public static string Report_Renew_Title {
+            get {
+                return ResourceManager.GetString("Report_Renew_Title", resourceCulture);
             }
         }
         
