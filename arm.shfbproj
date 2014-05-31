@@ -25,7 +25,8 @@
     <CppCommentsFixup>False</CppCommentsFixup>
     <CleanIntermediates>True</CleanIntermediates>
     <DocumentationSources>
-    </DocumentationSources>
+      <DocumentationSource sourceFile="Output\ARM.Data.dll" />
+<DocumentationSource sourceFile="Output\ARM.Data.xml" /></DocumentationSources>
     <VisibleItems>None</VisibleItems>
     <MissingTags>Summary, Namespace</MissingTags>
     <MaximumGroupParts>2</MaximumGroupParts>
