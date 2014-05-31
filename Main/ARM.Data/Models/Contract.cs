@@ -19,39 +19,82 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Contract)]
     public class Contract : BaseNoteModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Contract"/>.
+        /// </summary>
+        public Contract()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає номер.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Contract_Number")]
         public string Number { get; set; }
 
+        /// <summary>
+        /// Отримує або задає рівень навчання.
+        /// </summary>
         [ARMRequired]
         public EducationLevel Level { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор батька.
+        /// </summary>
         [ARMRequired]
         public Guid? ParentId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор університету.
+        /// </summary>
         [ARMRequired]
         public Guid UniversityId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор студента.
+        /// </summary>
         [ARMRequired]
         public Guid? StudentId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор спеціальності.
+        /// </summary>
         [ARMRequired]
         public Guid? SpecialityId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ціну.
+        /// </summary>
         [ARMRequired]
         public decimal Price { get; set; }
 
+        /// <summary>
+        /// Отримує або задає замовника.
+        /// </summary>
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Contract_Parent")]
         public virtual Parent Customer { get; set; }
 
+        /// <summary>
+        /// Отримує або задає університет.
+        /// </summary>
         public virtual University University { get; set; }
 
+        /// <summary>
+        /// Отримує або задає студента.
+        /// </summary>
         public virtual Student Student { get; set; }
 
+        /// <summary>
+        /// Отримує або задає спеціальність.
+        /// </summary>
         public virtual Specialty Speciality { get; set; }
 
+        /// <summary>
+        /// Отримує або задає список рахунків.
+        /// </summary>
         public virtual IList<Invoice> Invoices { get; set; }
     } //end Contract
 } //end namespace Models

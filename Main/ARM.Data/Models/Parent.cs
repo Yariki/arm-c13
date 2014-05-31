@@ -19,12 +19,25 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Parent)]
     public class Parent : Person
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Parent"/>.
+        /// </summary>
+        public Parent()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор студента.
+        /// </summary>
         public Guid? StudentId
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає студента.
+        /// </summary>
         [ForeignKey("StudentId")]
         public virtual Student Child
         {
@@ -32,12 +45,21 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор адреси.
+        /// </summary>
         [ARMRequired]
         public Guid AddressId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає адресу.
+        /// </summary>
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }
 
+        /// <summary>
+        /// Отримує або задає список контрактів.
+        /// </summary>
         public virtual IList<Contract> Contracts { get; set; }
     }//end Parent
 }//end namespace Models

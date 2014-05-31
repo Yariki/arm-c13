@@ -17,36 +17,70 @@ namespace ARM.Data.Models
     /// </summary>
     public abstract class Person : BaseModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Person"/>.
+        /// </summary>
+        public Person()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає імя.
+        /// </summary>
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_FirstName")]
         [ARMGrid(Order = 2)]
         [ARMRequired]
         public string FirstName { get; set; }
 
+        /// <summary>
+        /// Отримує або задає по-батькові.
+        /// </summary>
+        /// <value>
+        /// The name of the middle.
+        /// </value>
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_MiddleName")]
         [ARMGrid(Order = 3)]
-        public String MiddleName { get; set; }
+        public string MiddleName { get; set; }
 
+        /// <summary>
+        /// Отримує або задає прізвище.
+        /// </summary>
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_LastName")]
         [ARMGrid(Order = 1)]
         [ARMRequired]
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Отримує або задає електронну скриньку.
+        /// </summary>
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_Email")]
         public string Email { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер мобільного телефону.
+        /// </summary>
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_PhoneMobile")]
         public string PhoneMobile { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер домашнього телефону.
+        /// </summary>
         [ARMGrid(Order = 6)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_PhoneHome")]
         public string PhoneHome { get; set; }
 
+        /// <summary>
+        /// Отримує або задає стать.
+        /// </summary>
         [ARMGrid(Order = 7)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Person_Sex")]
         public SexType Sex { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get { return string.Format("{0} {1} {2}", LastName, MiddleName, FirstName); }

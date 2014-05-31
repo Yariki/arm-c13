@@ -17,17 +17,26 @@ namespace ARM.Data.Models
     /// </summary>
     public abstract class BaseModel : IARMModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="BaseModel"/>.
+        /// </summary>
         protected BaseModel()
         {
             DateModified = DateTime.Now;
         }
 
+        /// <summary>
+        /// ідентифікатор моделі в БД
+        /// </summary>
         public Guid Id
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримуэ або задає дату модифікації.
+        /// </summary>
         [ARMGrid(Order = int.MaxValue)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_DateModified")]
         public DateTime DateModified
@@ -36,6 +45,12 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає користувача.
+        /// </summary>
+        /// <value>
+        /// The modified by.
+        /// </value>
         [ARMGrid(Order = int.MaxValue - 1)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_ModifiedBy")]
         public string ModifiedBy
@@ -44,11 +59,17 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public virtual string Display
         {
             get { return Id.ToString(); }
         }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string ToString()
         {
             return Display;

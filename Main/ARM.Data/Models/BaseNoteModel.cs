@@ -15,6 +15,19 @@ namespace ARM.Data.Models
     /// </summary>
     public abstract class BaseNoteModel : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="BaseNoteModel"/>.
+        /// </summary>
+        public BaseNoteModel()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає нотатки.
+        /// </summary>
+        /// <value>
+        /// The note.
+        /// </value>
         [ARMGrid(Order = int.MaxValue - 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Note")]
         public string Note

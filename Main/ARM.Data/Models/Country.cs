@@ -17,6 +17,16 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Country)]
     public class Country : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Country"/>.
+        /// </summary>
+        public Country()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає список адрес.
+        /// </summary>
         public virtual IList<Address> Addresses { get; set; }
     } //end Country
 } //end namespace Models

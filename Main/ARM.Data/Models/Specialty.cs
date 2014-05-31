@@ -19,13 +19,29 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Specialty)]
     public class Specialty : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Specialty"/>.
+        /// </summary>
+        public Specialty()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор факультету.
+        /// </summary>
         [ARMRequired]
         public Guid? FacultyId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає факультет.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(Resources), Name = "Model_Speciality_Faculty")]
         public virtual Faculty Faculty { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get { return Name; }

@@ -17,11 +17,17 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Language)]
     public class Language : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Language"/>.
+        /// </summary>
         public Language()
         {
             Students = new HashSet<Student>();
         }
 
+        /// <summary>
+        /// Отримує або задає список студентів.
+        /// </summary>
         public virtual ICollection<Student> Students { get; set; }
     } //end Language
 } //end namespace Models

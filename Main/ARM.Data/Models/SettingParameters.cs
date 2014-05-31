@@ -17,41 +17,90 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Settings)]
     public class SettingParameters : BaseModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="SettingParameters"/>.
+        /// </summary>
+        public SettingParameters()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає університет пл-замовчуванню.
+        /// </summary>
         [ARMRequired]
         public Guid DefUniversity { get; set; }
 
+        /// <summary>
+        /// Отримує або задає коаїну по-замовчуванню.
+        /// </summary>
         [ARMRequired]
         public Guid DefCountry { get; set; }
 
+        /// <summary>
+        /// Отримує або задає рівень навчання.
+        /// </summary>
         public EducationLevel DefEducationLevel { get; set; }
 
+        /// <summary>
+        /// Отримує або задає статус.
+        /// </summary>
         public InvoiceStatus DefInvoiceStatus { get; set; }
 
+        /// <summary>
+        /// Отримує або задає базову стипендію.
+        /// </summary>
         [ARMMin(Min = 0)]
         public decimal DefBaseStipend { get; set; }
 
+        /// <summary>
+        /// Отримує або задає збільшену стипендію.
+        /// </summary>
         [ARMMin(Min = 0)]
         public decimal DefIncreaseStipend { get; set; }
 
+        /// <summary>
+        /// Отримує або задає оцінку.
+        /// </summary>
         [ARMRange(Min = 0, Max = 6)]
         public double DefStipendMark { get; set; }
 
+        /// <summary>
+        /// Отримує або задає оцінку для підвищеної стипендії.
+        /// </summary>
         [ARMMin(Min = 0)]
         public double DefStipenHighMark { get; set; }
 
+        /// <summary>
+        /// Отримує або задає префікс контракту.
+        /// </summary>
         [ARMRequired]
         public string ContractPrefix { get; set; }
 
+        /// <summary>
+        /// Отримує або задає префікс рахунку.
+        /// </summary>
         [ARMRequired]
         public string InvoicePrefix { get; set; }
 
+        /// <summary>
+        /// Отримує або задає префікс платіжки.
+        /// </summary>
         [ARMRequired]
         public string PaymentPrefix { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер контракту.
+        /// </summary>
         public long ContractNumber { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер рахунку.
+        /// </summary>
         public long InvoiceNumber { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер платіжки.
+        /// </summary>
         public long PaymentNumber { get; set; }
     } //end SettingParameters
 } //end namespace Models

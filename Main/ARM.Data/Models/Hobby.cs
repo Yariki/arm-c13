@@ -17,12 +17,25 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Hobby)]
     public class Hobby : BaseNoteModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Hobby"/>.
+        /// </summary>
+        public Hobby()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор студента.
+        /// </summary>
         public Guid StudentId
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає студента.
+        /// </summary>
         public virtual Student Student
         {
             get;

@@ -18,6 +18,16 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Faculty)]
     public class Faculty : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Faculty"/>.
+        /// </summary>
+        public Faculty()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор керівника.
+        /// </summary>
         [ARMRequired]
         public Guid? StaffId
         {
@@ -25,14 +35,23 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає лінк.
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Отримує або задає завідуючого факультету.
+        /// </summary>
         public virtual Staff Head
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор університету.
+        /// </summary>
         [ARMRequired]
         public Guid UniversityId
         {
@@ -40,14 +59,23 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає університет.
+        /// </summary>
         public virtual University University
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає список груп.
+        /// </summary>
         public virtual IList<Group> Groups { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get { return Name; }

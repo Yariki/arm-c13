@@ -21,23 +21,48 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Group)]
     public class Group : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Group"/>.
+        /// </summary>
+        public Group()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор  факультету.
+        /// </summary>
         [ARMRequired]
         public Guid FacultyId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає факультет.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Group_Faculty")]
         public virtual Faculty Faculty { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор куратора.
+        /// </summary>
         [ARMRequired]
         public Guid? StaffId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає куратора.
+        /// </summary>
         [ARMGrid(Order = 3)]
         [ForeignKey("StaffId")]
         [Display(ResourceType = typeof (Resources), Name = "Model_Group_Curator")]
         public virtual Staff Curator { get; set; }
 
+        /// <summary>
+        /// Отримує або задає список студентів.
+        /// </summary>
         public virtual IList<Student> Students { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get { return Name; }

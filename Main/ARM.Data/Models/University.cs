@@ -19,6 +19,16 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.University)]
     public class University : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="University"/>.
+        /// </summary>
+        public University()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор персоналу.
+        /// </summary>
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public Guid? StaffId
         {
@@ -26,10 +36,19 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає лінк.
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Отримує або задає електронну скриньку.
+        /// </summary>
         public string Email { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ректора.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(ARM.Resource.AppResource.Resources), Name = "Model_Rector")]
         public virtual Staff Rector
@@ -38,6 +57,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає списко факультетів.
+        /// </summary>
         public virtual IList<Faculty> Faculties { get; set; }
     }//end University
 }//end namespace Models

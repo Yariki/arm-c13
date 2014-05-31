@@ -16,11 +16,27 @@ namespace ARM.Data.Models
     /// </summary>
     public abstract class BaseNamedModel : BaseModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="BaseNamedModel"/>.
+        /// </summary>
+        public BaseNamedModel()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає назву.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         [ARMGrid(Order = 1)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Name")]
         [ARMRequired]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get { return Name; }

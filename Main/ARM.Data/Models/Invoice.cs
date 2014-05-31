@@ -19,11 +19,24 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Invoice)]
     public class Invoice : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Invoice"/>.
+        /// </summary>
+        public Invoice()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає номер.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Number")]
         public string Number { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор контракту.
+        /// </summary>
         [ARMRequired]
         public Guid ContractId
         {
@@ -31,6 +44,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор семестру.
+        /// </summary>
         [ARMRequired]
         public Guid? SessionId
         {
@@ -38,6 +54,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає суму.
+        /// </summary>
         [ARMMin(Min = 0)]
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Price")]
@@ -47,6 +66,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає дату оплати.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_DateDue")]
@@ -56,6 +78,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає статус.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Invoice_Status")]
@@ -65,18 +90,27 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає контракт.
+        /// </summary>
         public virtual Contract Contract
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає семестр.
+        /// </summary>
         public virtual Session Session
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає списко платіжок.
+        /// </summary>
         public virtual IList<Payment> Payments { get; set; }
     }//end Invoice
 }//end namespace Models

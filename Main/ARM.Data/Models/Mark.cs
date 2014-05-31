@@ -18,6 +18,16 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Mark)]
     public class Mark : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Mark"/>.
+        /// </summary>
+        public Mark()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор студента.
+        /// </summary>
         [ARMRequired]
         public Guid? StudentId
         {
@@ -25,6 +35,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор заняття.
+        /// </summary>
         [ARMRequired]
         public Guid? ClassId
         {
@@ -32,6 +45,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає студента.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Student")]
         public virtual Student Student
@@ -40,6 +56,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає класу/заняття.
+        /// </summary>
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Class")]
         public virtual Class Class
@@ -48,6 +67,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає дату.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 7)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Date")]
@@ -57,6 +79,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає тип оцінки.
+        /// </summary>
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Type")]
         public MarkType Type
@@ -65,10 +90,16 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає значення.
+        /// </summary>
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_MarkRate")]
         public decimal MarkRate { get; set; }
 
+        /// <summary>
+        /// Отримує або задає чи являється запис про атестацію.
+        /// </summary>
         [ARMGrid(Order = 6)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_IsCertification")]
         public bool IsCertification { get; set; }

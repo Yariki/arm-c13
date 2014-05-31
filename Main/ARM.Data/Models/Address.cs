@@ -19,38 +19,70 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Address)]
     public class Address : BaseModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Address"/>.
+        /// </summary>
+        public Address()
+        {
+            
+        }
+
+        /// <summary>
+        /// Отримує або задає ідентифікатор країни.
+        /// </summary>
         [ARMRequired]
         public Guid CountryId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає регіон.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_Region")]
         public string Region { get; set; }
 
+        /// <summary>
+        /// Отримує або задає місто.
+        /// </summary>
         [ARMGrid(Order = 3)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_City")]
         public string City { get; set; }
 
+        /// <summary>
+        /// Отримує або задає вулицю.
+        /// </summary>
         [ARMGrid(Order = 4)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_Street")]
         public string Street { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер будинку.
+        /// </summary>
         [ARMGrid(Order = 4)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_House")]
         public string House { get; set; }
 
+        /// <summary>
+        /// Отримує або задає номер квартири.
+        /// </summary>
         [ARMGrid(Order = 6)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_Apartment")]
         public string Apartment { get; set; }
 
+        /// <summary>
+        /// Отримує або задає країну.
+        /// </summary>
         [ARMGrid(Order = 7)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Address_Country")]
         public virtual Country Country { get; set; }
 
+        /// <summary>
+        /// Зручне представлення моделі для користувача. Повертає певне значення у вигляді рядка для відображеня в інтерфейсі.
+        /// </summary>
         public override string Display
         {
             get

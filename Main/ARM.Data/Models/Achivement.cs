@@ -27,6 +27,17 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Achivement)]
     public class Achivement : BaseNoteModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Achivement"/>.
+        /// </summary>
+        public Achivement()
+        {
+            
+        }
+
+        /// <summary>
+        /// Отримує або задає тип.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Achivement_Type")]
         [ARMGrid(Order = 2)]
@@ -36,12 +47,18 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор студента.
+        /// </summary>
         public Guid StudentId
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає студента.
+        /// </summary>
         public virtual Student Student
         {
             get;

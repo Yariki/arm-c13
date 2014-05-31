@@ -18,24 +18,46 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Payment)]
     public class Payment : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Payment"/>.
+        /// </summary>
+        public Payment()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає номер.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Payment_Number")]
         public string Number { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор рахунку.
+        /// </summary>
         [ARMRequired]
         public Guid InvoiceId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає дату.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Payment_Date")]
         public DateTime Date { get; set; }
 
+        /// <summary>
+        /// Отримує або задає суму.
+        /// </summary>
         [ARMMin(Min = 0)]
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Payment_Sum")]
         public decimal Sum { get; set; }
 
+        /// <summary>
+        /// Отримує або задає рахунок.
+        /// </summary>
         public virtual Invoice Invoice { get; set; }
     } //end Payment
 } //end namespace Models

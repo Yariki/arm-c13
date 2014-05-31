@@ -20,36 +20,60 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Student)]
     public class Student : Person
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Student"/>.
+        /// </summary>
         public Student()
         {
             Achivements = new List<Achivement>();
             Languages = new HashSet<Language>();
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор адреси.
+        /// </summary>
         [ARMRequired]
         public Guid AddressId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає адресу прописки.
+        /// </summary>
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифівкатор адреси.
+        /// </summary>
         [ARMRequired]
         public Guid LivingAddressId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає адресу проживання.
+        /// </summary>
         [ForeignKey("LivingAddressId")]
         public virtual Address LivingAddress { get; set; }
 
+        /// <summary>
+        /// Отримує або задає батьків.
+        /// </summary>
         public virtual IList<Parent> Parents
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор групи.
+        /// </summary>
         [ARMRequired]
         public Guid? GroupId
         {
             get;
             set;
         }
+        /// <summary>
+        /// Отримує або задає групу.
+        /// </summary>
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Group")]
         [ARMGrid(Order = 8)]
         public virtual Group Group
@@ -58,24 +82,36 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає хобі.
+        /// </summary>
         public virtual List<Hobby> Hobbies
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає досягнення.
+        /// </summary>
         public virtual List<Achivement> Achivements
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає візи.
+        /// </summary>
         public virtual List<Visa> Visas
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає дату вступу.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_DateEnter")]
         [ARMGrid(Order = 9)]
@@ -85,24 +121,36 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає дату закінчення/висилки.
+        /// </summary>
         public DateTime? DateLeft
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає мови.
+        /// </summary>
         public virtual ICollection<Language> Languages
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор факультету.
+        /// </summary>
         [ARMRequired]
         public Guid? FacultyId
         {
             get;
             set;
         }
+        /// <summary>
+        /// Отримує або задає факультет.
+        /// </summary>
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Faculty")]
         [ARMGrid(Order = 10)]
         public virtual Faculty Faculty
@@ -111,6 +159,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає режимму навчання.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_StudyMode")]
         [ARMGrid(Order = 11)]
@@ -120,6 +171,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає номер залікової книжки.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_GradeBookNumber")]
         public string GradeBookNumber
@@ -128,8 +182,14 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає контракти.
+        /// </summary>
         public virtual IList<Contract> Contracts { get; set; }
 
+        /// <summary>
+        /// Іноземець.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_IsForeign")]
         [ARMGrid(Order = 12)]
@@ -139,6 +199,9 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор спеціальності.
+        /// </summary>
         [ARMRequired]
         public Guid? SpecialityId
         {
@@ -146,12 +209,18 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає спеціальність.
+        /// </summary>
         public virtual Specialty Speciality
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає статус.
+        /// </summary>
         [ARMRequired]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Student_Status")]
         [ARMGrid(Order = 13)]
@@ -161,16 +230,34 @@ namespace ARM.Data.Models
             set;
         }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор роботавця.
+        /// </summary>
         public Guid? EmployerId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає роботодавця.
+        /// </summary>
         public virtual Employer Employer { get; set; }
 
+        /// <summary>
+        /// Отримує або задає тип навчання.
+        /// </summary>
         [ARMRequired]
         public eARMStudyType StudyType { get; set; }
 
+        /// <summary>
+        /// Отримує або задає стипендію.
+        /// </summary>
         public decimal Stipend { get; set; }
 
+        /// <summary>
+        /// Отримує або задає оцінки.
+        /// </summary>
         public virtual IList<Mark> Marks { get; set; }
+        /// <summary>
+        /// Отримує або задає нотатку.
+        /// </summary>
         [Display(ResourceType = typeof(Resource.AppResource.Resources),Name="Model_Note")]
         public string Note { get; set; }
 

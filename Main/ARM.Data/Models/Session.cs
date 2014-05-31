@@ -15,21 +15,37 @@ using ARM.Resource.AppResource;
 namespace ARM.Data.Models
 {
     /// <summary>
-    /// Модель сесії
+    /// Модель семетру
     /// </summary>
     [ARMMetadata(Metadata = eARMMetadata.Session)]
     public class Session : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Session"/>.
+        /// </summary>
+        public Session()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає дату початку.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Session_DateBegin")]
         public DateTime DateBegin { get; set; }
 
+        /// <summary>
+        /// Отримує або задає дату закінчення.
+        /// </summary>
         [ARMRequired]
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Session_DateEnd")]
         public DateTime DateEnd { get; set; }
 
+        /// <summary>
+        /// Отримує або задає список кдасів/занятть.
+        /// </summary>
         public virtual IList<Class> Classes { get; set; }
     } //end Session
 } //end namespace Models

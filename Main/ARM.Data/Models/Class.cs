@@ -20,26 +20,54 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Class)]
     public class Class : BaseNamedModel
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Class"/>.
+        /// </summary>
+        public Class()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає ідентифікатор персоналу.
+        /// </summary>
         [ARMRequired]
         public Guid StaffId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає лектора.
+        /// </summary>
         [ARMGrid(Order = 2)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Class_Staff")]
         [ForeignKey("StaffId")]
         public virtual Staff Lecturer { get; set; }
 
+        /// <summary>
+        /// Отримує або задає ідентифікатор семестра.
+        /// </summary>
         [ARMRequired]
         public Guid SessionId { get; set; }
 
+        /// <summary>
+        /// Отримує або задає семестр.
+        /// </summary>
         [ARMGrid(Order = 3)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Class_Session")]
         public virtual Session Session { get; set; }
 
+        /// <summary>
+        /// Отримує або задає спосіб фінального оцінування.
+        /// </summary>
         [ARMGrid(Order = 4)]
         [ARMRequired]
         [Display(ResourceType = typeof (Resources), Name = "Model_Class_Summary")]
         public eARMClassSummary Summary { get; set; }
 
+        /// <summary>
+        /// ОТримує або задає чи присутність курсової роботи.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [course work present]; otherwise, <c>false</c>.
+        /// </value>
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Class_CourseWork")]
         public bool CourseWorkPresent { get; set; }

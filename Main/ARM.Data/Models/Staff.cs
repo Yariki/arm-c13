@@ -19,11 +19,24 @@ namespace ARM.Data.Models
     [ARMMetadata(Metadata = eARMMetadata.Staff)]
     public class Staff : Person
     {
+        /// <summary>
+        /// Ініціалізіція нового екземпляра  <see cref="Staff"/>.
+        /// </summary>
+        public Staff()
+        {
+            
+        }
+        /// <summary>
+        /// Отримує або задає тип персоналу.
+        /// </summary>
         [ARMGrid(Order = 8)]
         [Display(ResourceType = typeof (Resources), Name = "Model_Staff_Type")]
         [ARMRequired]
         public StaffType StaffType { get; set; }
 
+        /// <summary>
+        /// Отримує або задає список класів.
+        /// </summary>
         public virtual IList<Class> Classes { get; set; }
     } //end Staff
 } //end namespace Models
