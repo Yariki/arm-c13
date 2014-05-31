@@ -17,6 +17,10 @@ namespace ARM.Data.Implementation.Settings
     /// </summary>
     public class SettingsDal : BaseDal<SettingParameters>, ISettingsDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SettingsDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public SettingsDal(IContext<SettingParameters> context)
             : base(context)
         {

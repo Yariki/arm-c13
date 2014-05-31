@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Language
     /// </summary>
     public class LanguageDal : BaseDal<Models.Language>, ILanguageDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="LanguageDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public LanguageDal(IContext<Models.Language> context)
             : base(context)
         {

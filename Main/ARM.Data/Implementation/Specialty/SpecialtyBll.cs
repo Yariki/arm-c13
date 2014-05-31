@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Specialty
     /// </summary>
     public class SpecialtyBll : BaseBll<Models.Specialty>, ISpecialtyBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SpecialtyBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public SpecialtyBll(IDal<Models.Specialty> dal)
             : base(dal)
         {

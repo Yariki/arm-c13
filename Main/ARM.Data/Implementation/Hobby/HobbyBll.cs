@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Hobby
     /// </summary>
     public class HobbyBll : BaseBll<Models.Hobby>, IHobbyBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="HobbyBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public HobbyBll(IDal<Models.Hobby> dal)
             : base(dal)
         {

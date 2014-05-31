@@ -15,8 +15,8 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>ARM.Core</HtmlHelpName>
-    <Language>en-US</Language>
+    <HtmlHelpName>ARM.Data</HtmlHelpName>
+    <Language>ru-RU</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>OpenXml</HelpFileFormat>
     <IndentHtml>True</IndentHtml>
@@ -25,8 +25,7 @@
     <CppCommentsFixup>False</CppCommentsFixup>
     <CleanIntermediates>True</CleanIntermediates>
     <DocumentationSources>
-      <DocumentationSource sourceFile="Output\ARM.Core.dll" />
-<DocumentationSource sourceFile="Output\ARM.Core.xml" /></DocumentationSources>
+    </DocumentationSources>
     <VisibleItems>None</VisibleItems>
     <MissingTags>Summary, Namespace</MissingTags>
     <MaximumGroupParts>2</MaximumGroupParts>

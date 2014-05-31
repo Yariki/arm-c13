@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Payment
     /// </summary>
     public class PaymentDal : BaseDal<Models.Payment>, IPaymentDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="PaymentDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public PaymentDal(IContext<Models.Payment> context)
             : base(context)
         {

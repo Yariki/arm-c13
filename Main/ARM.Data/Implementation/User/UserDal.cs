@@ -10,11 +10,21 @@ namespace ARM.Data.Implementation.User
     /// </summary>
     public class UserDal : BaseDal<Models.User>, IUserDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="UserDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public UserDal(IContext<Models.User> context)
             : base(context)
         {
         }
 
+        /// <summary>
+        /// Повертає валідного користувача.
+        /// </summary>
+        /// <param name="username">Користувач.</param>
+        /// <param name="password">Пароль.</param>
+        /// <returns></returns>
         public Models.User GetValidUser(string username, string password)
         {
             var user = Context.GetItems()

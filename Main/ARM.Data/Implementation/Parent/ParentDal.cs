@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Parent
     /// </summary>
     public class ParentDal : BaseDal<Models.Parent>, IParentDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ParentDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public ParentDal(IContext<Models.Parent> context)
             : base(context)
         {

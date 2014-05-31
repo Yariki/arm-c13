@@ -24,7 +24,13 @@ namespace ARM.Data.Implementation.Rate
     {
         #region [needs]
 
+        /// <summary>
+        /// The low rate maximum value
+        /// </summary>
         private const decimal LowRateMaxValue = 40;
+        /// <summary>
+        /// The low rate maximum value60
+        /// </summary>
         private const decimal LowRateMaxValue60 = 60;
 
         private IEnumerable<Models.Rate> _lowRatesCollection =  null; 

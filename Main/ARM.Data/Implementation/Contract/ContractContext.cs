@@ -9,6 +9,17 @@ namespace ARM.Data.Implementation.Contract
     /// </summary>
     public class ContractContext : BaseContext<Models.Contract>, IContractContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ContractContext"/> class.
+        /// </summary>
+        public ContractContext()
+        {
+            
+        }
+        /// <summary>
+        /// Викликається при [модель Створення].
+        /// </summary>
+        /// <param name="modelBuilder">Модель будівельник.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

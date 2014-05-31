@@ -18,6 +18,10 @@ namespace ARM.Data.Implementation.Employer
     /// </summary>
     public class EmployerBll : BaseBll<Models.Employer>, IEmployerBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="EmployerBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public EmployerBll(IDal<Models.Employer> dal)
             : base(dal)
         {

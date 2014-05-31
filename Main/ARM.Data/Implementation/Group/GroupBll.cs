@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Group
     /// </summary>
     public class GroupBll : BaseBll<Models.Group>, IGroupBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="GroupBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public GroupBll(IDal<Models.Group> dal)
             : base(dal)
         {

@@ -28,11 +28,22 @@ namespace ARM.Data.Implementation.Invoice
     /// </summary>
     public class InvoiceBll : BaseBll<Models.Invoice>, IInvoiceBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="InvoiceBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public InvoiceBll(IDal<Models.Invoice> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Повернути рахунки за контрактом і періодом.
+        /// </summary>
+        /// <param name="idContract">Контракт.</param>
+        /// <param name="begin">Початок періоду.</param>
+        /// <param name="end">Закінчення періоду.</param>
+        /// <returns></returns>
         public IEnumerable<Models.Invoice> GetInvoicesByContractAndPeriod(Guid idContract, DateTime begin, DateTime end)
         {
             return

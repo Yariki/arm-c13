@@ -23,6 +23,13 @@ namespace ARM.Data.Interfaces.Invoice
     /// </summary>
     public interface IInvoiceBll : IBll<Models.Invoice>
     {
+        /// <summary>
+        /// Повернути список рахунків по контракті за період.
+        /// </summary>
+        /// <param name="idContract">Контракт.</param>
+        /// <param name="begin">Початок.</param>
+        /// <param name="end">Закінчення.</param>
+        /// <returns></returns>
         IEnumerable<Models.Invoice> GetInvoicesByContractAndPeriod(Guid idContract, DateTime begin, DateTime end);
     } //end IInvoiceBll
 } //end namespace Invoice

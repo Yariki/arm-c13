@@ -27,11 +27,21 @@ namespace ARM.Data.Implementation.Mark
     /// </summary>
     public class MarkBll : BaseBll<Models.Mark>, IMarkBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="MarkBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public MarkBll(IDal<Models.Mark> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Повернути список оцінок за списками студентів і заннять.
+        /// </summary>
+        /// <param name="listStudents">Списко студентів.</param>
+        /// <param name="listClasses">Список класів.</param>
+        /// <returns></returns>
         public IQueryable<Models.Mark> GetMarkAccordingStudentsAndClasses(IEnumerable<Guid> listStudents, IEnumerable<Guid> listClasses)
         {
             return

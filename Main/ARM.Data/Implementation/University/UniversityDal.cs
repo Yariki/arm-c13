@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.University
     /// </summary>
     public class UniversityDal : BaseDal<Models.University>, IUniversityDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="UniversityDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public UniversityDal(IContext<Models.University> context)
             : base(context)
         {

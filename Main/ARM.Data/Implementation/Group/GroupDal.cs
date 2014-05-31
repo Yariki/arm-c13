@@ -20,11 +20,19 @@ namespace ARM.Data.Implementation.Group
     /// </summary>
     public class GroupDal : BaseDal<Models.Group>, IGroupDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="GroupDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public GroupDal(IContext<Models.Group> context)
             : base(context)
         {
         }
 
+        /// <summary>
+        /// Повернути список моделей.
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<Models.Group> GetAllWithRelated()
         {
             return GetAsQueryable().Include(g => g.Curator).Include(g => g.Faculty).AsEnumerable();

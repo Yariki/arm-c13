@@ -24,6 +24,10 @@ namespace ARM.Data.Implementation.Staff
     /// </summary>
     public class StaffBll : BaseBll<Models.Staff>, IStaffBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="StaffBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public StaffBll(IDal<Models.Staff> dal)
             : base(dal)
         {

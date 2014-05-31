@@ -25,6 +25,12 @@ namespace ARM.Data.Interfaces.Mark
     /// </summary>
     public interface IMarkBll : IBll<Models.Mark>
     {
+        /// <summary>
+        /// Повернути список оцінок за списком студентів та класів.
+        /// </summary>
+        /// <param name="listStudents">Список студентів.</param>
+        /// <param name="listClasses">Список заннять.</param>
+        /// <returns></returns>
         IQueryable<Models.Mark> GetMarkAccordingStudentsAndClasses(IEnumerable<Guid> listStudents,
             IEnumerable<Guid> listClasses);
     } //end IMarkBll

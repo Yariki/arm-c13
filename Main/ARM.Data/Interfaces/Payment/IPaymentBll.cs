@@ -24,6 +24,11 @@ namespace ARM.Data.Interfaces.Payment
     /// </summary>
     public interface IPaymentBll : IBll<Models.Payment>
     {
+        /// <summary>
+        /// Повернути список платіжок для списку рахунків.
+        /// </summary>
+        /// <param name="listInvoice">Список рахунків.</param>
+        /// <returns></returns>
         IEnumerable<Models.Payment> GetInvoicesPayments(IEnumerable<Guid> listInvoice);
     } //end IPaymentBll
 } //end namespace Payment

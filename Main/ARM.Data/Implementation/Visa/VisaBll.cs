@@ -17,6 +17,10 @@ namespace ARM.Data.Implementation.Visa
     /// </summary>
     public class VisaBll : BaseBll<Models.Visa>, IVisaBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="VisaBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public VisaBll(IDal<Models.Visa> dal)
             : base(dal)
         {

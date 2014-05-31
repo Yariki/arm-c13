@@ -9,5 +9,12 @@ namespace ARM.Data.Implementation.Payment
     public class PaymentContext
        : BaseContext<Models.Payment>, IPaymentContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="PaymentContext"/> class.
+        /// </summary>
+        public PaymentContext()
+        {
+            
+        }
     }
 }

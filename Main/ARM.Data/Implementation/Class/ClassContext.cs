@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Class
     /// </summary>
     public class ClassContext : BaseContext<Models.Class>, IClassContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ClassContext"/> class.
+        /// </summary>
+        public ClassContext()
+        {
+            
+        }
     }
 }

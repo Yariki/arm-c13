@@ -28,6 +28,10 @@ namespace ARM.Data.Implementation.Student
     /// </summary>
     public class StudentBll : BaseBll<Models.Student>, IStudentBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="StudentBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public StudentBll(IDal<Models.Student> dal)
             : base(dal)
         {
@@ -43,7 +47,7 @@ namespace ARM.Data.Implementation.Student
         }
 
         /// <summary>
-        /// Повернути всых студентів, які пішли на перездачу.
+        /// Повернути всіх студентів, які пішли на перездачу.
         /// </summary>
         /// <param name="listGroups">Список груп.</param>
         /// <returns></returns>

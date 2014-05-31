@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Staff
     /// </summary>
     public class StaffDal : BaseDal<Models.Staff>, IStaffDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="StaffDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public StaffDal(IContext<Models.Staff> context)
             : base(context)
         {

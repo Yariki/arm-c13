@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Achivement
     /// </summary>
     public class AchivementDal : BaseDal<Models.Achivement>, IAchivementDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="AchivementDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public AchivementDal(IContext<Models.Achivement> context)
             : base(context)
         {

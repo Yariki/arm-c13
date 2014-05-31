@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.University
     /// </summary>
     public class UniversityContext : BaseContext<Models.University>, IUniversityContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="UniversityContext"/> class.
+        /// </summary>
+        public UniversityContext()
+        {
+            
+        }
     }
 }

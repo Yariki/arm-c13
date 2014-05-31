@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Migrations.Model;
 using ARM.Data.Interfaces.Group;
 using ARM.Data.Layer.Context;
 
@@ -9,6 +10,18 @@ namespace ARM.Data.Implementation.Group
     /// </summary>
     public class GroupContext : BaseContext<Models.Group>, IGroupContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="GroupContext"/> class.
+        /// </summary>
+        public GroupContext()
+        {
+            
+        }
+
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Student>()

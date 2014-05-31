@@ -19,11 +19,19 @@ namespace ARM.Data.Implementation.Address
     /// </summary>
     public class AddressDal : BaseDal<Models.Address>, IAddressDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="AddressDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public AddressDal(IContext<Models.Address> context)
             : base(context)
         {
         }
 
+        /// <summary>
+        /// Повернути модель даних з всіма задежними.
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<Models.Address> GetAllWithRelated()
         {
             return Context.GetItems().Include(a => a.Country).AsEnumerable();

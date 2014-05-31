@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Country
     /// </summary>
     public class CountryDal : BaseDal<Models.Country>, ICountryDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="CountryDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public CountryDal(IContext<Models.Country> context)
             : base(context)
         {

@@ -27,11 +27,20 @@ namespace ARM.Data.Implementation.Payment
     /// </summary>
     public class PaymentBll : BaseBll<Models.Payment>, IPaymentBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="PaymentBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public PaymentBll(IDal<Models.Payment> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Повернути платіжки за списком рахунків.
+        /// </summary>
+        /// <param name="listInvoice">Списко рахунків.</param>
+        /// <returns></returns>
         public IEnumerable<Models.Payment> GetInvoicesPayments(IEnumerable<Guid> listInvoice)
         {
             return Dal.GetAsQueryable().Where((Func<Models.Payment, bool>) (p => listInvoice.Contains(p.InvoiceId)));

@@ -19,11 +19,21 @@ namespace ARM.Data.Implementation.User
     /// </summary>
     public class UserBll : BaseBll<Models.User>, IUserBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="UserBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public UserBll(IDal<Models.User> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Повертає валідного користувача.
+        /// </summary>
+        /// <param name="username">Імя користувача.</param>
+        /// <param name="password">Пароль.</param>
+        /// <returns></returns>
         public Models.User GetValidUser(string username, string password)
         {
             string md5hash = GetMd5Hash(MD5.Create(), password);

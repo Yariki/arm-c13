@@ -19,6 +19,10 @@ namespace ARM.Data.Implementation.Contract
     /// </summary>
     public class ContractDal : BaseDal<Models.Contract>, IContractDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ContractDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public ContractDal(IContext<Models.Contract> context)
             : base(context)
         {
@@ -26,6 +30,10 @@ namespace ARM.Data.Implementation.Contract
 
         #region IContractDal Members
 
+        /// <summary>
+        /// Повернути модель з всіма залежними.
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<Models.Contract> GetAllWithRelated()
         {
             return Context.GetItems().Include(c => c.Customer).Include(c => c.Student).AsEnumerable();

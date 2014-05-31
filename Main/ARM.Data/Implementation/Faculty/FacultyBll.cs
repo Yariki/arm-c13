@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Faculty
     /// </summary>
     public class FacultyBll : BaseBll<Models.Faculty>, IFacultyBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="FacultyBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public FacultyBll(IDal<Models.Faculty> dal)
             : base(dal)
         {

@@ -28,11 +28,18 @@ namespace ARM.Data.Implementation.Contract
     /// </summary>
     public class ContractBll : BaseBll<Models.Contract>, IContractBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ContractBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public ContractBll(IDal<Models.Contract> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Отримати список контрактів за списком студентів.
+        /// </summary>
         public IEnumerable<Models.Contract> GetContractsByStudent(IEnumerable<Guid> listOfStudentsId)
         {
             return Dal.GetAsQueryable().Where( (Func<Models.Contract,bool>)( c => listOfStudentsId.Contains(c.StudentId.Value)));

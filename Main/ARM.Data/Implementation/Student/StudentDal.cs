@@ -17,11 +17,18 @@ namespace ARM.Data.Implementation.Student
     /// </summary>
     public class StudentDal : BaseDal<Models.Student>, IStudentDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="StudentDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public StudentDal(IContext<Models.Student> context)
             : base(context)
         {
         }
 
+        /// <summary>
+        /// Виделання прикріпленої інформації.
+        /// </summary>
         protected override void DeleteAddInfo(Models.Student entity)
         {
             base.DeleteAddInfo(entity);

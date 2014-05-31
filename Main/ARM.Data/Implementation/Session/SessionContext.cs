@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Session
     /// </summary>
     public class SessionContext : BaseContext<Models.Session>, ISessionContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SessionContext"/> class.
+        /// </summary>
+        public SessionContext()
+        {
+            
+        }
     }
 }

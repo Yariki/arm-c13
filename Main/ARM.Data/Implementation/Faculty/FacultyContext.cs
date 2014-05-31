@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Faculty
     /// </summary>
     public class FacultyContext : BaseContext<Models.Faculty>, IFacultyContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="FacultyContext"/> class.
+        /// </summary>
+        public FacultyContext()
+        {
+            
+        }
     }
 }

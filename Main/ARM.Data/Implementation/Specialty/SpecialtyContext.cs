@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Specialty
     /// </summary>
     public class SpecialtyContext : BaseContext<Models.Specialty>, ISpecialtyContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SpecialtyContext"/> class.
+        /// </summary>
+        public SpecialtyContext()
+        {
+            
+        }
     }
 }

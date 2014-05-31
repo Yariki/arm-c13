@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Address
     /// </summary>
     public class AddressContext : BaseContext<Models.Address>, IAddressContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="AddressContext"/> class.
+        /// </summary>
+        public AddressContext()
+        {
+            
+        }
     }
 }

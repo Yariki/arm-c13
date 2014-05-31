@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Class
     /// </summary>
     public class ClassDal : BaseDal<Models.Class>, IClassDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ClassDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public ClassDal(IContext<Models.Class> context)
             : base(context)
         {

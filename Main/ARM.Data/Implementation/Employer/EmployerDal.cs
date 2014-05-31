@@ -9,6 +9,10 @@ namespace ARM.Data.Implementation.Employer
     /// </summary>
     public class EmployerDal : BaseDal<Models.Employer>, IEmployerDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="EmployerDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public EmployerDal(IContext<Models.Employer> context)
             : base(context)
         {

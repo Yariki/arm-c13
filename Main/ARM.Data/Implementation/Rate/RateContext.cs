@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Rate
     /// </summary>
     public class RateContext : BaseContext<Models.Rate>, IRateContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="RateContext"/> class.
+        /// </summary>
+        public RateContext()
+        {
+            
+        }
     }
 }

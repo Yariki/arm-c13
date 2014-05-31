@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Invoice
     /// </summary>
     public class InvoiceDal : BaseDal<Models.Invoice>, IInvoiceDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="InvoiceDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public InvoiceDal(IContext<Models.Invoice> context)
             : base(context)
         {

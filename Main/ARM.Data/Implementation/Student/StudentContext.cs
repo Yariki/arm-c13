@@ -11,16 +11,35 @@ namespace ARM.Data.Implementation.Student
     /// </summary>
     public class StudentContext : BaseContext<Models.Student>, IStudentContext
     {
+        /// <summary>
+        /// Отримує мови .
+        /// </summary>
         public DbSet<Models.Language> Languages { get; set; }
 
+        /// <summary>
+        /// Отримує хобі.
+        /// </summary>
         public DbSet<Models.Hobby> Hobbies { get; set; }
 
+        /// <summary>
+        /// Отримує досягнення.
+        /// </summary>
         public DbSet<Models.Achivement> Achivements { get; set; }
 
+        /// <summary>
+        /// Отримує візи.
+        /// </summary>
         public DbSet<Models.Visa> Visas { get; set; }
 
+        /// <summary>
+        /// ОТримує бітьків.
+        /// </summary>
         public DbSet<Models.Parent> Parents { get; set; }
 
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Student>()
@@ -61,6 +80,11 @@ namespace ARM.Data.Implementation.Student
             //student
         }
 
+        /// <summary>
+        /// Оновлення моделі.
+        /// </summary>
+        /// <param name="attached">Прикріплена модель до контексту.</param>
+        /// <param name="current">Поточна модель.</param>
         protected override void UpdateChilds(Models.Student attached, Models.Student current)
         {
             if (attached.Languages != null && current.Languages != null && current.Languages.Count > 0)

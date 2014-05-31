@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Specialty
     /// </summary>
     public class SpecialtyDal : BaseDal<Models.Specialty>, ISpecialtyDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SpecialtyDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public SpecialtyDal(IContext<Models.Specialty> context)
             : base(context)
         {

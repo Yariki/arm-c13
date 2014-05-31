@@ -9,6 +9,17 @@ namespace ARM.Data.Implementation.Visa
     /// </summary>
     public class VisaContext : BaseContext<Models.Visa>, IVisaContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="VisaContext"/> class.
+        /// </summary>
+        public VisaContext()
+        {
+            
+        }
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //visas

@@ -24,8 +24,17 @@ namespace ARM.Data.Interfaces.Student
     /// </summary>
     public interface IStudentBll : IBll<Models.Student>
     {
+        /// <summary>
+        /// Повернути всіх студентів-іноземців.
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<Models.Student> GetAllForeignStudent();
 
+        /// <summary>
+        /// Повернути студентів що поновлюються.
+        /// </summary>
+        /// <param name="listGroups">Список груп.</param>
+        /// <returns></returns>
         IEnumerable<Models.Student> GetAllRenewStudentInGroups(IEnumerable<Guid> listGroups);
     } //end IStudentBll
 } //end namespace Student

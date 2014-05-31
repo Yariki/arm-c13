@@ -9,6 +9,17 @@ namespace ARM.Data.Implementation.Mark
     /// </summary>
     public class MarkContext : BaseContext<Models.Mark>, IMarkContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="MarkContext"/> class.
+        /// </summary>
+        public MarkContext()
+        {
+            
+        }
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

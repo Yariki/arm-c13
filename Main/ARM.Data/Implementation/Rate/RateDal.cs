@@ -9,6 +9,10 @@ namespace ARM.Data.Implementation.Rate
     /// </summary>
     public class RateDal : BaseDal<Models.Rate>, IRateDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="RateDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public RateDal(IContext<Models.Rate> context)
             : base(context)
         {

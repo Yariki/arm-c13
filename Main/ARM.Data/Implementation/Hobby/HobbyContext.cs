@@ -9,6 +9,18 @@ namespace ARM.Data.Implementation.Hobby
     /// </summary>
     public class HobbyContext : BaseContext<Models.Hobby>, IHobbyContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="HobbyContext"/> class.
+        /// </summary>
+        public HobbyContext()
+        {
+            
+        }
+
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Hobby>()

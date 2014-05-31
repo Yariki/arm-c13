@@ -8,5 +8,13 @@ namespace ARM.Data.Implementation.User
     /// </summary>
     public class UserContext : BaseContext<Models.User>, IUserContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="UserContext"/> class.
+        /// </summary>
+        public UserContext()
+        {
+            
+        }
+
     }
 }

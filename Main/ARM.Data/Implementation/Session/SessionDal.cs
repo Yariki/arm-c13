@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Session
     /// </summary>
     public class SessionDal : BaseDal<Models.Session>, ISessionDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SessionDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public SessionDal(IContext<Models.Session> context)
             : base(context)
         {

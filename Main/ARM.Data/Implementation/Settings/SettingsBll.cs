@@ -28,41 +28,69 @@ namespace ARM.Data.Implementation.Settings
     /// </summary>
     public class SettingsBll : BaseBll<Models.SettingParameters>, ISettingsBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SettingsBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public SettingsBll(IDal<SettingParameters> dal)
             : base(dal)
         {
         }
 
+        /// <summary>
+        /// Повертнути університет по-замовчуванню.
+        /// </summary>
+        /// <returns></returns>
         public Guid GetDefaultUniversity()
         {
             var entity = GetDefaultParameters();
             return entity != null ? entity.DefUniversity : Guid.Empty;
         }
 
+        /// <summary>
+        /// Повернту країні по-замовчуванню.
+        /// </summary>
+        /// <returns></returns>
         public Guid GetDefaultCountry()
         {
             var entity = GetDefaultParameters();
             return entity != null ? entity.DefCountry : Guid.Empty;
         }
 
+        /// <summary>
+        /// Повернути рівень навчання.
+        /// </summary>
+        /// <returns></returns>
         public EducationLevel GetDefaultEducationLevel()
         {
             var entity = GetDefaultParameters();
             return entity != null ? entity.DefEducationLevel : EducationLevel.Bachelour;
         }
 
+        /// <summary>
+        /// Повернути статус рахунку.
+        /// </summary>
+        /// <returns></returns>
         public InvoiceStatus GetDefaultInvoiceStatus()
         {
             var entity = GetDefaultParameters();
             return entity != null ? entity.DefInvoiceStatus : InvoiceStatus.None;
         }
 
+        /// <summary>
+        /// Повернути префікс контракту.
+        /// </summary>
+        /// <returns></returns>
         public string GetContractPrefix()
         {
             var entity = GetDefaultParameters();
             return entity.ContractPrefix;
         }
 
+        /// <summary>
+        /// Повернути наступний номер контракту.
+        /// </summary>
+        /// <returns></returns>
         public long GetNextContractNumber()
         {
             var entity = GetDefaultParameters();
@@ -72,12 +100,20 @@ namespace ARM.Data.Implementation.Settings
             return num;
         }
 
+        /// <summary>
+        /// Повернути префікс рахунку.
+        /// </summary>
+        /// <returns></returns>
         public string GetInvoicePrefix()
         {
             var entity = GetDefaultParameters();
             return entity.InvoicePrefix;
         }
 
+        /// <summary>
+        /// Повернути наступний номер рахунку.
+        /// </summary>
+        /// <returns></returns>
         public long GetNextInvoiceNumber()
         {
             var entity = GetDefaultParameters();
@@ -87,12 +123,20 @@ namespace ARM.Data.Implementation.Settings
             return num;
         }
 
+        /// <summary>
+        /// Повернути префікс платіжки.
+        /// </summary>
+        /// <returns></returns>
         public string GetPaymentPrefix()
         {
             var entity = GetDefaultParameters();
             return entity.PaymentPrefix;
         }
 
+        /// <summary>
+        /// Повернути наступний номер платіжкиі.
+        /// </summary>
+        /// <returns></returns>
         public long GetNextPaymentNumber()
         {
             var entity = GetDefaultParameters();
@@ -102,26 +146,46 @@ namespace ARM.Data.Implementation.Settings
             return num;
         }
 
+        /// <summary>
+        /// Повернути розмір стипендії.
+        /// </summary>
+        /// <returns></returns>
         public decimal GetCommomStipend()
         {
             return GetDefaultParameters().DefBaseStipend;
         }
 
+        /// <summary>
+        /// Повернути розмір збільшеної стипендії.
+        /// </summary>
+        /// <returns></returns>
         public decimal GetIncreasedStipend()
         {
             return GetDefaultParameters().DefIncreaseStipend;
         }
 
+        /// <summary>
+        /// Повернути оцінку для звичайної стипендії.
+        /// </summary>
+        /// <returns></returns>
         public decimal GetCommonMark()
         {
             return (decimal)GetDefaultParameters().DefStipendMark;
         }
 
+        /// <summary>
+        /// Повернути оцінку для збільшеної стипендії.
+        /// </summary>
+        /// <returns></returns>
         public decimal GetIncreasedMark()
         {
             return (decimal)GetDefaultParameters().DefStipenHighMark;
         }
 
+        /// <summary>
+        /// Gets the default parameters.
+        /// </summary>
+        /// <returns></returns>
         private SettingParameters GetDefaultParameters()
         {
             return GetById(GlobalConst.IdDefault);

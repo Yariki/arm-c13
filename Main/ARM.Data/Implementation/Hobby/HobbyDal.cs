@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Hobby
     /// </summary>
     public class HobbyDal : BaseDal<Models.Hobby>, IHobbyDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="HobbyDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public HobbyDal(IContext<Models.Hobby> context)
             : base(context)
         {

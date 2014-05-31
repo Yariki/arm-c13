@@ -9,6 +9,17 @@ namespace ARM.Data.Implementation.Parent
     /// </summary>
     public class ParentContext : BaseContext<Models.Parent>, IParentContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ParentContext"/> class.
+        /// </summary>
+        public ParentContext()
+        {
+            
+        }
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Parent>()

@@ -9,6 +9,13 @@ namespace ARM.Data.Implementation.Achivement
     /// </summary>
     public class AchivementContext : BaseContext<Models.Achivement>, IAchivementContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="AchivementContext"/> class.
+        /// </summary>
+        public AchivementContext()
+        {
+            
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Achivement>()

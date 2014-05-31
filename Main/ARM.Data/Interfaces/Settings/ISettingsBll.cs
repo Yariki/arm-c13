@@ -24,32 +24,88 @@ namespace ARM.Data.Interfaces.Settings
     /// </summary>
     public interface ISettingsBll : IBll<Models.SettingParameters>
     {
+        /// <summary>
+        /// Повертнути університет по-замовчуванню.
+        /// </summary>
+        /// <returns></returns>
         Guid GetDefaultUniversity();
 
+        /// <summary>
+        /// Повернту країні по-замовчуванню.
+        /// </summary>
+        /// <returns></returns>
         Guid GetDefaultCountry();
 
+        /// <summary>
+        /// Повернути рівень навчання.
+        /// </summary>
+        /// <returns></returns>
         EducationLevel GetDefaultEducationLevel();
 
+        /// <summary>
+        /// Повернути статус рахунку.
+        /// </summary>
+        /// <returns></returns>
         InvoiceStatus GetDefaultInvoiceStatus();
 
+        /// <summary>
+        /// Повернути префікс контракту.
+        /// </summary>
+        /// <returns></returns>
         string GetContractPrefix();
 
+        /// <summary>
+        /// Повернути наступний номер контракту.
+        /// </summary>
+        /// <returns></returns>
         long GetNextContractNumber();
 
+        /// <summary>
+        /// Повернути префікс рахунку.
+        /// </summary>
+        /// <returns></returns>
         string GetInvoicePrefix();
 
+        /// <summary>
+        /// Повернути наступний номер рахунку.
+        /// </summary>
+        /// <returns></returns>
         long GetNextInvoiceNumber();
 
+        /// <summary>
+        /// Повернути префікс платіжки.
+        /// </summary>
+        /// <returns></returns>
         string GetPaymentPrefix();
 
+        /// <summary>
+        /// Повернути наступний номер платіжкиі.
+        /// </summary>
+        /// <returns></returns>
         long GetNextPaymentNumber();
 
+        /// <summary>
+        /// Повернути розмір стипендії.
+        /// </summary>
+        /// <returns></returns>
         decimal GetCommomStipend();
 
+        /// <summary>
+        /// Повернути розмір збільшеної стипендії.
+        /// </summary>
+        /// <returns></returns>
         decimal GetIncreasedStipend();
 
+        /// <summary>
+        /// Повернути оцінку для звичайної стипендії.
+        /// </summary>
+        /// <returns></returns>
         decimal GetCommonMark();
 
+        /// <summary>
+        /// Повернути оцінку для збільшеної стипендії.
+        /// </summary>
+        /// <returns></returns>
         decimal GetIncreasedMark();
     }//end ISettingsBll
 }//end namespace Settings

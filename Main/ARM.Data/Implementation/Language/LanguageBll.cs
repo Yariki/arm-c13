@@ -24,6 +24,10 @@ namespace ARM.Data.Implementation.Language
     /// </summary>
     public class LanguageBll : BaseBll<Models.Language>, ILanguageBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="LanguageBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public LanguageBll(IDal<Models.Language> dal)
             : base(dal)
         {

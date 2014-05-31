@@ -16,6 +16,10 @@ namespace ARM.Data.Implementation.Mark
     /// </summary>
     public class MarkDal : BaseDal<Models.Mark>, IMarkDal
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="MarkDal"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public MarkDal(IContext<Models.Mark> context)
             : base(context)
         {

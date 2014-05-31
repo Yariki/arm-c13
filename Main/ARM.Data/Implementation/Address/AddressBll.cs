@@ -26,6 +26,10 @@ namespace ARM.Data.Implementation.Address
     /// </summary>
     public class AddressBll : BaseBll<Models.Address>, IAddressBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="AddressBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public AddressBll(IDal<Models.Address> dal)
             : base(dal)
         {

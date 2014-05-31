@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Class
     /// </summary>
     public class ClassBll : BaseBll<Models.Class>, IClassBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ClassBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public ClassBll(IDal<Models.Class> dal)
             : base(dal)
         {

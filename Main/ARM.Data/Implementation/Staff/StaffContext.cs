@@ -9,6 +9,18 @@ namespace ARM.Data.Implementation.Staff
     /// </summary>
     public class StaffContext : BaseContext<Models.Staff>, IStaffContext
     {
+
+        /// <summary>
+        /// Створити екземпляр <see cref="StaffContext"/> class.
+        /// </summary>
+        public StaffContext()
+        {
+            
+        }
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Staff>().Map(m =>

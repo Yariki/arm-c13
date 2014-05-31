@@ -24,6 +24,11 @@ namespace ARM.Data.Interfaces.Contract
     /// </summary>
     public interface IContractBll : IBll<Models.Contract>
     {
+        /// <summary>
+        /// Повернути список контрактів по списку студентів.
+        /// </summary>
+        /// <param name="listOfStudentsId">Список.</param>
+        /// <returns></returns>
         IEnumerable<Models.Contract> GetContractsByStudent(IEnumerable<Guid> listOfStudentsId);
     } //end IContractBll
 } //end namespace Contract

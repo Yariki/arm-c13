@@ -8,5 +8,13 @@ namespace ARM.Data.Implementation.Invoice
     /// </summary>
     public class InvoiceContext : BaseContext<Models.Invoice>, IInvoiceContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="InvoiceContext"/> class.
+        /// </summary>
+        public InvoiceContext()
+        {
+            
+            
+        }
     }
 }

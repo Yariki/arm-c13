@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Session
     /// </summary>
     public class SessionBll : BaseBll<Models.Session>, ISessionBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SessionBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public SessionBll(IDal<Models.Session> dal)
             : base(dal)
         {

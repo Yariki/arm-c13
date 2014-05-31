@@ -9,6 +9,17 @@ namespace ARM.Data.Implementation.Language
     /// </summary>
     public class LanguageContext : BaseContext<Models.Language>, ILanguageContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="LanguageContext"/> class.
+        /// </summary>
+        public LanguageContext()
+        {
+            
+        }
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Language>()

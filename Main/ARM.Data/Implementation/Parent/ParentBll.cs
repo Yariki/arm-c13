@@ -24,6 +24,10 @@ namespace ARM.Data.Implementation.Parent
     /// </summary>
     public class ParentBll : BaseBll<Models.Parent>, IParentBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="ParentBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public ParentBll(IDal<Models.Parent> dal)
             : base(dal)
         {

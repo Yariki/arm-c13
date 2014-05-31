@@ -19,6 +19,11 @@ namespace ARM.Data.Implementation.Achivement
     /// </summary>
     public class AchivementBll : BaseBll<Models.Achivement>, IAchivementBll
     {
+
+        /// <summary>
+        /// Створити екземпляр <see cref="AchivementBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public AchivementBll(IDal<Models.Achivement> dal)
             : base(dal)
         {

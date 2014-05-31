@@ -8,5 +8,12 @@ namespace ARM.Data.Implementation.Settings
     /// </summary>
     public class SettingsContext : BaseContext<Models.SettingParameters>, ISettingsContext
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="SettingsContext"/> class.
+        /// </summary>
+        public SettingsContext()
+        {
+            
+        }
     }
 }

@@ -25,6 +25,10 @@ namespace ARM.Data.Implementation.Country
     /// </summary>
     public class CountryBll : BaseBll<Models.Country>, ICountryBll
     {
+        /// <summary>
+        /// Створити екземпляр <see cref="CountryBll"/> class.
+        /// </summary>
+        /// <param name="dal">The dal.</param>
         public CountryBll(IDal<Models.Country> dal)
             : base(dal)
         {
