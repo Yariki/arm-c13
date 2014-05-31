@@ -15,8 +15,8 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>ARM.Data</HtmlHelpName>
-    <Language>ru-RU</Language>
+    <HtmlHelpName>ARM.Infrastructure</HtmlHelpName>
+    <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>OpenXml</HelpFileFormat>
     <IndentHtml>True</IndentHtml>
@@ -25,8 +25,12 @@
     <CppCommentsFixup>False</CppCommentsFixup>
     <CleanIntermediates>True</CleanIntermediates>
     <DocumentationSources>
-      <DocumentationSource sourceFile="Output\ARM.Data.dll" />
-<DocumentationSource sourceFile="Output\ARM.Data.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="Output\ARM.Core.dll" />
+<DocumentationSource sourceFile="Output\ARM.Core.xml" />
+<DocumentationSource sourceFile="Output\ARM.Data.dll" />
+<DocumentationSource sourceFile="Output\ARM.Data.xml" />
+<DocumentationSource sourceFile="Output\ARM.Infrastructure.dll" />
+<DocumentationSource sourceFile="Output\ARM.Infrastructure.xml" /></DocumentationSources>
     <VisibleItems>None</VisibleItems>
     <MissingTags>Summary, Namespace</MissingTags>
     <MaximumGroupParts>2</MaximumGroupParts>
@@ -48,6 +52,104 @@
     <HtmlSdkLinkType>None</HtmlSdkLinkType>
     <IncludeFavorites>False</IncludeFavorites>
     <BinaryTOC>True</BinaryTOC>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="ARM.Core (Group)" isGroup="True" isDocumented="True" />
+<NamespaceSummaryItem name="(global)" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Attributes" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Const" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Enums" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.EventArguments" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Extensions" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Interfaces" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Interfaces.Data" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Logging" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Module" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.MVVM" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.MVVM.Commands" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.MVVM.Commands.Base" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Reflection" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Service" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Validation" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Core.Validation.Rules" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure (Group)" isGroup="True" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Annotations" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.ARMDialogWindow" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.ARMLookupControl" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.ARMLookupWindow" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.ARMRequiredLabel" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.Filter" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.Interfaces" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Controls.Interfaces.View" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Enums" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Events" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Events.EventPayload" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Facade" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Helpers" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Interfaces" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Interfaces.Grid" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.MVVM" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.MVVM.View" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Region" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Infrastructure.Utils" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data (Group)" isGroup="True" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.CommonContextMigrations" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Achivement" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Address" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Class" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Contract" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Country" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Employer" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Faculty" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Group" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Hobby" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Invoice" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Language" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Mark" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Parent" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Payment" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Rate" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Session" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Settings" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Specialty" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Staff" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Student" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.University" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.User" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Implementation.Visa" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Achivement" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Address" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Class" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Contract" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Country" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Employer" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Faculty" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Group" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Hobby" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Invoice" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Language" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Mark" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Parent" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Payment" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Rate" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Session" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Settings" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Specialty" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Staff" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Student" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.University" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.User" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Interfaces.Visa" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Layer" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Layer.Context" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Layer.Interfaces" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Models" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.Sevice.Resolver" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.UnitOfWork.Implementation" isDocumented="True" />
+<NamespaceSummaryItem name="ARM.Data.UnitOfWork.Interfaces" isDocumented="True" /></NamespaceSummaries>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

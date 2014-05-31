@@ -63,6 +63,9 @@ namespace ARM.Infrastructure.Controls.ARMLookupControl
         {
         }
 
+        /// <summary>
+        /// Створити екземпляр ARMLookupControl.
+        /// </summary>
         static ARMLookupControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ARMLookupControl), new FrameworkPropertyMetadata(typeof(ARMLookupControl)));
