@@ -17,6 +17,14 @@ using Microsoft.Practices.Unity;
 namespace ARM.Infrastructure.Controls.ARMLookupWindow
 {
     /// <summary>
+    /// Простір імен для елемента упраління "Вікно вибору елемента".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Модель представлення яка прює разом з ARMLookupControl.
     /// Дана модель призначена для відображення сітки з даними та вибору елемента.
     /// </summary>

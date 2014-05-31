@@ -4,6 +4,14 @@ using ARM.Module.Enums;
 namespace ARM.Module.Commands.Menu.Report
 {
     /// <summary>
+    /// Простір імен включає команди для пункту головного меню "Звіти".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Команда для запуску форми звіту для академічної заборгованості.
     /// </summary>
     public class ARMMenuAcademicArrearsCommand : ARMBaseMainMenuCommand

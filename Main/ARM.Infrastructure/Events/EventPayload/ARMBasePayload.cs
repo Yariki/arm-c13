@@ -5,6 +5,14 @@ using ARM.Core.Enums;
 namespace ARM.Infrastructure.Events.EventPayload
 {
     /// <summary>
+    /// Простір імен аргументів подій агрегатора.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Базовий клас для аргументів подій.
     /// </summary>
     public abstract class ARMBasePayload

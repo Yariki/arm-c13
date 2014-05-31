@@ -1,7 +1,15 @@
 ﻿namespace ARM.Infrastructure.Region
 {
     /// <summary>
-    /// Статичний класс для зберігання назв регіонів, які вокористовуються в інтерфейсі
+    /// Простір імен для імен регіонів.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
+    /// Статичний класс для зберігання назв регіонів, які використовуються в інтерфейсі
     /// </summary>
     public static class ARMMainRegionNames
     {

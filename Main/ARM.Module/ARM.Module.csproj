@@ -21,8 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>..\..\Output\ARM.Module.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -118,6 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="Commands\Menu\ARMBaseMainMenuCommand.cs" />
     <Compile Include="Commands\Menu\Documents\ARMMenuContractCommand.cs" />
     <Compile Include="Commands\Menu\Documents\ARMMenuInvoiceCommand.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Helpers\AttachedProperty\ARMGridViewColumnSource.cs" />
     <Compile Include="Helpers\Converters\ARMMarkToBrushConverter.cs" />
     <Compile Include="Helpers\Converters\ARMMarkTypeSertificationToVisibilityConverter.cs" />
+    <Compile Include="Helpers\NamespaceDoc.cs" />
     <Compile Include="Helpers\Password\ARMPasswordHelper.cs" />
     <Compile Include="Helpers\Selectors\ARMDataGridCellTemplateSelector.cs" />
     <Compile Include="Helpers\Selectors\ARMMainMenuTemplateSelector.cs" />
@@ -277,6 +280,7 @@
     <Compile Include="ViewModel\Main\ARMMainStatusBarViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainToolboxViewModel.cs" />
     <Compile Include="ViewModel\Main\ARMMainWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\NamespaceDoc.cs" />
     <Compile Include="ViewModel\References\ARMAchivementValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMAddressValidatableViewModel.cs" />
     <Compile Include="ViewModel\References\ARMClassValidatableViewModel.cs" />
@@ -353,6 +357,7 @@
     <Compile Include="View\Grid\ARMGridView.xaml.cs">
       <DependentUpon>ARMGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NamespaceDoc.cs" />
     <Compile Include="View\References\ARMAchivementView.xaml.cs">
       <DependentUpon>ARMAchivementView.xaml</DependentUpon>
     </Compile>

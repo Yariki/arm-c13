@@ -4,6 +4,14 @@ using ARM.Module.Enums;
 namespace ARM.Module.Commands.Menu.Services
 {
     /// <summary>
+    /// Простір імен включає команди для пункту меню "Сервіси".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Команда запуску сервісу для розрахунку стипендій.
     /// </summary>
     public class ARMMenuCalculationStipendCommand : ARMBaseMainMenuCommand

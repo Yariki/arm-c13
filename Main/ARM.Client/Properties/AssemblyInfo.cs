@@ -7,7 +7,7 @@ using System.Windows;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("ARM.Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ARM Curator - Main Executable File")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ARM.Client")]
@@ -38,15 +38,3 @@ using System.Windows;
     // app, or any theme specific resource dictionaries)
     )]
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]

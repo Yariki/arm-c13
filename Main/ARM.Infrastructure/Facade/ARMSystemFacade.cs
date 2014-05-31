@@ -8,6 +8,14 @@ using ARM.Infrastructure.Utils;
 namespace ARM.Infrastructure.Facade
 {
     /// <summary>
+    /// Простір імен класу-фасаду для аплікації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Загальний класс доступу до підсистем:
     /// 1. Підсистема повідомлень.
     /// 2. Підсистема логування.

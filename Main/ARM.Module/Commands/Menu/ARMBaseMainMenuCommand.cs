@@ -5,6 +5,14 @@ using ARM.Module.Interfaces;
 namespace ARM.Module.Commands.Menu
 {
     /// <summary>
+    /// Простір імен для команд головного меню.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Базовий клас для команд головного меню.
     /// </summary>
     public abstract class ARMBaseMainMenuCommand : IARMMenuCommand

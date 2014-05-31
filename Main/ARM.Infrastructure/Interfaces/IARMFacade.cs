@@ -11,6 +11,14 @@ using ARM.Data.Models;
 namespace ARM.Infrastructure.Interfaces
 {
     /// <summary>
+    /// Простір імен загальних інтерфейсів інтраструктури.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс для досупу до загальних підсистем.
     /// </summary>
     public interface IARMFacade

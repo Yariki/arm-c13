@@ -29,6 +29,14 @@ using Microsoft.Practices.Unity;
 
 namespace ARM.Infrastructure.MVVM
 {
+    /// <summary>
+    /// Простір імен базових моделей представлення аплікації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
   /// <summary>
   /// Базовий клас для моделей представлення, які працюють з моделями даних.
   /// </summary>

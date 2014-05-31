@@ -5,6 +5,14 @@ using ARM.Infrastructure.Controls.Interfaces;
 namespace ARM.Infrastructure.Controls.ARMDialogWindow
 {
     /// <summary>
+    /// Простір імен для базового діалогового вікна.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Логіка взаємодії для ARMWindow.xaml
     /// </summary>
     public partial class ARMDialogWindow : Window

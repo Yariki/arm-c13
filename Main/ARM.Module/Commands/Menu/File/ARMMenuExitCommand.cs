@@ -5,6 +5,14 @@ using ARM.Resource.AppResource;
 namespace ARM.Module.Commands.Menu.File
 {
     /// <summary>
+    /// Простір імен команд для головного меню пункту "Файл".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Команда закриття програми.
     /// </summary>
     public class ARMMenuExitCommand : ARMBaseMainMenuCommand

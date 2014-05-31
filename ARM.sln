@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{AE93BE50-7C2C-4A91-97AA-C25845E26A06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARMEnumTest", "Samples\ARMEnumTest\ARMEnumTest.csproj", "{6D19D9EB-62F4-4DE6-99E4-0343B7FC2ADE}"
@@ -26,6 +28,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARM.Resource", "Main\ARM.Resource\ARM.Resource.csproj", "{A4B7F6B2-3D63-44B2-9F54-627EF12BEAA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedExcel", "Main\ManagedExcel\ManagedExcel.csproj", "{771DD911-3752-4053-B216-C2EBECFC1D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E0EA68A-4FF4-41C1-A7F8-21E80851E1BC}"
+	ProjectSection(SolutionItems) = preProject
+		Main\Version.cs = Main\Version.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

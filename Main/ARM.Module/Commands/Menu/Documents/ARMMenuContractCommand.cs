@@ -4,6 +4,14 @@ using ARM.Module.Enums;
 namespace ARM.Module.Commands.Menu.Documents
 {
     /// <summary>
+    /// Простір імен команд головного меню для документів.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Команда для відкриття журналу контрактів
     /// </summary>
     public class ARMMenuContractCommand : ARMBaseMainMenuCommand

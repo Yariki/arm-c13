@@ -11,6 +11,15 @@ using ARM.Core.Interfaces;
 namespace ARM.Module.Interfaces
 {
     /// <summary>
+    /// Простір імен інтерфейсів для всіх моделей представлення та користувацьких інтерфесів в аплікації.
+    /// Представлення інтерфейси документів, довідників, звітів та сервісів.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Інтерфейс для моделі представлення рядка статусу
     /// </summary>
     public interface IARMMainStatusBarViewModel : IARMViewModel

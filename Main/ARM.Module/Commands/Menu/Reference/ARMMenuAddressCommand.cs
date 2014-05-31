@@ -5,6 +5,14 @@ using ARM.Resource.AppResource;
 namespace ARM.Module.Commands.Menu.Reference
 {
     /// <summary>
+    /// Простір імен команд для пункту "Довідники".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Команда відкриття журналу адрес
     /// </summary>
     public class ARMMenuAddressCommand : ARMBaseMainMenuCommand

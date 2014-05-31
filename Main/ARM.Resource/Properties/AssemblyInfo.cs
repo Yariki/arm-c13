@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Markup;
 
 [assembly: AssemblyTitle("ARM.Resource")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ARM Curator - Resource")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("IC-22")]
 [assembly: AssemblyProduct("ARM.Resource")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
@@ -23,19 +23,6 @@ using System.Windows.Markup;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("6524fb86-402c-4b9b-9dd8-5f8caf7c72f3")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: XmlnsDefinition("http://schemas.arm-resource.ua/2011/xaml/presentation", "ARM.Resource.AppResource")]
 

@@ -7,8 +7,16 @@ using System.Windows.Interactivity;
 namespace ARM.Infrastructure.Utils
 {
     /// <summary>
+    /// Простір імен для утиліт.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Класс призначений для привязки певної команди до події, яка 
-    /// проходить в певному обєкті.
+    /// генерується в певному обєкті.
     /// </summary>
     public class ARMEventToCommandBehavior : Behavior<FrameworkElement>
     {

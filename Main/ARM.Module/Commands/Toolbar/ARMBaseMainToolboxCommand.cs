@@ -6,6 +6,15 @@ using ARM.Module.Interfaces;
 namespace ARM.Module.Commands.Toolbar
 {
     /// <summary>
+    /// Простір імен включає команди, якіпризначені для головної панелі управління.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+
+    /// <summary>
     /// Базова команда для головної панелі управління.
     /// </summary>
     public abstract class ARMBaseMainToolboxCommand : IARMMainToolboxCommand

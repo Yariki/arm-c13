@@ -4,6 +4,14 @@ using ARM.Core.Interfaces;
 namespace ARM.Infrastructure.Controls.Interfaces
 {
     /// <summary>
+    /// Простір імен загальних інтерфейсів для моделей представлення.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Базовий інтерфейс для моделей представлення діалогових вікон.
     /// </summary>
     public interface IARMDialogViewModel : IARMViewModel

@@ -7,6 +7,14 @@ using TextBox = Microsoft.Office.Interop.Excel.TextBox;
 
 namespace ARM.Infrastructure.Controls.ARMRequiredLabel
 {
+    /// <summary>
+    /// Простір імен для елемента упраління "Мітка для обовязкового поля".
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
     public static class ARMRequiredLabel
     {
         private static char RequiredChar = '*';

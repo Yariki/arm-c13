@@ -5,6 +5,14 @@ using ARM.Resource.AppResource;
 namespace ARM.Infrastructure.Helpers
 {
     /// <summary>
+    /// Простір імен утиліт.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Класс, призначени для локалізкації значеннь типів-перечислень.
     /// </summary>
     public class ARMEnumHelper

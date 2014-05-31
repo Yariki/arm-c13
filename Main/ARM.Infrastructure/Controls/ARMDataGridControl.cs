@@ -10,6 +10,14 @@ using Xceed.Wpf.DataGrid;
 namespace ARM.Infrastructure.Controls
 {
     /// <summary>
+    /// Простір імен елементів упраавління, призначених для аплікації.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+
+    /// <summary>
     /// Елемент управління для відображення певної моделі даних в сітці.
     /// </summary>
     public class ARMDataGridControl : DataGridControl

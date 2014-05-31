@@ -82,6 +82,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="ARMDataModule.cs" />
     <Compile Include="CommonContextMigrations\201405272259265_init.cs" />
     <Compile Include="CommonContextMigrations\201405272259265_init.Designer.cs">
