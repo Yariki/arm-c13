@@ -34,6 +34,13 @@ namespace ARM.Core.Interfaces
         void AddRule<T>(Expression<Func<T>> expression, IARMValidationRule rule);
 
         /// <summary>
+        /// Видаляє правило для валідації певної властивості.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">Вираз.</param>
+        void DeleteRule<T>(Expression<Func<T>> expression);
+
+        /// <summary>
         ///     Зовнішній виклик валідації.
         /// </summary>
         /// <param name="name">Назва властивості.</param>

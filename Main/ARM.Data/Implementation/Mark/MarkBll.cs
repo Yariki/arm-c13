@@ -48,5 +48,19 @@ namespace ARM.Data.Implementation.Mark
                 Dal.GetAsQueryable()
                     .Where(m => listStudents.Contains(m.StudentId.Value) && listClasses.Contains(m.ClassId.Value));
         }
+
+        /// <summary>
+        /// Отримати суму балыв для студента по заняттю.
+        /// </summary>
+        /// <param name="studendId">Ідентифікатор студента.</param>
+        /// <param name="classId">Ідентифікатор заннятя.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public decimal GetSumRateForStudentAndClass(Guid studendId, Guid classId)
+        {
+            return Dal.GetAsQueryable()
+                .Where(m => m.StudentId == studendId && m.ClassId == classId)
+                .Sum(m => m.MarkRate);
+        }
     } //end MarkBll
 } //end namespace Mark

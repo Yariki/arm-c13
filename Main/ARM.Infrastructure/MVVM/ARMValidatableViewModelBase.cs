@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Linq.Expressions;
 using System.Windows;
 using ARM.Core.Enums;
 using ARM.Core.EventArguments;
@@ -198,5 +199,31 @@ namespace ARM.Infrastructure.MVVM
             }
             return !IsValid;
         }
+
+        /// <summary>
+        /// Додати правило валідації.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">Вираз.</param>
+        /// <param name="rule">Правивило.</param>
+        protected void AddRule<T>(Expression<Func<T>> expression, IARMValidationRule rule)
+        {
+            if(_validationAdaptor == null)
+                return;
+            _validationAdaptor.AddRule(expression,rule);
+        }
+
+        /// <summary>
+        /// Видаляє правило для валідації певної властивості.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">Вираз.</param>
+        protected void DeleteRule<T>(Expression<Func<T>> expression)
+        {
+            if(_validationAdaptor == null)
+                return;
+            _validationAdaptor.DeleteRule(expression);
+        }
+
     }//end ARMValidatableViewModelBase
 }//end namespace MVVM

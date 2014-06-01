@@ -33,5 +33,15 @@ namespace ARM.Data.Interfaces.Mark
         /// <returns></returns>
         IQueryable<Models.Mark> GetMarkAccordingStudentsAndClasses(IEnumerable<Guid> listStudents,
             IEnumerable<Guid> listClasses);
+
+        /// <summary>
+        /// Отримати суму балыв для студента по заняттю.
+        /// </summary>
+        /// <param name="studendId">Ідентифікатор студента.</param>
+        /// <param name="classId">Ідентифікатор заннятя.</param>
+        /// <returns></returns>
+        decimal GetSumRateForStudentAndClass(Guid studendId, Guid classId);
+
+
     } //end IMarkBll
 } //end namespace Mark

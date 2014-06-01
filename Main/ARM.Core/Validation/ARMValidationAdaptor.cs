@@ -93,6 +93,20 @@ namespace ARM.Core.Validation
         }
 
         /// <summary>
+        /// Видаляє правило для валідації певної властивості.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">Вираз.</param>
+        public void DeleteRule<T>(Expression<Func<T>> expression)
+        {
+            string name = ARMReflectionExtensions.GetPropertyName(expression);
+            if (!string.IsNullOrEmpty(name) && _rules.ContainsKey(name))
+            {
+                _rules.Remove(name);
+            }
+        }
+
+        /// <summary>
         /// Зовнішній виклик валідації.
         /// </summary>
         /// <typeparam name="T"></typeparam>

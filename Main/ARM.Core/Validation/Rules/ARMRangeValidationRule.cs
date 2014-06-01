@@ -10,7 +10,7 @@ using System;
 namespace ARM.Core.Validation.Rules
 {
     /// <summary>
-    /// Класс-правило для валідації входження знаяення в певний діапазон значень
+    /// Класс-правило для валідації входження значення в певний діапазон значень
     /// </summary>
     public class ARMRangeValidationRule : ARMNumericValidationRule
     {

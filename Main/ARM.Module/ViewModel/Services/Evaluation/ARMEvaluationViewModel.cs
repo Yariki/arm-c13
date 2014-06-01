@@ -386,6 +386,7 @@ namespace ARM.Module.ViewModel.Services.Evaluation
             try
             {
                 markViewModel.SetBusinessObject(mode, eARMMetadata.Mark, id, false);
+                markViewModel.Initialize();
                 if (mode == ViewMode.Add)
                 {
                     if (SelectedStudent != null)

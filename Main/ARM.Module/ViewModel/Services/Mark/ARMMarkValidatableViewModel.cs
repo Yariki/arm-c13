@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using ARM.Core.Const;
 using ARM.Core.Enums;
 using ARM.Core.Interfaces;
+using ARM.Core.Validation.Rules;
 using ARM.Data.Models;
 using ARM.Infrastructure.Helpers;
 using ARM.Infrastructure.MVVM;
@@ -70,13 +72,21 @@ namespace ARM.Module.ViewModel.Services.Mark
         public Guid? StudentId
         {
             get { return Get(() => StudentId); }
-            set { Set(() => StudentId, value); }
+            set
+            {
+                Set(() => StudentId, value);
+                OnStudentChanged();
+            }
         }
 
         public Guid? ClassId
         {
             get { return Get(() => ClassId); }
-            set { Set(() => ClassId, value); }
+            set
+            {
+                Set(() => ClassId, value);
+                OnClassChanged();
+            }
         }
 
         public DateTime? Date
@@ -103,6 +113,12 @@ namespace ARM.Module.ViewModel.Services.Mark
             set { Set(() => IsCertification, value); }
         }
 
+        public bool IsValueEnabled
+        {
+            get { return Get(() => IsValueEnabled); }
+            set { Set(() => IsValueEnabled, value); }
+        }
+
         #endregion
 
         #region [enum source]
@@ -119,6 +135,24 @@ namespace ARM.Module.ViewModel.Services.Mark
         #endregion
 
         #region [override]
+
+        /// <summary>
+        /// Проводить ініціалізацію вкладки і моделі представлення вцілому.
+        /// </summary>
+        public override void Initialize()
+        {
+            base.Initialize();
+            DeleteRule(() => Name);
+            switch (Mode)
+            {
+                case ViewMode.Add:
+                    IsValueEnabled = false;
+                    break;
+                default:
+                    IsValueEnabled = true;
+                    break;
+            }
+        }
 
         /// <summary>
         /// встановлення режиму роботи та моделі даних (у відповідності до метаданих та ідентифікатора)
@@ -155,7 +189,7 @@ namespace ARM.Module.ViewModel.Services.Mark
         }
 
         /// <summary>
-        /// Визначає чи кнопка ОК досступна.
+        /// Визначає чи кнопка ОК доступна.
         /// </summary>
         /// <param name="arg">Аргументи.</param>
         /// <returns></returns>
@@ -164,6 +198,38 @@ namespace ARM.Module.ViewModel.Services.Mark
             return true;
         }
 
+
+        /// <summary>
+        /// Викоикається при зміні студента.
+        /// </summary>
+        private void OnStudentChanged()
+        {
+            ApplyValidationRuleForMark();
+        }
+
+
+        /// <summary>
+        /// Виклакається при зміні класу/заняття.
+        /// </summary>
+        private void OnClassChanged()
+        {
+            ApplyValidationRuleForMark();
+        }
+
+        /// <summary>
+        /// Обновляє правила валідації для оцінки/рейтингу з врахуванням попередніх оцінок, щоб сума за семестр не перевищувала 100.
+        /// </summary>
+        private void ApplyValidationRuleForMark()
+        {
+            if (!StudentId.HasValue || !ClassId.HasValue)
+                return;
+            var sumMark = UnitOfWork.MarkRepository.GetSumRateForStudentAndClass(StudentId.Value, ClassId.Value);
+            decimal dif = GlobalConst.MaxMark - sumMark;
+            var validationRule = new ARMRangeValidationRule(0, (double)(dif + 1));
+            DeleteRule(() => MarkRate);
+            AddRule(() => MarkRate, validationRule);
+            IsValueEnabled = true;
+        }
 
         #endregion
 
@@ -184,5 +250,7 @@ namespace ARM.Module.ViewModel.Services.Mark
         {
             ClassId = id;
         }
+
+
     }
 }

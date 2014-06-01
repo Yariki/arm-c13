@@ -62,7 +62,7 @@
                   ItemsSource="{Binding SourceMarkType}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
-                  SelectedValue="{Binding Type,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" />
+                  SelectedValue="{Binding Type,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" IsEnabled="{Binding IsValueEnabled,UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="{x:Static prop:Resources.Model_Mark_Date}" Grid.Column="1" Grid.Row="4" />
         <xctk:DateTimePicker Value="{Binding Date,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
@@ -75,13 +75,13 @@
         <xctk:DecimalUpDown Value="{Binding MarkRate,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Column="2"
                             Grid.Row="5"
-                            Visibility="{Binding Type,Converter={StaticResource SertificationToVisibility}}"></xctk:DecimalUpDown>
+                            Visibility="{Binding Type,Converter={StaticResource SertificationToVisibility}}"  IsEnabled="{Binding IsValueEnabled,UpdateSourceTrigger=PropertyChanged}" ></xctk:DecimalUpDown>
 
         <TextBlock Text="{x:Static prop:Resources.Model_Mark_IsCertification}" Grid.Column="1" Grid.Row="5" Visibility="{Binding Type,Converter={StaticResource InvertedSertificationToVisibility}}"/>
         <CheckBox IsChecked="{Binding IsCertification,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Column="2"
                             Grid.Row="5"
-                            Visibility="{Binding Type,Converter={StaticResource InvertedSertificationToVisibility}}"></CheckBox>
+                            Visibility="{Binding Type,Converter={StaticResource InvertedSertificationToVisibility}}"  IsEnabled="{Binding IsValueEnabled,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
         
         
         

@@ -95,6 +95,7 @@ namespace ARM.Data.Models
         /// </summary>
         [ARMGrid(Order = 5)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_MarkRate")]
+        [ARMRange(Min = 0,Max = 100)]
         public decimal MarkRate { get; set; }
 
         /// <summary>
