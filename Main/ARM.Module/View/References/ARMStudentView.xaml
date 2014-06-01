@@ -32,6 +32,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
            
         </Grid.RowDefinitions>
@@ -158,10 +159,13 @@
 
         <TextBlock Text="{x:Static prop:Resources.Model_Student_Stipend}" Grid.Column="1" Grid.Row="10"></TextBlock>
         <TextBlock Text="{Binding Stipend,StringFormat={}{0:0.00}}" Grid.Column="2" Grid.Row="10" FontWeight="Bold"></TextBlock>
+
+        <TextBlock Text="{x:Static prop:Resources.Model_Note}" Grid.Column="1" Grid.Row="11"></TextBlock>
+        <TextBox Text="{Binding Note,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="11" Height="100" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"></TextBox>
         
 
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="11" Visibility="{Binding VisibilityAdditional}">
+        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="12" Visibility="{Binding VisibilityAdditional}">
             <TabItem Header="{x:Static prop:Resources.Model_Student_Parents}">
                 <Grid>
                     <Grid.RowDefinitions>

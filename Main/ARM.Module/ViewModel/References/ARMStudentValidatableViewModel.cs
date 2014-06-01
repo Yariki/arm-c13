@@ -251,6 +251,13 @@ namespace ARM.Module.ViewModel.References
             set { Set(() => Stipend, value); }
         }
 
+        public string Note
+        {
+            get { return Get(() => Note); }
+            set { Set(() => Note, value); }
+        }
+
+
         #endregion
 
         #region [enum source]
