@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Reflection;
 using ARM.Core.Interfaces;
 using ARM.Infrastructure.Enums;
@@ -94,6 +96,24 @@ namespace ARM.Core.Logging
         public void LogError(string message)
         {
             WriteLog(eARMLogLevel.Error, message);
+        }
+
+        /// <summary>
+        /// Логування помилок. Спускається по InnerExceptions.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public void LogError(Exception ex)
+        {
+            var temp = ex;
+            if (temp == null)
+                return;
+            LogError(temp.Message);
+            while (temp.InnerException != null)
+            {
+                temp = temp.InnerException;
+                LogError(string.Format("InnerSxeption: {0}",temp.Message));
+            }
         }
 
         /// <summary>

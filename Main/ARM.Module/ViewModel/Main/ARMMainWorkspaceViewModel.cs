@@ -9,6 +9,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Windows.Input;
 using ARM.Core.Const;
 using ARM.Core.Enums;
@@ -76,6 +77,13 @@ namespace ARM.Module.ViewModel.Main
             InitEventAggregator();
             ClosingCommand = new DelegateCommand<object>(OnClosingDocument, o => true);
             ARMSystemFacade.Instance.Logger.LogInfo("Application Started....");
+            AppDomain.CurrentDomain.FirstChanceException += CurrentDomainOnFirstChanceException;
+        }
+
+        private void CurrentDomainOnFirstChanceException(object sender, FirstChanceExceptionEventArgs firstChanceExceptionEventArgs)
+        {
+            if(firstChanceExceptionEventArgs != null && firstChanceExceptionEventArgs.Exception != null)
+                ARMSystemFacade.Instance.Logger.LogError(firstChanceExceptionEventArgs.Exception);
         }
 
         #region IARMMainWorkspaceViewModel Members

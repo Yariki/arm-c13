@@ -854,4 +854,7 @@
 	&lt;footer&gt;&lt;/footer&gt;
 &lt;/lettertemplate&gt;</value>
   </data>
+  <data name="Message_DeleteModel_Denied" xml:space="preserve">
+    <value>You couldn't delete the current object. Because it has related recodrs.</value>
+  </data>
 </root>

@@ -510,6 +510,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You couldn&apos;t delete the current object. Because it has related recodrs..
+        /// </summary>
+        public static string Message_DeleteModel_Denied {
+            get {
+                return ResourceManager.GetString("Message_DeleteModel_Denied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Message_ErrorCaprion {

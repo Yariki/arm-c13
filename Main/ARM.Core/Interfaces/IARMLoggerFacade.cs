@@ -5,6 +5,8 @@
 //  Created on:      30-Mar-2014 8:12:16 PM
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace ARM.Core.Interfaces
 {
     /// <summary>
@@ -18,6 +20,11 @@ namespace ARM.Core.Interfaces
         /// <param name="message">Повідомлення</param>
         void LogError(string message);
 
+        /// <summary>
+        /// Логування помилок. Спускається по InnerExceptions.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        void LogError(Exception ex);
         /// <summary>
         ///     Метод для логування помилок
         /// </summary>

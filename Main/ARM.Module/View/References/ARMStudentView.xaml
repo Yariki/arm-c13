@@ -170,8 +170,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <Button Command="{Binding AddParentCommand}">Add</Button>
-                        <Button Command="{Binding DeleteParentCommand}">Del</Button>
+                        <Button Command="{Binding AddParentCommand}"    Content="{x:Static prop:Resources.UI_Add}" Width="75"   > </Button>
+                        <Button Command="{Binding DeleteParentCommand}" Content="{x:Static prop:Resources.UI_Delete}" Width="75" ></Button>
                     </StackPanel>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding ParentsList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
@@ -206,8 +206,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <Button Command="{Binding AddHobbyCommand}">Add</Button>
-                        <Button Command="{Binding DeleteHobbyCommand}">Del</Button>
+                        <Button Command="{Binding AddHobbyCommand}"     Content="{x:Static prop:Resources.UI_Add}" Width="75"   ></Button>
+                        <Button Command="{Binding DeleteHobbyCommand}"  Content="{x:Static prop:Resources.UI_Delete}" Width="75"></Button>
                     </StackPanel>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding HobbiesList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
@@ -233,9 +233,9 @@
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     
-                    <StackPanel Orientation="Horizontal" Grid.Row="0"> 
-                        <Button Command="{Binding AddAchivementCommand}">Add</Button>
-                        <Button Command="{Binding DeleteAchivementCommand}">Del</Button>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Button Command="{Binding AddAchivementCommand}"     Content="{x:Static prop:Resources.UI_Add}" Width="75"     ></Button>
+                        <Button Command="{Binding DeleteAchivementCommand}"  Content="{x:Static prop:Resources.UI_Delete}" Width="75"   ></Button>
                     </StackPanel>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding AchivementsList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
@@ -266,8 +266,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <Button Command="{Binding AddLanguageCommand}">Add</Button>
-                        <Button Command="{Binding DeleteLanguageCommand}">Del</Button>
+                        <Button Command="{Binding AddLanguageCommand}"    Content="{x:Static prop:Resources.UI_Add}" Width="75"    ></Button>
+                        <Button Command="{Binding DeleteLanguageCommand}" Content="{x:Static prop:Resources.UI_Delete}" Width="75" ></Button>
                     </StackPanel>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding LanguagesList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 
@@ -292,8 +292,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <Button Command="{Binding AddVisaCommand}">Add</Button>
-                        <Button Command="{Binding DeleteVisaCommand}">Del</Button>
+                        <Button Command="{Binding AddVisaCommand}"     Content="{x:Static prop:Resources.UI_Add}" Width="75"     ></Button>
+                        <Button Command="{Binding DeleteVisaCommand}"  Content="{x:Static prop:Resources.UI_Delete}" Width="75"  ></Button>
                     </StackPanel>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding VisaList,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" 

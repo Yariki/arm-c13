@@ -16,6 +16,7 @@ using ARM.Core.Service;
 using ARM.Data.Layer.Interfaces;
 using ARM.Infrastructure.Events;
 using ARM.Infrastructure.Events.EventPayload;
+using ARM.Infrastructure.Facade;
 using ARM.Infrastructure.Interfaces.Grid;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
@@ -200,11 +201,19 @@ namespace ARM.Infrastructure.MVVM
         /// </summary>
         private void UpdateSource()
         {
-            DataSource = null;
-            _bll.Refresh();
-            DataSource = _bll.GetAll().ToList();
-            OnPropertyChanged(() => DataSource);
-            UpdateRelatedSource();
+            try
+            {
+                DataSource = null;
+                _bll.Refresh();
+                DataSource = _bll.GetAll().ToList();
+                OnPropertyChanged(() => DataSource);
+                UpdateRelatedSource();
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                ARMSystemFacade.Instance.MessageBox.ShowError(ex.Message);
+            }
         }
 
         /// <summary>
@@ -213,11 +222,19 @@ namespace ARM.Infrastructure.MVVM
         /// <param name="entity">Запис.</param>
         private void DeleteEntity(T entity)
         {
-            if (_bll == null)
-                return;
-            _bll.Delete(entity);
-            _bll.Save();
-            UpdateSource();
+            try
+            {
+                if (_bll == null)
+                    return;
+                _bll.Delete(entity);
+                _bll.Save();
+                UpdateSource();
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex);
+                ARMSystemFacade.Instance.MessageBox.ShowError(string.Format("{0}\n({1})",Resource.AppResource.Resources.Message_DeleteModel_Denied,entity.Display));
+            }
         }
 
         /// <summary>
