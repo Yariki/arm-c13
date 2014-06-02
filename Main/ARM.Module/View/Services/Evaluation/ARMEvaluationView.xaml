@@ -58,7 +58,7 @@
         <ComboBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding GroupList}" DisplayMemberPath="Name" 
                   SelectedValue="{Binding SelectedGroup,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ComboBox>
         
-        <TextBlock Text="{x:Static prop:Resources.UI_Session}" Grid.Column="4" Grid.Row="0">Session</TextBlock>
+        <TextBlock Text="{x:Static prop:Resources.UI_Session}" Grid.Column="4" Grid.Row="0"></TextBlock>
         <ComboBox Grid.Column="5" Grid.Row="0" ItemsSource="{Binding SessionList}" DisplayMemberPath="Name" 
                   SelectedValue="{Binding SelectedSession,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ComboBox>
         

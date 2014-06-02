@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:prop="http://schemas.arm-resource.ua/2011/xaml/presentation"
              xmlns:armLookupControl="clr-namespace:ARM.Infrastructure.Controls.ARMLookupControl;assembly=ARM.Infrastructure"
+             xmlns:req="clr-namespace:ARM.Infrastructure.Controls.ARMRequiredLabel;assembly=ARM.Infrastructure"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:converter="clr-namespace:ARM.Module.Helpers.Converters"
              mc:Ignorable="d"
@@ -44,20 +45,20 @@
                  Grid.Column="2" Grid.Row="0" />
 
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Student}" Grid.Column="1" Grid.Row="1" />
+        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Student}" Grid.Column="1" Grid.Row="1" req:ARMRequiredLabel.RequiredLabel="Required"/>
         <armLookupControl:ARMLookupControl Metadata="Student"
                                            UnityContainer="{Binding DiContainer}"
                                            Value="{Binding StudentId,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                                            Grid.Column="2" Grid.Row="1" />
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Class}" Grid.Column="1" Grid.Row="2" />
+        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Class}" Grid.Column="1" Grid.Row="2" req:ARMRequiredLabel.RequiredLabel="Required"/>
         <armLookupControl:ARMLookupControl Metadata="Class"
                                            UnityContainer="{Binding DiContainer}"
                                            Value="{Binding ClassId,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                                            Grid.Column="2" Grid.Row="2" />
-        
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Type}" Grid.Column="1" Grid.Row="3" />
+
+        <TextBlock Text="{x:Static prop:Resources.Model_Mark_Type}" Grid.Column="1" Grid.Row="3" req:ARMRequiredLabel.RequiredLabel="Required"/>
         <ComboBox Grid.Column="2" Grid.Row="3"
                   ItemsSource="{Binding SourceMarkType}"
                   DisplayMemberPath="Value"
@@ -71,13 +72,13 @@
                               ></xctk:DateTimePicker>
 
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Mark_MarkRate}" Grid.Column="1" Grid.Row="5" Visibility="{Binding Type,Converter={StaticResource SertificationToVisibility}}" />
+        <TextBlock Text="{x:Static prop:Resources.Model_Mark_MarkRate}" Grid.Column="1" Grid.Row="5" Visibility="{Binding Type,Converter={StaticResource SertificationToVisibility}}" req:ARMRequiredLabel.RequiredLabel="Required"/>
         <xctk:DecimalUpDown Value="{Binding MarkRate,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Column="2"
                             Grid.Row="5"
                             Visibility="{Binding Type,Converter={StaticResource SertificationToVisibility}}"  IsEnabled="{Binding IsValueEnabled,UpdateSourceTrigger=PropertyChanged}" ></xctk:DecimalUpDown>
 
-        <TextBlock Text="{x:Static prop:Resources.Model_Mark_IsCertification}" Grid.Column="1" Grid.Row="5" Visibility="{Binding Type,Converter={StaticResource InvertedSertificationToVisibility}}"/>
+        <TextBlock Text="{x:Static prop:Resources.Model_Mark_IsCertification}" Grid.Column="1" Grid.Row="5" Visibility="{Binding Type,Converter={StaticResource InvertedSertificationToVisibility}}" req:ARMRequiredLabel.RequiredLabel="Required"/>
         <CheckBox IsChecked="{Binding IsCertification,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"
                             Grid.Column="2"
                             Grid.Row="5"

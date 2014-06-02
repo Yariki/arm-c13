@@ -84,6 +84,7 @@ namespace ARM.Data.Models
         /// </summary>
         [ARMGrid(Order = 4)]
         [Display(ResourceType = typeof(Resource.AppResource.Resources), Name = "Model_Mark_Type")]
+        [ARMMin(Min = 0)]
         public MarkType Type
         {
             get;
