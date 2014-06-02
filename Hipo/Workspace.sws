@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{12A525AC-F7C0-4134-8637-026C63324C7D}" Name="Group" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Sequance.oom"/>
+		<Model ID="{12A525AC-F7C0-4134-8637-026C63324C7D}" Name="Group" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Sequance.oom"/>
+		<Model Expanded="Yes" ID="{ECE53264-84F4-4BA8-9DF6-9990D26D9FFD}" Name="AcademicDebt" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="AcademicDebt.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
