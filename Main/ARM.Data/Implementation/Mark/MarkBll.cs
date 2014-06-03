@@ -59,7 +59,7 @@ namespace ARM.Data.Implementation.Mark
         public decimal GetSumRateForStudentAndClass(Guid studendId, Guid classId)
         {
             return Dal.GetAsQueryable()
-                .Where(m => m.StudentId == studendId && m.ClassId == classId)
+                .Where(m => m.StudentId.HasValue && m.ClassId.HasValue && m.StudentId.Value == studendId && m.ClassId.Value == classId)
                 .Sum(m => m.MarkRate);
         }
     } //end MarkBll

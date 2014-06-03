@@ -206,7 +206,7 @@
     <Compile Include="Interfaces\Reports\View\IARMAcademicArrearsView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMRenewView.cs" />
     <Compile Include="Interfaces\Reports\View\IARMStudentListDeductView.cs" />
-    <Compile Include="Interfaces\View\IARMMainMenuViewModel.cs" />
+    <Compile Include="Interfaces\IARMMainMenuViewModel.cs" />
     <Compile Include="Interfaces\IARMMainStatusBarViewModel.cs" />
     <Compile Include="Interfaces\IARMMainToolboxCommand.cs" />
     <Compile Include="Interfaces\IARMMainToolboxViewModel.cs" />
