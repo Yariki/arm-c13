@@ -862,4 +862,7 @@
   <data name="Message_DeleteModel_Denied" xml:space="preserve">
     <value>Ви не можете видалити поточний об'єкт. Тому що об'єкт має залежні записи.</value>
   </data>
+  <data name="UI_CourseWork" xml:space="preserve">
+    <value>Курсова робота:</value>
+  </data>
 </root>

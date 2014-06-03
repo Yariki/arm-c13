@@ -25,6 +25,11 @@ namespace ARM.Module.Helpers.Selectors
         public DataTemplate DetailsTemplate { get; set; }
 
         /// <summary>
+        /// ОТримує або задає шаблон для обєкта, який рівний null.
+        /// </summary>
+        public DataTemplate NullTemplate { get; set; }
+
+        /// <summary>
         /// При перевизначенні в похідному класі повертає <see cref="T:System.Windows.DataTemplate" /> на основі власної логіки.
         /// </summary>
         /// <param name="item">Об'єкт даних, для якого обирається шаблон.</param>
@@ -34,6 +39,8 @@ namespace ARM.Module.Helpers.Selectors
         /// </returns>
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
+        
+
             ContentPresenter presenter = container as ContentPresenter;
             DataGridCell cell = presenter.Parent as DataGridCell;
             var col = cell.Column;

@@ -8,5 +8,11 @@
         public string Name { get; set; }
         public decimal Rate { get; set; }
         public decimal Mark { get; set; }
+        public decimal CourseWorkMark { get; set; }
+        public bool IsCourseWorkPresent 
+        {
+            get { return CourseWorkMark > 0; }
+        }
+
     }
 }

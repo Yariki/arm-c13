@@ -21,32 +21,62 @@
             </ResourceDictionary.MergedDictionaries>
 
             <converter:ARMMarkToBrushConverter x:Key="MarkBrushConverter"></converter:ARMMarkToBrushConverter>
-            
+
             <DataTemplate x:Key="StringDataTemplate">
                 <TextBlock Text="{Binding}"></TextBlock>
             </DataTemplate>
 
-
-            <DataTemplate x:Key="DetailsDataTemplate">
-                <ItemsControl ItemsSource="{Binding}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="{Binding Mark,Converter={StaticResource MarkBrushConverter}}">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{Binding Name}" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
-                                    <TextBlock Grid.Column="1" Text="{Binding Rate,StringFormat={}{0:0.0}}"></TextBlock>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            <DataTemplate x:Key="NullDataTemplate"
+                          >
+                <Border Background="Violet">
+                    <TextBlock Text="n/a" FontWeight="Bold"></TextBlock>
+                </Border>
             </DataTemplate>
 
-            <selector:ARMDataGridCellTemplateSelector x:Key="CertificationCellTemplateSelector" StringTemplate="{StaticResource StringDataTemplate}" DetailsTemplate="{StaticResource DetailsDataTemplate}"></selector:ARMDataGridCellTemplateSelector>
+
+            <DataTemplate x:Key="DetailsDataTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="{Binding Mark,Converter={StaticResource MarkBrushConverter}}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <TextBlock Grid.Column="0" Text="{Binding Name}" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+                                        <TextBlock Grid.Column="1" Text="{Binding Rate,StringFormat={}{0:0.0}}"></TextBlock>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Grid Grid.Row="1" Background="DarkGray">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCourseWorkPresent}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Static prop:Resources.UI_CourseWork}" Margin="0 0 5 0"></TextBlock>
+                            <TextBlock Text="{Binding CourseWorkMark,StringFormat={}{0:0}}"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+
+            <selector:ARMDataGridCellTemplateSelector x:Key="CertificationCellTemplateSelector" StringTemplate="{StaticResource StringDataTemplate}" DetailsTemplate="{StaticResource DetailsDataTemplate}" NullTemplate="{StaticResource NullDataTemplate}"></selector:ARMDataGridCellTemplateSelector>
 
         </ResourceDictionary>
     </UserControl.Resources>

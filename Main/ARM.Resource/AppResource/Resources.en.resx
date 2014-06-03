@@ -857,4 +857,7 @@
   <data name="Message_DeleteModel_Denied" xml:space="preserve">
     <value>You couldn't delete the current object. Because it has related recodrs.</value>
   </data>
+  <data name="UI_CourseWork" xml:space="preserve">
+    <value>Course Work:</value>
+  </data>
 </root>

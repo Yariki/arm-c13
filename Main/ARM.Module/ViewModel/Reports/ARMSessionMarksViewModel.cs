@@ -17,6 +17,7 @@ using ARM.Module.Interfaces.Reports.View;
 using ARM.Module.Interfaces.Reports.ViewModel;
 using ARM.Module.ViewModel.Reports.SessionMarks;
 using ManagedExcel;
+using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
@@ -74,7 +75,7 @@ namespace ARM.Module.ViewModel.Reports
         public override void Initialize()
         {
             base.Initialize();
-            RunCommand = new ARMRelayCommand(RunExecute,CanRunExecute);
+            RunCommand = new ARMRelayCommand(RunExecute, CanRunExecute);
         }
 
         protected override int GenerateHeaders(Worksheet sheet)
@@ -85,7 +86,7 @@ namespace ARM.Module.ViewModel.Reports
             int col = 2;
             foreach (var cl in SelectedSession.Classes.OrderBy(c => c.Id))
             {
-                SheetManipulator.SetSheetCellWidth(sheet, Row, col, 25);
+                SheetManipulator.SetSheetCellWidth(sheet, Row, col, 30);
                 SheetManipulator.SetSheetCellValue(sheet, Row, col, cl.Name);
                 col++;
             }
@@ -108,14 +109,15 @@ namespace ARM.Module.ViewModel.Reports
                     var details = student[classId.ToString().ToLower()] as List<ARMSessionMarkDetails>;
                     if (details != null && details.Count > 0)
                     {
-                        SheetManipulator.SetSheetCellBackgroundColor(sheet, row, col, ReturnColorAccordingMark(details[0].Mark));   
-                        SheetManipulator.SetSheetCellValue(sheet,row,col,string.Format("{0} ({1:0.0})",details[0].Name,details[0].Rate));
+                        SheetManipulator.SetSheetCellBackgroundColor(sheet, row, col, ReturnColorAccordingMark(details[0].Mark));
+                        SheetManipulator.SetSheetCellValue(sheet, row, col, !details[0].IsCourseWorkPresent ? string.Format("{0} ({1:0.0})", details[0].Name, details[0].Rate)
+                            : string.Format("{0} ({1:0.0})({2} {3:0})", details[0].Name, details[0].Rate, Resource.AppResource.Resources.UI_CourseWork, details[0].CourseWorkMark));
                     }
                     col++;
                 }
                 row++;
                 current++;
-                UpdateProgress(current,DataSource.Count);
+                UpdateProgress(current, DataSource.Count);
             }
         }
 
@@ -136,7 +138,7 @@ namespace ARM.Module.ViewModel.Reports
                    ? Color.Orange
                    : (mark >= 4 && mark < 5)
                        ? Color.Yellow
-                       : (mark == 5) ? Color.LightGreen : Color.Transparent; 
+                       : (mark == 5) ? Color.LightGreen : Color.Transparent;
         }
 
         /// <summary>
@@ -179,28 +181,66 @@ namespace ARM.Module.ViewModel.Reports
                 var data = new ObservableCollection<ARMStudentSessionMarksData>();
                 var listStudents = SelectedGroup.Students.Select(s => s.Id);
                 var listClasses = SelectedSession.Classes.Select(c => c.Id);
-                var marks =
-                    UnitOfWork.MarkRepository.GetAll(
-                        new Func<Mark, bool>(
-                            m =>
-                                listStudents.Contains(m.StudentId.Value) && listClasses.Contains(m.ClassId.Value) &&
-                                m.Type != MarkType.Coursework)).ToList();
+                var marks1 = UnitOfWork.MarkRepository.GetMarkAccordingStudentsAndClasses(listStudents, listClasses)
+                    .GroupBy(m => new { m.StudentId, m.ClassId })
+                    .Select(
+                        g =>
+                            new
+                            {
+                                StudentId = g.Key.StudentId,
+                                ClassId = g.Key.ClassId,
+                                SumRate = g.Where(m => m.Type != MarkType.Coursework).Sum(m => m.MarkRate),
+                                CourseWork =
+                                    g.Any(m => m.Type == MarkType.Coursework)
+                                        ? g.FirstOrDefault(m => m.Type == MarkType.Coursework).MarkRate
+                                        : 0
+                            })
+                            .GroupBy(a => a.StudentId);
 
-                foreach (var studentId in listStudents)
+
+                foreach (var st in listStudents)
                 {
+                    if (!marks1.Any(g => g.Key.HasValue && g.Key.Value == st))
+                    {
+                        var studentDef = new ARMStudentSessionMarksData()
+                        {
+                            Student = SelectedGroup.Students.FirstOrDefault(s => s.Id == st)
+                        };
+                        var rate = UnitOfWork.RateRepositary.GetApproprialRate(0);
+                        listClasses.ForEach(clId => studentDef[clId.ToString().ToLowerInvariant()] = new ARMSessionMarkDetails() { Name = rate.Name, Mark = 0, CourseWorkMark = 0, Rate = 0 });
+                        data.Add(studentDef);
+                        continue;
+                    }
+                    var key = marks1.First(g => g.Key.HasValue && g.Key.Value == st);
                     var studentData = new ARMStudentSessionMarksData()
                     {
-                        Student = SelectedGroup.Students.FirstOrDefault(s => s.Id == studentId)
+                        Student = SelectedGroup.Students.FirstOrDefault(s => s.Id == st)
                     };
+
                     foreach (var classId in listClasses)
                     {
-                        var sumRate = marks.Where(m => m.StudentId.Value == studentId && m.ClassId == classId).Sum(m => m.MarkRate);
+                        if (!key.Any(g => g.ClassId.HasValue && g.ClassId.Value == classId))
+                        {
+                            var rateMin = UnitOfWork.RateRepositary.GetApproprialRate(0);
+                            studentData[classId.ToString().ToLowerInvariant()] = new ARMSessionMarkDetails()
+                            {
+                                Name = rateMin.Name,
+                                Mark = rateMin.Mark,
+                                Rate = 0,
+                                CourseWorkMark = 0
+                            };
+                            continue;
+                        }
+
+                        var stClass = key.First(g => g.ClassId.HasValue && g.ClassId.Value == classId);
+
+                        var sumRate = stClass.SumRate;
                         sumRate = sumRate > GlobalConst.MaxMark ? GlobalConst.MaxMark : sumRate;
                         var rate = UnitOfWork.RateRepositary.GetApproprialRate(sumRate);
                         if (rate != null)
                         {
-                            var classDetails = new ARMSessionMarkDetails(){Name = rate.Name,Rate = sumRate,Mark = rate.Mark};
-                            studentData[classId.ToString().ToLower()] = classDetails;
+                            var classDetails = new ARMSessionMarkDetails() { Name = rate.Name, Rate = sumRate, Mark = rate.Mark, CourseWorkMark = stClass.CourseWork };
+                            studentData[stClass.ClassId.ToString().ToLowerInvariant()] = classDetails;
                         }
                     }
                     data.Add(studentData);

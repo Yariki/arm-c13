@@ -176,7 +176,7 @@ namespace ARM.Module.ViewModel.Services.CalculationStipend
                     };
                     st.Rate = armStudentMarksData.SumMarks.Values.Average(r => r.Mark);
                     st.CurrentStipend = st.Student.Stipend;
-                    st.CalculatedStipend = commonMark <= st.Rate && st.Rate < increasedMark
+                    st.CalculatedStipend = st.Rate < commonMark ? 0 : commonMark <= st.Rate && st.Rate < increasedMark
                         ? commonStipend
                         : st.Rate == increasedMark ? increasedStipend : commonStipend;
                     result.Add(st);

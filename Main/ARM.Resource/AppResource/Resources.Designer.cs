@@ -2121,6 +2121,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Course Work:.
+        /// </summary>
+        public static string UI_CourseWork {
+            get {
+                return ResourceManager.GetString("UI_CourseWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Letter.
         /// </summary>
         public static string UI_CreateLetter {
