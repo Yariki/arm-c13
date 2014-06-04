@@ -26,13 +26,15 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="{x:Static prop:Resources.UI_CurretnUser}" Margin="0 0 5 0"></TextBlock>
+                    <TextBlock Grid.Column="0" Text="{x:Static prop:Resources.UI_CurretnUser}" Margin="0 0 5 0">
+                    </TextBlock>
                     <TextBlock Grid.Column="1" Text="{Binding CurrentUser}" FontWeight="Bold"></TextBlock>
                 </Grid>
             </StatusBarItem >
             <Separator Grid.Column="1"></Separator>
             <StatusBarItem Grid.Column="2"  HorizontalContentAlignment="Stretch">
-                <ProgressBar Minimum="0" Maximum="100" Value="{Binding Progress,UpdateSourceTrigger=PropertyChanged}" Height="15"></ProgressBar>
+                <ProgressBar Minimum="0" Maximum="100" 
+                             Value="{Binding Progress,UpdateSourceTrigger=PropertyChanged}" Height="15"></ProgressBar>
             </StatusBarItem>
             <Separator Grid.Column="3"></Separator>
             <StatusBarItem Grid.Column="4">
