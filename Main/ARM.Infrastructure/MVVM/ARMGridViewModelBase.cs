@@ -172,11 +172,18 @@ namespace ARM.Infrastructure.MVVM
         /// </summary>
         private void Init()
         {
-            _bll = UnityContainer.Resolve<IBll<T>>();
-            if (_bll != null)
+            try
             {
-                DataSource = _bll.GetAll().ToList();
-                OnPropertyChanged(() => DataSource);
+                _bll = UnityContainer.Resolve<IBll<T>>();
+                if (_bll != null)
+                {
+                    DataSource = _bll.GetAll().ToList();
+                    OnPropertyChanged(() => DataSource);
+                }
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex);
             }
             EventAggregator.GetEvent<ARMSyncEvent>().Subscribe(OnSyncEvent);
             MouseDoubleClickCommand = new ARMRelayCommand(MouseDoubleClickExecute);
@@ -233,7 +240,7 @@ namespace ARM.Infrastructure.MVVM
             catch (Exception ex)
             {
                 ARMSystemFacade.Instance.Logger.LogError(ex);
-                ARMSystemFacade.Instance.MessageBox.ShowError(string.Format("{0}\n({1})",Resource.AppResource.Resources.Message_DeleteModel_Denied,entity.Display));
+                ARMSystemFacade.Instance.MessageBox.ShowError(string.Format("{0}\n({1})", Resource.AppResource.Resources.Message_DeleteModel_Denied, entity.Display));
             }
         }
 
