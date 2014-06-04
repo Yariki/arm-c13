@@ -15,10 +15,10 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>ARM.Module</HtmlHelpName>
+    <HtmlHelpName>ARMHelp</HtmlHelpName>
     <Language>en-US</Language>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
-    <HelpFileFormat>OpenXml</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1</HelpFileFormat>
     <IndentHtml>True</IndentHtml>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>True</DisableCodeBlockComponent>
@@ -33,17 +33,17 @@
 <DocumentationSource sourceFile="Output\ARM.Infrastructure.xml" />
 <DocumentationSource sourceFile="Output\ARM.Module.dll" />
 <DocumentationSource sourceFile="Output\ARM.Module.xml" /></DocumentationSources>
-    <VisibleItems>None</VisibleItems>
-    <MissingTags>Summary, Namespace</MissingTags>
+    <VisibleItems>Privates, PrivateFields, Protected</VisibleItems>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, AutoDocumentDispose</MissingTags>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>True</NamespaceGrouping>
     <SyntaxFilters>C#</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <RootNamespaceContainer>False</RootNamespaceContainer>
-    <PresentationStyle>OpenXML</PresentationStyle>
+    <PresentationStyle>VS2005</PresentationStyle>
     <Preliminary>False</Preliminary>
     <NamingMethod>MemberName</NamingMethod>
-    <HelpTitle>A Sandcastle Documented Class Library</HelpTitle>
+    <HelpTitle>ARM Help</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <PlugInNamespaces>ms.vsipcc+, ms.vsexpresscc+</PlugInNamespaces>
@@ -56,7 +56,7 @@
     <BinaryTOC>True</BinaryTOC>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="ARM.Core (Group)" isGroup="True" isDocumented="True" />
-      <NamespaceSummaryItem name="(global)" isDocumented="True" />
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
       <NamespaceSummaryItem name="ARM.Core" isDocumented="True" />
       <NamespaceSummaryItem name="ARM.Core.Attributes" isDocumented="True" />
       <NamespaceSummaryItem name="ARM.Core.Const" isDocumented="True" />
@@ -152,6 +152,7 @@
       <NamespaceSummaryItem name="ARM.Data.Sevice.Resolver" isDocumented="True" />
       <NamespaceSummaryItem name="ARM.Data.UnitOfWork.Implementation" isDocumented="True" />
       <NamespaceSummaryItem name="ARM.Data.UnitOfWork.Interfaces" isDocumented="True" />
+      <NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" />
     </NamespaceSummaries>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform

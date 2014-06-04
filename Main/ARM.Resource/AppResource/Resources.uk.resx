@@ -865,4 +865,16 @@
   <data name="UI_CourseWork" xml:space="preserve">
     <value>Курсова робота:</value>
   </data>
+  <data name="Help_About_Title" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="Help_Documentation_Title" xml:space="preserve">
+    <value>Документація</value>
+  </data>
+  <data name="UI_Performer" xml:space="preserve">
+    <value>Виконавець</value>
+  </data>
+  <data name="UI_Theme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
 </root>

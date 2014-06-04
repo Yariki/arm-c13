@@ -8,6 +8,8 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.ExceptionServices;
 using System.Windows.Input;
@@ -28,10 +30,12 @@ using ARM.Module.Interfaces.Reports.ViewModel;
 using ARM.Module.Interfaces.Services.CalculationStipend.ViewModel;
 using ARM.Module.Interfaces.Services.Evaluation.ViewModel;
 using ARM.Module.Interfaces.View;
+using ARM.Module.View.Help;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.Unity;
 using Xceed.Wpf.AvalonDock;
+using Xceed.Wpf.DataGrid.FilterCriteria;
 
 namespace ARM.Module.ViewModel.Main
 {
@@ -46,6 +50,8 @@ namespace ARM.Module.ViewModel.Main
 
         private IARMWorkspaceViewModel _current;
         private int _currentIndex;
+
+        private const string HelpFileName = "\\Doc\\ARMHelp.chm";
 
         #region [needs]
 
@@ -300,6 +306,12 @@ namespace ARM.Module.ViewModel.Main
                 case eARMMainMenuCommand.ReportRenew:
                     workspaceViewModel = _unityContainer.Resolve<IARMRenewViewModel>();
                     break;
+                case eARMMainMenuCommand.HelpAbout:
+                    ShowAbot();
+                    break;
+                case eARMMainMenuCommand.HelpDocumentation:
+                    ShowDocumentation();
+                    break;
             }
             if (workspaceViewModel != null)
             {
@@ -307,6 +319,29 @@ namespace ARM.Module.ViewModel.Main
                 Items.Add(workspaceViewModel);
                 CurrentWorkspace = workspaceViewModel;
             }
+        }
+
+        private void ShowDocumentation()
+        {
+            string loc = typeof (ARMMainMenuViewModel).Assembly.Location;
+            string path = loc.Substring(0,loc.LastIndexOf('\\')) + HelpFileName;
+            if (string.IsNullOrEmpty(path))
+                return;
+            try
+            {
+                Process.Start(path);
+            }
+            catch (Exception ex)
+            {
+                ARMSystemFacade.Instance.Logger.LogError(ex.Message);
+                ARMSystemFacade.Instance.MessageBox.ShowError(ex.Message);
+            }
+        }
+
+        private void ShowAbot()
+        {
+            var about = new ARMAbout();
+            about.ShowDialog();
         }
 
         /// <summary>

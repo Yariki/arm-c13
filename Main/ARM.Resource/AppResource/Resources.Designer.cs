@@ -394,6 +394,24 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string Help_About_Title {
+            get {
+                return ResourceManager.GetString("Help_About_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documentation.
+        /// </summary>
+        public static string Help_Documentation_Title {
+            get {
+                return ResourceManager.GetString("Help_Documentation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Letter_Academic_Template {
@@ -2220,6 +2238,15 @@ namespace ARM.Resource.AppResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Performer.
+        /// </summary>
+        public static string UI_Performer {
+            get {
+                return ResourceManager.GetString("UI_Performer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string UI_Refresh {
@@ -2261,6 +2288,15 @@ namespace ARM.Resource.AppResource {
         public static string UI_Student {
             get {
                 return ResourceManager.GetString("UI_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string UI_Theme {
+            get {
+                return ResourceManager.GetString("UI_Theme", resourceCulture);
             }
         }
         

@@ -136,6 +136,14 @@
         /// <summary>
         /// Списки на поновлення
         /// </summary>
-        ReportRenew
+        ReportRenew,
+        /// <summary>
+        /// Відкриває файл з документацією
+        /// </summary>
+        HelpDocumentation,
+        /// <summary>
+        /// Відкриває вікно "Про"
+        /// </summary>
+        HelpAbout
     }
 }

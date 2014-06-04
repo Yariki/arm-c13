@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using ARM.Core.MVVM;
 using ARM.Module.Commands.Menu.Documents;
 using ARM.Module.Commands.Menu.File;
+using ARM.Module.Commands.Menu.Help;
 using ARM.Module.Commands.Menu.Reference;
 using ARM.Module.Commands.Menu.Report;
 using ARM.Module.Commands.Menu.Services;
@@ -76,6 +77,18 @@ namespace ARM.Module.ViewModel.Main
             InitReference();
             InitService();
             InitReport();
+            InitHelps();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="System.NotImplementedException"></exception>
+        private void InitHelps()
+        {
+            Helps = new ObservableCollection<IARMMenuCommand>();
+            Helps.Add(new ARMMenuDocumentationCommand(_actionMenu, _canFunc));
+            Helps.Add(new ARMMenuAboutCommand(_actionMenu, _canFunc));
         }
 
         /// <summary>
