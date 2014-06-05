@@ -336,6 +336,7 @@ namespace ARM.Module.ViewModel.Services.Evaluation
                 return;
             MarkList.Clear();
             var exp = isOld ? BuildFilterFunctionStudentClass() : BuildFilterFunctionGroupSession();
+            UnitOfWork.MarkRepository.Refresh();
             var listMarks = UnitOfWork.MarkRepository.GetAll(exp);
             MarkList.AddRange(listMarks);
             OnPropertyChanged(() => MarkList);
