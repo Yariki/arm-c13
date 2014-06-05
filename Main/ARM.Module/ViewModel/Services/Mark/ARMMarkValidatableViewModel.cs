@@ -21,6 +21,9 @@ namespace ARM.Module.ViewModel.Services.Mark
     /// </summary>
     public class ARMMarkValidatableViewModel : ARMValidatableViewModelBase, IARMMarkValidatableViewModel
     {
+
+        private IARMValidationRule _markRule = null;
+
         /// <summary>
         /// Створити екземпляр <see cref="ARMMarkValidatableViewModel"/> class.
         /// </summary>
@@ -98,8 +101,14 @@ namespace ARM.Module.ViewModel.Services.Mark
         public MarkType Type
         {
             get { return Get(() => Type); }
-            set { Set(() => Type, value); }
+            set 
+            { 
+                Set(() => Type, value);
+                OnTypeChanged();
+            }
         }
+
+      
 
         public decimal MarkRate
         {
@@ -216,6 +225,19 @@ namespace ARM.Module.ViewModel.Services.Mark
             ApplyValidationRuleForMark();
         }
 
+        private void OnTypeChanged()
+        {
+            switch (Type)
+            {
+                case MarkType.Certification:
+                    DeleteRule(() => MarkRate);
+                    break;
+                default:
+                    AddRule(() => MarkRate,_markRule);
+                    break;
+            }    
+        }
+
         /// <summary>
         /// Обновляє правила валідації для оцінки/рейтингу з врахуванням попередніх оцінок, щоб сума за семестр не перевищувала 100.
         /// </summary>
@@ -224,10 +246,10 @@ namespace ARM.Module.ViewModel.Services.Mark
             if (!StudentId.HasValue || !ClassId.HasValue)
                 return;
             var sumMark = UnitOfWork.MarkRepository.GetSumRateForStudentAndClass(StudentId.Value, ClassId.Value);
-            decimal dif = GlobalConst.MaxMark - sumMark;
-            var validationRule = new ARMRangeValidationRule(0, (double)(dif + 1));
+            decimal dif = sumMark.HasValue?  GlobalConst.MaxMark - sumMark.Value : GlobalConst.MaxMark;
+            _markRule = new ARMRangeValidationRule(0, (double)(dif + 1));
             DeleteRule(() => MarkRate);
-            AddRule(() => MarkRate, validationRule);
+            AddRule(() => MarkRate, _markRule);
             IsValueEnabled = true;
         }
 

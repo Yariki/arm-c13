@@ -40,7 +40,7 @@ namespace ARM.Data.Interfaces.Mark
         /// <param name="studendId">Ідентифікатор студента.</param>
         /// <param name="classId">Ідентифікатор заннятя.</param>
         /// <returns></returns>
-        decimal GetSumRateForStudentAndClass(Guid studendId, Guid classId);
+        decimal? GetSumRateForStudentAndClass(Guid studendId, Guid classId);
 
 
     } //end IMarkBll

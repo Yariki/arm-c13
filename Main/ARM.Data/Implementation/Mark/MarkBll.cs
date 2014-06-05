@@ -56,11 +56,13 @@ namespace ARM.Data.Implementation.Mark
         /// <param name="classId">Ідентифікатор заннятя.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public decimal GetSumRateForStudentAndClass(Guid studendId, Guid classId)
+        public decimal? GetSumRateForStudentAndClass(Guid studendId, Guid classId)
         {
-            return Dal.GetAsQueryable()
+            var isPres = Dal.GetAsQueryable().Any(m => m.StudentId.HasValue && m.ClassId.HasValue && m.StudentId.Value == studendId &&
+                                                       m.ClassId.Value == classId);
+            return isPres ?  Dal.GetAsQueryable()
                 .Where(m => m.StudentId.HasValue && m.ClassId.HasValue && m.StudentId.Value == studendId && m.ClassId.Value == classId)
-                .Sum(m => m.MarkRate);
+                .Sum(m => m.MarkRate) : 0;
         }
     } //end MarkBll
 } //end namespace Mark
