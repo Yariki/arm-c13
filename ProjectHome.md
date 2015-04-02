@@ -1,0 +1,1 @@
+sample project with using WPF, EF and other
